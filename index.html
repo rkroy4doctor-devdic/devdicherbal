@@ -9,56 +9,94 @@
 body {
   margin:0;
   font-family: Arial;
-  text-align:center;
 }
 
+/* HERO */
 .hero {
-  background: url('https://images.unsplash.com/photo-1615486363973-4c1b66e1d5c5');
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+  url('https://images.unsplash.com/photo-1615486363973-4c1b66e1d5c5');
   background-size: cover;
   color: white;
-  padding: 100px 20px;
+  text-align:center;
+  padding: 120px 20px;
 }
 
-h1 {
-  font-size: 40px;
+.hero h1 {
+  font-size: 42px;
+  margin-bottom:10px;
 }
 
-p {
-  font-size: 18px;
+.hero p {
+  font-size:18px;
 }
 
 .btn {
-  background: #25D366;
-  color: white;
-  padding: 15px 25px;
-  text-decoration: none;
-  font-size: 18px;
-  border-radius: 5px;
-  display: inline-block;
-  margin-top: 20px;
+  background:#25D366;
+  padding:15px 30px;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+  display:inline-block;
+  margin-top:20px;
+  font-size:18px;
 }
 
+/* SECTION */
 .section {
-  padding: 50px 20px;
+  padding:60px 20px;
+  text-align:center;
+}
+
+.features {
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.box {
+  background:#f5f5f5;
+  padding:20px;
+  border-radius:10px;
+  width:250px;
+}
+
+/* TRUST */
+.trust {
+  background:#e8f5e9;
+  padding:40px;
+  text-align:center;
 }
 </style>
+
 </head>
 
 <body>
 
+<!-- HERO -->
 <div class="hero">
   <h1>Control Diabetes Naturally</h1>
-  <p>1000+ Patients Trusted Ayurvedic Solution</p>
+  <p>Trusted Ayurvedic Solution for Sugar Control</p>
   <a class="btn" href="https://wa.me/918434813523">Consult on WhatsApp</a>
 </div>
 
+<!-- FEATURES -->
 <div class="section">
-  <h2>DEVDIC Herbal Diabetes Care</h2>
-  <p>✔ Natural Ayurvedic Formula</p>
-  <p>✔ Helps Control Blood Sugar</p>
-  <p>✔ No Side Effects</p>
+  <h2>Why Choose DEVDIC Herbal?</h2>
+  <div class="features">
+    <div class="box">✔ 100% Ayurvedic</div>
+    <div class="box">✔ No Side Effects</div>
+    <div class="box">✔ Fast Results</div>
+  </div>
 </div>
 
+<!-- TRUST -->
+<div class="trust">
+  <h2>1000+ Happy Patients</h2>
+  <p>People are already seeing results</p>
+</div>
+
+<!-- CONTACT -->
 <div class="section">
   <h2>Call / WhatsApp</h2>
   <p>8434813523</p>
