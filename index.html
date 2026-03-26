@@ -27,7 +27,8 @@ body {margin:0;font-family:Arial;background:#f8f8f8;}
 
 /* HERO */
 .hero {
-  background: url('https://images.unsplash.com/photo-1598514982901-3e0b3f2c6c76');
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  url('https://images.unsplash.com/photo-1598514982901-3e0b3f2c6c76');
   background-size: cover;
   color:white;
   padding:120px 30px;
@@ -44,6 +45,11 @@ body {margin:0;font-family:Arial;background:#f8f8f8;}
   display:inline-block;
   margin-top:15px;
   border-radius:5px;
+  transition:0.3s;
+}
+
+.btn:hover {
+  background:#1b5e20;
 }
 
 /* SECTION */
@@ -66,11 +72,11 @@ body {margin:0;font-family:Arial;background:#f8f8f8;}
   width:220px;
   border-radius:10px;
   box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  transition:0.3s;
 }
 
-.card img {
-  width:100%;
-  border-radius:8px;
+.card:hover {
+  transform: translateY(-8px);
 }
 
 /* FOOTER */
