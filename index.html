@@ -6,66 +6,79 @@
 <title>DEVDIC HERBAL</title>
 
 <style>
-body {
-  margin:0;
-  font-family: Arial;
+body {margin:0;font-family:Arial;background:#f8f8f8;}
+
+/* NAVBAR */
+.nav {
+  display:flex;
+  justify-content:space-between;
+  padding:15px 30px;
+  background:white;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo {font-weight:bold;font-size:20px;color:#2e7d32;}
+
+.menu a {
+  margin-left:20px;
+  text-decoration:none;
+  color:black;
 }
 
 /* HERO */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-  url('https://images.unsplash.com/photo-1598514982901-3e0b3f2c6c76');
+  background: url('https://images.unsplash.com/photo-1598514982901-3e0b3f2c6c76');
   background-size: cover;
-  color: white;
-  text-align:center;
-  padding: 120px 20px;
+  color:white;
+  padding:120px 30px;
 }
 
-.hero h1 {
-  font-size: 42px;
-  margin-bottom:10px;
-}
-
-.hero p {
-  font-size:18px;
-}
+.hero h1 {font-size:40px;}
+.hero p {font-size:18px;}
 
 .btn {
-  background:#25D366;
-  padding:15px 30px;
+  background:#2e7d32;
+  padding:12px 25px;
   color:white;
   text-decoration:none;
-  border-radius:6px;
   display:inline-block;
-  margin-top:20px;
-  font-size:18px;
+  margin-top:15px;
+  border-radius:5px;
 }
 
 /* SECTION */
 .section {
-  padding:60px 20px;
+  padding:50px 30px;
   text-align:center;
 }
 
-.features {
+/* PRODUCTS */
+.products {
   display:flex;
   justify-content:center;
-  gap:30px;
+  gap:20px;
   flex-wrap:wrap;
 }
 
-.box {
-  background:#f5f5f5;
-  padding:20px;
+.card {
+  background:white;
+  padding:15px;
+  width:220px;
   border-radius:10px;
-  width:250px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* TRUST */
-.trust {
-  background:#e8f5e9;
-  padding:40px;
+.card img {
+  width:100%;
+  border-radius:8px;
+}
+
+/* FOOTER */
+.footer {
+  background:#2e7d32;
+  color:white;
   text-align:center;
+  padding:20px;
 }
 </style>
 
@@ -73,33 +86,53 @@ body {
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Control Diabetes Naturally</h1>
-  <p>Trusted Ayurvedic Solution for Sugar Control</p>
-  <a class="btn" href="https://wa.me/918434813523">Consult on WhatsApp</a>
-</div>
-
-<!-- FEATURES -->
-<div class="section">
-  <h2>Why Choose DEVDIC Herbal?</h2>
-  <div class="features">
-    <div class="box">✔ 100% Ayurvedic</div>
-    <div class="box">✔ No Side Effects</div>
-    <div class="box">✔ Fast Results</div>
+<!-- NAVBAR -->
+<div class="nav">
+  <div class="logo">DEVDIC HERBAL</div>
+  <div class="menu">
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+    <a href="#">Contact</a>
   </div>
 </div>
 
-<!-- TRUST -->
-<div class="trust">
-  <h2>1000+ Happy Patients</h2>
-  <p>People are already seeing results</p>
+<!-- HERO -->
+<div class="hero">
+  <h1>Pick Your Ayurvedic Path</h1>
+  <p>Natural Solution for Diabetes Care</p>
+  <a class="btn" href="https://wa.me/918434813523">Consult Now</a>
 </div>
 
-<!-- CONTACT -->
+<!-- PRODUCTS -->
 <div class="section">
-  <h2>Call / WhatsApp</h2>
-  <p>8434813523</p>
+  <h2>Our Products</h2>
+
+  <div class="products">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1580281657527-47e0c1a6f5bb">
+      <h3>Diabetes Care</h3>
+      <p>₹499</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1580281657527-47e0c1a6f5bb">
+      <h3>Herbal Powder</h3>
+      <p>₹399</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1580281657527-47e0c1a6f5bb">
+      <h3>Ayurvedic Oil</h3>
+      <p>₹299</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>© DEVDIC HERBAL</p>
 </div>
 
 </body>
