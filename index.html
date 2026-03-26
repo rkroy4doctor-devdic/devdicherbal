@@ -1,102 +1,140 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DEVDIC HERBAL</title>
 
 <style>
 body {
-  margin:0;
-  font-family: Arial;
-  text-align:center;
+    margin:0;
+    font-family: Arial;
 }
 
 /* HERO */
 .hero {
-  background:#2e7d32;
-  color:white;
-  padding:100px 20px;
+    background: url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71');
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
 }
 
 .hero h1 {
-  font-size:40px;
+    font-size: 45px;
 }
 
-.btn {
-  background:#25D366;
-  color:white;
-  padding:12px 25px;
-  border-radius:25px;
-  text-decoration:none;
-  display:inline-block;
-  margin-top:20px;
+.hero button {
+    padding: 12px 25px;
+    background: #2ecc71;
+    border: none;
+    color: white;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 /* PRODUCTS */
 .products {
-  padding:50px 20px;
+    padding: 50px 20px;
+    text-align: center;
 }
 
-.product-container {
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
+.products h2 {
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .card {
-  width:250px;
-  background:#f5f5f5;
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    width: 220px;
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
 }
 
-/* WHATSAPP */
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.card h3 {
+    font-size: 16px;
+}
+
+/* WHATSAPP BUTTON */
 .whatsapp {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:white;
-  padding:12px 20px;
-  border-radius:30px;
-  text-decoration:none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="hero">
-  <h1>Control Diabetes Naturally</h1>
-  <p>Trusted Ayurvedic Solution</p>
-  <a class="btn" href="https://wa.me/918434813523">Consult Now</a>
+    <h1>Control Diabetes Naturally</h1>
+    <p>Trusted Ayurvedic Solution</p>
+    <button>Consult Now</button>
 </div>
 
 <div class="products">
-  <h2>Our Products</h2>
+    <h2>Our Products</h2>
 
-  <div class="product-container">
+    <div class="grid">
 
-    <div class="card">
-      <h3>Diabetes Care</h3>
-      <p>₹499</p>
+        <div class="card">
+            <img src="product1.jpg">
+            <h3>DABATAS</h3>
+        </div>
+
+        <div class="card">
+            <img src="product2.jpg">
+            <h3>DB LIFE</h3>
+        </div>
+
+        <div class="card">
+            <img src="product3.jpg">
+            <h3>DB BOOST</h3>
+        </div>
+
+        <div class="card">
+            <img src="product4.jpg">
+            <h3>SUGAR KEY SYRUP</h3>
+        </div>
+
+        <div class="card">
+            <img src="product5.jpg">
+            <h3>DB-PAN10 Tablet</h3>
+        </div>
+
+        <div class="card">
+            <img src="product6.jpg">
+            <h3>Herbal Diabetic Powder</h3>
+        </div>
+
+        <div class="card">
+            <img src="product7.jpg">
+            <h3>DBX-Gem Capsules</h3>
+        </div>
+
     </div>
-
-    <div class="card">
-      <h3>Herbal Powder</h3>
-      <p>₹399</p>
-    </div>
-
-    <div class="card">
-      <h3>Ayurvedic Oil</h3>
-      <p>₹299</p>
-    </div>
-
-  </div>
 </div>
 
-<a class="whatsapp" href="https://wa.me/918434813523">Chat</a>
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX">Chat</a>
 
 </body>
 </html>
