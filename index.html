@@ -6,86 +6,52 @@
 <style>
 body {
   margin:0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
+  text-align:center;
 }
 
 /* HERO */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-  url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d');
-  background-size: cover;
-  background-position: center;
+  background:#2e7d32;
   color:white;
-  text-align:center;
-  padding:120px 20px;
+  padding:100px 20px;
 }
 
 .hero h1 {
-  font-size:48px;
-  margin-bottom:10px;
-}
-
-.hero p {
-  font-size:20px;
+  font-size:40px;
 }
 
 .btn {
-  display:inline-block;
-  margin-top:20px;
   background:#25D366;
   color:white;
   padding:12px 25px;
   border-radius:25px;
   text-decoration:none;
-  font-weight:bold;
+  display:inline-block;
+  margin-top:20px;
 }
 
 /* PRODUCTS */
 .products {
-  padding:60px 20px;
-  text-align:center;
-}
-
-.products h2 {
-  margin-bottom:30px;
+  padding:50px 20px;
 }
 
 .product-container {
   display:flex;
   justify-content:center;
+  gap:20px;
   flex-wrap:wrap;
-  gap:25px;
 }
 
 .card {
-  width:260px;
+  width:250px;
   background:#f5f5f5;
-  border-radius:15px;
   padding:20px;
+  border-radius:15px;
   box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-.card img {
-  width:100%;
-  border-radius:10px;
-}
-
-.card h3 {
-  margin:15px 0 5px;
-}
-
-/* WHY SECTION */
-.why {
-  background:#eaf5ea;
-  padding:50px 20px;
-  text-align:center;
-}
-
-.why h2 {
-  margin-bottom:20px;
-}
-
-/* WHATSAPP FLOAT */
+/* WHATSAPP */
 .whatsapp {
   position:fixed;
   bottom:20px;
@@ -96,39 +62,33 @@ body {
   border-radius:30px;
   text-decoration:none;
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <h1>Control Diabetes Naturally</h1>
   <p>Trusted Ayurvedic Solution</p>
   <a class="btn" href="https://wa.me/918434813523">Consult Now</a>
 </div>
 
-<!-- PRODUCTS -->
 <div class="products">
   <h2>Our Products</h2>
 
   <div class="product-container">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1580281657527-47b04c46fa38">
       <h3>Diabetes Care</h3>
       <p>₹499</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1615486366033-9e9b0cbe8d09">
       <h3>Herbal Powder</h3>
       <p>₹399</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1600180758890-6c70aaf0a33c">
       <h3>Ayurvedic Oil</h3>
       <p>₹299</p>
     </div>
@@ -136,15 +96,6 @@ body {
   </div>
 </div>
 
-<!-- WHY -->
-<div class="why">
-  <h2>Why Choose Us?</h2>
-  <p>✔ 100% Ayurvedic</p>
-  <p>✔ No Side Effects</p>
-  <p>✔ Fast Results</p>
-</div>
-
-<!-- WHATSAPP BUTTON -->
 <a class="whatsapp" href="https://wa.me/918434813523">Chat</a>
 
 </body>
