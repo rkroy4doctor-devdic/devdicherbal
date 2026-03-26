@@ -3,47 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DEVDIC HERBAL</title>
 
 <style>
-body {margin:0;font-family:Arial;background:#f8f8f8;}
 
-/* NAVBAR */
-.nav {
-  display:flex;
-  justify-content:space-between;
-  padding:15px 30px;
-  background:white;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+body {
+  margin:0;
+  font-family: Arial;
+  text-align:center;
 }
 
-.logo {font-weight:bold;font-size:20px;color:#2e7d32;}
-
-.menu a {
-  margin-left:20px;
-  text-decoration:none;
-  color:black;
-}
-
-/* HERO */
+/* HERO SECTION */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
   url('https://images.unsplash.com/photo-1598514982901-3e0b3f2c6c76');
   background-size: cover;
+  background-position: center;
   color:white;
-  padding:120px 30px;
+  padding:120px 20px;
 }
 
-.hero h1 {font-size:40px;}
-.hero p {font-size:18px;}
+.hero h1 {
+  font-size:42px;
+}
 
+.hero p {
+  font-size:18px;
+}
+
+/* BUTTON */
 .btn {
   background:#2e7d32;
   padding:12px 25px;
   color:white;
   text-decoration:none;
   display:inline-block;
-  margin-top:15px;
+  margin-top:20px;
   border-radius:5px;
   transition:0.3s;
 }
@@ -54,18 +50,17 @@ body {margin:0;font-family:Arial;background:#f8f8f8;}
 
 /* SECTION */
 .section {
-  padding:50px 30px;
-  text-align:center;
+  padding:50px 20px;
 }
 
-/* PRODUCTS */
-.products {
+.cards {
   display:flex;
   justify-content:center;
   gap:20px;
   flex-wrap:wrap;
 }
 
+/* CARD */
 .card {
   background:white;
   padding:15px;
@@ -79,56 +74,60 @@ body {margin:0;font-family:Arial;background:#f8f8f8;}
   transform: translateY(-8px);
 }
 
-/* FOOTER */
-.footer {
-  background:#2e7d32;
-  color:white;
-  text-align:center;
-  padding:20px;
+.card img {
+  width:100%;
+  border-radius:10px;
+  margin-bottom:10px;
 }
-</style>
 
+/* WHATSAPP FLOAT */
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  padding:15px 20px;
+  border-radius:50px;
+  text-decoration:none;
+  font-size:18px;
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<div class="nav">
-  <div class="logo">DEVDIC HERBAL</div>
-  <div class="menu">
-    <a href="#">Home</a>
-    <a href="#">Products</a>
-    <a href="#">Contact</a>
-  </div>
-</div>
-
 <!-- HERO -->
 <div class="hero">
-  <h1>Pick Your Ayurvedic Path</h1>
-  <p>Natural Solution for Diabetes Care</p>
-  <a class="btn" href="https://wa.me/918434813523">Consult Now</a>
+  <h1>Control Diabetes Naturally</h1>
+  <p>Trusted Ayurvedic Solution for Sugar Control</p>
+
+  <a href="https://wa.me/918434813523" class="btn">
+    Consult on WhatsApp
+  </a>
 </div>
 
 <!-- PRODUCTS -->
 <div class="section">
   <h2>Our Products</h2>
 
-  <div class="products">
+  <div class="cards">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1580281657527-47e0c1a6f5bb">
+      <img src="https://images.unsplash.com/photo-1580281657527-47dba3b5a4a2">
       <h3>Diabetes Care</h3>
       <p>₹499</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1580281657527-47e0c1a6f5bb">
+      <img src="https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2">
       <h3>Herbal Powder</h3>
       <p>₹399</p>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1580281657527-47e0c1a6f5bb">
+      <img src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e">
       <h3>Ayurvedic Oil</h3>
       <p>₹299</p>
     </div>
@@ -136,10 +135,19 @@ body {margin:0;font-family:Arial;background:#f8f8f8;}
   </div>
 </div>
 
-<!-- FOOTER -->
-<div class="footer">
-  <p>© DEVDIC HERBAL</p>
+<!-- TRUST -->
+<div class="section" style="background:#f0f7f0;">
+  <h2>Why Choose DEVDIC?</h2>
+
+  <p>✔ 100% Ayurvedic</p>
+  <p>✔ No Side Effects</p>
+  <p>✔ Fast Results</p>
 </div>
+
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/918434813523" class="whatsapp">
+  Chat
+</a>
 
 </body>
 </html>
