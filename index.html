@@ -6,52 +6,62 @@
 <style>
 body {
   margin:0;
-  font-family: Arial;
-  text-align:center;
+  font-family: Arial, sans-serif;
 }
 
 /* HERO */
 .hero {
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-  url('https://images.unsplash.com/photo-1603398938378-e54eab446dde');
+  url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d');
   background-size: cover;
   background-position: center;
   color:white;
+  text-align:center;
   padding:120px 20px;
 }
 
 .hero h1 {
-  font-size:50px;
+  font-size:48px;
+  margin-bottom:10px;
+}
+
+.hero p {
+  font-size:20px;
 }
 
 .btn {
+  display:inline-block;
+  margin-top:20px;
   background:#25D366;
   color:white;
   padding:12px 25px;
-  border:none;
   border-radius:25px;
   text-decoration:none;
-  display:inline-block;
-  margin-top:20px;
+  font-weight:bold;
 }
 
 /* PRODUCTS */
 .products {
-  padding:50px 20px;
+  padding:60px 20px;
+  text-align:center;
+}
+
+.products h2 {
+  margin-bottom:30px;
 }
 
 .product-container {
   display:flex;
   justify-content:center;
-  gap:20px;
   flex-wrap:wrap;
+  gap:25px;
 }
 
 .card {
+  width:260px;
   background:#f5f5f5;
-  padding:20px;
-  width:250px;
   border-radius:15px;
+  padding:20px;
   box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
@@ -61,7 +71,18 @@ body {
 }
 
 .card h3 {
-  margin:10px 0;
+  margin:15px 0 5px;
+}
+
+/* WHY SECTION */
+.why {
+  background:#eaf5ea;
+  padding:50px 20px;
+  text-align:center;
+}
+
+.why h2 {
+  margin-bottom:20px;
 }
 
 /* WHATSAPP FLOAT */
@@ -107,7 +128,7 @@ body {
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6">
+      <img src="https://images.unsplash.com/photo-1600180758890-6c70aaf0a33c">
       <h3>Ayurvedic Oil</h3>
       <p>₹299</p>
     </div>
@@ -115,7 +136,15 @@ body {
   </div>
 </div>
 
-<!-- FLOAT BUTTON -->
+<!-- WHY -->
+<div class="why">
+  <h2>Why Choose Us?</h2>
+  <p>✔ 100% Ayurvedic</p>
+  <p>✔ No Side Effects</p>
+  <p>✔ Fast Results</p>
+</div>
+
+<!-- WHATSAPP BUTTON -->
 <a class="whatsapp" href="https://wa.me/918434813523">Chat</a>
 
 </body>
