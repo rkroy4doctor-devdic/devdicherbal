@@ -12,7 +12,6 @@
       background: #f5f5f5;
     }
 
-    /* HEADER */
     .header {
       background: white;
       padding: 10px 20px;
@@ -41,7 +40,6 @@
 
     .hero h1 {
       font-size: 32px;
-      margin-bottom: 10px;
     }
 
     .hero p {
@@ -99,15 +97,22 @@
       border-radius: 10px;
     }
 
+    .videos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
   </style>
 
 </head>
 
 <body>
 
-  <!-- HEADER WITH LOGO -->
+  <!-- HEADER -->
   <div class="header">
-    <img src="devdic logo.png" alt="DEVDIC HERBAL Logo" class="logo">
+    <img src="devdic logo.png" class="logo">
   </div>
 
   <!-- HERO -->
@@ -126,7 +131,7 @@
     <p>✔ 5000+ Patients Treated</p>
   </div>
 
-  <!-- TRUST SECTION -->
+  <!-- TRUST -->
   <div class="trust">
     <h2>Why Choose DEVDIC HERBAL?</h2>
     <p>✔ 100% Ayurvedic Treatment</p>
@@ -171,6 +176,24 @@
     </div>
   </div>
 
+  <!-- VIDEO TESTIMONIAL -->
+  <div class="section">
+    <h2>🎥 Real Patient Video</h2>
+    <p>देखें मरीज का असली अनुभव</p>
+
+    <div class="videos">
+      <iframe width="300" height="200" 
+      src="https://www.youtube.com/embed/ng-vL027RXg" 
+      frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <p>आप भी अपना sugar control करना चाहते हैं?</p>
+
+    <a class="btn" href="https://wa.me/918434813523?text=Mujhe diabetes consultation chahiye" target="_blank">
+      💬 WhatsApp Now
+    </a>
+  </div>
+
   <!-- FINAL CTA -->
   <div class="section">
     <h2>Still Confused?</h2>
@@ -186,7 +209,7 @@
     © DEVDIC HERBAL
   </div>
 
-  <!-- WHATSAPP FLOAT BUTTON -->
+  <!-- FLOAT BUTTON -->
   <a href="https://wa.me/918434813523?text=Namaste Doctor ji, mujhe sugar problem hai" 
   target="_blank"
   style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;
