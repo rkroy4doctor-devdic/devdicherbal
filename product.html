@@ -1,360 +1,210 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-  <style>
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Products - DEVDIC HERBAL</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f5f5f5}
+
+/* TOP */
+.topbar{background:#0f766e;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px}
+
+/* NAVBAR */
+.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.logo-box{display:flex;align-items:center;gap:10px}
+.logo{height:45px}
+.company{font-weight:bold;color:#065f46;font-size:14px}
+
+.nav-links{display:flex;gap:20px}
+.nav-links a{text-decoration:none;color:#333;font-weight:600}
+.nav-links a:hover{color:#059669}
+
+/* TITLE */
+h1{text-align:center;padding:20px;color:#064e3b}
+
+/* PRODUCTS */
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:20px;
 }
 
-.card {
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.card{
+background:#fff;
+padding:15px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.3s;
 }
 
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
+.card:hover{
+transform:translateY(-5px);
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background: #25D366;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
+.card img{
+width:100%;
+height:200px;
+object-fit:contain;
+}
+
+.card h3{margin:10px 0}
+
+.card p{font-size:14px;color:#555}
+
+.price{
+font-weight:bold;
+color:#065f46;
+font-size:16px;
+}
+
+.btn{
+display:inline-block;
+margin-top:10px;
+padding:10px 18px;
+background:#25D366;
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+.nav-links{display:none}
+.company{font-size:12px}
 }
 </style>
-  <title>Our Products - DEVDIC HERBAL</title>
-
-  <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      background: #f5f5f5;
-    }
-
-    h1 {
-      text-align: center;
-      padding: 20px;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 15px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: contain;
-    }
-
-    .card h3 {
-      margin: 10px 0;
-    }
-
-    .card p {
-      color: #555;
-      font-size: 14px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: #25D366;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-
-  </style>
 </head>
 
 <body>
-<a href="index.html" style="display:inline-block; margin:20px; padding:8px 15px; background:#25D366; color:white; border-radius:6px; text-decoration:none;">
-⬅ Back to Home
-</a>
+
+<!-- TOP -->
+<div class="topbar">
+<div>📞 8434813523</div>
+<div>🚚 Free Delivery Available</div>
+</div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<div class="logo-box">
+<img src="devdic logo.png" class="logo">
+<div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
+</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="product.html">Products</a>
+<a href="testimonials.html">Testimonials</a>
+</div>
+</div>
+
 <h1>Our Products</h1>
 
 <div class="products">
 
-  <div class="card">
-  <img src="db-boost.jpg">
-
-  <h3>DB BOOST</h3>
-
-  <p>Control Blood Sugar + Boost Energy</p>
-
-  <p>Weight: 60 gm</p>
-  <p><b>MRP: ₹510</b></p>
-
-  <p style="font-size:14px; color:#555;">
-    ✔ Helps control blood sugar level<br>
-    ✔ Boosts energy & reduces weakness<br>
-    ✔ Supports healthy metabolism<br>
-    ✔ Ayurvedic herbal formulation
-  </p>
-
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe%20DB%20BOOST%20order%20karna%20hai.%20Kripya%20details%20bataye">Order Now</a>
-</div>
-
-  <div class="card">
-  <img src="db-life.jpg">
-
-  <h3>DB LIFE</h3>
-
-  <p>Daily Diabetes Support</p>
-
-  <p>Weight: 60 gm</p>
-  <p><b>MRP: ₹544</b></p>
-
-  <p style="font-size:14px; color:#555;">
-    ✔ Helps in blood sugar management<br>
-    ✔ Boosts energy level<br>
-    ✔ Helps reduce sugar spikes after meals<br>
-    ✔ Supports daily diabetes care
-  </p>
-
-  <a class="btn" href="https://wa.me/918434813523?text=Mujhe%20DB%20LIFE%20order%20karna%20hai.%20Kripya%20details%20bataye">Order Now</a>
-</div>
-  <div class="card">
-  <img src="dabatas.jpg">
-
-  <h3>DABATAS</h3>
-
-  <p>Anti-Diabetic Herbal Powder</p>
-
-  <p>Weight: 60 gm</p>
-  <p><b>MRP: ₹520</b></p>
-
-  <p style="font-size:14px; color:#555;">
-    ✔ Helps control blood sugar level<br>
-    ✔ Supports insulin function<br>
-    ✔ Helps maintain pancreas health<br>
-    ✔ Ayurvedic herbal formulation
-  </p>
-
-  <a class="btn" href="https://wa.me/918434813523?text=Mujhe%20DABATAS%20order%20karna%20hai.%20Kripya%20details%20bataye">Order Now</a>
+<!-- PRODUCT CARD -->
+<div class="card">
+<img src="db-boost.jpg">
+<h3>DB BOOST</h3>
+<p>Control Blood Sugar + Boost Energy</p>
+<p class="price">₹510</p>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe DB BOOST order karna hai">Order Now</a>
 </div>
 
 <div class="card">
-  <img src="db-pan-10.png">
-
-  <h3>DB PAN 10</h3>
-
-  <p>Supports Pancreas Function & Blood Sugar Control</p>
-
-  <p>Weight: 10 Tablets</p>
-  <p><b>MRP: ₹220</b></p>
-
-  <p style="font-size:14px; color:#555;">
-    ✔ Supports pancreas function<br>
-    ✔ Helps control blood sugar level<br>
-    ✔ Reduces weakness & fatigue<br>
-    ✔ Supports overall metabolic health
-  </p>
-
-  <a class="btn" href="https://wa.me/918434813523?text=Mujhe%20DB%20PAN%2010%20order%20karna%20hai.%20Kripya%20details%20bataye">Order Now</a>
-
-</div>
-
-
-  <div class="card">
-  <img src="dbx.png">
-
-  <h3>DBX Capsules</h3>
-
-  <p>Supports glucose balance & insulin function</p>
-
-  <p>Quantity: 10 Capsules</p>
-  <p><b>MRP: ₹52</b></p>
-
-  <p style="font-size:14px; color:#555;">
-    ✔ Helps maintain healthy glucose levels<br>
-    ✔ Reduces sugar fluctuations<br>
-    ✔ Supports insulin function<br>
-    ✔ Supports daily diabetes management
-  </p>
-
-  <a class="btn" href="https://wa.me/918434813523?text=Mujhe%20DBX%20Capsules%20order%20karna%20hai.%20Kripya%20details%20bataye">Order Now</a>
-
-</div>
-
-
-  <div class="card">
-  <img src="dbx-qr.png">
-
-  <h3>DBX-QR Capsules</h3>
-
-  <p>Supports sugar control & digestive health</p>
-
-  <p>Quantity: 30 Capsules</p>
-  <p><b>MRP: ₹270</b></p>
-
-  <p style="font-size:14px; color:#555;">
-    ✔ Helps control blood sugar levels<br>
-    ✔ Supports healthy digestion<br>
-    ✔ Aids natural detox process<br>
-    ✔ Reduces bloating and improves gut health
-  </p>
-
-  <a class="btn" href="https://wa.me/918434813523?text=Mujhe%20DBX-QR%20Capsules%20order%20karna%20hai.%20Kripya%20details%20bataye">Order Now</a>
-
-</div>
-
-
-<div class="card">
-  <img src="gem.png">
-
-  <h3>DBX-Gem Capsules</h3>
-
-  <p>Supports sugar control & reduces cravings</p>
-
-  <p>Quantity: 30 Capsules</p>
-  <p><b>MRP: ₹560</b></p>
-
-  <p style="font-size:14px; color:#555;">
-    ✔ maintain healthy blood sugar levels<br>
-    ✔ Helps reduce sugar cravings (Gymnema support)<br>
-    ✔ Supports healthy pancreatic function<br>
-    ✔ Improves insulin activity 
-  </p>
-
-  <a class="btn" href="https://wa.me/918434813523?text=Mujhe%20DBX-Gem%20Capsules%20order%20karna%20hai.%20Kripya%20details%20bataye">Order Now</a>
-
+<img src="db-life.jpg">
+<h3>DB LIFE</h3>
+<p>Daily Diabetes Support</p>
+<p class="price">₹544</p>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe DB LIFE order karna hai">Order Now</a>
 </div>
 
 <div class="card">
-  <img src="pan-po.png">
-
-  <h3>DB-PAN Ayurvedic Powder</h3>
-
-  <p>Supports pancreas & glucose metabolism</p>
-
-  <p>Weight: 60 gm</p>
-  <p><b>MRP: ₹545</b></p>
-
-  <p style="font-size:14px; color:#555;">
-    ✔ Supports healthy pancreatic function<br>
-    ✔ improve insulin production support<br>
-    ✔ Helps control blood sugar levels<br>
-    ✔ Supports glucose metabolism
-  </p>
-
-  <a class="btn" href="https://wa.me/918434813523?text=Mujhe%20DB-PAN%20Ayurvedic%20Powder%20order%20karna%20hai.%20Kripya%20details%20bataye">Order Now</a>
-
+<img src="dabatas.jpg">
+<h3>DABATAS</h3>
+<p>Anti-Diabetic Herbal Powder</p>
+<p class="price">₹520</p>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe DABATAS order karna hai">Order Now</a>
 </div>
-
 
 <div class="card">
-  <img src="quick-qr.png">
-
-  <h3>QUICK-QR Churan</h3>
-
-  <p>Supports digestion & relieves constipation</p>
-
-  <p>Weight: 60 gm</p>
-  <p><b>MRP: ₹110</b></p>
-
-  <p style="font-size:14px; color:#555;">
-    ✔ Helps relieve constipation naturally<br>
-    ✔ Supports smooth bowel movement<br>
-    ✔ Helps clean stomach and intestines<br>
-    ✔ Reduces gas, bloating and heaviness
-  </p>
-
-  <a class="btn" href="https://wa.me/918434813523?text=Mujhe%20QUICK-QR%20Churan%20order%20karna%20hai.%20Kripya%20details%20bataye">Order Now</a>
-
+<img src="db-pan-10.png">
+<h3>DB PAN 10</h3>
+<p>Supports Pancreas Function</p>
+<p class="price">₹220</p>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe DB PAN 10 order karna hai">Order Now</a>
 </div>
-
 
 <div class="card">
-  <img src="sugar-low.png">
-
-  <h3>SUGAR-LOW Ayurvedic Powder</h3>
-
-  <p>Controls post-meal sugar & glucose spikes</p>
-
-  <p>Weight: 60 gm</p>
-  <p><b>MRP: ₹510</b></p>
-
-  <p style="font-size:14px; color:#555;">
-    ✔ Helps control post-meal (after food) blood sugar<br>
-    ✔ Reduces sudden sugar spikes after eating<br>
-    ✔ Supports glucose metabolism<br>
-    ✔ Helps improve insulin response
-  </p>
-
-  <a class="btn" href="https://wa.me/918434813523?text=Mujhe%20SUGAR-LOW%20Ayurvedic%20Powder%20order%20karna%20hai.%20Kripya%20details%20bataye">Order Now</a>
-
+<img src="dbx.png">
+<h3>DBX Capsules</h3>
+<p>Supports glucose balance</p>
+<p class="price">₹52</p>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe DBX Capsules order karna hai">Order Now</a>
 </div>
-
 
 <div class="card">
-  <img src="sun.png">
-
-  <h3>DBX-Sun Drops</h3>
-
-  <p>Supports bone health & Vitamin D levels</p>
-
-  <p>Weight: 30 ml</p>
-  <p><b>MRP: ₹450</b></p>
-
-  <p style="font-size:14px; color:#555;">
-    ✔ Supports calcium absorption<br>
-    ✔ Helps strengthen bones and teeth<br>
-    ✔ Supports healthy immune system<br>
-    ✔ Helps maintain Vitamin D levels
-  </p>
-
-  <a class="btn" href="https://wa.me/918434813523?text=Mujhe%20DBX-Sun%20Drops%20order%20karna%20hai.%20Kripya%20details%20bataye">Order Now</a>
-
+<img src="dbx-qr.png">
+<h3>DBX-QR Capsules</h3>
+<p>Supports sugar control</p>
+<p class="price">₹270</p>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe DBX-QR Capsules order karna hai">Order Now</a>
 </div>
-
 
 <div class="card">
-  <img src="suger-key-p.png">
-
-  <h3>SUGAR-KEY Ayurvedic Powder</h3>
-
-  <p>Controls fasting sugar & improves insulin sensitivity</p>
-
-  <p>Weight: 60 gm</p>
-  <p><b>MRP: ₹540</b></p>
-
-  <p style="font-size:14px; color:#555;">
-    ✔ control fasting blood sugar levels<br>
-    ✔ Supports stable glucose levels <br>
-    ✔ Improves insulin sensitivity<br>
-    ✔ Supports glucose metabolism
-  </p>
-
-  <a class="btn" href="https://wa.me/918434813523?text=Mujhe%20SUGAR-KEY%20Ayurvedic%20Powder%20order%20karna%20hai.%20Kripya%20details%20bataye">Order Now</a>
-
+<img src="gem.png">
+<h3>DBX-Gem Capsules</h3>
+<p>Reduces sugar cravings</p>
+<p class="price">₹560</p>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe DBX-Gem Capsules order karna hai">Order Now</a>
 </div>
 
+<div class="card">
+<img src="pan-po.png">
+<h3>DB-PAN Powder</h3>
+<p>Supports pancreas health</p>
+<p class="price">₹545</p>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe DB-PAN Powder order karna hai">Order Now</a>
+</div>
 
+<div class="card">
+<img src="quick-qr.png">
+<h3>QUICK-QR Churan</h3>
+<p>Relieves constipation</p>
+<p class="price">₹110</p>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe QUICK-QR Churan order karna hai">Order Now</a>
+</div>
 
+<div class="card">
+<img src="sugar-low.png">
+<h3>SUGAR-LOW Powder</h3>
+<p>Controls sugar spikes</p>
+<p class="price">₹510</p>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe SUGAR-LOW Powder order karna hai">Order Now</a>
+</div>
+
+<div class="card">
+<img src="sun.png">
+<h3>DBX-Sun Drops</h3>
+<p>Vitamin D Support</p>
+<p class="price">₹450</p>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe DBX-Sun Drops order karna hai">Order Now</a>
+</div>
+
+<div class="card">
+<img src="suger-key-p.png">
+<h3>SUGAR-KEY Powder</h3>
+<p>Controls fasting sugar</p>
+<p class="price">₹540</p>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe SUGAR-KEY Powder order karna hai">Order Now</a>
+</div>
+
+</div>
 
 </body>
 </html>
