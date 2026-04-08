@@ -6,46 +6,41 @@
 
 <title>DEVDIC HERBAL – Diabetes Control Ayurvedic Treatment</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
 <style>
-body{margin:0;font-family:'Poppins',sans-serif;background:#f6fff6;color:#222}
+body{margin:0;font-family:Arial;background:#f5f5f5;color:#222}
 
 /* TOP */
-.topbar{background:#065f46;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px}
+.topbar{background:#0f766e;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px}
 
 /* NAV */
 .navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.logo-box{display:flex;align-items:center;gap:10px}
 .logo{height:45px}
 .company{font-weight:bold;color:#065f46;font-size:14px}
+.nav-links{display:flex;gap:20px}
+.nav-links a{text-decoration:none;color:#333;font-weight:600}
+.nav-links a:hover{color:#059669}
 
 /* HERO */
-.hero{padding:70px 20px;text-align:center;background:linear-gradient(#ecfdf5,#fff)}
-.hero h1{font-size:34px;color:#064e3b}
-.hero p{margin:15px 0;font-size:18px}
-
-.btn{background:#059669;color:#fff;padding:14px 25px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block;margin:5px}
+.hero{padding:50px 20px;text-align:center;background:linear-gradient(#ecfdf5,#fff)}
+.hero h1{font-size:28px;color:#064e3b}
+.hero p{color:#065f46;margin:10px 0 20px}
+.btn{background:#059669;color:#fff;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block;margin:5px}
 
 /* TRUST */
-.trust{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:25px;font-size:16px}
-
-/* DOCTOR */
-.doctor{padding:40px;text-align:center;background:#fff}
-.doctor img{width:120px;border-radius:50%}
+.trust{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:15px;font-size:14px}
 
 /* PRODUCTS */
 .section{padding:40px 20px;text-align:center}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
-
-.card{background:#fff;border-radius:12px;padding:15px;box-shadow:0 5px 15px rgba(0,0,0,.08);transition:.3s}
-.card:hover{transform:translateY(-5px)}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
+.card{background:#fff;border-radius:12px;padding:15px;box-shadow:0 5px 15px rgba(0,0,0,.08)}
 .card img{width:100%;height:150px;object-fit:contain}
 
 /* VIDEO */
 .videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
 
 /* CTA */
-.cta{background:#065f46;color:#fff;text-align:center;padding:60px 20px}
+.cta{background:#065f46;color:#fff;text-align:center;padding:50px 20px}
 
 /* FOOTER */
 .footer{background:#111;color:#aaa;text-align:center;padding:20px;font-size:13px}
@@ -54,8 +49,9 @@ body{margin:0;font-family:'Poppins',sans-serif;background:#f6fff6;color:#222}
 .float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px;border-radius:50px;text-decoration:none}
 
 /* MOBILE */
-@media(max-width:768px){
-.hero h1{font-size:24px}
+@media(max-width:600px){
+.nav-links{display:none}
+.company{font-size:12px}
 }
 </style>
 </head>
@@ -70,36 +66,36 @@ body{margin:0;font-family:'Poppins',sans-serif;background:#f6fff6;color:#222}
 
 <!-- NAV -->
 <div class="navbar">
+<div class="logo-box">
 <img src="devdic logo.png" class="logo">
-<div class="company">DEVDIC HERBAL</div>
+<div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
+</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="product.html">Products</a>
+<a href="testimonials.html">Testimonials</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
+<h1>Diabetes Control Karein Natural Ayurvedic Treatment Se</h1>
+<p>5000+ Patients ko fayda • Safe • Doctor Guided</p>
 
-<h1>Sugar Control Karein Bina Lifetime Medicine Ke</h1>
-
-<p>10,000+ Patients ko fayda • Ayurvedic • Safe & Effective</p>
-
-<a class="btn" href="https://wa.me/918434813523?text=Consultation chahiye" target="_blank">
+<a class="btn" href="https://wa.me/918434813523?text=Homepage se aaya hu, mujhe diabetes consultation chahiye" target="_blank">
 💬 Free Consultation
 </a>
 
 <a class="btn" href="product.html">View Products</a>
 
 <div class="trust">
-<div>✔ 10,000+ Patients</div>
-<div>✔ 10+ Years Experience</div>
 <div>✔ 100% Herbal</div>
+<div>✔ No Side Effects</div>
+<div>✔ Fast Result</div>
 </div>
-
-</div>
-
-<!-- DOCTOR -->
-<div class="doctor">
-<img src="doctor.jpg">
-<h2>Dr. R.K. Roy</h2>
-<p>Ayurvedic Diabetes Specialist</p>
 </div>
 
 <!-- PRODUCTS -->
@@ -111,29 +107,33 @@ body{margin:0;font-family:'Poppins',sans-serif;background:#f6fff6;color:#222}
 <div class="card">
 <img src="db-boost.jpg">
 <h3>DB BOOST</h3>
-<p>Blood sugar control kare naturally</p>
-<a class="btn" href="https://wa.me/918434813523?text=DB BOOST" target="_blank">Order</a>
+<a class="btn" href="https://wa.me/918434813523?text=Product DB BOOST ke liye aaya hu" target="_blank">
+Order
+</a>
 </div>
 
 <div class="card">
 <img src="db-life.jpg">
 <h3>DB LIFE</h3>
-<p>Energy aur insulin balance improve kare</p>
-<a class="btn" href="https://wa.me/918434813523?text=DB LIFE" target="_blank">Order</a>
+<a class="btn" href="https://wa.me/918434813523?text=Product DB LIFE ke liye aaya hu" target="_blank">
+Order
+</a>
 </div>
 
 <div class="card">
 <img src="dabatas.jpg">
 <h3>DABATAS</h3>
-<p>Daily sugar management ke liye</p>
-<a class="btn" href="https://wa.me/918434813523?text=DABATAS" target="_blank">Order</a>
+<a class="btn" href="https://wa.me/918434813523?text=Product DABATAS ke liye aaya hu" target="_blank">
+Order
+</a>
 </div>
 
 <div class="card">
 <img src="sugar-key.jpg">
 <h3>SUGAR KEY</h3>
-<p>Fast acting herbal formula</p>
-<a class="btn" href="https://wa.me/918434813523?text=SUGAR KEY" target="_blank">Order</a>
+<a class="btn" href="https://wa.me/918434813523?text=Product SUGAR KEY ke liye aaya hu" target="_blank">
+Order
+</a>
 </div>
 
 </div>
@@ -146,30 +146,35 @@ body{margin:0;font-family:'Poppins',sans-serif;background:#f6fff6;color:#222}
 <div class="videos">
 <iframe src="https://www.youtube.com/embed/goA_3s4YYZ8"></iframe>
 <iframe src="https://www.youtube.com/embed/XO_ofb4noFw"></iframe>
+<iframe src="https://www.youtube.com/embed/q4hB-L0yRUE"></iframe>
+<iframe src="https://www.youtube.com/embed/AdPOk6dyDEE"></iframe>
 </div>
 
+<br>
 <a class="btn" href="testimonials.html">View All Testimonials</a>
 </div>
 
 <!-- CTA -->
 <div class="cta">
 <h2>Aaj Hi Shuruaat Karein</h2>
-<p>Doctor se baat kare sirf 5 minute mein</p>
+<p>Free consultation sirf 5 minute mein • Doctor available</p>
 
-<a class="btn" href="https://wa.me/918434813523" target="_blank">
-💬 WhatsApp Now
+<a class="btn" href="https://wa.me/918434813523?text=CTA se aaya hu" target="_blank">
+💬 WhatsApp Karein
 </a>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
 🌿 DEVDIC HERBAL<br>
-📞 8434813523<br>
+📞 8434813523 | 📧 devdicherbal@gmail.com<br>
 © 2025 All Rights Reserved
 </div>
 
 <!-- FLOAT -->
-<a class="float" href="https://wa.me/918434813523" target="_blank">💬</a>
+<a class="float" href="https://wa.me/918434813523?text=Floating se aaya hu" target="_blank">
+💬
+</a>
 
 </body>
 </html>
