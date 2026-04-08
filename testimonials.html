@@ -1,106 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-  <title>Patient Testimonials - DEVDIC HERBAL</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #f5f5f5;
-      text-align: center;
-    }
+<title>Testimonials - DEVDIC HERBAL</title>
 
-    .header {
-      background: white;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
+<style>
+body{margin:0;font-family:Arial;background:#f5f5f5}
 
-    .logo {
-      height: 50px;
-    }
+/* TOP */
+.topbar{background:#0f766e;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px}
 
-    .home-btn {
-      background: #00c853;
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+/* NAV */
+.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.logo-box{display:flex;align-items:center;gap:10px}
+.logo{height:45px}
+.company{font-weight:bold;color:#065f46;font-size:14px}
 
-    h1 {
-      margin-top: 20px;
-    }
+.nav-links{display:flex;gap:20px}
+.nav-links a{text-decoration:none;color:#333;font-weight:600}
+.nav-links a:hover{color:#059669}
 
-    .videos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-    }
+/* HEADER */
+.header{text-align:center;padding:40px 20px;background:linear-gradient(#ecfdf5,#fff)}
+.header h1{color:#064e3b}
 
-    iframe {
-      width: 300px;
-      height: 200px;
-      border-radius: 10px;
-    }
+/* VIDEOS */
+.videos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+padding:20px;
+}
 
-    .btn {
-      background: #00c853;
-      padding: 12px 25px;
-      border-radius: 25px;
-      color: white;
-      text-decoration: none;
-      display: inline-block;
-      margin: 15px;
-      font-weight: bold;
-    }
+iframe{
+width:100%;
+height:200px;
+border-radius:10px;
+}
 
-  </style>
+/* CTA */
+.cta{
+background:#065f46;
+color:white;
+text-align:center;
+padding:50px 20px;
+}
+
+.btn{
+display:inline-block;
+margin-top:15px;
+padding:12px 20px;
+background:#25D366;
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+.nav-links{display:none}
+.company{font-size:12px}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <div class="header">
-    <img src="devdic logo.png" class="logo">
-    <a href="index.html" class="home-btn">⬅ Home</a>
-  </div>
+<!-- TOP -->
+<div class="topbar">
+<div>📞 8434813523</div>
+<div>🚚 Free Delivery Available</div>
+</div>
 
-  <!-- TITLE -->
-  <h1>🎥 Real Patient Testimonials</h1>
-  <p>हमारे मरीजों का असली अनुभव देखें</p>
+<!-- NAVBAR -->
+<div class="navbar">
+<div class="logo-box">
+<img src="devdic logo.png" class="logo">
+<div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
+</div>
 
-  <!-- VIDEOS -->
-  <div class="videos">
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="product.html">Products</a>
+<a href="testimonials.html">Testimonials</a>
+</div>
+</div>
 
-    <iframe src="https://www.youtube.com/embed/goA_3s4YYZ8" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/XO_ofb4noFw" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/q4hB-L0yRUE" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/AdPOk6dyDEE" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/iGbzq_UgioY" allowfullscreen></iframe>
+<!-- HEADER -->
+<div class="header">
+<h1>🎥 Real Patient Testimonials</h1>
+<p>देखें हमारे मरीजों का असली अनुभव</p>
+</div>
 
-  </div>
+<!-- VIDEOS -->
+<div class="videos">
 
-  <!-- CTA -->
-  <p>आप भी अपना sugar control करना चाहते हैं?</p>
+<iframe src="https://www.youtube.com/embed/goA_3s4YYZ8"></iframe>
+<iframe src="https://www.youtube.com/embed/XO_ofb4noFw"></iframe>
+<iframe src="https://www.youtube.com/embed/q4hB-L0yRUE"></iframe>
+<iframe src="https://www.youtube.com/embed/AdPOk6dyDEE"></iframe>
+<iframe src="https://www.youtube.com/embed/iGbzq_UgioY"></iframe>
 
-  <a class="btn" href="https://wa.me/918434813523?text=Mujhe diabetes consultation chahiye" target="_blank">
-    💬 WhatsApp Now
-  </a>
+</div>
 
-  <!-- BACK BUTTON -->
-  <br>
-  <a href="index.html" class="btn">
-    ⬅ Back to Home
-  </a>
+<!-- CTA -->
+<div class="cta">
+<h2>Aap bhi apna sugar control kar sakte hain</h2>
+<p>Doctor se direct baat karein aur apni problem ka solution paayein</p>
+
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe diabetes consultation chahiye">
+💬 WhatsApp Par Baat Karein
+</a>
+</div>
 
 </body>
 </html>
