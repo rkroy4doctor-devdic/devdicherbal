@@ -10,34 +10,104 @@
 body{margin:0;font-family:Arial;background:#f5f5f5}
 
 /* TOP */
-.topbar{background:#0f766e;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px}
+.topbar{
+background:#0f766e;
+color:#fff;
+padding:8px 15px;
+display:flex;
+justify-content:space-between;
+font-size:13px;
+}
 
-/* NAV */
-.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
-.logo-box{display:flex;align-items:center;gap:10px}
+/* NAVBAR */
+.navbar{
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 20px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.logo-box{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
 .logo{height:45px}
-.company{font-weight:bold;color:#065f46;font-size:14px}
-.nav-links{display:flex;gap:20px}
-.nav-links a{text-decoration:none;color:#333;font-weight:600}
+
+.company{
+font-weight:bold;
+color:#065f46;
+font-size:14px;
+}
+
+.nav-links{
+display:flex;
+gap:20px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#333;
+font-weight:600;
+}
+
+/* MOBILE FIX */
+@media(max-width:600px){
+.nav-links{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+font-size:12px;
+}
+}
 
 /* CONTENT */
-.section{padding:40px 20px;text-align:center}
-.box{background:#fff;padding:25px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);max-width:800px;margin:auto}
+.section{
+padding:40px 20px;
+text-align:center;
+}
+
+.box{
+background:#fff;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+max-width:800px;
+margin:auto;
+}
 
 h1{color:#064e3b}
+
 p{line-height:1.6;color:#444}
 
+/* BUTTON */
+.btn{
+display:inline-block;
+margin-top:15px;
+padding:12px 20px;
+background:#25D366;
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
+<!-- TOP BAR -->
 <div class="topbar">
 <div>📞 8434813523</div>
 <div>🌿 Ayurvedic Treatment</div>
 </div>
 
+<!-- NAVBAR -->
 <div class="navbar">
+
 <div class="logo-box">
 <img src="devdic logo.png" class="logo">
 <div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
@@ -47,28 +117,36 @@ p{line-height:1.6;color:#444}
 <a href="index.html">Home</a>
 <a href="product.html">Products</a>
 <a href="testimonials.html">Testimonials</a>
-  <a href="about.html">About</a>
+<a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </div>
+
 </div>
 
+<!-- CONTENT -->
 <div class="section">
 <div class="box">
 
 <h1>About Us</h1>
 
-<p><b>DEVDIC HERBAL OPC PRIVATE LIMITED</b> ek Ayurvedic healthcare company hai jo diabetes treatment me specialize karti hai.</p>
+<p><b>DEVDIC HERBAL OPC PRIVATE LIMITED</b> ek trusted Ayurvedic healthcare company hai jo diabetes treatment me specialize karti hai.</p>
 
-<p>Hamne ab tak 5000+ patients ko help kiya hai apna blood sugar control karne me — wo bhi natural tareeke se.</p>
+<p>Hamne ab tak <b>5000+ patients</b> ko help kiya hai apna blood sugar control karne me — wo bhi natural tareeke se.</p>
 
-<p>Hamare products 100% herbal hain aur experienced doctor ke guidance me diye jate hain.</p>
+<p>Hamare products <b>100% herbal</b> hain aur experienced doctor ke guidance me diye jate hain.</p>
 
-<p>Hamari mission hai:  
-👉 Har ghar tak safe aur effective Ayurvedic solution pahuchana</p>
+<p><b>Hamari mission:</b><br>
+✔ Har ghar tak safe Ayurvedic solution pahuchana<br>
+✔ Diabetes ko naturally control karna<br>
+✔ Side-effect free treatment dena</p>
 
-<p>👉 No Side Effects  
-👉 Doctor Guided Treatment  
-👉 Real Patient Results</p>
+<p>✔ Doctor Guided Treatment<br>
+✔ No Side Effects<br>
+✔ Real Patient Results</p>
+
+<a class="btn" href="https://wa.me/918434813523?text=About page se aaya hu, mujhe diabetes consultation chahiye" target="_blank">
+💬 Doctor se baat karein
+</a>
 
 </div>
 </div>
