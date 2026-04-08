@@ -1,300 +1,161 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-  <title>DEVDIC HERBAL - Ayurvedic Diabetes Treatment</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #f5f5f5;
-    }
+<title>DEVDIC HERBAL – Diabetes Control Ayurvedic Treatment</title>
 
-    /* TOP BAR */
-    .topbar {
-      background:#00acc1;
-      color:white;
-      padding:8px 20px;
-      display:flex;
-      justify-content:space-between;
-      font-size:14px;
-    }
+<style>
+body{margin:0;font-family:Arial;background:#f5f5f5;color:#222}
 
-    /* NAVBAR */
-    .navbar {
-      background: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+/* TOP */
+.topbar{background:#0f766e;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px}
 
-    .logo-box {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+/* NAV */
+.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.logo-box{display:flex;align-items:center;gap:10px}
+.logo{height:45px}
+.company{font-weight:bold;color:#065f46;font-size:15px}
+.nav-links{display:flex;gap:20px}
+.nav-links a{text-decoration:none;color:#333;font-weight:600}
+.nav-links a:hover{color:#059669}
 
-    .logo {
-      height: 55px;
-    }
+/* HERO */
+.hero{padding:60px 20px;text-align:center;background:linear-gradient(#ecfdf5,#fff)}
+.hero h1{font-size:30px;color:#064e3b}
+.hero p{color:#065f46;margin:10px 0 20px}
+.btn{background:#059669;color:#fff;padding:14px 25px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block;margin:5px}
 
-    .company-name {
-      font-weight: bold;
-      font-size: 18px;
-      color: #1b5e20;
-    }
+/* TRUST */
+.trust{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:20px;font-size:14px}
 
-    .nav-links {
-      display: flex;
-      gap: 25px;
-    }
+/* PRODUCTS */
+.section{padding:40px 20px;text-align:center}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
+.card{background:#fff;border-radius:12px;padding:15px;box-shadow:0 5px 15px rgba(0,0,0,.08)}
+.card img{width:100%;height:150px;object-fit:contain}
 
-    .nav-links a {
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-      padding: 8px 14px;
-      border-radius: 20px;
-      transition: 0.3s;
-    }
+/* VIDEO */
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
 
-    .nav-links a:hover {
-      background: #e8f5e9;
-      color: green;
-    }
+/* CTA */
+.cta{background:#065f46;color:#fff;text-align:center;padding:50px 20px}
+.cta h2{font-size:26px}
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-      url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');
-      background-size: cover;
-      background-position: center;
-      height: 450px;
-      color: white;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 20px;
-    }
+/* FOOTER */
+.footer{background:#111;color:#aaa;text-align:center;padding:20px;font-size:13px}
 
-    .hero h1 { font-size: 32px; }
-    .hero p { font-size: 18px; }
+/* FLOAT */
+.float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;padding:15px;border-radius:50px;text-decoration:none}
 
-    .btn {
-      background: #00c853;
-      padding: 12px 25px;
-      border-radius: 25px;
-      color: white;
-      text-decoration: none;
-      margin: 8px;
-      display: inline-block;
-      font-weight: bold;
-    }
-
-    .section {
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .products {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      width: 200px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: contain;
-    }
-
-    .trust {
-      background: #ffffff;
-      padding: 30px;
-      margin: 20px;
-      border-radius: 10px;
-    }
-
-    .videos {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    iframe {
-      border-radius: 10px;
-    }
-
-    .footer {
-      background: green;
-      color: white;
-      text-align: center;
-      padding: 15px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 600px) {
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-      }
-
-      .company-name {
-        font-size: 12px;
-      }
-
-      .logo {
-        height: 40px;
-      }
-    }
-  </style>
+@media(max-width:600px){
+.nav-links{display:none}
+.company{font-size:12px}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <div>📞 8434813523</div>
-    <div>📧 devdicherbal@gmail.com</div>
-  </div>
+<!-- TOP -->
+<div class="topbar">
+<div>📞 8434813523</div>
+<div>🚚 Free Delivery</div>
+</div>
 
-  <!-- NAVBAR -->
-  <div class="navbar">
+<!-- NAV -->
+<div class="navbar">
+<div class="logo-box">
+<img src="devdic logo.png" class="logo">
+<div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
+</div>
 
-    <div class="logo-box">
-      <img src="devdic logo.png" class="logo">
-      <span class="company-name">DEVDIC HERBAL OPC PRIVATE LIMITED</span>
-    </div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="product.html">Products</a>
+<a href="testimonials.html">Testimonials</a>
+</div>
+</div>
 
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="product.html">Products</a>
-      <a href="testimonials.html">Testimonials</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
+<!-- HERO -->
+<div class="hero">
+<h1>Diabetes Control Karein<br>Natural Ayurvedic Treatment Se</h1>
+<p>5000+ Patients ko fayda • No Side Effects • Doctor Guided</p>
 
-  <!-- HERO -->
-  <div class="hero">
-    <h1>Ayurvedic Diabetes Treatment</h1>
-    <p>Control Sugar Naturally | Safe & Herbal Solution</p>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe diabetes problem hai">💬 Free Consultation</a>
+<a class="btn" href="product.html">View Products</a>
 
-    <a class="btn" href="https://wa.me/918434813523?text=Namaste Doctor ji, mujhe diabetes problem hai" target="_blank">
-      💬 Free Consultation
-    </a>
+<div class="trust">
+<div>✔ 100% Herbal</div>
+<div>✔ Safe Treatment</div>
+<div>✔ Fast Result</div>
+</div>
+</div>
 
-    <a class="btn" href="product.html">View Products</a>
+<!-- PRODUCTS -->
+<div class="section">
+<h2>Our Products</h2>
 
-    <p>✔ 5000+ Patients Treated</p>
-  </div>
+<div class="products">
 
-  <!-- TRUST -->
-  <div class="trust">
-    <h2>Why Choose DEVDIC HERBAL?</h2>
-    <p>✔ 100% Ayurvedic Treatment</p>
-    <p>✔ No Side Effects</p>
-    <p>✔ Doctor Guided Treatment</p>
-  </div>
+<div class="card">
+<img src="db-boost.jpg">
+<h3>DB BOOST</h3>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe DB BOOST chahiye">Order</a>
+</div>
 
-  <!-- PRODUCTS -->
-  <div class="section">
-    <h2>Our Products</h2>
+<div class="card">
+<img src="db-life.jpg">
+<h3>DB LIFE</h3>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe DB LIFE chahiye">Order</a>
+</div>
 
-    <div class="products">
-      <a href="https://wa.me/918434813523?text=Mujhe DB BOOST chahiye" target="_blank">
-        <div class="card">
-          <img src="db-boost.jpg">
-          <h3>DB BOOST</h3>
-        </div>
-      </a>
+<div class="card">
+<img src="dabatas.jpg">
+<h3>DABATAS</h3>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe DABATAS chahiye">Order</a>
+</div>
 
-      <a href="https://wa.me/918434813523?text=Mujhe DB LIFE chahiye" target="_blank">
-        <div class="card">
-          <img src="db-life.jpg">
-          <h3>DB LIFE</h3>
-        </div>
-      </a>
+<div class="card">
+<img src="sugar-key.jpg">
+<h3>SUGAR KEY</h3>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe SUGAR KEY chahiye">Order</a>
+</div>
 
-      <a href="https://wa.me/918434813523?text=Mujhe DABATAS chahiye" target="_blank">
-        <div class="card">
-          <img src="dabatas.jpg">
-          <h3>DABATAS</h3>
-        </div>
-      </a>
+</div>
+</div>
 
-      <a href="https://wa.me/918434813523?text=Mujhe SUGAR KEY chahiye" target="_blank">
-        <div class="card">
-          <img src="sugar-key.jpg">
-          <h3>SUGAR KEY</h3>
-        </div>
-      </a>
-    </div>
-  </div>
+<!-- VIDEOS -->
+<div class="section">
+<h2>🎥 Real Patient Results</h2>
 
-  <!-- VIDEO TESTIMONIALS -->
-  <div class="section">
-    <h2>🎥 Real Patient Video Testimonials</h2>
-    <p>देखें हमारे मरीजों का असली अनुभव</p>
+<div class="videos">
+<iframe src="https://www.youtube.com/embed/goA_3s4YYZ8"></iframe>
+<iframe src="https://www.youtube.com/embed/XO_ofb4noFw"></iframe>
+<iframe src="https://www.youtube.com/embed/q4hB-L0yRUE"></iframe>
+<iframe src="https://www.youtube.com/embed/AdPOk6dyDEE"></iframe>
+</div>
 
-    <div class="videos">
-      <iframe width="300" height="200" src="https://www.youtube.com/embed/goA_3s4YYZ8"></iframe>
-      <iframe width="300" height="200" src="https://www.youtube.com/embed/XO_ofb4noFw"></iframe>
-      <iframe width="300" height="200" src="https://www.youtube.com/embed/q4hB-L0yRUE"></iframe>
-      <iframe width="300" height="200" src="https://www.youtube.com/embed/AdPOk6dyDEE"></iframe>
-      <iframe width="300" height="200" src="https://www.youtube.com/embed/iGbzq_UgioY"></iframe>
-    </div>
+<br>
+<a class="btn" href="testimonials.html">View All Testimonials</a>
+</div>
 
-    <p>आप भी अपना sugar control करना चाहते हैं?</p>
+<!-- CTA -->
+<div class="cta">
+<h2>Abhi Doctor Se Baat Karein</h2>
+<p>Delay mat karo — diabetes control possible hai</p>
 
-    <a class="btn" href="https://wa.me/918434813523?text=Mujhe diabetes consultation chahiye" target="_blank">
-      💬 WhatsApp Now
-    </a>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe consultation chahiye">💬 WhatsApp Now</a>
+</div>
 
-    <br>
-    <a class="btn" href="testimonials.html">
-      🎥 View All Testimonials
-    </a>
-  </div>
+<!-- FOOTER -->
+<div class="footer">
+© DEVDIC HERBAL • All Rights Reserved
+</div>
 
-  <!-- FINAL CTA -->
-  <div class="section">
-    <h2>Still Confused?</h2>
-    <p>Talk directly to doctor now</p>
-
-    <a class="btn" href="https://wa.me/918434813523?text=Mujhe consultation chahiye" target="_blank">
-      💬 Chat on WhatsApp
-    </a>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    © DEVDIC HERBAL
-  </div>
-
-  <!-- FLOAT BUTTON -->
-  <a href="https://wa.me/918434813523?text=Namaste Doctor ji, mujhe sugar problem hai" 
-  target="_blank"
-  style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;
-  padding:14px 18px;border-radius:50px;text-decoration:none;font-weight:bold;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);z-index:1000;">
-  💬 Chat
-  </a>
+<!-- FLOAT -->
+<a class="float" href="https://wa.me/918434813523">💬</a>
 
 </body>
 </html>
