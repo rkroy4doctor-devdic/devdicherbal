@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Us - DEVDIC HERBAL</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f5f5f5}
+
+/* TOP */
+.topbar{background:#0f766e;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px}
+
+/* NAV */
+.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.logo-box{display:flex;align-items:center;gap:10px}
+.logo{height:45px}
+.company{font-weight:bold;color:#065f46;font-size:14px}
+.nav-links{display:flex;gap:20px}
+.nav-links a{text-decoration:none;color:#333;font-weight:600}
+
+/* CONTENT */
+.section{padding:40px 20px;text-align:center}
+
+.box{
+background:#fff;
+padding:25px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+max-width:500px;
+margin:auto;
+}
+
+.btn{
+display:inline-block;
+margin-top:15px;
+padding:12px 20px;
+background:#25D366;
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+<div>📞 8434813523</div>
+<div>🚚 Free Delivery Available</div>
+</div>
+
+<div class="navbar">
+<div class="logo-box">
+<img src="devdic logo.png" class="logo">
+<div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
+</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="product.html">Products</a>
+<a href="testimonials.html">Testimonials</a>
+</div>
+</div>
+
+<div class="section">
+
+<div class="box">
+
+<h2>Contact Us</h2>
+
+<p>📞 Phone: 8434813523</p>
+<p>📧 Email: devdicherbal@gmail.com</p>
+<p>📍 Location: India</p>
+
+<a class="btn" href="https://wa.me/918434813523?text=Contact page se aaya hu, mujhe consultation chahiye" target="_blank">
+💬 WhatsApp Karein
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>
