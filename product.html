@@ -7,48 +7,48 @@
 <title>Our Products - DEVDIC HERBAL</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#f5f5f5}
+body{margin:0;font-family:Arial;background:#f5f5f5;color:#222}
 
 /* TOP */
 .topbar{background:#0f766e;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px}
 
-/* NAVBAR */
-.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+/* NAV */
+.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.08)}
 .logo-box{display:flex;align-items:center;gap:10px}
 .logo{height:45px}
 .company{font-weight:bold;color:#065f46;font-size:14px}
-
 .nav-links{display:flex;gap:20px}
 .nav-links a{text-decoration:none;color:#333;font-weight:600}
 .nav-links a:hover{color:#059669}
 
-/* TITLE */
-h1{text-align:center;padding:20px;color:#064e3b}
+/* HEADER */
+.header{text-align:center;padding:40px 20px;background:linear-gradient(#ecfdf5,#fff)}
+.header h1{color:#064e3b}
 
 /* PRODUCTS */
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
 gap:20px;
 padding:20px;
 }
 
 .card{
 background:#fff;
-padding:15px;
-border-radius:12px;
+padding:18px;
+border-radius:14px;
 text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-transition:.3s;
+box-shadow:0 6px 18px rgba(0,0,0,.08);
+transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
 }
 
 .card img{
 width:100%;
-height:200px;
+height:180px;
 object-fit:contain;
 }
 
@@ -60,6 +60,7 @@ object-fit:contain;
 font-weight:bold;
 color:#065f46;
 font-size:16px;
+margin:8px 0;
 }
 
 .btn{
@@ -71,6 +72,27 @@ color:white;
 border-radius:8px;
 text-decoration:none;
 font-weight:bold;
+}
+
+/* FOOTER */
+.footer{
+background:#111;
+color:#aaa;
+text-align:center;
+padding:20px;
+font-size:13px;
+}
+
+/* FLOAT */
+.float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:#fff;
+padding:15px;
+border-radius:50px;
+text-decoration:none;
 }
 
 /* MOBILE */
@@ -103,108 +125,148 @@ font-weight:bold;
 </div>
 </div>
 
+<!-- HEADER -->
+<div class="header">
 <h1>Our Products</h1>
+<p>Ayurvedic Diabetes Care Products</p>
+</div>
 
+<!-- PRODUCTS -->
 <div class="products">
 
-<!-- PRODUCT CARD -->
 <div class="card">
 <img src="db-boost.jpg">
 <h3>DB BOOST</h3>
 <p>Control Blood Sugar + Boost Energy</p>
-<p class="price">₹510</p>
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe DB BOOST order karna hai">Order Now</a>
+<div class="price">₹510</div>
+<a class="btn" href="https://wa.me/918434813523?text=Product DB BOOST ke liye aaya hu" target="_blank">
+Order Now
+</a>
 </div>
 
 <div class="card">
 <img src="db-life.jpg">
 <h3>DB LIFE</h3>
 <p>Daily Diabetes Support</p>
-<p class="price">₹544</p>
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe DB LIFE order karna hai">Order Now</a>
+<div class="price">₹544</div>
+<a class="btn" href="https://wa.me/918434813523?text=Product DB LIFE ke liye aaya hu" target="_blank">
+Order Now
+</a>
 </div>
 
 <div class="card">
 <img src="dabatas.jpg">
 <h3>DABATAS</h3>
 <p>Anti-Diabetic Herbal Powder</p>
-<p class="price">₹520</p>
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe DABATAS order karna hai">Order Now</a>
+<div class="price">₹520</div>
+<a class="btn" href="https://wa.me/918434813523?text=Product DABATAS ke liye aaya hu" target="_blank">
+Order Now
+</a>
 </div>
 
 <div class="card">
 <img src="db-pan-10.png">
 <h3>DB PAN 10</h3>
 <p>Supports Pancreas Function</p>
-<p class="price">₹220</p>
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe DB PAN 10 order karna hai">Order Now</a>
+<div class="price">₹220</div>
+<a class="btn" href="https://wa.me/918434813523?text=Product DB PAN 10 ke liye aaya hu" target="_blank">
+Order Now
+</a>
 </div>
 
 <div class="card">
 <img src="dbx.png">
 <h3>DBX Capsules</h3>
 <p>Supports glucose balance</p>
-<p class="price">₹52</p>
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe DBX Capsules order karna hai">Order Now</a>
+<div class="price">₹52</div>
+<a class="btn" href="https://wa.me/918434813523?text=Product DBX Capsules ke liye aaya hu" target="_blank">
+Order Now
+</a>
 </div>
 
 <div class="card">
 <img src="dbx-qr.png">
 <h3>DBX-QR Capsules</h3>
 <p>Supports sugar control</p>
-<p class="price">₹270</p>
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe DBX-QR Capsules order karna hai">Order Now</a>
+<div class="price">₹270</div>
+<a class="btn" href="https://wa.me/918434813523?text=Product DBX-QR Capsules ke liye aaya hu" target="_blank">
+Order Now
+</a>
 </div>
 
 <div class="card">
 <img src="gem.png">
 <h3>DBX-Gem Capsules</h3>
 <p>Reduces sugar cravings</p>
-<p class="price">₹560</p>
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe DBX-Gem Capsules order karna hai">Order Now</a>
+<div class="price">₹560</div>
+<a class="btn" href="https://wa.me/918434813523?text=Product DBX-Gem Capsules ke liye aaya hu" target="_blank">
+Order Now
+</a>
 </div>
 
 <div class="card">
 <img src="pan-po.png">
 <h3>DB-PAN Powder</h3>
 <p>Supports pancreas health</p>
-<p class="price">₹545</p>
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe DB-PAN Powder order karna hai">Order Now</a>
+<div class="price">₹545</div>
+<a class="btn" href="https://wa.me/918434813523?text=Product DB-PAN Powder ke liye aaya hu" target="_blank">
+Order Now
+</a>
 </div>
 
 <div class="card">
 <img src="quick-qr.png">
 <h3>QUICK-QR Churan</h3>
 <p>Relieves constipation</p>
-<p class="price">₹110</p>
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe QUICK-QR Churan order karna hai">Order Now</a>
+<div class="price">₹110</div>
+<a class="btn" href="https://wa.me/918434813523?text=Product QUICK-QR ke liye aaya hu" target="_blank">
+Order Now
+</a>
 </div>
 
 <div class="card">
 <img src="sugar-low.png">
 <h3>SUGAR-LOW Powder</h3>
 <p>Controls sugar spikes</p>
-<p class="price">₹510</p>
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe SUGAR-LOW Powder order karna hai">Order Now</a>
+<div class="price">₹510</div>
+<a class="btn" href="https://wa.me/918434813523?text=Product SUGAR-LOW ke liye aaya hu" target="_blank">
+Order Now
+</a>
 </div>
 
 <div class="card">
 <img src="sun.png">
 <h3>DBX-Sun Drops</h3>
 <p>Vitamin D Support</p>
-<p class="price">₹450</p>
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe DBX-Sun Drops order karna hai">Order Now</a>
+<div class="price">₹450</div>
+<a class="btn" href="https://wa.me/918434813523?text=Product DBX-Sun ke liye aaya hu" target="_blank">
+Order Now
+</a>
 </div>
 
 <div class="card">
 <img src="suger-key-p.png">
 <h3>SUGAR-KEY Powder</h3>
 <p>Controls fasting sugar</p>
-<p class="price">₹540</p>
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe SUGAR-KEY Powder order karna hai">Order Now</a>
+<div class="price">₹540</div>
+<a class="btn" href="https://wa.me/918434813523?text=Product SUGAR-KEY ke liye aaya hu" target="_blank">
+Order Now
+</a>
 </div>
 
 </div>
+
+<!-- FOOTER -->
+<div class="footer">
+🌿 DEVDIC HERBAL<br>
+📞 8434813523 | 📧 devdicherbal@gmail.com<br>
+© 2025 All Rights Reserved
+</div>
+
+<!-- FLOAT -->
+<a class="float" href="https://wa.me/918434813523?text=Product page se aaya hu" target="_blank">
+💬
+</a>
 
 </body>
 </html>
