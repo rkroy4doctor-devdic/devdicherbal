@@ -31,8 +31,20 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .logo {
       height: 55px;
+    }
+
+    .company-name {
+      font-weight: bold;
+      font-size: 18px;
+      color: #1b5e20;
     }
 
     .nav-links {
@@ -134,7 +146,7 @@
       padding: 15px;
     }
 
-    /* MOBILE FIX */
+    /* MOBILE */
     @media (max-width: 600px) {
       .nav-links {
         flex-wrap: wrap;
@@ -142,11 +154,14 @@
         gap: 10px;
       }
 
+      .company-name {
+        font-size: 12px;
+      }
+
       .logo {
         height: 40px;
       }
     }
-
   </style>
 </head>
 
@@ -160,7 +175,11 @@
 
   <!-- NAVBAR -->
   <div class="navbar">
-    <img src="devdic logo.png" class="logo">
+
+    <div class="logo-box">
+      <img src="devdic logo.png" class="logo">
+      <span class="company-name">DEVDIC HERBAL OPC PRIVATE LIMITED</span>
+    </div>
 
     <div class="nav-links">
       <a href="index.html">Home</a>
