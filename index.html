@@ -22,10 +22,8 @@ body{margin:0;font-family:Arial;background:#f5f5f5;color:#222}
 .nav-links{display:flex;gap:20px}
 .nav-links a{text-decoration:none;color:#333;font-weight:600}
 
-/* ✅ ACTIVE LINK */
-.nav-links a.active{
-color:#059669;
-}
+/* ACTIVE LINK */
+.nav-links a.active{color:#059669}
 
 /* HOVER */
 .nav-links a:hover{color:#059669}
@@ -111,7 +109,7 @@ display:flex;
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
 <div class="nav-links" id="navLinks">
-<a href="index.html" class="active">Home</a>
+<a href="index.html">Home</a>
 <a href="product.html">Products</a>
 <a href="testimonials.html">Testimonials</a>
 <a href="about.html">About</a>
@@ -206,12 +204,21 @@ display:flex;
 <a class="float" href="https://wa.me/918434813523" target="_blank">💬</a>
 
 <script>
+// TOGGLE MENU
 function toggleMenu(){
 document.getElementById("navLinks").classList.toggle("active");
 }
 
-/* ✅ AUTO CLOSE MENU */
+// AUTO ACTIVE LINK + AUTO CLOSE
+let currentPage = window.location.pathname.split("/").pop();
+
 document.querySelectorAll("#navLinks a").forEach(link=>{
+let linkPage = link.getAttribute("href");
+
+if(linkPage === currentPage){
+link.classList.add("active");
+}
+
 link.addEventListener("click",()=>{
 document.getElementById("navLinks").classList.remove("active");
 });
