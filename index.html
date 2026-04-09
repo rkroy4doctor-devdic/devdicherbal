@@ -4,10 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Devdic Herbal – Diabetes Control Ayurvedic System</title>
+<title>Devdic Herbal – Diabetes Control Ayurvedic Treatment</title>
 
 <style>
 body{margin:0;font-family:Arial;background:#f5f5f5;color:#222}
+
+/* URGENCY */
+.urgency{
+background:#dc2626;
+color:#fff;
+text-align:center;
+padding:8px;
+font-size:13px;
+}
 
 /* TOP */
 .topbar{background:#065f46;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px}
@@ -28,12 +37,10 @@ box-shadow:0 2px 10px rgba(0,0,0,.08)
 .logo{height:40px}
 .company{font-size:13px;font-weight:bold;color:#065f46}
 
-/* NAV LINKS */
 .nav-links{display:flex;gap:20px}
 .nav-links a{text-decoration:none;color:#333;font-weight:600}
 .nav-links a.active{color:#059669}
 
-/* MOBILE MENU */
 .menu-toggle{display:none;font-size:26px;cursor:pointer}
 
 @media(max-width:600px){
@@ -50,15 +57,16 @@ box-shadow:0 5px 15px rgba(0,0,0,.1);
 padding:10px;
 }
 .nav-links.active{display:flex}
+.hero h1{font-size:24px}
 }
 
 /* HERO */
 .hero{
-padding:100px 20px 60px;
+padding:120px 20px 60px;
 text-align:center;
 background:linear-gradient(#ecfdf5,#fff)
 }
-.hero h1{font-size:28px;color:#064e3b}
+.hero h1{font-size:30px;color:#064e3b;line-height:1.4}
 .hero p{margin:15px 0;color:#065f46}
 
 .btn{
@@ -70,10 +78,11 @@ text-decoration:none;
 font-weight:bold;
 display:inline-block;
 margin:6px;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
 }
 .btn:hover{background:#047857}
 
-/* TRUST BAR */
+/* TRUST */
 .trust{
 display:flex;
 justify-content:center;
@@ -105,6 +114,15 @@ border:none;
 border-radius:10px
 }
 
+/* TESTIMONIAL */
+.testimonial{
+background:#fff;
+padding:15px;
+border-radius:10px;
+margin:20px;
+box-shadow:0 5px 15px rgba(0,0,0,.1)
+}
+
 /* PRODUCTS */
 .products{
 display:grid;
@@ -118,6 +136,15 @@ padding:15px;
 box-shadow:0 5px 15px rgba(0,0,0,.08)
 }
 .card img{width:100%;height:150px;object-fit:contain}
+
+/* ALERT */
+.alert{
+background:#065f46;
+color:#fff;
+padding:20px;
+margin:20px;
+border-radius:10px;
+}
 
 /* CTA */
 .cta{
@@ -144,18 +171,17 @@ background:#25D366;
 color:#fff;
 padding:16px;
 border-radius:50%;
-font-size:20px;
 z-index:9999;
 }
 
-/* STICKY BAR */
+/* BOTTOM BAR */
 .bottom-bar{
 position:fixed;
 bottom:0;
 width:100%;
 background:#25D366;
 text-align:center;
-padding:14px;
+padding:12px;
 font-weight:bold;
 z-index:9999;
 }
@@ -164,6 +190,10 @@ z-index:9999;
 </head>
 
 <body>
+
+<div class="urgency">
+⚠ Aaj Free Consultation + Discount Available
+</div>
 
 <div class="topbar">
 <div>📞 8434813523</div>
@@ -188,11 +218,12 @@ z-index:9999;
 
 <!-- HERO -->
 <div class="hero">
-<h1>India’s Trusted Ayurvedic Diabetes Care Brand</h1>
-<p>5000+ Patients • Real Results • Safe Treatment</p>
+<h1>15 Din Me Sugar Control Shuru Karein – Real Patient Results</h1>
 
-<a class="btn" href="https://wa.me/918434813523">
-💬 Free Consultation
+<p>5000+ Patients • 4.8★ Rating • Safe Ayurvedic Treatment</p>
+
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe%20apna%20sugar%20control%20karna%20hai">
+💬 WhatsApp Par Free Doctor Advice
 </a>
 
 <div class="trust">
@@ -203,9 +234,15 @@ z-index:9999;
 </div>
 </div>
 
-<!-- VIDEO FIRST -->
+<!-- TESTIMONIAL -->
+<div class="testimonial">
+“Mera sugar 280 se 130 aa gaya sirf 1 mahine me.”
+<br><b>– Real Patient</b>
+</div>
+
+<!-- VIDEO -->
 <div class="section">
-<h2>🎥 Real Patient Results (Proof)</h2>
+<h2>🎥 Real Patient Results</h2>
 
 <div class="videos">
 <iframe src="https://www.youtube.com/embed/goA_3s4YYZ8"></iframe>
@@ -214,9 +251,21 @@ z-index:9999;
 </div>
 </div>
 
-<!-- PRODUCT -->
+<!-- PROOF -->
 <div class="section">
-<h2>Our Best Ayurvedic Products</h2>
+<h2>📊 Real Results</h2>
+<p>Before: 280 → After: 130</p>
+<p>HbA1c: 9.5 → 6.8</p>
+</div>
+
+<!-- ALERT -->
+<div class="alert">
+⚠ Agar sugar 200+ hai to delay mat karein
+</div>
+
+<!-- PRODUCTS -->
+<div class="section">
+<h2>Our Products</h2>
 
 <div class="products">
 <div class="card">
@@ -231,16 +280,9 @@ z-index:9999;
 </div>
 </div>
 
-<!-- WHY US -->
-<div class="section">
-<h2>Why Devdic Herbal?</h2>
-<p>Doctor change ho sakta hai, lekin system nahi</p>
-<p>Har patient ko structured treatment diya jata hai</p>
-</div>
-
 <!-- CTA -->
 <div class="cta">
-<h2>Aaj Hi Apna Sugar Control Karein</h2>
+<h2>Aaj Hi Shuruaat Karein</h2>
 <a class="btn" href="https://wa.me/918434813523">💬 WhatsApp Karein</a>
 </div>
 
