@@ -61,6 +61,12 @@ color:#333;
 font-weight:600;
 }
 
+/* ✅ ACTIVE LINK */
+.nav-links a.active{
+color:#059669;
+}
+
+/* HOVER */
 .nav-links a:hover{
 color:#059669;
 }
@@ -175,98 +181,43 @@ text-decoration:none;
 <h2 class="heading">Our Products</h2>
 
 <div class="products">
-
-<div class="card">
-<img src="db-boost.jpg">
-<h3>DB BOOST</h3>
-<p>₹510</p>
-<a class="btn" href="product-detail.html?id=db-boost">View Details</a>
-</div>
-
-<div class="card">
-<img src="db-life.jpg">
-<h3>DB LIFE</h3>
-<p>₹544</p>
-<a class="btn" href="product-detail.html?id=db-life">View Details</a>
-</div>
-
-<div class="card">
-<img src="dabatas.jpg">
-<h3>DABATAS</h3>
-<p>₹520</p>
-<a class="btn" href="product-detail.html?id=dabatas">View Details</a>
-</div>
-
-<div class="card">
-<img src="db-pan-10.png">
-<h3>DB PAN 10</h3>
-<p>₹220</p>
-<a class="btn" href="product-detail.html?id=db-pan-10">View Details</a>
-</div>
-
-<div class="card">
-<img src="dbx.png">
-<h3>DBX Capsules</h3>
-<p>₹52</p>
-<a class="btn" href="product-detail.html?id=dbx">View Details</a>
-</div>
-
-<div class="card">
-<img src="dbx-qr.png">
-<h3>DBX-QR</h3>
-<p>₹270</p>
-<a class="btn" href="product-detail.html?id=dbx-qr">View Details</a>
-</div>
-
-<div class="card">
-<img src="gem.png">
-<h3>DBX-Gem</h3>
-<p>₹560</p>
-<a class="btn" href="product-detail.html?id=dbx-gem">View Details</a>
-</div>
-
-<div class="card">
-<img src="pan-po.png">
-<h3>DB-PAN Powder</h3>
-<p>₹545</p>
-<a class="btn" href="product-detail.html?id=db-pan">View Details</a>
-</div>
-
-<div class="card">
-<img src="quick-qr.png">
-<h3>QUICK-QR</h3>
-<p>₹110</p>
-<a class="btn" href="product-detail.html?id=quick-qr">View Details</a>
-</div>
-
-<div class="card">
-<img src="sugar-low.png">
-<h3>SUGAR-LOW</h3>
-<p>₹510</p>
-<a class="btn" href="product-detail.html?id=sugar-low">View Details</a>
-</div>
-
-<div class="card">
-<img src="sun.png">
-<h3>DBX-Sun</h3>
-<p>₹450</p>
-<a class="btn" href="product-detail.html?id=dbx-sun">View Details</a>
-</div>
-
-<div class="card">
-<img src="suger-key-p.png">
-<h3>SUGAR-KEY</h3>
-<p>₹540</p>
-<a class="btn" href="product-detail.html?id=sugar-key">View Details</a>
-</div>
-
+<!-- SAME PRODUCTS (unchanged) -->
+<div class="card"><img src="db-boost.jpg"><h3>DB BOOST</h3><p>₹510</p><a class="btn" href="product-detail.html?id=db-boost">View Details</a></div>
+<div class="card"><img src="db-life.jpg"><h3>DB LIFE</h3><p>₹544</p><a class="btn" href="product-detail.html?id=db-life">View Details</a></div>
+<div class="card"><img src="dabatas.jpg"><h3>DABATAS</h3><p>₹520</p><a class="btn" href="product-detail.html?id=dabatas">View Details</a></div>
+<div class="card"><img src="db-pan-10.png"><h3>DB PAN 10</h3><p>₹220</p><a class="btn" href="product-detail.html?id=db-pan-10">View Details</a></div>
+<div class="card"><img src="dbx.png"><h3>DBX Capsules</h3><p>₹52</p><a class="btn" href="product-detail.html?id=dbx">View Details</a></div>
+<div class="card"><img src="dbx-qr.png"><h3>DBX-QR</h3><p>₹270</p><a class="btn" href="product-detail.html?id=dbx-qr">View Details</a></div>
+<div class="card"><img src="gem.png"><h3>DBX-Gem</h3><p>₹560</p><a class="btn" href="product-detail.html?id=dbx-gem">View Details</a></div>
+<div class="card"><img src="pan-po.png"><h3>DB-PAN Powder</h3><p>₹545</p><a class="btn" href="product-detail.html?id=db-pan">View Details</a></div>
+<div class="card"><img src="quick-qr.png"><h3>QUICK-QR</h3><p>₹110</p><a class="btn" href="product-detail.html?id=quick-qr">View Details</a></div>
+<div class="card"><img src="sugar-low.png"><h3>SUGAR-LOW</h3><p>₹510</p><a class="btn" href="product-detail.html?id=sugar-low">View Details</a></div>
+<div class="card"><img src="sun.png"><h3>DBX-Sun</h3><p>₹450</p><a class="btn" href="product-detail.html?id=dbx-sun">View Details</a></div>
+<div class="card"><img src="suger-key-p.png"><h3>SUGAR-KEY</h3><p>₹540</p><a class="btn" href="product-detail.html?id=sugar-key">View Details</a></div>
 </div>
 
 <!-- SCRIPT -->
 <script>
+
+// TOGGLE MENU
 function toggleMenu(){
 document.getElementById("navLinks").classList.toggle("active");
 }
+
+// AUTO ACTIVE + AUTO CLOSE
+let currentPage = window.location.pathname.split("/").pop();
+
+document.querySelectorAll("#navLinks a").forEach(link=>{
+let linkPage = link.getAttribute("href");
+
+if(linkPage === currentPage){
+link.classList.add("active");
+}
+
+link.addEventListener("click",()=>{
+document.getElementById("navLinks").classList.remove("active");
+});
+});
 </script>
 
 </body>
