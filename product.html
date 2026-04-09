@@ -1,12 +1,214 @@
-<div class="products">
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- DB BOOST -->
-<div class="card">
+<title>DB BOOST - DEVDIC HERBAL</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#f5f5f5;
+color:#222;
+}
+
+/* TOP */
+.topbar{
+background:#0f766e;
+color:#fff;
+padding:8px 15px;
+display:flex;
+justify-content:space-between;
+font-size:13px;
+}
+
+/* NAV */
+.navbar{
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 20px;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.logo-box{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo{height:45px}
+
+.company{
+font-weight:bold;
+color:#065f46;
+font-size:14px;
+}
+
+/* NAV LINKS */
+.nav-links{
+display:flex;
+gap:20px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#333;
+font-weight:600;
+}
+
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+}
+
+/* CONTAINER */
+.container{
+max-width:1000px;
+margin:40px auto;
+background:#fff;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+/* PRODUCT */
+.product{
+display:flex;
+gap:30px;
+align-items:center;
+}
+
+.product img{
+width:100%;
+max-width:350px;
+}
+
+/* DETAILS */
+.details h2{
+color:#064e3b;
+}
+
+.price{
+font-size:18px;
+font-weight:bold;
+margin:10px 0;
+color:#065f46;
+}
+
+ul{
+padding-left:20px;
+}
+
+.btn{
+display:inline-block;
+margin-top:15px;
+padding:12px 22px;
+background:#25D366;
+color:#fff;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* FOOTER */
+.footer{
+background:#111;
+color:#aaa;
+text-align:center;
+padding:20px;
+font-size:13px;
+margin-top:40px;
+}
+
+/* FLOAT */
+.float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:#fff;
+padding:15px;
+border-radius:50px;
+text-decoration:none;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.product{
+flex-direction:column;
+text-align:center;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.nav-links{
+position:absolute;
+top:60px;
+right:0;
+background:#fff;
+flex-direction:column;
+width:200px;
+display:none;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+padding:10px;
+}
+
+.nav-links.active{
+display:flex;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP -->
+<div class="topbar">
+<div>📞 8434813523</div>
+<div>🚚 Free Delivery Available</div>
+</div>
+
+<!-- NAV -->
+<div class="navbar">
+<div class="logo-box">
+<img src="devdic logo.png" class="logo">
+<div class="company">DEVDIC HERBAL</div>
+</div>
+
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<div class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="product.html">Products</a>
+<a href="#">Testimonials</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</div>
+</div>
+
+<!-- PRODUCT -->
+<div class="container">
+<div class="product">
+
 <img src="db-boost.jpg">
-<h3>DB BOOST</h3>
-<p><b>Weight:</b> 60 gm | <b>₹510</b></p>
 
-<ul style="text-align:left;font-size:14px">
+<div class="details">
+<h2>DB BOOST</h2>
+
+<div class="price">Weight: 60 gm | ₹510</div>
+
+<ul>
 <li>✔ Helps control blood sugar level</li>
 <li>✔ Boosts energy & reduces weakness</li>
 <li>✔ Supports healthy metabolism</li>
@@ -15,205 +217,32 @@
 
 <p><b>Usage:</b> Doctor ki salah ke anusaar</p>
 
-<a class="btn" href="https://wa.me/918434813523?text=DB BOOST order" target="_blank">Order Now</a>
-</div>
+<a class="btn" href="https://wa.me/918434813523?text=DB BOOST order" target="_blank">
+Order Now
+</a>
 
-<!-- DB LIFE -->
-<div class="card">
-<img src="db-life.jpg">
-<h3>DB LIFE</h3>
-<p><b>Weight:</b> 60 gm | <b>₹544</b></p>
-
-<ul style="text-align:left;font-size:14px">
-<li>✔ Helps in blood sugar management</li>
-<li>✔ Boosts energy level</li>
-<li>✔ Helps reduce sugar spikes</li>
-<li>✔ Supports daily diabetes care</li>
-</ul>
-
-<p><b>Usage:</b> Doctor ki salah ke anusaar</p>
-
-<a class="btn" href="https://wa.me/918434813523?text=DB LIFE order" target="_blank">Order Now</a>
-</div>
-
-<!-- DABATAS -->
-<div class="card">
-<img src="dabatas.jpg">
-<h3>DABATAS</h3>
-<p><b>Weight:</b> 60 gm | <b>₹520</b></p>
-
-<ul style="text-align:left;font-size:14px">
-<li>✔ Helps control blood sugar</li>
-<li>✔ Supports insulin function</li>
-<li>✔ Maintains pancreas health</li>
-<li>✔ Ayurvedic formulation</li>
-</ul>
-
-<p><b>Usage:</b> Doctor ki salah ke anusaar</p>
-
-<a class="btn" href="#">Order Now</a>
-</div>
-
-<!-- DB PAN 10 -->
-<div class="card">
-<img src="db-pan-10.png">
-<h3>DB PAN 10</h3>
-<p><b>Qty:</b> 10 Tablets | <b>₹220</b></p>
-
-<ul style="text-align:left;font-size:14px">
-<li>✔ Supports pancreas function</li>
-<li>✔ Controls blood sugar</li>
-<li>✔ Reduces weakness</li>
-<li>✔ Improves metabolism</li>
-</ul>
-
-<p><b>Usage:</b> Doctor ki salah ke anusaar</p>
-
-<a class="btn" href="#">Order Now</a>
-</div>
-
-<!-- DBX Capsules -->
-<div class="card">
-<img src="dbx.png">
-<h3>DBX Capsules</h3>
-<p><b>Qty:</b> 10 Capsules | <b>₹52</b></p>
-
-<ul style="text-align:left;font-size:14px">
-<li>✔ Maintains glucose levels</li>
-<li>✔ Reduces fluctuations</li>
-<li>✔ Supports insulin function</li>
-<li>✔ Daily diabetes support</li>
-</ul>
-
-<p><b>Usage:</b> Doctor ki salah ke anusaar</p>
-
-<a class="btn" href="#">Order Now</a>
-</div>
-
-<!-- DBX-QR -->
-<div class="card">
-<img src="dbx-qr.png">
-<h3>DBX-QR Capsules</h3>
-<p><b>Qty:</b> 30 Capsules | <b>₹270</b></p>
-
-<ul style="text-align:left;font-size:14px">
-<li>✔ Controls blood sugar</li>
-<li>✔ Improves digestion</li>
-<li>✔ Detox support</li>
-<li>✔ Reduces bloating</li>
-</ul>
-
-<p><b>Usage:</b> Doctor ki salah ke anusaar</p>
-
-<a class="btn" href="#">Order Now</a>
-</div>
-
-<!-- DBX-GEM -->
-<div class="card">
-<img src="gem.png">
-<h3>DBX-Gem Capsules</h3>
-<p><b>Qty:</b> 30 Capsules | <b>₹560</b></p>
-
-<ul style="text-align:left;font-size:14px">
-<li>✔ Maintains sugar levels</li>
-<li>✔ Reduces sugar cravings</li>
-<li>✔ Supports pancreas</li>
-<li>✔ Improves insulin activity</li>
-</ul>
-
-<p><b>Usage:</b> Doctor ki salah ke anusaar</p>
-
-<a class="btn" href="#">Order Now</a>
-</div>
-
-<!-- DB PAN Powder -->
-<div class="card">
-<img src="pan-po.png">
-<h3>DB-PAN Powder</h3>
-<p><b>Weight:</b> 60 gm | <b>₹545</b></p>
-
-<ul style="text-align:left;font-size:14px">
-<li>✔ Supports pancreas</li>
-<li>✔ Improves insulin support</li>
-<li>✔ Controls sugar</li>
-<li>✔ Boosts energy</li>
-</ul>
-
-<p><b>Usage:</b> Doctor ki salah ke anusaar</p>
-
-<a class="btn" href="#">Order Now</a>
-</div>
-
-<!-- QUICK QR -->
-<div class="card">
-<img src="quick-qr.png">
-<h3>QUICK-QR Churan</h3>
-<p><b>Weight:</b> 60 gm | <b>₹110</b></p>
-
-<ul style="text-align:left;font-size:14px">
-<li>✔ Relieves constipation</li>
-<li>✔ Improves digestion</li>
-<li>✔ Cleans stomach</li>
-<li>✔ Reduces gas</li>
-</ul>
-
-<p><b>Usage:</b> Doctor ki salah ke anusaar</p>
-
-<a class="btn" href="#">Order Now</a>
-</div>
-
-<!-- SUGAR LOW -->
-<div class="card">
-<img src="sugar-low.png">
-<h3>SUGAR-LOW Powder</h3>
-<p><b>Weight:</b> 60 gm | <b>₹510</b></p>
-
-<ul style="text-align:left;font-size:14px">
-<li>✔ Controls post-meal sugar</li>
-<li>✔ Reduces spikes</li>
-<li>✔ Improves metabolism</li>
-<li>✔ Diabetes support</li>
-</ul>
-
-<p><b>Usage:</b> Doctor ki salah ke anusaar</p>
-
-<a class="btn" href="#">Order Now</a>
-</div>
-
-<!-- DBX SUN -->
-<div class="card">
-<img src="sun.png">
-<h3>DBX-Sun Drops</h3>
-<p><b>Weight:</b> 30 ml | <b>₹450</b></p>
-
-<ul style="text-align:left;font-size:14px">
-<li>✔ Supports bones</li>
-<li>✔ Improves immunity</li>
-<li>✔ Maintains Vitamin D</li>
-<li>✔ Overall health support</li>
-</ul>
-
-<p><b>Usage:</b> Doctor ki salah ke anusaar</p>
-
-<a class="btn" href="#">Order Now</a>
-</div>
-
-<!-- SUGAR KEY -->
-<div class="card">
-<img src="suger-key-p.png">
-<h3>SUGAR-KEY Powder</h3>
-<p><b>Weight:</b> 60 gm | <b>₹540</b></p>
-
-<ul style="text-align:left;font-size:14px">
-<li>✔ Controls fasting sugar</li>
-<li>✔ Stable glucose levels</li>
-<li>✔ Improves insulin sensitivity</li>
-<li>✔ Diabetes management</li>
-</ul>
-
-<p><b>Usage:</b> Doctor ki salah ke anusaar</p>
-
-<a class="btn" href="#">Order Now</a>
 </div>
 
 </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+🌿 DEVDIC HERBAL<br>
+📞 8434813523 | 📧 devdicherbal@gmail.com<br>
+© 2025 All Rights Reserved
+</div>
+
+<!-- FLOAT -->
+<a class="float" href="https://wa.me/918434813523?text=Product page se aaya hu" target="_blank">
+💬
+</a>
+
+<script>
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
