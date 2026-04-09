@@ -8,6 +8,16 @@
 <style>
 body{margin:0;font-family:Arial;background:#f5f5f5}
 
+/* TOP BAR */
+.topbar{
+background:#0f766e;
+color:#fff;
+padding:8px 15px;
+display:flex;
+justify-content:space-between;
+font-size:13px
+}
+
 /* NAVBAR */
 .navbar{
 background:#fff;
@@ -49,7 +59,7 @@ font-weight:600
 color:#059669
 }
 
-/* PRODUCTS GRID */
+/* PRODUCTS */
 .products{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -80,10 +90,22 @@ color:#fff;
 border-radius:8px;
 text-decoration:none;
 }
+
+/* MOBILE */
+@media(max-width:600px){
+.nav-links{display:none}
+.company{font-size:12px}
+}
 </style>
 </head>
 
 <body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+<div>📞 8434813523</div>
+<div>🚚 Free Delivery Available</div>
+</div>
 
 <!-- NAVBAR -->
 <div class="navbar">
