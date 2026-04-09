@@ -4,182 +4,91 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DEVDIC HERBAL – Diabetes Control</title>
+<title>DEVDIC HERBAL – Diabetes Control Ayurvedic Treatment</title>
 
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:#f5f5f5;
-color:#222;
-padding-bottom:80px; /* FIX for bottom bar */
-}
+body{margin:0;font-family:Arial;background:#f5f5f5;color:#222}
 
 /* TOP */
-.topbar{
-background:#0f766e;
-color:#fff;
-padding:8px 15px;
-display:flex;
-justify-content:space-between;
-font-size:13px
-}
+.topbar{background:#0f766e;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px}
 
 /* NAV */
-.navbar{
-background:#fff;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px 20px;
-position:sticky;
-top:0;
-z-index:100;
-box-shadow:0 2px 10px rgba(0,0,0,.08)
-}
+.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.logo-box{display:flex;align-items:center;gap:10px}
+.logo{height:45px}
+.company{font-weight:bold;color:#065f46;font-size:14px}
 
-.company{
-font-weight:bold;
-color:#065f46;
-font-size:14px
-}
+/* NAV LINKS */
+.nav-links{display:flex;gap:20px}
+.nav-links a{text-decoration:none;color:#333;font-weight:600}
+.nav-links a.active{color:#059669}
+.nav-links a:hover{color:#059669}
 
-.nav-links{
-display:flex;
-gap:20px
-}
-
-.nav-links a{
-text-decoration:none;
-color:#333;
-font-weight:600
-}
-
-.menu-toggle{
-display:none;
-font-size:26px;
-cursor:pointer
-}
+/* HAMBURGER */
+.menu-toggle{display:none;font-size:26px;cursor:pointer}
 
 /* HERO */
-.hero{
-padding:60px 20px;
-text-align:center;
-background:linear-gradient(#ecfdf5,#fff)
-}
-
-.hero h1{
-font-size:28px;
-color:#064e3b;
-}
-
-.hero p{
-margin:15px 0;
-color:#065f46
-}
+.hero{padding:60px 20px;text-align:center;background:linear-gradient(#ecfdf5,#fff)}
+.hero h1{font-size:30px;color:#064e3b;line-height:1.4}
+.hero p{color:#065f46;margin:15px 0 25px;font-size:15px}
 
 .btn{
 background:#059669;
 color:#fff;
-padding:14px 22px;
+padding:14px 24px;
 border-radius:10px;
 text-decoration:none;
+font-weight:bold;
 display:inline-block;
 margin:6px;
-font-weight:bold
+transition:.3s
 }
+.btn:hover{background:#047857;transform:scale(1.05)}
+
+/* TRUST */
+.trust{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:20px;font-size:14px}
+.trust div{background:#fff;padding:8px 12px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
 
 /* SECTION */
-.section{
-padding:50px 20px;
-text-align:center
-}
-
-/* VIDEO */
-.videos{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px
-}
-
-iframe{
-width:100%;
-height:200px;
-border-radius:10px;
-}
+.section{padding:50px 20px;text-align:center}
+.section h2{color:#064e3b}
 
 /* PRODUCTS */
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px
-}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}
+.card{background:#fff;border-radius:12px;padding:15px;box-shadow:0 5px 15px rgba(0,0,0,.08);transition:.3s}
+.card:hover{transform:translateY(-5px)}
+.card img{width:100%;height:150px;object-fit:contain}
 
-.card{
-background:#fff;
-padding:15px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.08)
-}
-
-.card img{
-width:100%;
-height:140px;
-object-fit:contain
-}
-
-.tag{
-background:#059669;
-color:#fff;
-padding:4px 8px;
-border-radius:6px;
-font-size:12px;
-display:inline-block;
-margin-bottom:5px
-}
+/* VIDEO */
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+iframe{width:100%;height:200px;border:none;border-radius:10px}
 
 /* CTA */
-.cta{
-background:#065f46;
-color:#fff;
-padding:60px 20px;
-text-align:center
-}
+.cta{background:#065f46;color:#fff;text-align:center;padding:60px 20px}
+
+/* FOOTER */
+.footer{background:#111;color:#aaa;text-align:center;padding:25px;font-size:13px}
 
 /* FLOAT */
-.float{
-position:fixed;
-bottom:90px;
-right:20px;
-background:#25D366;
-color:#fff;
-padding:15px;
-border-radius:50px;
-text-decoration:none
-}
+.float{position:fixed;bottom:70px;right:20px;background:#25D366;color:#fff;padding:16px;border-radius:50px;text-decoration:none}
 
-/* BOTTOM BAR */
+/* STICKY BAR */
 .bottom-bar{
 position:fixed;
 bottom:0;
+left:0;
 width:100%;
-height:60px;
 background:#25D366;
-display:flex;
-align-items:center;
-justify-content:center;
+text-align:center;
+padding:14px;
 font-weight:bold;
+z-index:999;
 }
-
-.bottom-bar a{
-color:white;
-text-decoration:none
-}
+.bottom-bar a{color:white;text-decoration:none}
 
 /* MOBILE */
 @media(max-width:600px){
 .menu-toggle{display:block}
-
 .nav-links{
 position:absolute;
 top:60px;
@@ -188,97 +97,94 @@ background:#fff;
 flex-direction:column;
 width:200px;
 display:none;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
 padding:10px;
+border-radius:10px;
 }
-
-.nav-links.active{
-display:flex
-}
+.nav-links a{padding:12px;border-bottom:1px solid #eee}
+.nav-links.active{display:flex}
+.company{font-size:12px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- TOP -->
 <div class="topbar">
 <div>📞 8434813523</div>
 <div>🚚 Free Delivery Available</div>
 </div>
 
+<!-- NAV -->
 <div class="navbar">
-<div class="company">DEVDIC HERBAL</div>
+<div class="logo-box">
+<img src="devdic logo.png" class="logo">
+<div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
+</div>
 
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
 <div class="nav-links" id="navLinks">
-<a href="#">Home</a>
-<a href="#">Products</a>
-<a href="#">Testimonials</a>
+<a href="index.html">Home</a>
+<a href="product.html">Products</a>
+<a href="testimonials.html">Testimonials</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
 </div>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-<h1>15–30 Din Me Diabetes Control Karein – Natural Ayurvedic System</h1>
-<p>5000+ Patients Benefited • No Side Effects</p>
+<h1>15 Din Me Diabetes Control Karna Shuru Karein – 100% Ayurvedic Treatment</h1>
+<p>5000+ Patients Benefited • Safe • No Side Effects</p>
 
-<a class="btn" href="https://wa.me/918434813523">💬 Free Consultation</a>
-<a class="btn" href="#">🛒 View Products</a>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe%20diabetes%20consultation%20chahiye">
+💬 Free Consultation
+</a>
+
+<a class="btn" href="product.html">🛒 View Products</a>
+
+<div class="trust">
+<div>✔ 100% Herbal</div>
+<div>✔ 5000+ Patients</div>
+<div>✔ Fast Result</div>
+<div>✔ No Side Effects</div>
+</div>
 </div>
 
-<!-- VIDEO -->
+<!-- PROBLEM -->
 <div class="section">
-<h2>🎥 Real Patient Results</h2>
+<h2>Kya Aap Ye Problems Face Kar Rahe Hain?</h2>
+<p>❌ Sugar control nahi ho raha?</p>
+<p>❌ Weakness aur thakan rehti hai?</p>
+</div>
 
+<!-- DOCTOR -->
+<div class="section">
+<h2>👨‍⚕️ Expert Doctor Guidance</h2>
+<p>Experienced Ayurvedic doctors aapko personally guide karte hain</p>
+</div>
+
+<!-- VIDEOS FIRST -->
+<div class="section">
+<h2>🎥 Real Patients Ke Results (Proof)</h2>
 <div class="videos">
 <iframe src="https://www.youtube.com/embed/goA_3s4YYZ8"></iframe>
 <iframe src="https://www.youtube.com/embed/XO_ofb4noFw"></iframe>
 <iframe src="https://www.youtube.com/embed/q4hB-L0yRUE"></iframe>
+<iframe src="https://www.youtube.com/embed/AdPOk6dyDEE"></iframe>
+</div>
 </div>
 
-<br>
-
-<a class="btn" href="https://wa.me/918434813523">
-👉 Mujhe bhi aisa result chahiye
-</a>
-</div>
-
-<!-- PRODUCTS -->
+<!-- PRODUCTS AFTER -->
 <div class="section">
 <h2>Our Products</h2>
-
 <div class="products">
-
-<div class="card">
-<span class="tag">🔥 Most Popular</span>
-<img src="db-boost.jpg">
-<h3>DB BOOST</h3>
-<p>✔ High fasting sugar ke liye</p>
-<p>✔ Fast control support</p>
-<a class="btn" href="https://wa.me/918434813523">💬 Order Now</a>
-</div>
-
-<div class="card">
-<img src="db-life.jpg">
-<h3>DB LIFE</h3>
-<p>✔ Daily sugar control</p>
-<a class="btn" href="https://wa.me/918434813523">💬 Order</a>
-</div>
-
-<div class="card">
-<img src="dabatas.jpg">
-<h3>DABATAS</h3>
-<p>✔ Energy & metabolism</p>
-<a class="btn" href="https://wa.me/918434813523">💬 Order</a>
-</div>
-
-<div class="card">
-<img src="sugar-key.jpg">
-<h3>SUGAR KEY</h3>
-<p>✔ Overall sugar balance</p>
-<a class="btn" href="https://wa.me/918434813523">💬 Order</a>
-</div>
-
+<div class="card"><img src="db-boost.jpg"><h3>DB BOOST</h3></div>
+<div class="card"><img src="db-life.jpg"><h3>DB LIFE</h3></div>
+<div class="card"><img src="dabatas.jpg"><h3>DABATAS</h3></div>
+<div class="card"><img src="sugar-key.jpg"><h3>SUGAR KEY</h3></div>
 </div>
 </div>
 
@@ -288,10 +194,13 @@ display:flex
 <a class="btn" href="https://wa.me/918434813523">💬 WhatsApp Karein</a>
 </div>
 
-<!-- FLOAT -->
+<div class="footer">
+🌿 DEVDIC HERBAL<br>
+📞 8434813523
+</div>
+
 <a class="float" href="https://wa.me/918434813523">💬</a>
 
-<!-- BOTTOM BAR -->
 <div class="bottom-bar">
 <a href="https://wa.me/918434813523">💬 WhatsApp Par Free Consultation</a>
 </div>
@@ -300,6 +209,14 @@ display:flex
 function toggleMenu(){
 document.getElementById("navLinks").classList.toggle("active");
 }
+
+let currentPage = window.location.pathname.split("/").pop();
+
+document.querySelectorAll("#navLinks a").forEach(link=>{
+if(link.getAttribute("href")===currentPage){
+link.classList.add("active");
+}
+});
 </script>
 
 </body>
