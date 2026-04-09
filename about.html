@@ -27,6 +27,9 @@ justify-content:space-between;
 align-items:center;
 padding:12px 20px;
 box-shadow:0 2px 10px rgba(0,0,0,.1);
+position:sticky;
+top:0;
+z-index:100;
 }
 
 .logo-box{
@@ -43,6 +46,7 @@ color:#065f46;
 font-size:14px;
 }
 
+/* NAV LINKS */
 .nav-links{
 display:flex;
 gap:20px;
@@ -54,14 +58,46 @@ color:#333;
 font-weight:600;
 }
 
-/* MOBILE FIX */
-@media(max-width:600px){
-.nav-links{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-font-size:12px;
+.nav-links a:hover{
+color:#059669;
 }
+
+/* HAMBURGER */
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+}
+
+/* MOBILE DROPDOWN (SAME AS INDEX) */
+@media(max-width:600px){
+
+.menu-toggle{display:block}
+
+.nav-links{
+position:absolute;
+top:60px;
+right:0;
+background:#fff;
+flex-direction:column;
+width:220px;
+display:none;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+padding:10px;
+border-radius:10px;
+}
+
+.nav-links a{
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+.company{font-size:12px}
+
 }
 
 /* CONTENT */
@@ -113,7 +149,11 @@ font-weight:bold;
 <div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
 </div>
 
-<div class="nav-links">
+<!-- HAMBURGER -->
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<!-- NAV LINKS -->
+<div class="nav-links" id="navLinks">
 <a href="index.html">Home</a>
 <a href="product.html">Products</a>
 <a href="testimonials.html">Testimonials</a>
@@ -150,6 +190,13 @@ font-weight:bold;
 
 </div>
 </div>
+
+<!-- SCRIPT -->
+<script>
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
