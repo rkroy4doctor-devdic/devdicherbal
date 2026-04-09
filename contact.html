@@ -10,18 +10,91 @@
 body{margin:0;font-family:Arial;background:#f5f5f5}
 
 /* TOP */
-.topbar{background:#0f766e;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px}
+.topbar{
+background:#0f766e;
+color:#fff;
+padding:8px 15px;
+display:flex;
+justify-content:space-between;
+font-size:13px
+}
 
-/* NAV */
-.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+/* NAVBAR */
+.navbar{
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 20px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+position:sticky;
+top:0;
+z-index:100;
+}
+
 .logo-box{display:flex;align-items:center;gap:10px}
 .logo{height:45px}
 .company{font-weight:bold;color:#065f46;font-size:14px}
-.nav-links{display:flex;gap:20px}
-.nav-links a{text-decoration:none;color:#333;font-weight:600}
+
+/* NAV LINKS */
+.nav-links{
+display:flex;
+gap:20px
+}
+
+.nav-links a{
+text-decoration:none;
+color:#333;
+font-weight:600
+}
+
+.nav-links a:hover{
+color:#059669
+}
+
+/* HAMBURGER */
+.menu-toggle{
+display:none;
+font-size:26px;
+cursor:pointer;
+}
+
+/* MOBILE DROPDOWN */
+@media(max-width:600px){
+
+.menu-toggle{display:block}
+
+.nav-links{
+position:absolute;
+top:60px;
+right:0;
+background:#fff;
+flex-direction:column;
+width:220px;
+display:none;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+padding:10px;
+border-radius:10px;
+}
+
+.nav-links a{
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+.company{font-size:12px}
+
+}
 
 /* CONTENT */
-.section{padding:40px 20px;text-align:center}
+.section{
+padding:40px 20px;
+text-align:center
+}
 
 .box{
 background:#fff;
@@ -42,33 +115,40 @@ border-radius:8px;
 text-decoration:none;
 font-weight:bold;
 }
-
 </style>
 </head>
 
 <body>
 
+<!-- TOP -->
 <div class="topbar">
 <div>📞 8434813523</div>
 <div>🚚 Free Delivery Available</div>
 </div>
 
+<!-- NAVBAR -->
 <div class="navbar">
+
 <div class="logo-box">
 <img src="devdic logo.png" class="logo">
 <div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
 </div>
 
-<div class="nav-links">
+<!-- HAMBURGER -->
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<!-- NAV LINKS -->
+<div class="nav-links" id="navLinks">
 <a href="index.html">Home</a>
 <a href="product.html">Products</a>
 <a href="testimonials.html">Testimonials</a>
-  <a href="about.html">About</a>
+<a href="about.html">About</a>
 <a href="contact.html">Contact</a>
 </div>
+
 </div>
 
-
+<!-- CONTENT -->
 <div class="section">
 
 <div class="box">
@@ -86,6 +166,13 @@ font-weight:bold;
 </div>
 
 </div>
+
+<!-- SCRIPT -->
+<script>
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
