@@ -1,97 +1,7 @@
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product Detail</title>
-
-<style>
-body{margin:0;font-family:Arial;background:#f5f5f5}
-
-/* NAV */
-.navbar{display:flex;justify-content:space-between;padding:15px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.1)}
-.nav-links{display:flex;gap:20px}
-.nav-links a{text-decoration:none;color:#333;font-weight:bold}
-
-/* CONTAINER */
-.container{
-max-width:1000px;
-margin:40px auto;
-background:#fff;
-padding:30px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-.product{
-display:flex;
-gap:30px;
-align-items:center;
-}
-
-.product img{
-width:100%;
-max-width:350px;
-}
-
-.price{
-font-weight:bold;
-margin:10px 0;
-color:#065f46;
-}
-
-.btn{
-display:inline-block;
-margin-top:15px;
-padding:12px 20px;
-background:#25D366;
-color:#fff;
-border-radius:8px;
-text-decoration:none;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-.product{flex-direction:column;text-align:center}
-.nav-links{display:none}
-}
-</style>
-</head>
-
-<body>
-
-<div class="navbar">
-<div><b>DEVDIC HERBAL</b></div>
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="product.html">Products</a>
-</div>
-</div>
-
-<div class="container">
-<div class="product">
-
-<img id="productImage">
-
-<div>
-<h2 id="productName"></h2>
-<div class="price" id="productPrice"></div>
-
-<ul id="productBenefits"></ul>
-
-<p><b>Usage:</b> Doctor ki salah ke anusaar</p>
-
-<a class="btn" id="orderBtn" target="_blank">Order Now</a>
-
-</div>
-
-</div>
-</div>
-
 <script>
 
-// 🔥 ALL PRODUCTS DATA
 const products = {
+
 "db-boost":{
 name:"DB BOOST",
 price:"Weight: 60 gm | ₹510",
@@ -109,9 +19,9 @@ name:"DB LIFE",
 price:"Weight: 60 gm | ₹544",
 img:"db-life.jpg",
 benefits:[
-"Blood sugar management",
-"Boost energy",
-"Reduce sugar spikes",
+"Helps in blood sugar management",
+"Boosts energy level",
+"Reduces sugar spikes",
 "Daily diabetes support"
 ]
 },
@@ -121,38 +31,146 @@ name:"DABATAS",
 price:"Weight: 60 gm | ₹520",
 img:"dabatas.jpg",
 benefits:[
-"Controls sugar",
+"Controls blood sugar",
 "Supports insulin",
 "Pancreas health",
-"Herbal formula"
+"Herbal formulation"
+]
+},
+
+"db-pan-10":{
+name:"DB PAN 10",
+price:"10 Tablets | ₹220",
+img:"db-pan-10.png",
+benefits:[
+"Supports pancreas",
+"Controls sugar",
+"Reduces weakness",
+"Improves metabolism"
+]
+},
+
+"dbx":{
+name:"DBX Capsules",
+price:"10 Capsules | ₹52",
+img:"dbx.png",
+benefits:[
+"Maintains glucose",
+"Reduces fluctuation",
+"Supports insulin",
+"Daily support"
+]
+},
+
+"dbx-qr":{
+name:"DBX-QR Capsules",
+price:"30 Capsules | ₹270",
+img:"dbx-qr.png",
+benefits:[
+"Controls sugar",
+"Improves digestion",
+"Detox support",
+"Reduces bloating"
+]
+},
+
+"dbx-gem":{
+name:"DBX-Gem Capsules",
+price:"30 Capsules | ₹560",
+img:"gem.png",
+benefits:[
+"Maintains sugar",
+"Reduces cravings",
+"Supports pancreas",
+"Improves insulin"
+]
+},
+
+"db-pan":{
+name:"DB-PAN Powder",
+price:"60 gm | ₹545",
+img:"pan-po.png",
+benefits:[
+"Supports pancreas",
+"Improves insulin",
+"Controls sugar",
+"Boosts energy"
+]
+},
+
+"quick-qr":{
+name:"QUICK-QR Churan",
+price:"60 gm | ₹110",
+img:"quick-qr.png",
+benefits:[
+"Relieves constipation",
+"Improves digestion",
+"Cleans stomach",
+"Reduces gas"
+]
+},
+
+"sugar-low":{
+name:"SUGAR-LOW Powder",
+price:"60 gm | ₹510",
+img:"sugar-low.png",
+benefits:[
+"Controls post meal sugar",
+"Reduces spikes",
+"Improves metabolism",
+"Diabetes support"
+]
+},
+
+"dbx-sun":{
+name:"DBX-Sun Drops",
+price:"30 ml | ₹450",
+img:"sun.png",
+benefits:[
+"Supports bones",
+"Improves immunity",
+"Vitamin D support",
+"Overall health"
+]
+},
+
+"sugar-key":{
+name:"SUGAR-KEY Powder",
+price:"60 gm | ₹540",
+img:"suger-key-p.png",
+benefits:[
+"Controls fasting sugar",
+"Stable glucose",
+"Improves insulin",
+"Diabetes management"
 ]
 }
 
 };
 
-// 🔥 GET URL ID
+// GET ID
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 
-// 🔥 LOAD DATA
+// LOAD
 const product = products[id];
 
+if(product){
 document.getElementById("productName").innerText = product.name;
 document.getElementById("productPrice").innerText = product.price;
 document.getElementById("productImage").src = product.img;
 
-// BENEFITS
-let list = "";
-product.benefits.forEach(b => {
+let list="";
+product.benefits.forEach(b=>{
 list += `<li>✔ ${b}</li>`;
 });
 document.getElementById("productBenefits").innerHTML = list;
 
-// ORDER LINK
 document.getElementById("orderBtn").href =
 `https://wa.me/918434813523?text=${product.name} order`;
 
-</script>
+}else{
+document.getElementById("productName").innerText = "Product not found";
+}
 
-</body>
-</html>
+</script>
