@@ -3,83 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DB BOOST - DEVDIC HERBAL</title>
+<title>Product Detail</title>
 
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:#f5f5f5;
-color:#222;
-}
-
-/* TOP */
-.topbar{
-background:#0f766e;
-color:#fff;
-padding:8px 15px;
-display:flex;
-justify-content:space-between;
-font-size:13px;
-}
+body{margin:0;font-family:Arial;background:#f5f5f5}
 
 /* NAV */
-.navbar{
-background:#fff;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px 20px;
-position:sticky;
-top:0;
-z-index:100;
-box-shadow:0 2px 10px rgba(0,0,0,.08);
-}
-
-.logo-box{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.logo{height:45px}
-
-.company{
-font-weight:bold;
-color:#065f46;
-font-size:14px;
-}
-
-/* NAV LINKS */
-.nav-links{
-display:flex;
-gap:20px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:#333;
-font-weight:600;
-}
-
-.menu-toggle{
-display:none;
-font-size:26px;
-cursor:pointer;
-}
+.navbar{display:flex;justify-content:space-between;padding:15px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.nav-links{display:flex;gap:20px}
+.nav-links a{text-decoration:none;color:#333;font-weight:bold}
 
 /* CONTAINER */
 .container{
 max-width:1000px;
 margin:40px auto;
 background:#fff;
-padding:25px;
+padding:30px;
 border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
+box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
-/* PRODUCT */
 .product{
 display:flex;
 gap:30px;
@@ -91,157 +34,124 @@ width:100%;
 max-width:350px;
 }
 
-/* DETAILS */
-.details h2{
-color:#064e3b;
-}
-
 .price{
-font-size:18px;
 font-weight:bold;
 margin:10px 0;
 color:#065f46;
 }
 
-ul{
-padding-left:20px;
-}
-
 .btn{
 display:inline-block;
 margin-top:15px;
-padding:12px 22px;
+padding:12px 20px;
 background:#25D366;
 color:#fff;
 border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-}
-
-/* FOOTER */
-.footer{
-background:#111;
-color:#aaa;
-text-align:center;
-padding:20px;
-font-size:13px;
-margin-top:40px;
-}
-
-/* FLOAT */
-.float{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:#fff;
-padding:15px;
-border-radius:50px;
 text-decoration:none;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-
-.product{
-flex-direction:column;
-text-align:center;
-}
-
-.menu-toggle{
-display:block;
-}
-
-.nav-links{
-position:absolute;
-top:60px;
-right:0;
-background:#fff;
-flex-direction:column;
-width:200px;
-display:none;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-padding:10px;
-}
-
-.nav-links.active{
-display:flex;
-}
+.product{flex-direction:column;text-align:center}
+.nav-links{display:none}
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP -->
-<div class="topbar">
-<div>📞 8434813523</div>
-<div>🚚 Free Delivery Available</div>
-</div>
-
-<!-- NAV -->
 <div class="navbar">
-<div class="logo-box">
-<img src="devdic logo.png" class="logo">
-<div class="company">DEVDIC HERBAL</div>
-</div>
-
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-<div class="nav-links" id="navLinks">
+<div><b>DEVDIC HERBAL</b></div>
+<div class="nav-links">
 <a href="index.html">Home</a>
 <a href="product.html">Products</a>
-<a href="#">Testimonials</a>
-<a href="#">About</a>
-<a href="#">Contact</a>
 </div>
 </div>
 
-<!-- PRODUCT -->
 <div class="container">
 <div class="product">
 
-<img src="db-boost.jpg">
+<img id="productImage">
 
-<div class="details">
-<h2>DB BOOST</h2>
+<div>
+<h2 id="productName"></h2>
+<div class="price" id="productPrice"></div>
 
-<div class="price">Weight: 60 gm | ₹510</div>
-
-<ul>
-<li>✔ Helps control blood sugar level</li>
-<li>✔ Boosts energy & reduces weakness</li>
-<li>✔ Supports healthy metabolism</li>
-<li>✔ Ayurvedic herbal formulation</li>
-</ul>
+<ul id="productBenefits"></ul>
 
 <p><b>Usage:</b> Doctor ki salah ke anusaar</p>
 
-<a class="btn" href="https://wa.me/918434813523?text=DB BOOST order" target="_blank">
-Order Now
-</a>
+<a class="btn" id="orderBtn" target="_blank">Order Now</a>
 
 </div>
 
 </div>
 </div>
-
-<!-- FOOTER -->
-<div class="footer">
-🌿 DEVDIC HERBAL<br>
-📞 8434813523 | 📧 devdicherbal@gmail.com<br>
-© 2025 All Rights Reserved
-</div>
-
-<!-- FLOAT -->
-<a class="float" href="https://wa.me/918434813523?text=Product page se aaya hu" target="_blank">
-💬
-</a>
 
 <script>
-function toggleMenu(){
-document.getElementById("navLinks").classList.toggle("active");
+
+// 🔥 ALL PRODUCTS DATA
+const products = {
+"db-boost":{
+name:"DB BOOST",
+price:"Weight: 60 gm | ₹510",
+img:"db-boost.jpg",
+benefits:[
+"Helps control blood sugar level",
+"Boosts energy & reduces weakness",
+"Supports healthy metabolism",
+"Ayurvedic herbal formulation"
+]
+},
+
+"db-life":{
+name:"DB LIFE",
+price:"Weight: 60 gm | ₹544",
+img:"db-life.jpg",
+benefits:[
+"Blood sugar management",
+"Boost energy",
+"Reduce sugar spikes",
+"Daily diabetes support"
+]
+},
+
+"dabatas":{
+name:"DABATAS",
+price:"Weight: 60 gm | ₹520",
+img:"dabatas.jpg",
+benefits:[
+"Controls sugar",
+"Supports insulin",
+"Pancreas health",
+"Herbal formula"
+]
 }
+
+};
+
+// 🔥 GET URL ID
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get("id");
+
+// 🔥 LOAD DATA
+const product = products[id];
+
+document.getElementById("productName").innerText = product.name;
+document.getElementById("productPrice").innerText = product.price;
+document.getElementById("productImage").src = product.img;
+
+// BENEFITS
+let list = "";
+product.benefits.forEach(b => {
+list += `<li>✔ ${b}</li>`;
+});
+document.getElementById("productBenefits").innerHTML = list;
+
+// ORDER LINK
+document.getElementById("orderBtn").href =
+`https://wa.me/918434813523?text=${product.name} order`;
+
 </script>
 
 </body>
