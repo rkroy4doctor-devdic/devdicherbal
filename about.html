@@ -58,6 +58,12 @@ color:#333;
 font-weight:600;
 }
 
+/* ✅ ACTIVE LINK */
+.nav-links a.active{
+color:#059669;
+}
+
+/* HOVER */
 .nav-links a:hover{
 color:#059669;
 }
@@ -69,7 +75,7 @@ font-size:26px;
 cursor:pointer;
 }
 
-/* MOBILE DROPDOWN (SAME AS INDEX) */
+/* MOBILE */
 @media(max-width:600px){
 
 .menu-toggle{display:block}
@@ -97,7 +103,6 @@ display:flex;
 }
 
 .company{font-size:12px}
-
 }
 
 /* CONTENT */
@@ -193,9 +198,27 @@ font-weight:bold;
 
 <!-- SCRIPT -->
 <script>
+
+// TOGGLE MENU
 function toggleMenu(){
 document.getElementById("navLinks").classList.toggle("active");
 }
+
+// AUTO ACTIVE + AUTO CLOSE
+let currentPage = window.location.pathname.split("/").pop();
+
+document.querySelectorAll("#navLinks a").forEach(link=>{
+let linkPage = link.getAttribute("href");
+
+if(linkPage === currentPage){
+link.classList.add("active");
+}
+
+link.addEventListener("click",()=>{
+document.getElementById("navLinks").classList.remove("active");
+});
+});
+
 </script>
 
 </body>
