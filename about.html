@@ -1,224 +1,410 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>About Us - DEVDIC HERBAL</title>
-
 <style>
-body{margin:0;font-family:Arial;background:#f5f5f5}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #f0fdf4; color: #1a1a1a; }
 
-/* TOP */
-.topbar{
-background:#0f766e;
-color:#fff;
-padding:8px 15px;
-display:flex;
-justify-content:space-between;
-font-size:13px;
-}
+  /* TOP BAR */
+  .topbar {
+    background: #0f766e;
+    color: #fff;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    align-items: center;
+  }
 
-/* NAVBAR */
-.navbar{
-background:#fff;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px 20px;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
-position:sticky;
-top:0;
-z-index:100;
-}
+  /* NAVBAR */
+  .navbar {
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo-box { display: flex; align-items: center; gap: 10px; }
+  .logo { height: 45px; }
+  .company-name {
+    font-weight: 700;
+    color: #065f46;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+  .company-name span { font-weight: 400; color: #6b7280; font-size: 11px; }
 
-.logo-box{
-display:flex;
-align-items:center;
-gap:10px;
-}
+  /* NAV LINKS */
+  .nav-links { display: flex; gap: 6px; }
+  .nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: all .2s;
+  }
+  .nav-links a:hover { background: #f0fdf4; color: #059669; }
+  .nav-links a.active {
+    background: #ecfdf5;
+    color: #059669;
+    border-bottom: 2px solid #059669;
+  }
 
-.logo{height:45px}
+  /* HAMBURGER */
+  .menu-toggle { display: none; font-size: 26px; cursor: pointer; color: #065f46; }
 
-.company{
-font-weight:bold;
-color:#065f46;
-font-size:14px;
-}
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #064e3b 0%, #0f766e 50%, #059669 100%);
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+  .hero p { font-size: 16px; opacity: .85; max-width: 500px; margin: auto; }
 
-/* NAV LINKS */
-.nav-links{
-display:flex;
-gap:20px;
-}
+  /* STATS BAR */
+  .stats-bar {
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+  }
+  .stat {
+    padding: 20px 40px;
+    text-align: center;
+    border-right: 1px solid #e5e7eb;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 26px; font-weight: 800; color: #059669; }
+  .stat-label { font-size: 12px; color: #6b7280; margin-top: 2px; }
 
-.nav-links a{
-text-decoration:none;
-color:#333;
-font-weight:600;
-}
+  /* MAIN SECTION */
+  .section { padding: 48px 20px; max-width: 900px; margin: auto; }
+  .section-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #064e3b;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: #059669;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
 
-/* ✅ ACTIVE LINK */
-.nav-links a.active{
-color:#059669;
-}
+  /* CARDS */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    border: 1px solid #d1fae5;
+    box-shadow: 0 4px 12px rgba(5,150,105,.07);
+  }
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  .card-icon.green { background: #dcfce7; }
+  .card-icon.teal  { background: #ccfbf1; }
+  .card-icon.blue  { background: #dbeafe; }
+  .card h3 { font-size: 16px; font-weight: 700; color: #065f46; margin-bottom: 8px; }
+  .card p  { font-size: 14px; color: #6b7280; line-height: 1.6; }
 
-/* HOVER */
-.nav-links a:hover{
-color:#059669;
-}
+  /* MISSION */
+  .mission {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid #d1fae5;
+    box-shadow: 0 4px 12px rgba(5,150,105,.07);
+    margin-bottom: 32px;
+  }
+  .mission h2 { font-size: 20px; font-weight: 700; color: #064e3b; margin-bottom: 20px; }
+  .mission-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 14px;
+    background: #f0fdf4;
+    border-radius: 10px;
+  }
+  .mission-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #059669;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .mission-text { font-size: 15px; color: #374151; line-height: 1.5; }
+  .mission-text strong { color: #065f46; }
 
-/* HAMBURGER */
-.menu-toggle{
-display:none;
-font-size:26px;
-cursor:pointer;
-}
+  /* TRUST BADGES */
+  .trust-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .trust-badge {
+    background: #fff;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    border: 1px solid #d1fae5;
+    box-shadow: 0 2px 8px rgba(5,150,105,.06);
+  }
+  .trust-badge .icon { font-size: 28px; margin-bottom: 8px; }
+  .trust-badge p { font-size: 13px; font-weight: 600; color: #065f46; }
 
-/* MOBILE */
-@media(max-width:600px){
+  /* CTA */
+  .cta-box {
+    background: linear-gradient(135deg, #064e3b, #0f766e);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+  }
+  .cta-box h2 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+  .cta-box p  { font-size: 15px; opacity: .85; margin-bottom: 24px; }
+  .wa-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 4px 14px rgba(37,211,102,.35);
+  }
+  .wa-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37,211,102,.4);
+  }
+  .wa-btn svg { flex-shrink: 0; }
 
-.menu-toggle{display:block}
+  /* FOOTER */
+  footer {
+    background: #064e3b;
+    color: #a7f3d0;
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    margin-top: 40px;
+  }
 
-.nav-links{
-position:absolute;
-top:60px;
-right:0;
-background:#fff;
-flex-direction:column;
-width:220px;
-display:none;
-box-shadow:0 5px 15px rgba(0,0,0,.15);
-padding:10px;
-border-radius:10px;
-}
-
-.nav-links a{
-padding:12px;
-border-bottom:1px solid #eee;
-}
-
-.nav-links.active{
-display:flex;
-}
-
-.company{font-size:12px}
-}
-
-/* CONTENT */
-.section{
-padding:40px 20px;
-text-align:center;
-}
-
-.box{
-background:#fff;
-padding:25px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-max-width:800px;
-margin:auto;
-}
-
-h1{color:#064e3b}
-
-p{line-height:1.6;color:#444}
-
-/* BUTTON */
-.btn{
-display:inline-block;
-margin-top:15px;
-padding:12px 20px;
-background:#25D366;
-color:white;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-}
+  /* MOBILE */
+  @media (max-width: 600px) {
+    .menu-toggle { display: block; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 73px;
+      right: 0;
+      background: #fff;
+      flex-direction: column;
+      width: 220px;
+      padding: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.12);
+      border-radius: 12px;
+    }
+    .nav-links a { padding: 12px; border-bottom: 1px solid #eee; }
+    .nav-links.open { display: flex; }
+    .hero h1 { font-size: 26px; }
+    .stat { min-width: 50%; border-right: none; border-bottom: 1px solid #e5e7eb; }
+    .topbar { font-size: 11px; }
+    .cta-box { padding: 28px 20px; }
+    .cta-box h2 { font-size: 18px; }
+  }
 </style>
 </head>
-
 <body>
 
 <!-- TOP BAR -->
 <div class="topbar">
-<div>📞 8434813523</div>
-<div>🌿 Ayurvedic Treatment</div>
+  <span>📞 8434813523</span>
+  <span>🌿 100% Ayurvedic Treatment</span>
 </div>
 
 <!-- NAVBAR -->
 <div class="navbar">
-
-<div class="logo-box">
-<img src="devdic logo.png" class="logo">
-<div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
+  <div class="logo-box">
+    <img src="devdic logo.png" class="logo" alt="Devdic Logo">
+    <div class="company-name">
+      DEVDIC HERBAL<br>
+      <span>OPC PRIVATE LIMITED</span>
+    </div>
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="product.html">Products</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
 </div>
 
-<!-- HAMBURGER -->
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-<!-- NAV LINKS -->
-<div class="nav-links" id="navLinks">
-<a href="index.html">Home</a>
-<a href="product.html">Products</a>
-<a href="testimonials.html">Testimonials</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
+<!-- HERO -->
+<div class="hero">
+  <h1>🌿 About Us</h1>
+  <p>Ayurveda ki shakti se diabetes ko naturally control karna — yahi hai hamaari mission.</p>
 </div>
 
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">5000+</div>
+    <div class="stat-label">Patients Helped</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Herbal Products</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Side Effects</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">10+</div>
+    <div class="stat-label">Years Experience</div>
+  </div>
 </div>
 
-<!-- CONTENT -->
+<!-- MAIN CONTENT -->
 <div class="section">
-<div class="box">
 
-<h1>About Us</h1>
+  <div class="section-title">Hamare Baare Mein</div>
 
-<p><b>DEVDIC HERBAL OPC PRIVATE LIMITED</b> ek trusted Ayurvedic healthcare company hai jo diabetes treatment me specialize karti hai.</p>
+  <!-- CARDS -->
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon green">🌿</div>
+      <h3>Kaun Hain Hum</h3>
+      <p><strong>DEVDIC HERBAL OPC PRIVATE LIMITED</strong> ek trusted Ayurvedic healthcare company hai jo diabetes treatment mein specialize karti hai.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon teal">👨‍⚕️</div>
+      <h3>Doctor Guided</h3>
+      <p>Hamare sabhi products experienced doctors ki guidance mein taiyyar aur prescribed kiye jaate hain — aapki safety hamaari priority hai.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon blue">🏆</div>
+      <h3>Proven Results</h3>
+      <p>5000+ patients ne humara treatment lekar apna blood sugar naturally control kiya hai — real results, real people.</p>
+    </div>
+  </div>
 
-<p>Hamne ab tak <b>5000+ patients</b> ko help kiya hai apna blood sugar control karne me — wo bhi natural tareeke se.</p>
+  <!-- MISSION -->
+  <div class="mission">
+    <h2>🎯 Hamari Mission</h2>
+    <div class="mission-item">
+      <div class="mission-dot">1</div>
+      <div class="mission-text">
+        <strong>Har ghar tak safe Ayurvedic solution pahuchana</strong> — affordable aur accessible treatment sabke liye
+      </div>
+    </div>
+    <div class="mission-item">
+      <div class="mission-dot">2</div>
+      <div class="mission-text">
+        <strong>Diabetes ko naturally control karna</strong> — bina chemical medicines ke, sirf herbs ki power se
+      </div>
+    </div>
+    <div class="mission-item">
+      <div class="mission-dot">3</div>
+      <div class="mission-text">
+        <strong>Side-effect free treatment dena</strong> — 100% herbal ingredients jo body ke saath kaam karein, against nahi
+      </div>
+    </div>
+  </div>
 
-<p>Hamare products <b>100% herbal</b> hain aur experienced doctor ke guidance me diye jate hain.</p>
+  <!-- TRUST BADGES -->
+  <div class="section-title">Kyun Chunein Hume?</div>
+  <div class="trust-row">
+    <div class="trust-badge"><div class="icon">✅</div><p>Doctor Guided Treatment</p></div>
+    <div class="trust-badge"><div class="icon">🌿</div><p>100% Natural Herbs</p></div>
+    <div class="trust-badge"><div class="icon">😴</div><p>No Side Effects</p></div>
+    <div class="trust-badge"><div class="icon">⭐</div><p>Real Patient Results</p></div>
+    <div class="trust-badge"><div class="icon">📞</div><p>Free Consultation</p></div>
+    <div class="trust-badge"><div class="icon">📄</div><p>Certified Products</p></div>
+  </div>
 
-<p><b>Hamari mission:</b><br>
-✔ Har ghar tak safe Ayurvedic solution pahuchana<br>
-✔ Diabetes ko naturally control karna<br>
-✔ Side-effect free treatment dena</p>
+  <!-- CTA -->
+  <div class="cta-box">
+    <h2>Aaj Hi Shuru Karein Apna Diabetes-Free Safar</h2>
+    <p>Free consultation ke liye abhi WhatsApp karein — hamare doctor aapki help ke liye tayyar hain.</p>
+    <a class="wa-btn"
+       href="https://wa.me/918434813523?text=About page se aaya hu, mujhe diabetes consultation chahiye"
+       target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Doctor se Free Baat Karein
+    </a>
+  </div>
 
-<p>✔ Doctor Guided Treatment<br>
-✔ No Side Effects<br>
-✔ Real Patient Results</p>
+</div><!-- end .section -->
 
-<a class="btn" href="https://wa.me/918434813523?text=About page se aaya hu, mujhe diabetes consultation chahiye" target="_blank">
-💬 Doctor se baat karein
-</a>
+<!-- FOOTER -->
+<footer>
+  &copy; 2025 DEVDIC HERBAL OPC PRIVATE LIMITED — All Rights Reserved | Ayurvedic Diabetes Treatment
+</footer>
 
-</div>
-</div>
-
-<!-- SCRIPT -->
 <script>
+  function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("open");
+  }
 
-// TOGGLE MENU
-function toggleMenu(){
-document.getElementById("navLinks").classList.toggle("active");
-}
-
-// AUTO ACTIVE + AUTO CLOSE
-let currentPage = window.location.pathname.split("/").pop();
-
-document.querySelectorAll("#navLinks a").forEach(link=>{
-let linkPage = link.getAttribute("href");
-
-if(linkPage === currentPage){
-link.classList.add("active");
-}
-
-link.addEventListener("click",()=>{
-document.getElementById("navLinks").classList.remove("active");
-});
-});
-
+  // Auto active link
+  let currentPage = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll("#navLinks a").forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+    }
+    link.addEventListener("click", () => {
+      document.getElementById("navLinks").classList.remove("open");
+    });
+  });
 </script>
 
 </body>
