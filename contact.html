@@ -416,22 +416,42 @@ body {
   </div>
 </section>
 <!-- MAP -->
+<!-- MULTI LOCATION -->
 <section class="map-section">
   <div class="map-container">
-    <h3>📍 Our Location</h3>
-    <iframe 
-      src="https://maps.google.com/maps?q=25.854766344733523,85.66640502953481&z=17&output=embed"
-      allowfullscreen=""
-      loading="lazy">
-    </iframe>
+    <h3>📍 Our Branch Locations</h3>
 
-    <!-- Direction Button -->
-    <a href="https://maps.google.com/?q=25.854766344733523,85.66640502953481" 
-       target="_blank" 
-       class="btn btn-call">
-       📍 Get Directions
-    </a>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;">
 
+      <!-- TAJPUR -->
+      <div>
+        <h4>Tajpur</h4>
+        <iframe src="https://maps.google.com/maps?q=25.854766344733523,85.66640502953481&z=15&output=embed"></iframe>
+        <a href="https://maps.google.com/?q=25.854766344733523,85.66640502953481" target="_blank" class="btn btn-call">📍 Get Direction</a>
+      </div>
+
+      <!-- BOKARO -->
+      <div>
+        <h4>Bokaro</h4>
+        <iframe src="https://maps.google.com/maps?q=23.665914156916962,86.14669587150729&z=15&output=embed"></iframe>
+        <a href="https://maps.google.com/?q=23.665914156916962,86.14669587150729" target="_blank" class="btn btn-call">📍 Get Direction</a>
+      </div>
+
+      <!-- JAMSHEDPUR -->
+      <div>
+        <h4>Tata - Jamshedpur</h4>
+        <iframe src="https://maps.google.com/maps?q=22.79951881566132,86.1340846820381&z=15&output=embed"></iframe>
+        <a href="https://maps.google.com/?q=22.79951881566132,86.1340846820381" target="_blank" class="btn btn-call">📍 Get Direction</a>
+      </div>
+
+      <!-- CHAKRADHARPUR -->
+      <div>
+        <h4>Chakradharpur</h4>
+        <iframe src="https://maps.google.com/maps?q=22.669843218977725,85.60739423239309&z=15&output=embed"></iframe>
+        <a href="https://maps.google.com/?q=22.669843218977725,85.60739423239309" target="_blank" class="btn btn-call">📍 Get Direction</a>
+      </div>
+
+    </div>
   </div>
 </section>
 <!-- FOOTER -->
