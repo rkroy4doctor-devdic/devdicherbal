@@ -27,6 +27,16 @@ body {
   flex-wrap: wrap;
   gap: 10px;
 }
+
+.star {
+  color: red;
+  font-weight: bold;
+  margin-left: 3px;
+  font-size: 14px;
+  vertical-align: super;
+}
+
+  
 .topbar-item {
   display: flex;
   align-items: center;
@@ -338,16 +348,21 @@ body {
 </head>
 <body>
 <!-- TOP BAR -->
-<div class="topbar">
+ <div class="topbar">
   <div class="topbar-item">📞 8434813523</div>
-  <div class="topbar-item">🚚 Free Delivery All Over India</div>
+
+  <div class="topbar-item">
+    🚚 Free Delivery All Over India 
+    <span class="star">*</span>
+  </div>
+
   <div class="topbar-item">🌿 100% Herbal Products</div>
 </div>
 <!-- NAVBAR -->
 <nav class="navbar">
   <div class="logo-box">
     <img src="devdic logo.png" class="logo" alt="DEVDIC HERBAL Logo">
-    <div class="company">DEVDIC HERBAL<br>OPC PRIVATE LIMITED</div>
+    <div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
   </div>
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   <div class="nav-links" id="navLinks">
