@@ -7,13 +7,37 @@
 <title>DEVDIC HERBAL – Diabetes Control Ayurvedic Treatment</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#f5f5f5;color:#222}
+body{
+margin:0;
+font-family:Arial;
+background:#f5f5f5;
+color:#222;
+padding-bottom:90px; /* 🔥 FIX */
+}
 
 /* TOP */
-.topbar{background:#0f766e;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px}
+.topbar{
+background:#0f766e;
+color:#fff;
+padding:8px 15px;
+display:flex;
+justify-content:space-between;
+font-size:13px
+}
 
 /* NAV */
-.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.navbar{
+background:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 20px;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 2px 10px rgba(0,0,0,.08)
+}
+
 .logo-box{display:flex;align-items:center;gap:10px}
 .logo{height:45px}
 .company{font-weight:bold;color:#065f46;font-size:14px}
@@ -28,7 +52,11 @@ body{margin:0;font-family:Arial;background:#f5f5f5;color:#222}
 .menu-toggle{display:none;font-size:26px;cursor:pointer}
 
 /* HERO */
-.hero{padding:60px 20px;text-align:center;background:linear-gradient(#ecfdf5,#fff)}
+.hero{
+padding:60px 20px;
+text-align:center;
+background:linear-gradient(#ecfdf5,#fff)
+}
 .hero h1{font-size:30px;color:#064e3b;line-height:1.4}
 .hero p{color:#065f46;margin:15px 0 25px;font-size:15px}
 
@@ -46,31 +74,88 @@ transition:.3s
 .btn:hover{background:#047857;transform:scale(1.05)}
 
 /* TRUST */
-.trust{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:20px;font-size:14px}
-.trust div{background:#fff;padding:8px 12px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.trust{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+margin-top:20px;
+font-size:14px
+}
+.trust div{
+background:#fff;
+padding:8px 12px;
+border-radius:8px;
+box-shadow:0 2px 8px rgba(0,0,0,.08)
+}
 
 /* SECTION */
 .section{padding:50px 20px;text-align:center}
 .section h2{color:#064e3b}
 
 /* PRODUCTS */
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}
-.card{background:#fff;border-radius:12px;padding:15px;box-shadow:0 5px 15px rgba(0,0,0,.08);transition:.3s}
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px
+}
+.card{
+background:#fff;
+border-radius:12px;
+padding:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+transition:.3s
+}
 .card:hover{transform:translateY(-5px)}
-.card img{width:100%;height:150px;object-fit:contain}
+.card img{
+width:100%;
+height:150px;
+object-fit:contain
+}
 
 /* VIDEO */
-.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
-iframe{width:100%;height:200px;border:none;border-radius:10px}
+.videos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px
+}
+iframe{
+width:100%;
+height:200px;
+border:none;
+border-radius:10px
+}
 
 /* CTA */
-.cta{background:#065f46;color:#fff;text-align:center;padding:60px 20px}
+.cta{
+background:#065f46;
+color:#fff;
+text-align:center;
+padding:60px 20px
+}
 
 /* FOOTER */
-.footer{background:#111;color:#aaa;text-align:center;padding:25px;font-size:13px}
+.footer{
+background:#111;
+color:#aaa;
+text-align:center;
+padding:25px;
+font-size:13px;
+margin-bottom:20px;
+}
 
 /* FLOAT */
-.float{position:fixed;bottom:70px;right:20px;background:#25D366;color:#fff;padding:16px;border-radius:50px;text-decoration:none}
+.float{
+position:fixed;
+bottom:90px; /* FIX */
+right:20px;
+background:#25D366;
+color:#fff;
+padding:16px;
+border-radius:50px;
+text-decoration:none;
+z-index:9999;
+}
 
 /* STICKY BAR */
 .bottom-bar{
@@ -80,15 +165,20 @@ left:0;
 width:100%;
 background:#25D366;
 text-align:center;
-padding:14px;
+padding:16px;
 font-weight:bold;
-z-index:999;
+z-index:9999;
+box-shadow:0 -2px 10px rgba(0,0,0,0.2);
 }
-.bottom-bar a{color:white;text-decoration:none}
+.bottom-bar a{
+color:white;
+text-decoration:none;
+}
 
 /* MOBILE */
 @media(max-width:600px){
 .menu-toggle{display:block}
+
 .nav-links{
 position:absolute;
 top:60px;
@@ -101,7 +191,12 @@ box-shadow:0 5px 15px rgba(0,0,0,.1);
 padding:10px;
 border-radius:10px;
 }
-.nav-links a{padding:12px;border-bottom:1px solid #eee}
+
+.nav-links a{
+padding:12px;
+border-bottom:1px solid #eee
+}
+
 .nav-links.active{display:flex}
 .company{font-size:12px}
 }
@@ -110,13 +205,11 @@ border-radius:10px;
 
 <body>
 
-<!-- TOP -->
 <div class="topbar">
 <div>📞 8434813523</div>
 <div>🚚 Free Delivery Available</div>
 </div>
 
-<!-- NAV -->
 <div class="navbar">
 <div class="logo-box">
 <img src="devdic logo.png" class="logo">
@@ -134,15 +227,11 @@ border-radius:10px;
 </div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
 <h1>15 Din Me Diabetes Control Karna Shuru Karein – 100% Ayurvedic Treatment</h1>
 <p>5000+ Patients Benefited • Safe • No Side Effects</p>
 
-<a class="btn" href="https://wa.me/918434813523?text=Mujhe%20diabetes%20consultation%20chahiye">
-💬 Free Consultation
-</a>
-
+<a class="btn" href="https://wa.me/918434813523">💬 Free Consultation</a>
 <a class="btn" href="product.html">🛒 View Products</a>
 
 <div class="trust">
@@ -153,20 +242,17 @@ border-radius:10px;
 </div>
 </div>
 
-<!-- PROBLEM -->
 <div class="section">
 <h2>Kya Aap Ye Problems Face Kar Rahe Hain?</h2>
 <p>❌ Sugar control nahi ho raha?</p>
 <p>❌ Weakness aur thakan rehti hai?</p>
 </div>
 
-<!-- DOCTOR -->
 <div class="section">
 <h2>👨‍⚕️ Expert Doctor Guidance</h2>
 <p>Experienced Ayurvedic doctors aapko personally guide karte hain</p>
 </div>
 
-<!-- VIDEOS FIRST -->
 <div class="section">
 <h2>🎥 Real Patients Ke Results (Proof)</h2>
 <div class="videos">
@@ -177,7 +263,6 @@ border-radius:10px;
 </div>
 </div>
 
-<!-- PRODUCTS AFTER -->
 <div class="section">
 <h2>Our Products</h2>
 <div class="products">
@@ -188,7 +273,6 @@ border-radius:10px;
 </div>
 </div>
 
-<!-- CTA -->
 <div class="cta">
 <h2>Aaj Hi Shuruaat Karein</h2>
 <a class="btn" href="https://wa.me/918434813523">💬 WhatsApp Karein</a>
@@ -209,14 +293,6 @@ border-radius:10px;
 function toggleMenu(){
 document.getElementById("navLinks").classList.toggle("active");
 }
-
-let currentPage = window.location.pathname.split("/").pop();
-
-document.querySelectorAll("#navLinks a").forEach(link=>{
-if(link.getAttribute("href")===currentPage){
-link.classList.add("active");
-}
-});
 </script>
 
 </body>
