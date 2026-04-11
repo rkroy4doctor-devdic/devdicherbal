@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -8,51 +7,28 @@
 <title>DEVDIC HERBAL – Diabetes Control Ayurvedic Treatment</title>
 
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:#f5f5f5;
-color:#222;
-padding-bottom:90px;
-}
+body{margin:0;font-family:Arial;background:#f5f5f5;color:#222}
 
-.topbar{
-background:#0f766e;
-color:#fff;
-padding:8px 15px;
-display:flex;
-justify-content:space-between;
-font-size:13px
-}
+/* TOP */
+.topbar{background:#0f766e;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px}
 
-.navbar{
-background:#fff;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px 20px;
-position:sticky;
-top:0;
-z-index:100;
-box-shadow:0 2px 10px rgba(0,0,0,.08)
-}
-
+/* NAV */
+.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.08)}
 .logo-box{display:flex;align-items:center;gap:10px}
 .logo{height:45px}
 .company{font-weight:bold;color:#065f46;font-size:14px}
 
+/* NAV LINKS */
 .nav-links{display:flex;gap:20px}
 .nav-links a{text-decoration:none;color:#333;font-weight:600}
 .nav-links a.active{color:#059669}
 .nav-links a:hover{color:#059669}
 
+/* HAMBURGER */
 .menu-toggle{display:none;font-size:26px;cursor:pointer}
 
-.hero{
-padding:60px 20px;
-text-align:center;
-background:linear-gradient(#ecfdf5,#fff)
-}
+/* HERO */
+.hero{padding:60px 20px;text-align:center;background:linear-gradient(#ecfdf5,#fff)}
 .hero h1{font-size:30px;color:#064e3b;line-height:1.4}
 .hero p{color:#065f46;margin:15px 0 25px;font-size:15px}
 
@@ -69,83 +45,34 @@ transition:.3s
 }
 .btn:hover{background:#047857;transform:scale(1.05)}
 
-.trust{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-margin-top:20px;
-font-size:14px
-}
-.trust div{
-background:#fff;
-padding:8px 12px;
-border-radius:8px;
-box-shadow:0 2px 8px rgba(0,0,0,.08)
-}
+/* TRUST */
+.trust{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-top:20px;font-size:14px}
+.trust div{background:#fff;padding:8px 12px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
 
+/* SECTION */
 .section{padding:50px 20px;text-align:center}
 .section h2{color:#064e3b}
 
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px
-}
-.card{
-background:#fff;
-border-radius:12px;
-padding:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-transition:.3s
-}
+/* PRODUCTS */
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px}
+.card{background:#fff;border-radius:12px;padding:15px;box-shadow:0 5px 15px rgba(0,0,0,.08);transition:.3s}
 .card:hover{transform:translateY(-5px)}
-.card img{
-width:100%;
-height:150px;
-object-fit:contain
-}
+.card img{width:100%;height:150px;object-fit:contain}
 
-.videos{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:15px
-}
-iframe{
-width:100%;
-height:200px;
-border:none;
-border-radius:10px
-}
+/* VIDEO */
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+iframe{width:100%;height:200px;border:none;border-radius:10px}
 
-.cta{
-background:#065f46;
-color:#fff;
-text-align:center;
-padding:60px 20px
-}
+/* CTA */
+.cta{background:#065f46;color:#fff;text-align:center;padding:60px 20px}
 
-.footer{
-background:#111;
-color:#aaa;
-text-align:center;
-padding:25px;
-font-size:13px;
-margin-bottom:20px;
-}
+/* FOOTER */
+.footer{background:#111;color:#aaa;text-align:center;padding:25px;font-size:13px}
 
-.float{
-position:fixed;
-bottom:90px;
-right:20px;
-background:#25D366;
-color:#fff;
-padding:16px;
-border-radius:50px;
-text-decoration:none;
-z-index:9999;
-}
+/* FLOAT */
+.float{position:fixed;bottom:70px;right:20px;background:#25D366;color:#fff;padding:16px;border-radius:50px;text-decoration:none}
 
+/* STICKY BAR */
 .bottom-bar{
 position:fixed;
 bottom:0;
@@ -153,19 +80,15 @@ left:0;
 width:100%;
 background:#25D366;
 text-align:center;
-padding:16px;
+padding:14px;
 font-weight:bold;
-z-index:9999;
-box-shadow:0 -2px 10px rgba(0,0,0,0.2);
+z-index:999;
 }
-.bottom-bar a{
-color:white;
-text-decoration:none;
-}
+.bottom-bar a{color:white;text-decoration:none}
 
+/* MOBILE */
 @media(max-width:600px){
 .menu-toggle{display:block}
-
 .nav-links{
 position:absolute;
 top:60px;
@@ -178,191 +101,22 @@ box-shadow:0 5px 15px rgba(0,0,0,.1);
 padding:10px;
 border-radius:10px;
 }
-
-.nav-links a{
-padding:12px;
-border-bottom:1px solid #eee
-}
-
+.nav-links a{padding:12px;border-bottom:1px solid #eee}
 .nav-links.active{display:flex}
 .company{font-size:12px}
 }
-
-/* ===== AI CHATBOT STYLES ===== */
-#ddc-btn {
-  position:fixed;
-  bottom:160px;
-  right:20px;
-  z-index:10000;
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  background:#064e3b;
-  color:#fff;
-  border:none;
-  font-size:26px;
-  cursor:pointer;
-  box-shadow:0 4px 18px rgba(0,0,0,0.25);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-#ddc-btn-label {
-  position:fixed;
-  bottom:222px;
-  right:14px;
-  z-index:10000;
-  background:#064e3b;
-  color:#fff;
-  font-size:11px;
-  font-weight:bold;
-  padding:3px 8px;
-  border-radius:10px;
-  white-space:nowrap;
-  pointer-events:none;
-}
-#ddc-window {
-  position:fixed;
-  bottom:230px;
-  right:16px;
-  z-index:9999;
-  width:340px;
-  max-width:94vw;
-  background:#fff;
-  border:1px solid #ccc;
-  border-radius:16px;
-  display:none;
-  flex-direction:column;
-  overflow:hidden;
-  height:480px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.18);
-}
-#ddc-header {
-  background:#064e3b;
-  color:#fff;
-  padding:13px 16px;
-  font-size:14px;
-  font-weight:bold;
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
-#ddc-header .dot {
-  width:9px;height:9px;
-  border-radius:50%;
-  background:#6effc0;
-  display:inline-block;
-}
-#ddc-messages {
-  flex:1;
-  overflow-y:auto;
-  padding:12px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  font-size:14px;
-  background:#f9fafb;
-}
-.msg-bot, .msg-user {
-  max-width:85%;
-  padding:10px 14px;
-  border-radius:16px;
-  line-height:1.5;
-  word-break:break-word;
-}
-.msg-bot {
-  background:#fff;
-  color:#222;
-  border:1px solid #e5e7eb;
-  border-bottom-left-radius:4px;
-  align-self:flex-start;
-}
-.msg-user {
-  background:#059669;
-  color:#fff;
-  border-bottom-right-radius:4px;
-  align-self:flex-end;
-}
-#ddc-input-row {
-  display:flex;
-  padding:10px;
-  gap:8px;
-  border-top:1px solid #e5e7eb;
-  background:#fff;
-}
-#ddc-input {
-  flex:1;
-  padding:9px 14px;
-  font-size:14px;
-  border:1px solid #d1d5db;
-  border-radius:20px;
-  outline:none;
-  background:#fff;
-  color:#222;
-}
-#ddc-send {
-  background:#059669;
-  color:#fff;
-  border:none;
-  border-radius:50%;
-  width:40px;
-  height:40px;
-  cursor:pointer;
-  font-size:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-}
-.typing {
-  display:flex;
-  gap:5px;
-  align-items:center;
-  padding:10px 14px;
-  background:#fff;
-  border:1px solid #e5e7eb;
-  border-radius:16px;
-  border-bottom-left-radius:4px;
-  align-self:flex-start;
-  width:60px;
-}
-.typing span {
-  width:8px;height:8px;
-  border-radius:50%;
-  background:#aaa;
-  animation:blink 1s infinite;
-}
-.typing span:nth-child(2){animation-delay:.2s}
-.typing span:nth-child(3){animation-delay:.4s}
-@keyframes blink{0%,80%,100%{opacity:.3}40%{opacity:1}}
-.quick-btns {
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  margin-top:4px;
-  align-self:flex-start;
-}
-.qbtn {
-  background:#ecfdf5;
-  color:#065f46;
-  border:1px solid #059669;
-  border-radius:16px;
-  padding:5px 11px;
-  font-size:12px;
-  cursor:pointer;
-  font-weight:600;
-}
-.qbtn:hover { background:#d1fae5; }
 </style>
 </head>
 
 <body>
 
+<!-- TOP -->
 <div class="topbar">
 <div>📞 8434813523</div>
 <div>🚚 Free Delivery Available</div>
 </div>
 
+<!-- NAV -->
 <div class="navbar">
 <div class="logo-box">
 <img src="devdic logo.png" class="logo">
@@ -380,11 +134,15 @@ border-bottom:1px solid #eee
 </div>
 </div>
 
+<!-- HERO -->
 <div class="hero">
 <h1>15 Din Me Diabetes Control Karna Shuru Karein – 100% Ayurvedic Treatment</h1>
 <p>5000+ Patients Benefited • Safe • No Side Effects</p>
 
-<a class="btn" href="https://wa.me/918434813523">💬 Free Consultation</a>
+<a class="btn" href="https://wa.me/918434813523?text=Mujhe%20diabetes%20consultation%20chahiye">
+💬 Free Consultation
+</a>
+
 <a class="btn" href="product.html">🛒 View Products</a>
 
 <div class="trust">
@@ -395,17 +153,20 @@ border-bottom:1px solid #eee
 </div>
 </div>
 
+<!-- PROBLEM -->
 <div class="section">
 <h2>Kya Aap Ye Problems Face Kar Rahe Hain?</h2>
 <p>❌ Sugar control nahi ho raha?</p>
 <p>❌ Weakness aur thakan rehti hai?</p>
 </div>
 
+<!-- DOCTOR -->
 <div class="section">
 <h2>👨‍⚕️ Expert Doctor Guidance</h2>
 <p>Experienced Ayurvedic doctors aapko personally guide karte hain</p>
 </div>
 
+<!-- VIDEOS FIRST -->
 <div class="section">
 <h2>🎥 Real Patients Ke Results (Proof)</h2>
 <div class="videos">
@@ -416,6 +177,7 @@ border-bottom:1px solid #eee
 </div>
 </div>
 
+<!-- PRODUCTS AFTER -->
 <div class="section">
 <h2>Our Products</h2>
 <div class="products">
@@ -426,6 +188,7 @@ border-bottom:1px solid #eee
 </div>
 </div>
 
+<!-- CTA -->
 <div class="cta">
 <h2>Aaj Hi Shuruaat Karein</h2>
 <a class="btn" href="https://wa.me/918434813523">💬 WhatsApp Karein</a>
@@ -442,144 +205,18 @@ border-bottom:1px solid #eee
 <a href="https://wa.me/918434813523">💬 WhatsApp Par Free Consultation</a>
 </div>
 
-<!-- ===== AI CHATBOT ===== -->
-<div id="ddc-btn-label">AI Assistant</div>
-<button id="ddc-btn" onclick="toggleChat()" title="AI Assistant se baat karein">🤖</button>
-
-<div id="ddc-window">
-  <div id="ddc-header">
-    <span class="dot"></span>
-    <span>DEVDIC – AI Assistant</span>
-    <span style="margin-left:auto;cursor:pointer;font-size:18px;font-weight:normal" onclick="toggleChat()">✕</span>
-  </div>
-  <div id="ddc-messages"></div>
-  <div id="ddc-input-row">
-    <input id="ddc-input" placeholder="Apna sawal likhein..." onkeydown="if(event.key==='Enter')ddcSend()" autocomplete="off" />
-    <button id="ddc-send" onclick="ddcSend()">&#10148;</button>
-  </div>
-</div>
-<!-- ===== END CHATBOT ===== -->
-
 <script>
 function toggleMenu(){
-  document.getElementById("navLinks").classList.toggle("active");
+document.getElementById("navLinks").classList.toggle("active");
 }
 
-// ===== AI CHATBOT LOGIC =====
-const DDC_SYSTEM = `Aap DEVDIC HERBAL ke AI assistant hain. Aap SIRF Roman Hindi mein jawab denge (jaise "Aapka sugar level kya hai?"). Koi English mein jawab nahi dena.
+let currentPage = window.location.pathname.split("/").pop();
 
-Aapke paas yeh kaam hain:
-1. Patient ke diabetes, sugar, weakness se related sawaalon ka jawab dena
-2. DEVDIC products ke baare mein batana aur recommend karna
-3. Order lena — order ke liye patient ka naam, phone number, full delivery address, product naam aur quantity ek ek karke poochna
-4. Order complete hone par bolna: "Shukriya! Aapka order note ho gaya. Hamara team aapko call karega confirm karne ke liye. Koi aur sawaal ho toh zaroor poochein."
-
-Available Products aur Prices:
-- DB BOOST: ₹999 — Diabetes ke liye powerful herbal capsules, 1 mahine ka course
-- DB LIFE: ₹849 — Blood sugar stabilize karne ke liye daily supplement
-- DABATAS: ₹1099 — Pancreas function improve karta hai, long-term use ke liye
-- SUGAR KEY: ₹799 — Fast-acting herbal powder for sugar control
-
-Free delivery available. WhatsApp: 8434813523
-
-Important rules:
-- Aap doctor nahi hain, isliye medical diagnosis mat karo
-- Serious cases mein doctor se milne ki salah do
-- Jawab short rakho (2-4 lines)
-- Hamesha helpful aur friendly tone mein baat karo`;
-
-let ddcHistory = [];
-let ddcOpen = false;
-
-function toggleChat() {
-  const w = document.getElementById('ddc-window');
-  ddcOpen = !ddcOpen;
-  w.style.display = ddcOpen ? 'flex' : 'none';
-  if (ddcOpen && ddcHistory.length === 0) {
-    ddcAddBot("Namaste! 🌿 Main DEVDIC HERBAL ka AI assistant hun. Aap mujhse diabetes ke baare mein kuch bhi pooch sakte hain ya order bhi de sakte hain!", true);
-  }
-  if (ddcOpen) setTimeout(() => document.getElementById('ddc-input').focus(), 100);
+document.querySelectorAll("#navLinks a").forEach(link=>{
+if(link.getAttribute("href")===currentPage){
+link.classList.add("active");
 }
-
-function ddcAddBot(text, withQuick) {
-  const msgs = document.getElementById('ddc-messages');
-  const d = document.createElement('div');
-  d.className = 'msg-bot';
-  d.textContent = text;
-  msgs.appendChild(d);
-  if (withQuick) {
-    const qd = document.createElement('div');
-    qd.className = 'quick-btns';
-    ['Products & Price', 'Order karna hai', 'Sugar kaise control karein?', 'Konsa product sahi hai?'].forEach(function(t) {
-      const b = document.createElement('button');
-      b.className = 'qbtn';
-      b.textContent = t;
-      b.onclick = function() {
-        document.getElementById('ddc-input').value = t;
-        ddcSend();
-      };
-      qd.appendChild(b);
-    });
-    msgs.appendChild(qd);
-  }
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-function ddcAddUser(text) {
-  const msgs = document.getElementById('ddc-messages');
-  const d = document.createElement('div');
-  d.className = 'msg-user';
-  d.textContent = text;
-  msgs.appendChild(d);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-function ddcShowTyping() {
-  const msgs = document.getElementById('ddc-messages');
-  const d = document.createElement('div');
-  d.className = 'typing';
-  d.id = 'ddc-typing';
-  d.innerHTML = '<span></span><span></span><span></span>';
-  msgs.appendChild(d);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-async function ddcSend() {
-  const inp = document.getElementById('ddc-input');
-  const text = inp.value.trim();
-  if (!text) return;
-  inp.value = '';
-  ddcAddUser(text);
-  ddcHistory.push({ role: 'user', content: text });
-  ddcShowTyping();
-
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 400,
-        system: DDC_SYSTEM,
-        messages: ddcHistory
-      })
-    });
-    const data = await res.json();
-    const typing = document.getElementById('ddc-typing');
-    if (typing) typing.remove();
-
-    const reply = (data.content && data.content[0] && data.content[0].text)
-      ? data.content[0].text
-      : 'Maafi chahta hun, abhi jawab nahi de pa raha. Kripya WhatsApp karein: 8434813523';
-
-    ddcHistory.push({ role: 'assistant', content: reply });
-    ddcAddBot(reply, false);
-  } catch(e) {
-    const typing = document.getElementById('ddc-typing');
-    if (typing) typing.remove();
-    ddcAddBot('Network error aa gaya. Kripya WhatsApp karein: 8434813523', false);
-  }
-}
+});
 </script>
 
 </body>
