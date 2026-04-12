@@ -19,9 +19,13 @@ body{font-family:Arial;margin:0;background:#f0fdf4}
 .contact{display:flex;gap:20px;flex-wrap:wrap;padding:30px;justify-content:center}
 .card{background:#fff;padding:20px;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.1);text-align:center;width:250px}
 
+/* MAP */
+.map{padding:20px}
+.map iframe{width:100%;height:200px;border:none;border-radius:10px;margin-bottom:20px}
+
 /* CHAT */
 .chat-btn{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer}
-.chat-box{position:fixed;bottom:90px;right:20px;width:320px;height:420px;background:#fff;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.3);display:none;flex-direction:column}
+.chat-box{position:fixed;bottom:90px;right:20px;width:320px;height:450px;background:#fff;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.3);display:none;flex-direction:column}
 .chat-header{background:#065f46;color:#fff;padding:10px;text-align:center}
 .chat-messages{flex:1;padding:10px;overflow-y:auto;font-size:14px}
 .msg{margin:6px 0;padding:8px;border-radius:10px;max-width:80%}
@@ -51,24 +55,26 @@ body{font-family:Arial;margin:0;background:#f0fdf4}
 <p>Call ya WhatsApp karein</p>
 </div>
 
-<!-- CONTACT DETAILS -->
+<!-- CONTACT -->
 <div class="contact">
-<div class="card">
-<h3>📞 Phone</h3>
-<p>8434813523</p>
-<a href="tel:8434813523">Call Now</a>
+<div class="card"><h3>📞 Phone</h3><p>8434813523</p></div>
+<div class="card"><h3>💬 WhatsApp</h3><a href="https://wa.me/918434813523">Chat Now</a></div>
+<div class="card"><h3>📧 Email</h3><p>devdicherbal@gmail.com</p></div>
 </div>
 
-<div class="card">
-<h3>💬 WhatsApp</h3>
-<p>Instant Support</p>
-<a href="https://wa.me/918434813523">Chat Now</a>
-</div>
+<!-- MAP -->
+<div class="map">
+<h3>Tajpur</h3>
+<iframe src="https://maps.google.com/maps?q=25.8547,85.6664&z=15&output=embed"></iframe>
 
-<div class="card">
-<h3>📧 Email</h3>
-<p>devdicherbal@gmail.com</p>
-</div>
+<h3>Bokaro</h3>
+<iframe src="https://maps.google.com/maps?q=23.6659,86.1466&z=15&output=embed"></iframe>
+
+<h3>Jamshedpur</h3>
+<iframe src="https://maps.google.com/maps?q=22.7995,86.1340&z=15&output=embed"></iframe>
+
+<h3>Chakradharpur</h3>
+<iframe src="https://maps.google.com/maps?q=22.6698,85.6073&z=15&output=embed"></iframe>
 </div>
 
 <!-- CHAT -->
@@ -85,16 +91,12 @@ body{font-family:Arial;margin:0;background:#f0fdf4}
 
 <script>
 
-let prices={
-"db boost":510,
-"db life":544,
-"db pan":220
-};
+let memory={name:"",stage:0};
 
 function toggleChat(){
 let box=document.getElementById("chatBox");
 box.style.display = box.style.display==="flex"?"none":"flex";
-if(document.getElementById("chatMessages").innerHTML==""){
+if(chatMessages.innerHTML===""){
 bot("Namaste 🙏 aapko kya problem hai?");
 }
 }
@@ -121,39 +123,65 @@ chatMessages.scrollTop=chatMessages.scrollHeight;
 
 function send(){
 let input=document.getElementById("userInput");
-let text=input.value.toLowerCase();
+let text=input.value;
 if(!text)return;
-user(input.value);
+user(text);
 input.value="";
-
-reply(text);
+reply(text.toLowerCase());
 }
 
 function reply(t){
 
-// PRODUCT FLOW
+// NAME FLOW
+if(memory.stage===0){
+memory.name=t;
+bot(memory.name+" ji aapko kitne saal se sugar hai?");
+memory.stage=1;
+return;
+}
+
+// MEDICAL FLOW
+if(memory.stage===1){
+bot("Kya aap koi medicine ya insulin le rahe hain?");
+memory.stage=2;
+return;
+}
+
+if(memory.stage===2){
+bot("Abhi aapka sugar kitna rehta hai fasting aur random?");
+memory.stage=3;
+return;
+}
+
+if(memory.stage===3){
+bot("Itna high sugar rehna theek nahi hai.");
+bot("Aap chahein to hamare junior doctor se free consultation le sakte hain.");
+memory.stage=4;
+return;
+}
+
+// PRODUCT
 if(t.includes("db boost")){
 bot("DB Boost ₹510 ka hai. Kitne piece chahiye?");
 return;
 }
 
-// DOCTOR FLOW
+// DOCTOR
 if(t.includes("doctor")){
-bot("Free doctor consultation available hai. Aapka number batayein, call arrange kar denge.");
+bot("Doctor se baat ke liye apna number batayein.");
 return;
 }
 
-// MEDICINE SUGGEST
+// GENERAL
 if(t.includes("sugar")||t.includes("weakness")){
 bot("Aapke case me DB Boost + DB Life useful rahega.");
 bot("DB Boost ₹510 | DB Life ₹544");
 return;
 }
 
-// ORDER FLOW
+// ORDER
 if(t.includes("order")){
-let msg="Mujhe order karna hai";
-window.open("https://wa.me/918434813523?text="+encodeURIComponent(msg));
+window.open("https://wa.me/918434813523?text=Order");
 return;
 }
 
