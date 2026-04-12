@@ -6,34 +6,38 @@
 <title>Contact - DEVDIC HERBAL</title>
 
 <style>
-body{font-family:Arial;margin:0;background:#f0fdf4}
+body{font-family:Arial;margin:0;background:linear-gradient(to right,#e6f4f1,#f0fdf4)}
 
 /* NAVBAR */
 .navbar{background:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.1)}
 .nav-links a{text-decoration:none;margin:0 10px;color:#065f46;font-weight:600}
 
 /* HERO */
-.hero{background:#065f46;color:#fff;text-align:center;padding:40px}
+.hero{background:linear-gradient(135deg,#065f46,#10b981);color:#fff;text-align:center;padding:40px}
 
 /* CONTACT */
-.contact{display:flex;gap:20px;flex-wrap:wrap;padding:30px;justify-content:center}
-.card{background:#fff;padding:20px;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,.1);text-align:center;width:250px}
+.contact{display:flex;gap:25px;flex-wrap:wrap;padding:40px;justify-content:center}
+.card{background:#fff;padding:25px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.1);text-align:center;width:260px}
+.card a{display:inline-block;margin-top:10px;padding:10px 20px;border-radius:25px;background:#10b981;color:#fff;text-decoration:none}
 
-/* MAP */
-.map{padding:20px}
-.map iframe{width:100%;height:200px;border:none;border-radius:10px;margin-bottom:20px}
+/* MAP GRID */
+.map-section{padding:40px;text-align:center}
+.map-grid{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.map-card{background:#fff;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.1);padding:15px;width:300px}
+.map-card iframe{width:100%;height:200px;border-radius:10px}
+.map-card button{margin-top:10px;background:#10b981;color:#fff;border:none;padding:10px 20px;border-radius:20px}
 
 /* CHAT */
 .chat-btn{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer}
-.chat-box{position:fixed;bottom:90px;right:20px;width:320px;height:450px;background:#fff;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.3);display:none;flex-direction:column}
-.chat-header{background:#065f46;color:#fff;padding:10px;text-align:center}
-.chat-messages{flex:1;padding:10px;overflow-y:auto;font-size:14px}
-.msg{margin:6px 0;padding:8px;border-radius:10px;max-width:80%}
+.chat-box{position:fixed;bottom:90px;right:20px;width:330px;height:460px;background:#fff;border-radius:15px;box-shadow:0 15px 50px rgba(0,0,0,.3);display:none;flex-direction:column}
+.chat-header{background:#065f46;color:#fff;padding:12px;text-align:center}
+.chat-messages{flex:1;padding:10px;overflow-y:auto}
+.msg{margin:6px 0;padding:10px;border-radius:10px;max-width:80%}
 .user{background:#dcfce7;margin-left:auto}
 .bot{background:#f1f5f9}
 .chat-input{display:flex}
 .chat-input input{flex:1;padding:10px;border:none}
-.chat-input button{background:#25D366;color:#fff;border:none;padding:10px}
+.chat-input button{background:#10b981;color:#fff;border:none;padding:10px}
 </style>
 </head>
 
@@ -51,30 +55,47 @@ body{font-family:Arial;margin:0;background:#f0fdf4}
 </div>
 
 <div class="hero">
-<h1>Contact & Support</h1>
+<h1>Contact Us</h1>
 <p>Call ya WhatsApp karein</p>
 </div>
 
 <!-- CONTACT -->
 <div class="contact">
-<div class="card"><h3>📞 Phone</h3><p>8434813523</p></div>
+<div class="card"><h3>📞 Phone</h3><p>+91 8434813523</p><a href="tel:8434813523">Call Now</a></div>
 <div class="card"><h3>💬 WhatsApp</h3><a href="https://wa.me/918434813523">Chat Now</a></div>
 <div class="card"><h3>📧 Email</h3><p>devdicherbal@gmail.com</p></div>
 </div>
 
 <!-- MAP -->
-<div class="map">
-<h3>Tajpur</h3>
+<div class="map-section">
+<h2>📍 Our Branch Locations</h2>
+<div class="map-grid">
+
+<div class="map-card">
+<h4>Tajpur</h4>
 <iframe src="https://maps.google.com/maps?q=25.8547,85.6664&z=15&output=embed"></iframe>
+<button>Get Direction</button>
+</div>
 
-<h3>Bokaro</h3>
+<div class="map-card">
+<h4>Bokaro</h4>
 <iframe src="https://maps.google.com/maps?q=23.6659,86.1466&z=15&output=embed"></iframe>
+<button>Get Direction</button>
+</div>
 
-<h3>Jamshedpur</h3>
+<div class="map-card">
+<h4>Tata - Jamshedpur</h4>
 <iframe src="https://maps.google.com/maps?q=22.7995,86.1340&z=15&output=embed"></iframe>
+<button>Get Direction</button>
+</div>
 
-<h3>Chakradharpur</h3>
+<div class="map-card">
+<h4>Chakradharpur</h4>
 <iframe src="https://maps.google.com/maps?q=22.6698,85.6073&z=15&output=embed"></iframe>
+<button>Get Direction</button>
+</div>
+
+</div>
 </div>
 
 <!-- CHAT -->
@@ -91,7 +112,12 @@ body{font-family:Arial;margin:0;background:#f0fdf4}
 
 <script>
 
-let memory={name:"",stage:0};
+let products={
+"db boost":510,
+"db life":544,
+"db pan":220,
+"dbx sun":450
+};
 
 function toggleChat(){
 let box=document.getElementById("chatBox");
@@ -102,18 +128,12 @@ bot("Namaste 🙏 aapko kya problem hai?");
 }
 
 function bot(t){
-let d=document.createElement("div");
-d.className="msg bot";
-d.innerText=t;
-chatMessages.appendChild(d);
+chatMessages.innerHTML+=`<div class="msg bot">${t}</div>`;
 scroll();
 }
 
 function user(t){
-let d=document.createElement("div");
-d.className="msg user";
-d.innerText=t;
-chatMessages.appendChild(d);
+chatMessages.innerHTML+=`<div class="msg user">${t}</div>`;
 scroll();
 }
 
@@ -123,59 +143,32 @@ chatMessages.scrollTop=chatMessages.scrollHeight;
 
 function send(){
 let input=document.getElementById("userInput");
-let text=input.value;
+let text=input.value.toLowerCase();
 if(!text)return;
-user(text);
+user(input.value);
 input.value="";
-reply(text.toLowerCase());
+reply(text);
 }
 
 function reply(t){
 
-// NAME FLOW
-if(memory.stage===0){
-memory.name=t;
-bot(memory.name+" ji aapko kitne saal se sugar hai?");
-memory.stage=1;
+// PRICE CHECK
+for(let p in products){
+if(t.includes(p)){
+bot(p.toUpperCase()+" ka price ₹"+products[p]+" hai. Kitne piece chahiye?");
 return;
 }
-
-// MEDICAL FLOW
-if(memory.stage===1){
-bot("Kya aap koi medicine ya insulin le rahe hain?");
-memory.stage=2;
-return;
-}
-
-if(memory.stage===2){
-bot("Abhi aapka sugar kitna rehta hai fasting aur random?");
-memory.stage=3;
-return;
-}
-
-if(memory.stage===3){
-bot("Itna high sugar rehna theek nahi hai.");
-bot("Aap chahein to hamare junior doctor se free consultation le sakte hain.");
-memory.stage=4;
-return;
-}
-
-// PRODUCT
-if(t.includes("db boost")){
-bot("DB Boost ₹510 ka hai. Kitne piece chahiye?");
-return;
 }
 
 // DOCTOR
 if(t.includes("doctor")){
-bot("Doctor se baat ke liye apna number batayein.");
+bot("Free consultation ke liye apna number batayein.");
 return;
 }
 
-// GENERAL
+// PROBLEM
 if(t.includes("sugar")||t.includes("weakness")){
-bot("Aapke case me DB Boost + DB Life useful rahega.");
-bot("DB Boost ₹510 | DB Life ₹544");
+bot("Aapko kitne saal se sugar hai?");
 return;
 }
 
@@ -185,7 +178,6 @@ window.open("https://wa.me/918434813523?text=Order");
 return;
 }
 
-// DEFAULT
 bot("Kripya apni problem ya product ka naam batayein.");
 
 }
