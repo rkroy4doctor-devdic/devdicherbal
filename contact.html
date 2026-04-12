@@ -1,609 +1,211 @@
-(function () {
-  // ─── CONFIG ───────────────────────────────────────────────────────────────
-  const WA_NUMBER = "918434813523";
-  const DOCTOR_NUMBER = "918434813523";
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - DEVDIC HERBAL</title>
 
-  const PRODUCTS = [
-    { id: 1,  name: "Karela Jamun Juice",    price: 269, qty: "1 litre",    tags: ["sugar","diabetes"], benefits: "blood sugar level manage karne mein sabse zyada faydemand, pancreas ko stimulate karta hai" },
-    { id: 2,  name: "Methi Dana Powder",     price: 179, qty: "200g",       tags: ["sugar","diabetes"], benefits: "fasting sugar kam karne mein help karta hai, insulin sensitivity badhata hai" },
-    { id: 3,  name: "Devdic Detox Tea",      price: 299, qty: "30 teabags", tags: ["sugar","detox"],    benefits: "body detox karta hai, metabolism theek karta hai, sugar control mein sahayak" },
-    { id: 4,  name: "Neem Capsule",          price: 279, qty: "60 capsules",tags: ["sugar","skin"],     benefits: "blood purify karta hai, sugar control mein scientifically proven" },
-    { id: 5,  name: "Ashwagandha Capsule",   price: 349, qty: "60 capsules",tags: ["stress","energy"],  benefits: "stress se hone wali sugar spike control karta hai, stamina badhata hai" },
-    { id: 6,  name: "Giloy Juice",           price: 249, qty: "1 litre",    tags: ["immunity"],         benefits: "immunity strong karta hai, sugar ki wajah se hone wali infections se bachata hai" },
-    { id: 7,  name: "Triphala Churna",       price: 199, qty: "200g",       tags: ["digestion"],        benefits: "digestion theek karta hai, sugar patients ko kabz se bachata hai" },
-    { id: 8,  name: "Shilajit Gold",         price: 599, qty: "20g",        tags: ["energy","strength"],benefits: "diabetes ki wajah se hone wali extreme weakness dur karta hai" },
-    { id: 9,  name: "Amla Juice",            price: 229, qty: "1 litre",    tags: ["immunity","skin"],  benefits: "Vitamin C rich, sugar patients ki immunity ke liye bahut faydemand" },
-    { id: 10, name: "Brahmi Churna",         price: 219, qty: "100g",       tags: ["stress","mind"],    benefits: "sugar ki tension aur anxiety kam karta hai, mind calm rakhta hai" },
-  ];
+<style>
+body{font-family:Arial;margin:0;background:linear-gradient(to right,#e6f4f1,#f0fdf4)}
 
-  // Medicine conflict warnings
-  const CONFLICTS = {
-    "metformin":  "Metformin ke saath Karela aur Methi lena safe hai, bas doctor ko batate rehna",
-    "insulin":    "Insulin lene wale patients Karela Juice thoda kam quantity mein shuroo karein — sugar zyada drop ho sakti hai",
-    "glipizide":  "Sulfonylurea ke saath herbal lene par sugar monitor karte rehna",
-    "glimperide": "Sulfonylurea ke saath herbal lene par sugar monitor karte rehna",
-    "jardiance":  "Jardiance ke saath Giloy aur Amla safe hain",
-    "default":    "Jo bhi medicine chal rahi hai, uske saath herbal lena generally safe hai, lekin apne doctor ko zarur batayein",
-  };
+.navbar{background:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+.nav-links a{margin:0 10px;text-decoration:none;color:#065f46;font-weight:600}
 
-  // Sugar risk levels
-  function getRisk(fasting, pp) {
-    fasting = parseInt(fasting) || 0;
-    pp = parseInt(pp) || 0;
-    if (fasting >= 300 || pp >= 400) return "critical";
-    if (fasting >= 200 || pp >= 300) return "high";
-    if (fasting >= 126 || pp >= 200) return "moderate";
-    return "normal";
-  }
+.hero{background:linear-gradient(135deg,#065f46,#10b981);color:#fff;text-align:center;padding:40px}
 
-  // ─── STATE ────────────────────────────────────────────────────────────────
-  let chatHistory = [];
-  let sugarLog = [];
-  let customerProfile = {};
-  let orderCart = [];
-  let isOpen = false;
-  let isTyping = false;
-  let doctorAlertSent = false;
+.contact{display:flex;gap:25px;flex-wrap:wrap;padding:40px;justify-content:center}
+.card{background:#fff;padding:25px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.1);text-align:center;width:260px}
+.card a{display:inline-block;margin-top:10px;padding:10px 20px;border-radius:25px;background:#10b981;color:#fff;text-decoration:none}
 
-  // ─── SYSTEM PROMPT ────────────────────────────────────────────────────────
-  function buildSystemPrompt() {
-    const productList = PRODUCTS.map(p =>
-      `• ${p.name} — ₹${p.price} | ${p.qty} | ${p.benefits}`
-    ).join("\n");
+.map-section{padding:40px;text-align:center}
+.map-grid{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.map-card{background:#fff;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.1);padding:15px;width:300px}
+.map-card iframe{width:100%;height:200px;border-radius:10px}
 
-    const profile = Object.keys(customerProfile).length
-      ? `\n\nAbhi tak ki customer info:\n${JSON.stringify(customerProfile, null, 2)}`
-      : "";
+.chat-btn{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer}
+.chat-box{position:fixed;bottom:90px;right:20px;width:330px;height:460px;background:#fff;border-radius:15px;box-shadow:0 15px 50px rgba(0,0,0,.3);display:none;flex-direction:column}
+.chat-header{background:#065f46;color:#fff;padding:12px;text-align:center}
+.chat-messages{flex:1;padding:10px;overflow-y:auto}
+.msg{margin:6px 0;padding:10px;border-radius:10px;max-width:80%}
+.user{background:#dcfce7;margin-left:auto}
+.bot{background:#f1f5f9}
+.chat-input{display:flex}
+.chat-input input{flex:1;padding:10px;border:none}
+.chat-input button{background:#10b981;color:#fff;border:none;padding:10px}
+</style>
+</head>
 
-    const cart = orderCart.length
-      ? `\n\nAbhi cart mein:\n${orderCart.map(i => `• ${i.name} x${i.qty} = ₹${i.price * i.qty}`).join("\n")}\nTotal: ₹${orderCart.reduce((s,i)=>s+i.price*i.qty,0)}`
-      : "";
+<body>
 
-    const log = sugarLog.length
-      ? `\n\nSugar log:\n${sugarLog.map(l=>`${l.date}: Fasting ${l.fasting||"?"}, PP ${l.pp||"?"}`).join("\n")}`
-      : "";
+<div class="navbar">
+<div><b>DEVDIC HERBAL</b></div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="product.html">Products</a>
+<a href="testimonials.html">Testimonials</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+</div>
 
-    return `Tu DEVDIC HERBAL OPC PRIVATE LIMITED ka "Devdic Sahayak" hai — ek caring, experienced herbal health assistant.
+<div class="hero">
+<h1>Contact Us</h1>
+</div>
 
-SABSE IMPORTANT RULES — KABHI MAT BHOOLNA:
-1. Ek sawaal ek baar mein — kabhi 2-3 sawaal ek saath mat poochh
-2. Pehle empathy, phir sawaal — jaise ek caring insaan karta hai
-3. Customer ke words use karo apne jawab mein
-4. Bullet points ya lists kabhi mat use karo — sirf natural baatcheet
-5. Short lines — 1-3 lines max per message
-6. Customer jo language use kare — Hindi ya English — usi mein jawab do
-7. Kabhi "main ek AI hoon" mat bol
-8. Medical claims mat karo — sirf "faydemand hai", "help kar sakta hai"
-9. Diagnosis mat karo — sirf herbal guidance do
-10. Har suggestion ke saath doctor ki salah lene ki baat karo
+<div class="contact">
+<div class="card"><h3>📞 Phone</h3><p>+91 8434813523</p><a href="tel:8434813523">Call Now</a></div>
+<div class="card"><h3>💬 WhatsApp</h3><a href="https://wa.me/918434813523">Chat Now</a></div>
+<div class="card"><h3>📧 Email</h3><p>devdicherbal@gmail.com</p></div>
+</div>
 
-SUGAR/DIABETES CONSULTATION FLOW — DHEERE DHEERE:
-Yeh info ek ek karke natural conversation mein collect karo:
-→ Naam (agar nahi pata)
-→ Kitne saalon se sugar hai?
-→ Fasting sugar level?
-→ PP (after meal) sugar level?
-→ Koi symptoms? (kamzori, aankhon ki problem, pair mein sunn, etc.)
-→ Koi current medicine?
-→ Umar roughly?
-Sab milne ke BAAD hi products suggest karo — pehle nahi.
+<div class="map-section">
+<h2>📍 Our Branch Locations</h2>
+<div class="map-grid">
+<div class="map-card"><h4>Tajpur</h4><iframe src="https://maps.google.com/maps?q=25.8547,85.6664&z=15&output=embed"></iframe></div>
+<div class="map-card"><h4>Bokaro</h4><iframe src="https://maps.google.com/maps?q=23.6659,86.1466&z=15&output=embed"></iframe></div>
+<div class="map-card"><h4>Jamshedpur</h4><iframe src="https://maps.google.com/maps?q=22.7995,86.1340&z=15&output=embed"></iframe></div>
+<div class="map-card"><h4>Chakradharpur</h4><iframe src="https://maps.google.com/maps?q=22.6698,85.6073&z=15&output=embed"></iframe></div>
+</div>
+</div>
 
-DOCTOR CALLBACK — YEH SITUATIONS MEIN OFFER KARO:
-- Sugar 250+ bataye
-- Serious symptoms bataye (aankhon ki problem, pair sunn, chest pain)
-- Order karne ke liye ready ho
-- 2+ products mein interest dikhaaye
-Offer: "Aap chahein toh main aapki baat hamare junior doctor se karwa sakta hoon — abhi call karwa doon ya koi waqt batao?"
+<div class="chat-btn" onclick="toggleChat()">💬</div>
 
-PRODUCTS:
-${productList}
+<div class="chat-box" id="chatBox">
+<div class="chat-header">AI Assistant</div>
+<div class="chat-messages" id="chatMessages"></div>
+<div class="chat-input">
+<input id="userInput" placeholder="Type here...">
+<button onclick="send()">Send</button>
+</div>
+</div>
 
-COMPANY INFO:
-- Phone/WhatsApp: +91 8434813523
-- Email: devdicherbal@gmail.com  
-- Delivery: Free all over India (pehle order pe)
-- Timings: Everyday 10 AM – 5:30 PM
-- Branches: Tajpur, Bokaro, Jamshedpur, Chakradharpur
+<script>
 
-ORDER LENE KA TARIKA:
-Ek ek karke lo: product name + quantity → naam → pura address + pin code → phone number
-Order complete hone par confirm karo aur WhatsApp forward bata do.
+let products={
+"db boost":510,
+"db life":544,
+"db pan":220,
+"dbx sun":450,
+"quick qr":110,
+"sugar low":510,
+"sugar key":540
+};
 
-CALCULATION:
-Agar multiple products ya quantity ho, toh breakdown ke saath total batao.
-${profile}${cart}${log}`;
-  }
+let cart={};
+let lastProduct=null;
 
-  // ─── CLAUDE API ───────────────────────────────────────────────────────────
-  async function askClaude(userMsg) {
-    chatHistory.push({ role: "user", content: userMsg });
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 1000,
-        system: buildSystemPrompt(),
-        messages: chatHistory,
-      }),
-    });
-    const data = await res.json();
-    const reply = data.content?.[0]?.text || "Maafi chahta hoon, kuch technical gadbad ho gayi. Please +91 8434813523 par contact karein. 🙏";
-    chatHistory.push({ role: "assistant", content: reply });
-    return reply;
-  }
+function toggleChat(){
+let box=document.getElementById("chatBox");
+box.style.display = box.style.display==="flex"?"none":"flex";
+if(chatMessages.innerHTML===""){
+bot("Namaste 🙏 aapko kya chahiye ya problem batayein");
+}
+}
 
-  // ─── SILENT WHATSAPP ALERT ────────────────────────────────────────────────
-  function sendDoctorAlert(type, scheduledTime) {
-    if (doctorAlertSent && type === "now") return;
-    const name = customerProfile.naam || "Patient";
-    const fasting = customerProfile.fasting || "?";
-    const pp = customerProfile.pp || "?";
-    const years = customerProfile.years || "?";
-    const medicine = customerProfile.medicine || "koi nahi bataya";
-    const symptoms = customerProfile.symptoms || "koi nahi bataya";
+function bot(t){
+chatMessages.innerHTML+=`<div class="msg bot">${t}</div>`;
+scroll();
+}
 
-    let msg = "";
-    if (type === "now") {
-      msg = `🚨 *PATIENT ALERT — ABHI CHAT MEIN HAI*\n\n👤 Naam: *${name}*\n🩸 Fasting Sugar: ${fasting}\n🍽️ PP Sugar: ${pp}\n📅 Kitne saal se: ${years} saal\n💊 Current Medicine: ${medicine}\n⚠️ Symptoms: ${symptoms}\n\n_Inhe abhi call karein — chatbot baat kar raha hai_`;
-      doctorAlertSent = true;
-    } else {
-      msg = `📅 *CALL SCHEDULE*\n\n👤 Naam: *${name}*\n⏰ Preferred Time: *${scheduledTime}*\n🩸 Fasting Sugar: ${fasting}\n🍽️ PP Sugar: ${pp}\n📅 Kitne saal se: ${years} saal\n💊 Current Medicine: ${medicine}\n\n_Is time par inhe call karein_`;
-    }
+function user(t){
+chatMessages.innerHTML+=`<div class="msg user">${t}</div>`;
+scroll();
+}
 
-    const encoded = encodeURIComponent(msg);
-    const link = `https://wa.me/${DOCTOR_NUMBER}?text=${encoded}`;
-    const a = document.createElement("a");
-    a.href = link;
-    a.target = "_blank";
-    a.rel = "noopener";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
+function scroll(){
+chatMessages.scrollTop=chatMessages.scrollHeight;
+}
 
-  // ─── ORDER WHATSAPP ───────────────────────────────────────────────────────
-  function sendOrderWhatsApp() {
-    const name = customerProfile.orderNaam || customerProfile.naam || "Customer";
-    const address = customerProfile.address || "?";
-    const phone = customerProfile.orderPhone || "?";
-    const items = orderCart.map(i => `• ${i.name} x${i.qty} = ₹${i.price * i.qty}`).join("\n");
-    const total = orderCart.reduce((s, i) => s + i.price * i.qty, 0);
+function send(){
+let input=document.getElementById("userInput");
+let text=input.value.toLowerCase();
+if(!text)return;
+user(input.value);
+input.value="";
+reply(text);
+}
 
-    const msg = `🛒 *NAYA ORDER*\n\n👤 Naam: *${name}*\n📍 Address: ${address}\n📞 Phone: ${phone}\n\n📦 Order Details:\n${items}\n\n💰 *Total: ₹${total}*\n🚚 Free Delivery\n\n_App se aaya order_`;
-    const encoded = encodeURIComponent(msg);
-    window.open(`https://wa.me/${WA_NUMBER}?text=${encoded}`, "_blank");
-  }
+function reply(t){
 
-  // ─── EXTRACT PROFILE INFO FROM MESSAGE ───────────────────────────────────
-  function extractProfileInfo(msg) {
-    const lower = msg.toLowerCase();
+// PRODUCT
+for(let p in products){
+if(t.includes(p)){
+lastProduct=p;
+cart[p]=1;
+bot(p.toUpperCase()+" ₹"+products[p]+" ka hai. Kitne piece chahiye?");
+return;
+}
+}
 
-    // Sugar numbers
-    const numMatch = msg.match(/\b(\d{2,3})\b/g);
-    if (numMatch) {
-      numMatch.forEach(n => {
-        const num = parseInt(n);
-        if (num >= 60 && num <= 600) {
-          if (lower.includes("fasting") || lower.includes("khali pet")) {
-            customerProfile.fasting = num;
-          } else if (lower.includes("pp") || lower.includes("khana") || lower.includes("after")) {
-            customerProfile.pp = num;
-          } else if (!customerProfile.fasting) {
-            customerProfile.fasting = num;
-          }
-        }
-      });
-    }
+// QUANTITY
+let num=parseInt(t);
+if(num>0 && lastProduct){
+cart[lastProduct]=num;
 
-    // Years
-    const yearMatch = msg.match(/(\d+)\s*(saal|year|sal|varsh)/i);
-    if (yearMatch) customerProfile.years = yearMatch[1];
+let total=0;
+let msg="Order Summary:\n";
 
-    // Medicine detection
-    const medicines = ["metformin","insulin","glipizide","glimperide","jardiance","glycomet","januvia","galvus","trajenta","amaryl"];
-    medicines.forEach(m => {
-      if (lower.includes(m)) customerProfile.medicine = m;
-    });
-    if (lower.includes("nahi") && lower.includes("medicine")) customerProfile.medicine = "koi nahi";
+for(let i in cart){
+let price=products[i]*cart[i];
+total+=price;
+msg+=i+" x "+cart[i]+" = ₹"+price+"\n";
+}
 
-    // Risk check → auto doctor alert
-    if (customerProfile.fasting || customerProfile.pp) {
-      const risk = getRisk(customerProfile.fasting, customerProfile.pp);
-      if ((risk === "critical" || risk === "high") && !doctorAlertSent) {
-        customerProfile.riskLevel = risk;
-      }
-    }
+msg+="Total ₹"+total;
 
-    // Sugar log
-    if ((lower.includes("aaj") || lower.includes("today") || lower.includes("abhi")) && (customerProfile.fasting || customerProfile.pp)) {
-      const today = new Date().toLocaleDateString("hi-IN");
-      const existing = sugarLog.find(l => l.date === today);
-      if (!existing) {
-        sugarLog.push({ date: today, fasting: customerProfile.fasting, pp: customerProfile.pp });
-      }
-    }
-  }
+bot(msg);
+bot("Order confirm karne ke liye 'order' likhein");
+return;
+}
 
-  // ─── DETECT DOCTOR CALLBACK INTENT ───────────────────────────────────────
-  function detectDoctorIntent(msg) {
-    const lower = msg.toLowerCase();
-    if (lower.includes("abhi") && (lower.includes("call") || lower.includes("baat") || lower.includes("connect"))) return "now";
-    if (lower.includes("time") || lower.includes("baad") || lower.includes("schedule") || lower.includes("kal") || lower.includes("shaam") || lower.includes("subah") || lower.includes("dopahar")) return "schedule";
-    return null;
-  }
+// PROBLEM
+if(t.includes("sugar")||t.includes("diabetes")){
+bot("Aapko kitne saal se sugar hai?");
+return;
+}
 
-  // ─── UI ───────────────────────────────────────────────────────────────────
-  const CSS = `
-    #dh-fab {
-      position: fixed; bottom: 24px; right: 24px; z-index: 99999;
-      width: 62px; height: 62px; border-radius: 50%;
-      background: linear-gradient(135deg, #065f46, #0f766e);
-      box-shadow: 0 4px 20px rgba(6,95,70,0.45);
-      border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    #dh-fab:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(6,95,70,0.55); }
-    #dh-fab svg { width: 28px; height: 28px; fill: white; transition: opacity 0.2s; }
-    #dh-badge {
-      position: absolute; top: -3px; right: -3px;
-      background: #ef4444; color: white; font-size: 11px; font-weight: 600;
-      width: 20px; height: 20px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      border: 2px solid white; display: none;
-    }
-    #dh-window {
-      position: fixed; bottom: 100px; right: 24px; z-index: 99998;
-      width: 370px; height: 580px;
-      background: #fff; border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
-      display: flex; flex-direction: column; overflow: hidden;
-      transform: scale(0.85) translateY(20px); opacity: 0; pointer-events: none;
-      transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
-    #dh-window.open {
-      transform: scale(1) translateY(0); opacity: 1; pointer-events: all;
-    }
-    #dh-header {
-      background: linear-gradient(135deg, #065f46, #0f766e);
-      padding: 14px 16px; display: flex; align-items: center; gap: 12px;
-      flex-shrink: 0;
-    }
-    #dh-avatar {
-      width: 42px; height: 42px; border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px; flex-shrink: 0;
-    }
-    #dh-hinfo { flex: 1; }
-    #dh-hname { color: white; font-weight: 600; font-size: 14px; letter-spacing: 0.2px; }
-    #dh-hstatus {
-      color: rgba(255,255,255,0.85); font-size: 11px;
-      display: flex; align-items: center; gap: 5px; margin-top: 2px;
-    }
-    #dh-hstatus::before {
-      content: ''; width: 7px; height: 7px;
-      background: #4ade80; border-radius: 50%; display: inline-block;
-    }
-    #dh-close {
-      background: rgba(255,255,255,0.15); border: none; color: white;
-      width: 30px; height: 30px; border-radius: 50%; cursor: pointer;
-      font-size: 16px; display: flex; align-items: center; justify-content: center;
-      transition: background 0.2s;
-    }
-    #dh-close:hover { background: rgba(255,255,255,0.25); }
-    #dh-msgs {
-      flex: 1; overflow-y: auto; padding: 14px 14px 8px;
-      display: flex; flex-direction: column; gap: 10px;
-      background: #f8fffe;
-    }
-    #dh-msgs::-webkit-scrollbar { width: 3px; }
-    #dh-msgs::-webkit-scrollbar-thumb { background: #c7d7d5; border-radius: 3px; }
-    .dh-msg { display: flex; flex-direction: column; gap: 3px; max-width: 88%; }
-    .dh-msg.bot { align-self: flex-start; }
-    .dh-msg.user { align-self: flex-end; }
-    .dh-bubble {
-      padding: 10px 13px; border-radius: 16px;
-      font-size: 13.5px; line-height: 1.65; word-break: break-word;
-    }
-    .dh-msg.bot .dh-bubble {
-      background: #fff; color: #1a1a1a;
-      border: 1px solid #e2ede9; border-bottom-left-radius: 4px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    .dh-msg.user .dh-bubble {
-      background: linear-gradient(135deg, #065f46, #0f766e);
-      color: white; border-bottom-right-radius: 4px;
-    }
-    .dh-time { font-size: 10.5px; color: #9ca3af; padding: 0 4px; }
-    .dh-msg.user .dh-time { text-align: right; }
-    .dh-typing-bubble {
-      background: #fff; border: 1px solid #e2ede9; border-radius: 16px;
-      border-bottom-left-radius: 4px; padding: 12px 16px;
-      display: flex; gap: 5px; align-items: center;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    .dh-dot {
-      width: 7px; height: 7px; background: #0f766e;
-      border-radius: 50%; animation: dhBounce 1.3s infinite;
-    }
-    .dh-dot:nth-child(2) { animation-delay: 0.18s; }
-    .dh-dot:nth-child(3) { animation-delay: 0.36s; }
-    @keyframes dhBounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-7px)} }
-    #dh-quick {
-      padding: 8px 12px; display: flex; flex-wrap: wrap; gap: 6px;
-      background: #f0fdf8; border-top: 1px solid #d1fae5; flex-shrink: 0;
-      min-height: 46px;
-    }
-    .dh-qbtn {
-      font-size: 12px; padding: 5px 11px;
-      border: 1px solid #0f766e; color: #065f46;
-      background: white; border-radius: 20px; cursor: pointer;
-      transition: all 0.2s; white-space: nowrap;
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
-    .dh-qbtn:hover { background: #065f46; color: white; }
-    #dh-input-area {
-      padding: 10px 12px; display: flex; gap: 8px; align-items: center;
-      background: #fff; border-top: 1px solid #e5e7eb; flex-shrink: 0;
-    }
-    #dh-input {
-      flex: 1; border: 1.5px solid #d1fae5; border-radius: 22px;
-      padding: 9px 15px; font-size: 13.5px;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f8fffe; color: #1a1a1a; outline: none;
-      transition: border-color 0.2s;
-    }
-    #dh-input:focus { border-color: #0f766e; background: #fff; }
-    #dh-send {
-      width: 38px; height: 38px; border-radius: 50%;
-      background: linear-gradient(135deg, #065f46, #0f766e);
-      border: none; cursor: pointer; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 2px 8px rgba(6,95,70,0.3);
-    }
-    #dh-send:hover { transform: scale(1.08); box-shadow: 0 3px 12px rgba(6,95,70,0.4); }
-    #dh-send svg { width: 16px; height: 16px; fill: white; margin-left: 2px; }
-    .dh-doctor-card {
-      background: linear-gradient(135deg, #ecfdf5, #d1fae5);
-      border: 1px solid #6ee7b7; border-radius: 14px;
-      padding: 12px 14px; margin-top: 4px;
-    }
-    .dh-doctor-card p { font-size: 13px; color: #065f46; margin-bottom: 10px; line-height: 1.5; }
-    .dh-doctor-btns { display: flex; gap: 8px; flex-wrap: wrap; }
-    .dh-dbtn {
-      padding: 7px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
-      cursor: pointer; border: none; transition: all 0.2s;
-      font-family: 'Segoe UI', Arial, sans-serif;
-    }
-    .dh-dbtn.now { background: #065f46; color: white; }
-    .dh-dbtn.now:hover { background: #0f766e; }
-    .dh-dbtn.later { background: white; color: #065f46; border: 1px solid #065f46; }
-    .dh-dbtn.later:hover { background: #f0fdf4; }
-    @media (max-width: 420px) {
-      #dh-window { width: calc(100vw - 20px); right: 10px; bottom: 90px; }
-    }
-  `;
+// MEDICINE
+if(t.includes("insulin")||t.includes("medicine")){
+bot("Abhi aapka sugar kitna rehta hai fasting aur PP?");
+return;
+}
 
-  // ─── INJECT CSS ────────────────────────────────────────────────────────────
-  const style = document.createElement("style");
-  style.textContent = CSS;
-  document.head.appendChild(style);
+// HIGH SUGAR
+if(t.includes("300")||t.includes("250")){
+bot("Itna high sugar dangerous ho sakta hai.");
+bot("Aap chahein to main aapki baat hamare junior doctor se karwa sakta hoon.");
+return;
+}
 
-  // ─── BUILD HTML ────────────────────────────────────────────────────────────
-  const wrapper = document.createElement("div");
-  wrapper.innerHTML = `
-    <button id="dh-fab" aria-label="Chat with DEVDIC HERBAL">
-      <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-      <div id="dh-badge">1</div>
-    </button>
-    <div id="dh-window" role="dialog" aria-label="DEVDIC HERBAL Chat">
-      <div id="dh-header">
-        <div id="dh-avatar">🌿</div>
-        <div id="dh-hinfo">
-          <div id="dh-hname">DEVDIC HERBAL Sahayak</div>
-          <div id="dh-hstatus">Online — Hamesha available</div>
-        </div>
-        <button id="dh-close" aria-label="Close chat">✕</button>
-      </div>
-      <div id="dh-msgs"></div>
-      <div id="dh-quick"></div>
-      <div id="dh-input-area">
-        <input id="dh-input" type="text" placeholder="Yahan likhein aur Enter dabayein..." autocomplete="off" />
-        <button id="dh-send" aria-label="Send">
-          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-        </button>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(wrapper);
+// DOCTOR
+if(t.includes("doctor")){
+bot("Free consultation ke liye apna number batayein.");
+return;
+}
 
-  // ─── ELEMENTS ──────────────────────────────────────────────────────────────
-  const fab     = document.getElementById("dh-fab");
-  const win     = document.getElementById("dh-window");
-  const msgs    = document.getElementById("dh-msgs");
-  const input   = document.getElementById("dh-input");
-  const sendBtn = document.getElementById("dh-send");
-  const closeBtn= document.getElementById("dh-close");
-  const quickDiv= document.getElementById("dh-quick");
-  const badge   = document.getElementById("dh-badge");
+// ORDER FINAL
+if(t.includes("order")){
+let total=0;
+let msg="Order:\n";
 
-  // ─── HELPERS ───────────────────────────────────────────────────────────────
-  function getTime() {
-    return new Date().toLocaleTimeString("hi-IN", { hour: "2-digit", minute: "2-digit" });
-  }
+for(let i in cart){
+let price=products[i]*cart[i];
+total+=price;
+msg+=i+" x "+cart[i]+" = ₹"+price+"\n";
+}
 
-  function scrollBottom() {
-    msgs.scrollTop = msgs.scrollHeight;
-  }
+msg+="Total ₹"+total;
 
-  function addMsg(html, sender) {
-    const div = document.createElement("div");
-    div.className = "dh-msg " + sender;
-    div.innerHTML = `<div class="dh-bubble">${html}</div><div class="dh-time">${getTime()}</div>`;
-    msgs.appendChild(div);
-    scrollBottom();
-    return div;
-  }
+window.open("https://wa.me/918434813523?text="+encodeURIComponent(msg));
+return;
+}
 
-  function showTyping() {
-    const div = document.createElement("div");
-    div.className = "dh-msg bot"; div.id = "dh-typing";
-    div.innerHTML = `<div class="dh-typing-bubble"><div class="dh-dot"></div><div class="dh-dot"></div><div class="dh-dot"></div></div>`;
-    msgs.appendChild(div);
-    scrollBottom();
-  }
+// DEFAULT
+bot("Product ka naam ya apni problem batayein");
 
-  function removeTyping() {
-    const t = document.getElementById("dh-typing");
-    if (t) t.remove();
-  }
+}
 
-  function setQuickBtns(btns) {
-    quickDiv.innerHTML = "";
-    btns.forEach(b => {
-      const btn = document.createElement("button");
-      btn.className = "dh-qbtn";
-      btn.textContent = b;
-      btn.onclick = () => handleUserMsg(b);
-      quickDiv.appendChild(btn);
-    });
-  }
+</script>
 
-  function showDoctorCard() {
-    const div = document.createElement("div");
-    div.className = "dh-msg bot";
-    const name = customerProfile.naam || "Aap";
-    div.innerHTML = `
-      <div class="dh-doctor-card">
-        <p>🩺 <b>${name} ji</b>, aap chahein toh main hamare junior doctor se aapki baat karwa sakta hoon —</p>
-        <div class="dh-doctor-btns">
-          <button class="dh-dbtn now" onclick="window._dhDoctorNow()">📞 Abhi call karwao</button>
-          <button class="dh-dbtn later" onclick="window._dhDoctorLater()">📅 Time batao</button>
-        </div>
-      </div>
-      <div class="dh-time">${getTime()}</div>
-    `;
-    msgs.appendChild(div);
-    scrollBottom();
-  }
-
-  window._dhDoctorNow = function () {
-    sendDoctorAlert("now");
-    handleUserMsg("Abhi call karwao doctor se");
-  };
-
-  window._dhDoctorLater = function () {
-    addMsg("Theek hai! Kaunsa waqt aapke liye sahi rahega? Subah, dopahar ya shaam? Aur kaunse din? 🗓️", "bot");
-    setQuickBtns(["Aaj subah 10 baje", "Aaj shaam 4 baje", "Kal subah", "Kal shaam"]);
-  };
-
-  // ─── SMART QUICK BUTTONS ───────────────────────────────────────────────────
-  function updateQuickBtns(userMsg) {
-    const lower = userMsg.toLowerCase();
-    if (lower.includes("sugar") || lower.includes("diabetes") || lower.includes("madhumeh")) {
-      setQuickBtns(["Fasting 140 hai", "PP 220 hai", "Metformin le raha hoon", "Koi medicine nahi", "Kamzori bhi hai"]);
-    } else if (lower.includes("order") || lower.includes("kharid")) {
-      setQuickBtns(["Karela Jamun Juice", "Methi Dana Powder", "Devdic Detox Tea", "Total kitna hoga?"]);
-    } else if (lower.includes("price") || lower.includes("kitna") || lower.includes("cost")) {
-      setQuickBtns(["Sabse best product sugar ke liye", "500 se kam mein kya hai?", "Order karna hai"]);
-    } else if (lower.includes("doctor") || lower.includes("call")) {
-      setQuickBtns(["Abhi baat karni hai", "Kal subah 10 baje", "Aaj shaam 5 baje"]);
-    } else {
-      setQuickBtns(["Sugar high rehti hai", "Kamzori hai", "Price batao", "Order karna hai", "Doctor se baat karni hai"]);
-    }
-  }
-
-  // ─── DOCTOR CALLBACK DETECTION ────────────────────────────────────────────
-  function checkDoctorSchedule(userMsg) {
-    const timePatterns = [
-      /(\d{1,2})\s*baj/i,
-      /(subah|dopahar|shaam|raat)/i,
-      /(kal|aaj|parso)/i,
-      /(monday|tuesday|wednesday|thursday|friday|saturday|sunday|somwar|mangal|budh|guruwar|shukra|shaniwar|raviwar)/i,
-    ];
-    const hasTime = timePatterns.some(p => p.test(userMsg));
-    if (hasTime && customerProfile.naam) {
-      const timeStr = userMsg;
-      sendDoctorAlert("schedule", timeStr);
-      return true;
-    }
-    return false;
-  }
-
-  // ─── MAIN SEND HANDLER ─────────────────────────────────────────────────────
-  async function handleUserMsg(text) {
-    if (!text.trim() || isTyping) return;
-    input.value = "";
-    addMsg(text, "user");
-    extractProfileInfo(text);
-    isTyping = true;
-
-    // Check if scheduling doctor call
-    const isScheduling = checkDoctorSchedule(text);
-
-    // Check doctor intent
-    const doctorIntent = detectDoctorIntent(text);
-    if (doctorIntent === "now" && !doctorAlertSent) {
-      sendDoctorAlert("now");
-    }
-
-    showTyping();
-
-    try {
-      const reply = await askClaude(text);
-      removeTyping();
-      addMsg(reply, "bot");
-
-      // Auto show doctor card on high risk
-      const risk = getRisk(customerProfile.fasting, customerProfile.pp);
-      const shouldOfferDoctor =
-        (risk === "high" || risk === "critical") ||
-        (reply.toLowerCase().includes("doctor") && reply.toLowerCase().includes("baat"));
-
-      if (shouldOfferDoctor && !doctorAlertSent) {
-        setTimeout(() => showDoctorCard(), 600);
-      }
-
-      updateQuickBtns(text);
-    } catch (e) {
-      removeTyping();
-      addMsg("Thodi technical dikkat aa gayi 🙏 Please +91 8434813523 par call ya WhatsApp karein.", "bot");
-    }
-
-    isTyping = false;
-  }
-
-  // ─── EVENTS ────────────────────────────────────────────────────────────────
-  sendBtn.onclick = () => handleUserMsg(input.value.trim());
-  input.addEventListener("keydown", e => {
-    if (e.key === "Enter") { e.preventDefault(); handleUserMsg(input.value.trim()); }
-  });
-
-  fab.onclick = () => {
-    isOpen = !isOpen;
-    win.classList.toggle("open", isOpen);
-    badge.style.display = "none";
-    if (isOpen) setTimeout(() => input.focus(), 350);
-  };
-
-  closeBtn.onclick = () => {
-    isOpen = false;
-    win.classList.remove("open");
-  };
-
-  // ─── WELCOME MESSAGE ───────────────────────────────────────────────────────
-  setTimeout(() => {
-    addMsg("Namaste! 🙏 Main hoon <b>Devdic Sahayak</b> — DEVDIC HERBAL ki taraf se.<br>Aapka swagat hai! Aap Hindi ya English dono mein baat kar sakte hain.<br><br>Kya main aapka naam jan sakta hoon? 😊", "bot");
-    setQuickBtns(["Mera sugar high rehta hai", "Products dekhne hain", "Price puchna hai", "Order karna hai"]);
-  }, 400);
-
-  // ─── BADGE after 3 sec if not opened ──────────────────────────────────────
-  setTimeout(() => {
-    if (!isOpen) badge.style.display = "flex";
-  }, 3000);
-
-})();
+</body>
+</html>
