@@ -3,500 +3,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us - DEVDIC HERBAL</title>
+<title>Contact - DEVDIC HERBAL</title>
+
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
-  min-height: 100vh;
-}
-/* TOP BAR */
-.topbar {
-  background: linear-gradient(90deg, #0f766e, #059669);
-  color: #fff;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  flex-wrap: wrap;
-  gap: 10px;
-}
+body{font-family:Arial;margin:0;background:#f0fdf4}
 
-.star {
-  color: red;
-  font-weight: bold;
-  margin-left: 3px;
-  font-size: 14px;
-  vertical-align: super;
-}
-
-  
-.topbar-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
 /* NAVBAR */
-.navbar {
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 25px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+.navbar{background:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.nav-links a{text-decoration:none;margin:0 10px;color:#065f46;font-weight:600}
+
+/* HERO */
+.hero{background:#065f46;color:#fff;text-align:center;padding:40px}
+.hero h1{margin:0}
+
+/* CHAT BUTTON */
+.chat-btn{
+position:fixed;bottom:20px;right:20px;
+background:#25D366;color:#fff;
+width:60px;height:60px;
+border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:28px;cursor:pointer;
+box-shadow:0 5px 20px rgba(0,0,0,.3);
 }
-.logo-box {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+
+/* CHAT BOX */
+.chat-box{
+position:fixed;bottom:90px;right:20px;
+width:320px;height:420px;
+background:#fff;border-radius:12px;
+box-shadow:0 10px 40px rgba(0,0,0,.3);
+display:none;flex-direction:column;
+overflow:hidden;
 }
-.logo {
-  height: 50px;
-  transition: transform 0.3s;
+
+.chat-header{
+background:#065f46;color:#fff;
+padding:10px;text-align:center;font-weight:700;
 }
-.logo:hover {
-  transform: scale(1.05);
+
+.chat-messages{
+flex:1;padding:10px;overflow-y:auto;font-size:14px;
 }
-.company {
-  font-weight: 700;
-  color: #065f46;
-  font-size: 15px;
-  line-height: 1.3;
+
+.msg{margin:6px 0;padding:8px 10px;border-radius:10px;max-width:80%}
+.user{background:#dcfce7;margin-left:auto}
+.bot{background:#f1f5f9}
+
+.chat-input{
+display:flex;border-top:1px solid #ddd
 }
-/* NAV LINKS */
-.nav-links {
-  display: flex;
-  gap: 8px;
+.chat-input input{
+flex:1;padding:10px;border:none;outline:none
 }
-.nav-links a {
-  text-decoration: none;
-  color: #374151;
-  font-weight: 600;
-  padding: 10px 16px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  position: relative;
+.chat-input button{
+background:#25D366;color:#fff;border:none;padding:10px 15px;cursor:pointer
 }
-.nav-links a:hover {
-  color: #059669;
-  background: #f0fdf4;
-}
-.nav-links a.active {
-  color: #fff;
-  background: linear-gradient(135deg, #059669, #0f766e);
-}
-/* HAMBURGER */
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  padding: 5px 10px;
-  border-radius: 8px;
-  transition: background 0.3s;
-}
-.menu-toggle:hover {
-  background: #f0fdf4;
-}
-/* HERO SECTION */
-.hero {
-  background: linear-gradient(135deg, #065f46, #0f766e);
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-}
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-.hero p {
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-/* CONTACT SECTION */
-.contact-section {
-  padding: 50px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-}
-/* CONTACT CARD */
-.contact-card {
-  background: #fff;
-  padding: 35px 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.contact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 50px rgba(0,0,0,0.12);
-}
-.contact-icon {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-  font-size: 28px;
-}
-.contact-card h3 {
-  color: #065f46;
-  margin-bottom: 10px;
-  font-size: 1.3rem;
-}
-.contact-card p {
-  color: #6b7280;
-  font-size: 1rem;
-  margin-bottom: 15px;
-}
-.contact-card a {
-  color: #059669;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-.contact-card a:hover {
-  color: #047857;
-  text-decoration: underline;
-}
-/* WHATSAPP BOX */
-.whatsapp-box {
-  background: linear-gradient(135deg, #fff, #f0fdf4);
-  border: 2px solid #25D366;
-}
-.whatsapp-box .contact-icon {
-  background: linear-gradient(135deg, #25D366, #128C7E);
-  color: white;
-}
-/* CTA BUTTON */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 15px;
-  padding: 14px 28px;
-  background: linear-gradient(135deg, #25D366, #128C7E);
-  color: white;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
-}
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
-}
-.btn-call {
-  background: linear-gradient(135deg, #059669, #0f766e);
-  box-shadow: 0 5px 20px rgba(5, 150, 105, 0.3);
-}
-.btn-call:hover {
-  box-shadow: 0 8px 30px rgba(5, 150, 105, 0.4);
-}
-/* MAP SECTION */
-.map-section {
-  padding: 0 20px 50px;
-  max-width: 1100px;
-  margin: auto;
-}
-.map-container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-}
-.map-container h3 {
-  text-align: center;
-  color: #065f46;
-  margin-bottom: 20px;
-  font-size: 1.4rem;
-}
-.map-container iframe {
-  width: 100%;
-  height: 300px;
-  border: none;
-  border-radius: 12px;
-}
-/* WORKING HOURS */
-.hours-section {
-  padding: 0 20px 50px;
-  max-width: 600px;
-  margin: auto;
-}
-.hours-card {
-  background: #fff;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-  text-align: center;
-}
-.hours-card h3 {
-  color: #065f46;
-  margin-bottom: 20px;
-  font-size: 1.3rem;
-}
-.hours-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid #e5e7eb;
-  color: #374151;
-}
-.hours-item:last-child {
-  border-bottom: none;
-}
-.hours-item span:last-child {
-  color: #059669;
-  font-weight: 600;
-}
-/* FOOTER */
-.footer {
-  background: linear-gradient(135deg, #065f46, #0f766e);
-  color: white;
-  text-align: center;
-  padding: 25px 20px;
-  margin-top: 20px;
-}
-.footer p {
-  opacity: 0.9;
-  font-size: 0.95rem;
-}
-/* MOBILE RESPONSIVE */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 15px;
-    background: #fff;
-    flex-direction: column;
-    width: 240px;
-    display: none;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-    padding: 15px;
-    border-radius: 12px;
-    gap: 5px;
-  }
-  .nav-links.active {
-    display: flex;
-    animation: slideDown 0.3s ease;
-  }
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .nav-links a {
-    padding: 14px 16px;
-    border-radius: 8px;
-  }
-  .company {
-    font-size: 11px;
-    max-width: 150px;
-  }
-  .logo {
-    height: 40px;
-  }
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-  .hero p {
-    font-size: 1rem;
-  }
-  .topbar {
-    justify-content: center;
-    text-align: center;
-  }
-}
-/* ANIMATION */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.contact-card, .hours-card, .map-container {
-  animation: fadeInUp 0.6s ease forwards;
-}
-.contact-card:nth-child(2) { animation-delay: 0.1s; }
-.contact-card:nth-child(3) { animation-delay: 0.2s; }
 </style>
 </head>
+
 <body>
-<!-- TOP BAR -->
- <div class="topbar">
-  <div class="topbar-item">📞 8434813523</div>
 
-  <div class="topbar-item">
-    🚚 Free Delivery All Over India 
-    <span class="star">*</span>
-  </div>
-
-  <div class="topbar-item">🌿 100% Herbal Products</div>
-</div>
 <!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo-box">
-    <img src="devdic logo.png" class="logo" alt="DEVDIC HERBAL Logo">
-    <div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
-  </div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  <div class="nav-links" id="navLinks">
-    <a href="index.html">Home</a>
-    <a href="product.html">Products</a>
-    <a href="testimonials.html">Testimonials</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</nav>
+<div class="navbar">
+<div><b>DEVDIC HERBAL</b></div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="product.html">Products</a>
+<a href="testimonials.html">Testimonials</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</div>
+</div>
+
 <!-- HERO -->
-<section class="hero">
-  <h1>📞 Contact Us</h1>
-  <p>हमसे संपर्क करें - हम आपकी सेवा में हमेशा तत्पर हैं</p>
-</section>
-<!-- CONTACT SECTION -->
-<section class="contact-section">
-  <div class="contact-grid">
-    <!-- PHONE -->
-    <div class="contact-card">
-      <div class="contact-icon">📞</div>
-      <h3>Phone Number</h3>
-      <p>हमें कॉल करें</p>
-      <a href="tel:+918434813523">+91 8434813523</a>
-      <br>
-      <a href="tel:+918434813523" class="btn btn-call">
-        📞 Call Now
-      </a>
-    </div>
-    <!-- WHATSAPP -->
-    <div class="contact-card whatsapp-box">
-      <div class="contact-icon">💬</div>
-      <h3>WhatsApp</h3>
-      <p>तुरंत जवाब पाएं</p>
-      <a href="[wa.me](https://wa.me/918434813523)" target="_blank">+91 8434813523</a>
-      <br>
-      <a href="[wa.me](https://wa.me/918434813523?text=नमस्ते) मुझे DEVDIC HERBAL प्रोडक्ट्स के बारे में जानकारी चाहिए।" target="_blank" class="btn">
-        💬 WhatsApp करें
-      </a>
-    </div>
-    <!-- EMAIL -->
-    <div class="contact-card">
-      <div class="contact-icon">📧</div>
-      <h3>Email</h3>
-      <p>हमें ईमेल करें</p>
-      <a href="mailto:devdicherbal@gmail.com">devdicherbal@gmail.com</a>
-    </div>
-  </div>
-</section>
-<!-- WORKING HOURS -->
-<section class="hours-section">
-  <div class="hours-card">
-    <h3>🕐 Working Hours</h3>
+<div class="hero">
+<h1>Contact & Support</h1>
+<p>Chat karein aur turant solution paayein</p>
+</div>
 
-    <div class="hours-item">
-      <span>Everyday</span>
-      <span>10:00 AM - 5:30 PM</span>
-    </div>
+<!-- CHAT BUTTON -->
+<div class="chat-btn" onclick="toggleChat()">💬</div>
 
-  </div>
-</section>
-<!-- MAP -->
-<!-- MULTI LOCATION -->
-<section class="map-section">
-  <div class="map-container">
-    <h3>📍 Our Branch Locations</h3>
+<!-- CHAT BOX -->
+<div class="chat-box" id="chatBox">
+<div class="chat-header">DEVDIC AI Assistant</div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;">
+<div class="chat-messages" id="chatMessages"></div>
 
-      <!-- TAJPUR -->
-      <div>
-        <h4>Tajpur</h4>
-        <iframe src="https://maps.google.com/maps?q=25.854766344733523,85.66640502953481&z=15&output=embed"></iframe>
-        <a href="https://maps.google.com/?q=25.854766344733523,85.66640502953481" target="_blank" class="btn btn-call">📍 Get Direction</a>
-      </div>
+<div class="chat-input">
+<input type="text" id="userInput" placeholder="Apna sawal likhein...">
+<button onclick="sendMessage()">Send</button>
+</div>
+</div>
 
-      <!-- BOKARO -->
-      <div>
-        <h4>Bokaro</h4>
-        <iframe src="https://maps.google.com/maps?q=23.665914156916962,86.14669587150729&z=15&output=embed"></iframe>
-        <a href="https://maps.google.com/?q=23.665914156916962,86.14669587150729" target="_blank" class="btn btn-call">📍 Get Direction</a>
-      </div>
-
-      <!-- JAMSHEDPUR -->
-      <div>
-        <h4>Tata - Jamshedpur</h4>
-        <iframe src="https://maps.google.com/maps?q=22.79951881566132,86.1340846820381&z=15&output=embed"></iframe>
-        <a href="https://maps.google.com/?q=22.79951881566132,86.1340846820381" target="_blank" class="btn btn-call">📍 Get Direction</a>
-      </div>
-
-      <!-- CHAKRADHARPUR -->
-      <div>
-        <h4>Chakradharpur</h4>
-        <iframe src="https://maps.google.com/maps?q=22.669843218977725,85.60739423239309&z=15&output=embed"></iframe>
-        <a href="https://maps.google.com/?q=22.669843218977725,85.60739423239309" target="_blank" class="btn btn-call">📍 Get Direction</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- FOOTER -->
-<footer class="footer">
-  <p>© 2024 DEVDIC HERBAL OPC PRIVATE LIMITED. All Rights Reserved.</p>
-  <p style="font-size:12px; margin-top:8px; color:#d1d5db; text-align:center;">
-  <span style="color:#ff4d4d">*</span> Free Delivery only on first order
-</p>
-</footer>
-<!-- SCRIPT -->
 <script>
-function toggleMenu() {
-  document.getElementById("navLinks").classList.toggle("active");
+
+let step = 0;
+let userName = "";
+let selectedProducts = [];
+let prices = {
+"db boost":510,
+"db life":544,
+"dabatas":520,
+"db pan 10":220
+};
+
+function toggleChat(){
+let box=document.getElementById("chatBox");
+box.style.display = box.style.display==="flex" ? "none":"flex";
+box.style.flexDirection="column";
+if(step===0){
+bot("Namaskar 🙏 pahle aap apna naam batayein");
+step=1;
 }
-// Auto Active Link
-let currentPage = window.location.pathname.split("/").pop() || "index.html";
-document.querySelectorAll("#navLinks a").forEach(link => {
-  let linkPage = link.getAttribute("href");
-  
-  if (linkPage === currentPage) {
-    link.classList.add("active");
-  }
-  
-  link.addEventListener("click", () => {
-    document.getElementById("navLinks").classList.remove("active");
-  });
-});
-// Close menu on outside click
-document.addEventListener("click", (e) => {
-  const nav = document.getElementById("navLinks");
-  const toggle = document.querySelector(".menu-toggle");
-  
-  if (!nav.contains(e.target) && !toggle.contains(e.target)) {
-    nav.classList.remove("active");
-  }
-});
+}
+
+function bot(text){
+let msg=document.createElement("div");
+msg.className="msg bot";
+msg.innerText=text;
+document.getElementById("chatMessages").appendChild(msg);
+scrollDown();
+}
+
+function user(text){
+let msg=document.createElement("div");
+msg.className="msg user";
+msg.innerText=text;
+document.getElementById("chatMessages").appendChild(msg);
+scrollDown();
+}
+
+function scrollDown(){
+let box=document.getElementById("chatMessages");
+box.scrollTop=box.scrollHeight;
+}
+
+function sendMessage(){
+let input=document.getElementById("userInput");
+let text=input.value.toLowerCase();
+if(!text) return;
+
+user(input.value);
+input.value="";
+
+reply(text);
+}
+
+function reply(text){
+
+// STEP FLOW
+
+if(step===1){
+userName=text;
+bot(userName+" ji aapko kitne saal se sugar hai?");
+step=2;
+return;
+}
+
+if(step===2){
+bot("Kya aap koi medicine le rahe hain? jaise allopathy ya insulin?");
+step=3;
+return;
+}
+
+if(step===3){
+bot("Abhi aapka sugar kitna rehta hai fasting aur random?");
+step=4;
+return;
+}
+
+if(step===4){
+bot("Itna high sugar rehna theek nahi hai. Aapko ab proper support ki zarurat hai.");
+
+bot("Aap chahein to hamare junior doctor se free consultation bhi le sakte hain. Wo aapko sahi guidance denge.");
+
+step=5;
+return;
+}
+
+// DIRECT PRODUCT ORDER
+
+if(text.includes("db boost")){
+bot("DB Boost ka price ₹510 hai. Kitne piece chahiye?");
+selectedProducts=[];
+selectedProducts.push("db boost");
+step=10;
+return;
+}
+
+if(step===10){
+let qty=parseInt(text);
+if(!isNaN(qty)){
+let total=qty*prices[selectedProducts[0]];
+bot("Total cost ₹"+total);
+
+bot("Main aapka order WhatsApp par bhej deta hoon");
+
+let msg="Mujhe "+selectedProducts[0]+" x "+qty+" order karna hai";
+window.open("https://wa.me/918434813523?text="+encodeURIComponent(msg));
+
+step=0;
+return;
+}
+}
+
+}
+
 </script>
+
 </body>
-</html> 
+</html>
