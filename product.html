@@ -1,224 +1,973 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products - DEVDIC HERBAL</title>
-
+<title>Products – DEVDIC HERBAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:#f5f5f5;
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--green:#059669;
+--green-dark:#064e3b;
+--green-mid:#065f46;
+--green-light:#ecfdf5;
+--green-xlight:#f0fdf4;
+--gold:#f59e0b;
+--gold-light:#fef3c7;
+--white:#ffffff;
+--text:#0f172a;
+--text-muted:#475569;
+--border:#e2e8f0;
+--shadow:0 4px 24px rgba(0,0,0,.08);
+--shadow-hover:0 16px 48px rgba(5,150,105,.2);
 }
+body{font-family:'Poppins',sans-serif;background:#f8fffe;color:var(--text);overflow-x:hidden}
 
-/* TOP BAR */
-.topbar{
-background:#0f766e;
-color:#fff;
-padding:8px 15px;
-display:flex;
-justify-content:space-between;
-font-size:13px;
-}
+/* TOPBAR */
+.topbar{background:linear-gradient(135deg,var(--green-dark),var(--green-mid));color:#fff;padding:10px 30px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:500}
+.topbar-left{display:flex;gap:24px;align-items:center}
+.topbar span{display:flex;align-items:center;gap:6px}
+.live-dot{width:7px;height:7px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
 
 /* NAVBAR */
-.navbar{
+.navbar{background:rgba(255,255,255,.97);backdrop-filter:blur(12px);display:flex;justify-content:space-between;align-items:center;padding:14px 30px;position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(5,150,105,.12);box-shadow:0 2px 20px rgba(0,0,0,.07)}
+.logo-box{display:flex;align-items:center;gap:12px}
+.logo{height:48px;border-radius:8px}
+.brand-name{font-size:13px;font-weight:700;color:var(--green-dark);line-height:1.3}
+.brand-tagline{font-size:10px;color:var(--green);font-weight:600;letter-spacing:.8px;text-transform:uppercase}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--text-muted);font-weight:500;font-size:14px;padding:8px 14px;border-radius:8px;transition:.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--green);background:var(--green-light)}
+.nav-cta{background:var(--green)!important;color:#fff!important;border-radius:30px!important;padding:9px 20px!important}
+.nav-cta:hover{background:var(--green-dark)!important}
+.menu-toggle{display:none;font-size:26px;cursor:pointer;color:var(--green-dark)}
+
+/* PAGE HERO */
+.page-hero{
+background:linear-gradient(135deg,var(--green-dark) 0%,#065f46 40%,#047857 100%);
+padding:60px 20px 50px;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+.page-hero::before{
+content:'';
+position:absolute;inset:0;
+background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.page-hero::after{
+content:'';
+position:absolute;
+bottom:-2px;left:0;right:0;height:60px;
+background:linear-gradient(to bottom,transparent,#f8fffe);
+}
+.hero-badge{
+display:inline-flex;align-items:center;gap:8px;
+background:rgba(255,255,255,.15);
+border:1px solid rgba(255,255,255,.25);
+border-radius:30px;padding:7px 18px;
+font-size:13px;font-weight:600;color:#fff;
+margin-bottom:18px;backdrop-filter:blur(5px);
+}
+.page-hero h1{
+font-family:'Playfair Display',serif;
+font-size:clamp(28px,6vw,52px);
+color:#fff;
+font-weight:800;
+line-height:1.2;
+margin-bottom:14px;
+}
+.page-hero h1 span{color:#4ade80}
+.page-hero p{color:rgba(255,255,255,.8);font-size:15px;max-width:500px;margin:0 auto 24px}
+
+/* FILTER BAR */
+.filter-bar{
 background:#fff;
+border-bottom:1px solid var(--border);
+padding:18px 20px;
 display:flex;
-justify-content:space-between;
 align-items:center;
-padding:12px 20px;
-box-shadow:0 2px 10px rgba(0,0,0,.08);
+gap:12px;
+flex-wrap:wrap;
+justify-content:center;
 position:sticky;
-top:0;
-z-index:100;
+top:77px;
+z-index:90;
+box-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+.filter-label{font-size:13px;font-weight:600;color:var(--text-muted);margin-right:4px}
+.filter-btn{
+background:#fff;
+border:1.5px solid var(--border);
+border-radius:30px;
+padding:8px 18px;
+font-size:13px;
+font-weight:600;
+color:var(--text-muted);
+cursor:pointer;
+transition:.2s;
+font-family:'Poppins',sans-serif;
+}
+.filter-btn:hover{border-color:var(--green);color:var(--green)}
+.filter-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
+.search-wrap{
+flex:1;min-width:200px;max-width:280px;
+position:relative;
+}
+.search-wrap input{
+width:100%;
+border:1.5px solid var(--border);
+border-radius:30px;
+padding:9px 16px 9px 38px;
+font-size:13px;
+font-family:'Poppins',sans-serif;
+outline:none;
+transition:.2s;
+color:var(--text);
+}
+.search-wrap input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(5,150,105,.1)}
+.search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--text-muted)}
+
+/* PRODUCTS SECTION */
+.products-section{padding:50px 20px 80px;max-width:1200px;margin:0 auto}
+.section-meta{
+display:flex;justify-content:space-between;align-items:center;
+margin-bottom:28px;flex-wrap:wrap;gap:12px;
+}
+.results-count{font-size:14px;color:var(--text-muted);font-weight:500}
+.results-count span{color:var(--green);font-weight:700}
+
+/* PRODUCT GRID */
+.products-grid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+gap:24px;
+}
+.product-card{
+background:#fff;
+border-radius:20px;
+overflow:hidden;
+border:1px solid var(--border);
+transition:all .35s cubic-bezier(.25,.8,.25,1);
+position:relative;
+cursor:pointer;
+}
+.product-card:hover{
+transform:translateY(-8px);
+box-shadow:var(--shadow-hover);
+border-color:rgba(5,150,105,.3);
+}
+.product-card.featured{border-color:var(--gold);border-width:2px}
+
+/* BADGES */
+.card-badges{
+position:absolute;top:14px;left:14px;
+display:flex;flex-direction:column;gap:6px;z-index:2;
+}
+.badge{
+border-radius:20px;
+padding:4px 10px;
+font-size:11px;
+font-weight:700;
+letter-spacing:.3px;
+}
+.badge-bestseller{background:var(--gold);color:#78350f}
+.badge-new{background:#dbeafe;color:#1e40af}
+.badge-popular{background:#fce7f3;color:#9d174d}
+.badge-offer{background:#dcfce7;color:#166534}
+
+/* WISHLIST */
+.wishlist-btn{
+position:absolute;top:14px;right:14px;
+width:36px;height:36px;
+background:#fff;
+border:1px solid var(--border);
+border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:16px;
+cursor:pointer;
+transition:.2s;
+z-index:2;
+}
+.wishlist-btn:hover{background:#fff0f0;border-color:#fca5a5;transform:scale(1.1)}
+.wishlist-btn.active{background:#fff0f0;border-color:#f87171}
+
+/* IMAGE BOX */
+.card-img-wrap{
+background:linear-gradient(145deg,#f0fdf4,#ecfdf5);
+padding:30px 20px 20px;
+display:flex;
+align-items:center;
+justify-content:center;
+height:210px;
+position:relative;
+overflow:hidden;
+}
+.card-img-wrap::before{
+content:'';
+position:absolute;
+bottom:-30px;right:-30px;
+width:120px;height:120px;
+background:radial-gradient(circle,rgba(5,150,105,.08),transparent 70%);
+border-radius:50%;
+}
+.card-img-wrap img{
+max-height:160px;
+width:auto;
+max-width:100%;
+object-fit:contain;
+transition:transform .4s ease;
+position:relative;z-index:1;
+}
+.product-card:hover .card-img-wrap img{transform:scale(1.08) translateY(-4px)}
+
+/* CARD BODY */
+.card-body{padding:18px 18px 20px}
+.card-tag{
+font-size:11px;font-weight:600;
+color:var(--green);
+text-transform:uppercase;
+letter-spacing:.8px;
+margin-bottom:6px;
+}
+.card-name{
+font-size:17px;font-weight:700;
+color:var(--text);
+margin-bottom:6px;
+line-height:1.3;
+}
+.card-desc{
+font-size:12px;
+color:var(--text-muted);
+line-height:1.6;
+margin-bottom:14px;
+display:-webkit-box;
+-webkit-line-clamp:2;
+-webkit-box-orient:vertical;
+overflow:hidden;
 }
 
-.logo-box{
+/* STARS */
+.card-stars{display:flex;align-items:center;gap:5px;margin-bottom:14px}
+.stars-icons{color:var(--gold);font-size:13px;letter-spacing:1px}
+.stars-count{font-size:12px;color:var(--text-muted);font-weight:500}
+
+/* PRICE ROW */
+.price-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:14px;
+flex-wrap:wrap;
+gap:6px;
+}
+.price{font-size:22px;font-weight:800;color:var(--green-dark)}
+.price-original{font-size:13px;color:#94a3b8;text-decoration:line-through;margin-left:4px}
+.discount-pill{
+background:#dcfce7;
+color:#166534;
+border-radius:20px;
+padding:3px 10px;
+font-size:11px;
+font-weight:700;
+}
+
+/* CARD ACTIONS */
+.card-actions{display:flex;gap:10px}
+.btn-order{
+flex:1;
+background:linear-gradient(135deg,var(--green),#047857);
+color:#fff;
+border:none;
+border-radius:12px;
+padding:11px 14px;
+font-size:13px;
+font-weight:700;
+cursor:pointer;
+font-family:'Poppins',sans-serif;
+display:flex;align-items:center;justify-content:center;gap:6px;
+transition:.2s;
+text-decoration:none;
+}
+.btn-order:hover{background:linear-gradient(135deg,#047857,var(--green-dark));transform:scale(1.02)}
+.btn-detail{
+background:var(--green-light);
+color:var(--green);
+border:1.5px solid rgba(5,150,105,.2);
+border-radius:12px;
+padding:11px 14px;
+font-size:13px;
+font-weight:700;
+cursor:pointer;
+font-family:'Poppins',sans-serif;
+display:flex;align-items:center;justify-content:center;
+transition:.2s;
+text-decoration:none;
+white-space:nowrap;
+}
+.btn-detail:hover{background:rgba(5,150,105,.15);border-color:var(--green)}
+
+/* COMBO SECTION */
+.combo-section{
+background:linear-gradient(135deg,#fffbeb,#fef3c7);
+border:1px solid #fcd34d;
+border-radius:20px;
+padding:30px;
+margin:40px 0;
+display:flex;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+}
+.combo-icon{font-size:50px;flex-shrink:0}
+.combo-text h3{font-size:20px;font-weight:800;color:#78350f;margin-bottom:6px}
+.combo-text p{font-size:13px;color:#92400e;line-height:1.6}
+.combo-btn{
+background:var(--gold);
+color:#78350f;
+border:none;
+border-radius:12px;
+padding:12px 22px;
+font-weight:700;
+font-size:14px;
+cursor:pointer;
+font-family:'Poppins',sans-serif;
+text-decoration:none;
+display:inline-flex;align-items:center;gap:6px;
+transition:.2s;
+margin-top:10px;
+}
+.combo-btn:hover{background:#d97706;color:#fff}
+
+/* EMPTY STATE */
+.empty-state{
+text-align:center;
+padding:80px 20px;
+display:none;
+}
+.empty-state.show{display:block}
+.empty-state h3{font-size:20px;color:var(--text-muted);margin-bottom:10px}
+.empty-state p{font-size:14px;color:#94a3b8}
+
+/* WHY TRUST */
+.trust-strip{
+background:var(--green-dark);
+padding:30px 20px;
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+.trust-item{
+color:#fff;
 display:flex;
 align-items:center;
 gap:10px;
-}
-
-.logo{height:45px;}
-
-.company{
-font-weight:bold;
-color:#065f46;
 font-size:14px;
+font-weight:500;
 }
+.trust-item span:first-child{font-size:24px}
 
-/* NAV LINKS */
-.nav-links{
-display:flex;
-gap:20px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:#333;
-font-weight:600;
-}
-
-/* ✅ ACTIVE LINK */
-.nav-links a.active{
-color:#059669;
-}
-
-/* HOVER */
-.nav-links a:hover{
-color:#059669;
-}
-
-/* HAMBURGER */
-.menu-toggle{
+/* MODAL OVERLAY */
+.modal-overlay{
+position:fixed;inset:0;
+background:rgba(0,0,0,.6);
+backdrop-filter:blur(4px);
+z-index:2000;
 display:none;
-font-size:26px;
-cursor:pointer;
-}
-
-/* MOBILE DROPDOWN */
-@media(max-width:600px){
-
-.menu-toggle{display:block;}
-
-.nav-links{
-position:absolute;
-top:60px;
-right:0;
-background:#fff;
-flex-direction:column;
-width:220px;
-display:none;
-box-shadow:0 5px 15px rgba(0,0,0,.15);
-padding:10px;
-border-radius:10px;
-}
-
-.nav-links a{
-padding:12px;
-border-bottom:1px solid #eee;
-}
-
-.nav-links.active{
-display:flex;
-}
-
-.company{font-size:12px;}
-}
-
-/* HEADING */
-.heading{
-text-align:center;
-margin:25px 0;
-}
-
-/* PRODUCTS */
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+align-items:center;
+justify-content:center;
 padding:20px;
 }
-
-.card{
+.modal-overlay.open{display:flex}
+.modal{
 background:#fff;
-padding:15px;
-border-radius:12px;
-text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
-}
-
-.card img{
+border-radius:24px;
+max-width:520px;
 width:100%;
-height:180px;
-object-fit:contain;
+overflow:hidden;
+box-shadow:0 30px 80px rgba(0,0,0,.3);
+animation:slideUp .3s ease;
 }
-
-.btn{
-display:inline-block;
-margin-top:10px;
-padding:10px 15px;
-background:#059669;
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-header{
+background:linear-gradient(135deg,var(--green-dark),var(--green));
+padding:24px;
 color:#fff;
-border-radius:8px;
+position:relative;
+}
+.modal-header h3{font-size:22px;font-weight:800;margin-bottom:4px}
+.modal-header p{opacity:.85;font-size:13px}
+.modal-close{
+position:absolute;top:16px;right:16px;
+background:rgba(255,255,255,.2);
+border:none;color:#fff;
+width:32px;height:32px;
+border-radius:50%;
+font-size:18px;cursor:pointer;
+display:flex;align-items:center;justify-content:center;
+}
+.modal-body{padding:24px}
+.modal-input-group{margin-bottom:16px}
+.modal-input-group label{display:block;font-size:13px;font-weight:600;color:var(--text-muted);margin-bottom:6px}
+.modal-input-group input,.modal-input-group select{
+width:100%;
+border:1.5px solid var(--border);
+border-radius:10px;
+padding:11px 14px;
+font-size:14px;
+font-family:'Poppins',sans-serif;
+outline:none;
+transition:.2s;
+}
+.modal-input-group input:focus,.modal-input-group select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(5,150,105,.1)}
+.modal-product-name{
+background:var(--green-light);
+border-radius:10px;
+padding:12px 16px;
+font-weight:700;
+color:var(--green-dark);
+margin-bottom:18px;
+font-size:15px;
+}
+.btn-submit{
+width:100%;
+background:linear-gradient(135deg,#25d366,#128c7e);
+color:#fff;
+border:none;
+border-radius:12px;
+padding:14px;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+font-family:'Poppins',sans-serif;
+display:flex;align-items:center;justify-content:center;gap:8px;
+transition:.2s;
+}
+.btn-submit:hover{transform:scale(1.02);box-shadow:0 8px 25px rgba(37,211,102,.4)}
+
+/* FOOTER */
+.footer{background:#0a1628;color:#94a3b8;text-align:center;padding:30px 20px;font-size:13px}
+.footer a{color:#4ade80;text-decoration:none}
+
+/* FLOAT */
+.float-wa{
+position:fixed;bottom:80px;right:20px;
+background:linear-gradient(135deg,#25d366,#128c7e);
+color:#fff;width:58px;height:58px;
+border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:26px;
 text-decoration:none;
+z-index:999;
+box-shadow:0 5px 20px rgba(37,211,102,.5);
+animation:bounce 2s infinite;
+}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.bottom-bar{
+position:fixed;bottom:0;left:0;right:0;
+background:linear-gradient(135deg,#25d366,#128c7e);
+text-align:center;padding:16px;
+font-weight:700;z-index:998;font-size:15px;
+box-shadow:0 -3px 20px rgba(0,0,0,.2);
+}
+.bottom-bar a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:10px}
+
+/* MOBILE */
+@media(max-width:768px){
+.menu-toggle{display:block}
+.topbar{flex-direction:column;gap:4px;text-align:center}
+.nav-links{
+position:fixed;top:0;right:-100%;width:260px;height:100vh;
+background:#fff;flex-direction:column;
+padding:70px 20px 20px;
+box-shadow:-5px 0 30px rgba(0,0,0,.15);
+transition:.3s;gap:5px;z-index:999;
+}
+.nav-links.active{right:0}
+.nav-links a{border-radius:10px;padding:13px 16px;border-bottom:1px solid var(--green-light)}
+.filter-bar{top:68px}
+.products-grid{grid-template-columns:1fr 1fr}
+.combo-section{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+.products-grid{grid-template-columns:1fr}
+.card-actions{flex-direction:column}
 }
 </style>
 </head>
-
 <body>
 
-<!-- TOP BAR -->
+<!-- TOPBAR -->
 <div class="topbar">
-<div>📞 8434813523</div>
-<div>🚚 Free Delivery Available</div>
+<div class="topbar-left">
+<span><div class="live-dot"></div> Live Support Available</span>
+<span>📞 8434813523</span>
+</div>
+<span>🚚 Free Delivery All Over India</span>
 </div>
 
 <!-- NAVBAR -->
 <div class="navbar">
-
 <div class="logo-box">
-<img src="devdic logo.png" class="logo">
-<div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
+<img src="devdic logo.png" class="logo" alt="Devdic Herbal">
+<div>
+<div class="brand-name">DEVDIC HERBAL OPC PVT. LTD.</div>
+<div class="brand-tagline">Ayurvedic Diabetes Specialist</div>
 </div>
-
-<!-- HAMBURGER -->
+</div>
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-<!-- NAV LINKS -->
 <div class="nav-links" id="navLinks">
 <a href="index.html">Home</a>
-<a href="product.html">Products</a>
+<a href="product.html" class="active">Products</a>
 <a href="testimonials.html">Testimonials</a>
 <a href="about.html">About</a>
 <a href="contact.html">Contact</a>
+<a href="https://wa.me/918434813523" class="nav-cta">💬 Free Consult</a>
+</div>
 </div>
 
+<!-- PAGE HERO -->
+<div class="page-hero">
+<div class="hero-badge">🌿 100% Ayurvedic & Certified</div>
+<h1>Hamare <span>Premium</span> Products</h1>
+<p>Diabetes control ke liye specially crafted Ayurvedic formulas – Safe, Effective aur Natural</p>
 </div>
 
-<h2 class="heading">Our Products</h2>
-
-<div class="products">
-<!-- SAME PRODUCTS (unchanged) -->
-<div class="card"><img src="db-boost.jpg"><h3>DB BOOST</h3><p>₹510</p><a class="btn" href="product-detail.html?id=db-boost">View Details</a></div>
-<div class="card"><img src="db-life.jpg"><h3>DB LIFE</h3><p>₹544</p><a class="btn" href="product-detail.html?id=db-life">View Details</a></div>
-<div class="card"><img src="dabatas.jpg"><h3>DABATAS</h3><p>₹520</p><a class="btn" href="product-detail.html?id=dabatas">View Details</a></div>
-<div class="card"><img src="db-pan-10.png"><h3>DB PAN 10</h3><p>₹220</p><a class="btn" href="product-detail.html?id=db-pan-10">View Details</a></div>
-<div class="card"><img src="dbx.png"><h3>DBX Capsules</h3><p>₹52</p><a class="btn" href="product-detail.html?id=dbx">View Details</a></div>
-<div class="card"><img src="dbx-qr.png"><h3>DBX-QR</h3><p>₹270</p><a class="btn" href="product-detail.html?id=dbx-qr">View Details</a></div>
-<div class="card"><img src="gem.png"><h3>DBX-Gem</h3><p>₹560</p><a class="btn" href="product-detail.html?id=dbx-gem">View Details</a></div>
-<div class="card"><img src="pan-po.png"><h3>DB-PAN Powder</h3><p>₹545</p><a class="btn" href="product-detail.html?id=db-pan">View Details</a></div>
-<div class="card"><img src="quick-qr.png"><h3>QUICK-QR</h3><p>₹110</p><a class="btn" href="product-detail.html?id=quick-qr">View Details</a></div>
-<div class="card"><img src="sugar-low.png"><h3>SUGAR-LOW</h3><p>₹510</p><a class="btn" href="product-detail.html?id=sugar-low">View Details</a></div>
-<div class="card"><img src="sun.png"><h3>DBX-Sun</h3><p>₹450</p><a class="btn" href="product-detail.html?id=dbx-sun">View Details</a></div>
-<div class="card"><img src="suger-key-p.png"><h3>SUGAR-KEY</h3><p>₹540</p><a class="btn" href="product-detail.html?id=sugar-key">View Details</a></div>
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+<div class="trust-item"><span>✅</span> 100% Herbal</div>
+<div class="trust-item"><span>🛡️</span> No Side Effects</div>
+<div class="trust-item"><span>📦</span> Free Delivery</div>
+<div class="trust-item"><span>⚡</span> Fast Results</div>
+<div class="trust-item"><span>👨‍⚕️</span> Doctor Approved</div>
 </div>
 
-<!-- SCRIPT -->
+<!-- FILTER BAR -->
+<div class="filter-bar">
+<span class="filter-label">Filter:</span>
+<button class="filter-btn active" onclick="filterProducts('all',this)">All Products</button>
+<button class="filter-btn" onclick="filterProducts('capsule',this)">Capsules</button>
+<button class="filter-btn" onclick="filterProducts('powder',this)">Powder</button>
+<button class="filter-btn" onclick="filterProducts('syrup',this)">Syrup / Liquid</button>
+<div class="search-wrap">
+<span class="search-icon">🔍</span>
+<input type="text" id="searchInput" placeholder="Product dhundhen..." oninput="searchProducts()">
+</div>
+</div>
+
+<!-- PRODUCTS SECTION -->
+<div class="products-section">
+
+<!-- COMBO OFFER -->
+<div class="combo-section">
+<div class="combo-icon">🎁</div>
+<div class="combo-text">
+<h3>Special Combo Pack – Save ₹500+!</h3>
+<p>DB Boost + DB Life + Dabatas ka combo pack lein aur diabetes ko permanently control karein. Doctor guided course – most popular choice!</p>
+<a class="combo-btn" href="https://wa.me/918434813523?text=Mujhe%20combo%20pack%20ke%20baare%20mein%20jaankari%20chahiye">🎁 Combo Pack Order Karein</a>
+</div>
+</div>
+
+<div class="section-meta">
+<div class="results-count">Dikha rahe hain: <span id="countDisplay">12</span> products</div>
+</div>
+
+<!-- GRID -->
+<div class="products-grid" id="productsGrid">
+
+<!-- PRODUCT CARDS -->
+<div class="product-card featured" data-category="powder" data-name="db boost">
+<div class="card-badges">
+<span class="badge badge-bestseller">⭐ Bestseller</span>
+</div>
+<button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+<div class="card-img-wrap">
+<img src="db-boost.jpg" alt="DB Boost" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DB+BOOST'">
+</div>
+<div class="card-body">
+<div class="card-tag">Powder • Diabetes Control</div>
+<div class="card-name">DB BOOST</div>
+<div class="card-desc">Blood sugar ko naturally control karta hai. Powerful herbal blend jisme karela, jamun, neem ka arq shamil hai.</div>
+<div class="card-stars">
+<span class="stars-icons">★★★★★</span>
+<span class="stars-count">(248 reviews)</span>
+</div>
+<div class="price-row">
+<div><span class="price">₹510</span><span class="price-original">₹650</span></div>
+<span class="discount-pill">22% OFF</span>
+</div>
+<div class="card-actions">
+<a class="btn-order" href="https://wa.me/918434813523?text=DB%20BOOST%20order%20karna%20hai">💬 Order Now</a>
+<a class="btn-detail" href="product-detail.html?id=db-boost">Details</a>
+</div>
+</div>
+</div>
+
+<div class="product-card" data-category="powder" data-name="db life">
+<div class="card-badges">
+<span class="badge badge-popular">🔥 Popular</span>
+</div>
+<button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+<div class="card-img-wrap">
+<img src="db-life.jpg" alt="DB Life" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DB+LIFE'">
+</div>
+<div class="card-body">
+<div class="card-tag">powder • Energy & Sugar</div>
+<div class="card-name">DB LIFE</div>
+<div class="card-desc">Weakness door karta hai aur sugar control mein help karta hai. Daily energy ke liye best formula.</div>
+<div class="card-stars">
+<span class="stars-icons">★★★★★</span>
+<span class="stars-count">(192 reviews)</span>
+</div>
+<div class="price-row">
+<div><span class="price">₹544</span><span class="price-original">₹700</span></div>
+<span class="discount-pill">22% OFF</span>
+</div>
+<div class="card-actions">
+<a class="btn-order" href="https://wa.me/918434813523?text=DB%20LIFE%20order%20karna%20hai">💬 Order Now</a>
+<a class="btn-detail" href="product-detail.html?id=db-life">Details</a>
+</div>
+</div>
+</div>
+
+<div class="product-card" data-category="powder" data-name="dabatas">
+<button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+<div class="card-img-wrap">
+<img src="dabatas.jpg" alt="Dabatas" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DABATAS'">
+</div>
+<div class="card-body">
+<div class="card-tag">powder • Pancreas Support</div>
+<div class="card-name">DABATAS</div>
+<div class="card-desc">Pancreas ki natural functioning ko improve karta hai. Insulin sensitivity badhata hai.</div>
+<div class="card-stars">
+<span class="stars-icons">★★★★½</span>
+<span class="stars-count">(167 reviews)</span>
+</div>
+<div class="price-row">
+<div><span class="price">₹520</span><span class="price-original">₹650</span></div>
+<span class="discount-pill">20% OFF</span>
+</div>
+<div class="card-actions">
+<a class="btn-order" href="https://wa.me/918434813523?text=DABATAS%20order%20karna%20hai">💬 Order Now</a>
+<a class="btn-detail" href="product-detail.html?id=dabatas">Details</a>
+</div>
+</div>
+</div>
+
+<div class="product-card" data-category="capsule" data-name="db pan 10">
+<div class="card-badges">
+<span class="badge badge-offer">💰 Budget Pick</span>
+</div>
+<button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+<div class="card-img-wrap">
+<img src="db-pan-10.png" alt="DB Pan 10" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DB+PAN+10'">
+</div>
+<div class="card-body">
+<div class="card-tag">capsule • Pancrease supoort</div>
+<div class="card-name">DB PAN 10</div>
+<div class="card-desc">Fast acting syrup formula jo blood sugar ko quickly stabilize karta hai. Easy to use.</div>
+<div class="card-stars">
+<span class="stars-icons">★★★★★</span>
+<span class="stars-count">(98 reviews)</span>
+</div>
+<div class="price-row">
+<div><span class="price">₹220</span><span class="price-original">₹280</span></div>
+<span class="discount-pill">21% OFF</span>
+</div>
+<div class="card-actions">
+<a class="btn-order" href="https://wa.me/918434813523?text=DB%20PAN%2010%20order%20karna%20hai">💬 Order Now</a>
+<a class="btn-detail" href="product-detail.html?id=db-pan-10">Details</a>
+</div>
+</div>
+</div>
+
+<div class="product-card" data-category="capsule" data-name="dbx capsules">
+<div class="card-badges">
+<span class="badge badge-offer">💰 Best Value</span>
+</div>
+<button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+<div class="card-img-wrap">
+<img src="dbx.png" alt="DBX Capsules" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DBX'">
+</div>
+<div class="card-body">
+<div class="card-tag">capsule • diabetes care</div>
+<div class="card-name">DBX Capsules</div>
+<div class="card-desc">Everyday diabetes management ke liye affordable aur effective capsules.</div>
+<div class="card-stars">
+<span class="stars-icons">★★★★★</span>
+<span class="stars-count">(203 reviews)</span>
+</div>
+<div class="price-row">
+<div><span class="price">₹52</span><span class="price-original">₹70</span></div>
+<span class="discount-pill">26% OFF</span>
+</div>
+<div class="card-actions">
+<a class="btn-order" href="https://wa.me/918434813523?text=DBX%20Capsules%20order%20karna%20hai">💬 Order Now</a>
+<a class="btn-detail" href="product-detail.html?id=dbx">Details</a>
+</div>
+</div>
+</div>
+
+<div class="product-card" data-category="capsule" data-name="dbx qr">
+<button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+<div class="card-img-wrap">
+<img src="dbx-qr.png" alt="DBX-QR" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DBX-QR'">
+</div>
+<div class="card-body">
+<div class="card-tag">capsule • Quick Release</div>
+<div class="card-name">DBX-QR</div>
+<div class="card-desc">Quick release formula jo high sugar emergency mein fast relief deta hai.</div>
+<div class="card-stars">
+<span class="stars-icons">★★★★½</span>
+<span class="stars-count">(89 reviews)</span>
+</div>
+<div class="price-row">
+<div><span class="price">₹270</span><span class="price-original">₹340</span></div>
+<span class="discount-pill">20% OFF</span>
+</div>
+<div class="card-actions">
+<a class="btn-order" href="https://wa.me/918434813523?text=DBX-QR%20order%20karna%20hai">💬 Order Now</a>
+<a class="btn-detail" href="product-detail.html?id=dbx-qr">Details</a>
+</div>
+</div>
+</div>
+
+<div class="product-card featured" data-category="capsule" data-name="dbx gem">
+<div class="card-badges">
+<span class="badge badge-bestseller">💎 Premium</span>
+</div>
+<button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+<div class="card-img-wrap">
+<img src="gem.png" alt="DBX-Gem" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DBX-GEM'">
+</div>
+<div class="card-body">
+<div class="card-tag">Capsule • Premium Formula</div>
+<div class="card-name">DBX-Gem</div>
+<div class="card-desc">Hamare sabse powerful premium formula mein 24 rare herbs ka combination hai. Long term control ke liye best.</div>
+<div class="card-stars">
+<span class="stars-icons">★★★★★</span>
+<span class="stars-count">(156 reviews)</span>
+</div>
+<div class="price-row">
+<div><span class="price">₹560</span><span class="price-original">₹720</span></div>
+<span class="discount-pill">22% OFF</span>
+</div>
+<div class="card-actions">
+<a class="btn-order" href="https://wa.me/918434813523?text=DBX-Gem%20order%20karna%20hai">💬 Order Now</a>
+<a class="btn-detail" href="product-detail.html?id=dbx-gem">Details</a>
+</div>
+</div>
+</div>
+
+<div class="product-card" data-category="powder" data-name="db pan powder">
+<div class="card-badges">
+<span class="badge badge-new">🆕 New</span>
+</div>
+<button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+<div class="card-img-wrap">
+<img src="pan-po.png" alt="DB-PAN Powder" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DB+PAN+POWDER'">
+</div>
+<div class="card-body">
+<div class="card-tag">powder • Pancreas Life</div>
+<div class="card-name">DB-PAN Powder</div>
+<div class="card-desc">Pure herbal powder jo pancreas health improve karta hai aur digestion ko bhi better banata hai.</div>
+<div class="card-stars">
+<span class="stars-icons">★★★★★</span>
+<span class="stars-count">(74 reviews)</span>
+</div>
+<div class="price-row">
+<div><span class="price">₹545</span><span class="price-original">₹680</span></div>
+<span class="discount-pill">20% OFF</span>
+</div>
+<div class="card-actions">
+<a class="btn-order" href="https://wa.me/918434813523?text=DB-PAN%20Powder%20order%20karna%20hai">💬 Order Now</a>
+<a class="btn-detail" href="product-detail.html?id=db-pan">Details</a>
+</div>
+</div>
+</div>
+
+<div class="product-card" data-category="powder" data-name="quick qr">
+<button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+<div class="card-img-wrap">
+<img src="quick-qr.png" alt="QUICK-QR" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=QUICK-QR'">
+</div>
+<div class="card-body">
+<div class="card-tag">powder • Quick releaf</div>
+<div class="card-name">QUICK-QR</div>
+<div class="card-desc">Ultra-fast acting liquid formula. Sugar spike ke waqt turant rahat ke liye.</div>
+<div class="card-stars">
+<span class="stars-icons">★★★★½</span>
+<span class="stars-count">(61 reviews)</span>
+</div>
+<div class="price-row">
+<div><span class="price">₹110</span><span class="price-original">₹140</span></div>
+<span class="discount-pill">21% OFF</span>
+</div>
+<div class="card-actions">
+<a class="btn-order" href="https://wa.me/918434813523?text=QUICK-QR%20order%20karna%20hai">💬 Order Now</a>
+<a class="btn-detail" href="product-detail.html?id=quick-qr">Details</a>
+</div>
+</div>
+</div>
+
+<div class="product-card" data-category="powder" data-name="sugar low">
+<div class="card-badges">
+<span class="badge badge-popular">🔥 Top Rated</span>
+</div>
+<button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+<div class="card-img-wrap">
+<img src="sugar-low.png" alt="SUGAR-LOW" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=SUGAR+LOW'">
+</div>
+<div class="card-body">
+<div class="card-tag">powder • Sugar Reducer</div>
+<div class="card-name">SUGAR-LOW</div>
+<div class="card-desc">High sugar ko fast reduce karta hai. HbA1c improve karne mein clinically proven herbs.</div>
+<div class="card-stars">
+<span class="stars-icons">★★★★★</span>
+<span class="stars-count">(178 reviews)</span>
+</div>
+<div class="price-row">
+<div><span class="price">₹510</span><span class="price-original">₹650</span></div>
+<span class="discount-pill">22% OFF</span>
+</div>
+<div class="card-actions">
+<a class="btn-order" href="https://wa.me/918434813523?text=SUGAR-LOW%20order%20karna%20hai">💬 Order Now</a>
+<a class="btn-detail" href="product-detail.html?id=sugar-low">Details</a>
+</div>
+</div>
+</div>
+
+<div class="product-card" data-category="syrup" data-name="dbx sun">
+<button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+<div class="card-img-wrap">
+<img src="sun.png" alt="DBX-Sun" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DBX-SUN'">
+</div>
+<div class="card-body">
+<div class="card-tag">syrup • Vitamin D Support</div>
+<div class="card-name">DBX-Sun</div>
+<div class="card-desc">Vitamin D3 aur K2 ka combination jo diabetic patients mein bone health aur immunity badhata hai.</div>
+<div class="card-stars">
+<span class="stars-icons">★★★★★</span>
+<span class="stars-count">(112 reviews)</span>
+</div>
+<div class="price-row">
+<div><span class="price">₹450</span><span class="price-original">₹580</span></div>
+<span class="discount-pill">22% OFF</span>
+</div>
+<div class="card-actions">
+<a class="btn-order" href="https://wa.me/918434813523?text=DBX-Sun%20order%20karna%20hai">💬 Order Now</a>
+<a class="btn-detail" href="product-detail.html?id=dbx-sun">Details</a>
+</div>
+</div>
+</div>
+
+<div class="product-card featured" data-category="powder" data-name="sugar key">
+<div class="card-badges">
+<span class="badge badge-bestseller">🔑 Must Have</span>
+</div>
+<button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+<div class="card-img-wrap">
+<img src="suger-key-p.png" alt="SUGAR-KEY" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=SUGAR+KEY'">
+</div>
+<div class="card-body">
+<div class="card-tag">powder • Complete Control</div>
+<div class="card-name">SUGAR-KEY</div>
+<div class="card-desc">Diabetes ke 3 main reasons – insulin resistance, pancreas weakness, aur liver dysfunction – teeno ko target karta hai.</div>
+<div class="card-stars">
+<span class="stars-icons">★★★★★</span>
+<span class="stars-count">(221 reviews)</span>
+</div>
+<div class="price-row">
+<div><span class="price">₹540</span><span class="price-original">₹700</span></div>
+<span class="discount-pill">23% OFF</span>
+</div>
+<div class="card-actions">
+<a class="btn-order" href="https://wa.me/918434813523?text=SUGAR-KEY%20order%20karna%20hai">💬 Order Now</a>
+<a class="btn-detail" href="product-detail.html?id=sugar-key">Details</a>
+</div>
+</div>
+</div>
+
+</div><!-- /products-grid -->
+
+<!-- EMPTY STATE -->
+<div class="empty-state" id="emptyState">
+<div style="font-size:60px;margin-bottom:16px">🔍</div>
+<h3>Koi product nahi mila</h3>
+<p>Apni search change karein ya sab products dekhein</p>
+</div>
+
+</div><!-- /products-section -->
+
+<!-- FOOTER -->
+<div class="footer">
+<p>🌿 <strong>DEVDIC HERBAL OPC PRIVATE LIMITED</strong></p>
+<p style="margin-top:8px">📞 <a href="tel:8434813523">8434813523</a> &nbsp;|&nbsp; 💬 <a href="https://wa.me/918434813523">WhatsApp</a> &nbsp;|&nbsp; 🚚 Free Delivery PAN India</p>
+<p style="margin-top:10px;font-size:12px">© 2025 DEVDIC HERBAL. All Rights Reserved.</p>
+</div>
+
+<!-- FLOAT & STICKY -->
+<a class="float-wa" href="https://wa.me/918434813523">💬</a>
+<div class="bottom-bar">
+<a href="https://wa.me/918434813523?text=Mujhe%20product%20ke%20baare%20mein%20jaankari%20chahiye">
+💬 Koi Sawaal? WhatsApp Par Poochhen – Free!
+</a>
+</div>
+
 <script>
-
-// TOGGLE MENU
 function toggleMenu(){
 document.getElementById("navLinks").classList.toggle("active");
 }
+document.addEventListener("click",e=>{
+const nav=document.getElementById("navLinks");
+const tog=document.querySelector(".menu-toggle");
+if(nav.classList.contains("active")&&!nav.contains(e.target)&&!tog.contains(e.target)){
+nav.classList.remove("active");
+}
+});
 
-// AUTO ACTIVE + AUTO CLOSE
-let currentPage = window.location.pathname.split("/").pop();
-
-document.querySelectorAll("#navLinks a").forEach(link=>{
-let linkPage = link.getAttribute("href");
-
-if(linkPage === currentPage){
-link.classList.add("active");
+function toggleWishlist(btn){
+btn.classList.toggle("active");
+btn.textContent = btn.classList.contains("active") ? "❤️" : "🤍";
 }
 
-link.addEventListener("click",()=>{
-document.getElementById("navLinks").classList.remove("active");
-});
-});
-</script>
+let activeFilter="all";
 
+function filterProducts(type,btn){
+activeFilter=type;
+document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+btn.classList.add("active");
+applyFilters();
+}
+
+function searchProducts(val){
+applyFilters();
+}
+
+function applyFilters(){
+const search=document.getElementById("searchInput").value.toLowerCase();
+const cards=document.querySelectorAll(".product-card");
+let visible=0;
+cards.forEach(card=>{
+const cat=card.dataset.category;
+const name=card.dataset.name;
+const matchFilter=activeFilter==="all"||cat===activeFilter;
+const matchSearch=name.includes(search);
+if(matchFilter&&matchSearch){
+card.style.display="";
+visible++;
+} else {
+card.style.display="none";
+}
+});
+document.getElementById("countDisplay").textContent=visible;
+const empty=document.getElementById("emptyState");
+empty.classList.toggle("show",visible===0);
+}
+</script>
 </body>
 </html>
