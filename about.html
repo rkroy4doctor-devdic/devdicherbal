@@ -4,258 +4,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DEVDIC HERBAL OPC PRIVATE LIMITED – ISO Certified Ayurvedic Company. Founded by Randhir Kumar. Dr. R.K. Roy guided diabetes treatment. Samastipur, Bihar.">
 <title>About Us - DEVDIC HERBAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: Arial, sans-serif; background: #f0fdf4; color: #1a1a1a; }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',Arial,sans-serif;background:#f0fdf4;color:#1a1a1a}
 
-  /* TOP BAR */
-  .topbar {
-    background: #0f766e;
-    color: #fff;
-    padding: 8px 20px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    align-items: center;
-  }
+/* TOP BAR */
+.topbar{background:#0f766e;color:#fff;padding:8px 20px;display:flex;justify-content:space-between;font-size:13px;align-items:center;flex-wrap:wrap;gap:6px}
 
-  /* NAVBAR */
-  .navbar {
-    background: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 24px;
-    box-shadow: 0 2px 12px rgba(0,0,0,.08);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .logo-box { display: flex; align-items: center; gap: 10px; }
-  .logo { height: 45px; }
-  .company-name {
-    font-weight: 700;
-    color: #065f46;
-    font-size: 13px;
-    line-height: 1.3;
-  }
-  .company-name span { font-weight: 400; color: #6b7280; font-size: 11px; }
+/* NAVBAR */
+.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:14px 24px;box-shadow:0 2px 12px rgba(0,0,0,.08);position:sticky;top:0;z-index:100}
+.logo-box{display:flex;align-items:center;gap:10px}
+.logo{height:45px}
+.company-name{font-weight:700;color:#065f46;font-size:13px;line-height:1.3}
+.nav-links{display:flex;gap:6px}
+.nav-links a{text-decoration:none;color:#555;font-weight:600;font-size:14px;padding:8px 14px;border-radius:8px;transition:all .2s}
+.nav-links a:hover{background:#f0fdf4;color:#059669}
+.nav-links a.active{background:#ecfdf5;color:#059669;border-bottom:2px solid #059669}
+.menu-toggle{display:none;font-size:26px;cursor:pointer;color:#065f46;background:none;border:none}
 
-  /* NAV LINKS */
-  .nav-links { display: flex; gap: 6px; }
-  .nav-links a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 8px 14px;
-    border-radius: 8px;
-    transition: all .2s;
-  }
-  .nav-links a:hover { background: #f0fdf4; color: #059669; }
-  .nav-links a.active {
-    background: #ecfdf5;
-    color: #059669;
-    border-bottom: 2px solid #059669;
-  }
+/* HERO */
+.hero{background:linear-gradient(135deg,#064e3b 0%,#0f766e 50%,#059669 100%);color:#fff;padding:60px 20px;text-align:center}
+.hero h1{font-size:36px;font-weight:800;margin-bottom:12px}
+.hero p{font-size:16px;opacity:.85;max-width:500px;margin:auto}
 
-  /* HAMBURGER */
-  .menu-toggle { display: none; font-size: 26px; cursor: pointer; color: #065f46; }
+/* STATS BAR */
+.stats-bar{background:#fff;display:flex;justify-content:center;border-bottom:1px solid #e5e7eb;flex-wrap:wrap}
+.stat{padding:20px 40px;text-align:center;border-right:1px solid #e5e7eb}
+.stat:last-child{border-right:none}
+.stat-num{font-size:26px;font-weight:800;color:#059669}
+.stat-label{font-size:12px;color:#6b7280;margin-top:2px}
 
-  /* HERO */
-  .hero {
-    background: linear-gradient(135deg, #064e3b 0%, #0f766e 50%, #059669 100%);
-    color: #fff;
-    padding: 60px 20px;
-    text-align: center;
-  }
-  .hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
-  .hero p { font-size: 16px; opacity: .85; max-width: 500px; margin: auto; }
+/* SECTION */
+.section{padding:48px 20px;max-width:900px;margin:auto}
+.section-title{text-align:center;font-size:22px;font-weight:700;color:#064e3b;margin-bottom:32px;position:relative}
+.section-title::after{content:'';display:block;width:48px;height:3px;background:#059669;margin:10px auto 0;border-radius:2px}
 
-  /* STATS BAR */
-  .stats-bar {
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid #e5e7eb;
-    flex-wrap: wrap;
-  }
-  .stat {
-    padding: 20px 40px;
-    text-align: center;
-    border-right: 1px solid #e5e7eb;
-  }
-  .stat:last-child { border-right: none; }
-  .stat-num { font-size: 26px; font-weight: 800; color: #059669; }
-  .stat-label { font-size: 12px; color: #6b7280; margin-top: 2px; }
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-bottom:40px}
+.card{background:#fff;border-radius:14px;padding:24px;border:1px solid #d1fae5;box-shadow:0 4px 12px rgba(5,150,105,.07)}
+.card-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+.card-icon.green{background:#dcfce7}
+.card-icon.teal{background:#ccfbf1}
+.card-icon.blue{background:#dbeafe}
+.card-icon.amber{background:#fef3c7}
+.card h3{font-size:16px;font-weight:700;color:#065f46;margin-bottom:8px}
+.card p{font-size:14px;color:#6b7280;line-height:1.6}
 
-  /* MAIN SECTION */
-  .section { padding: 48px 20px; max-width: 900px; margin: auto; }
-  .section-title {
-    text-align: center;
-    font-size: 22px;
-    font-weight: 700;
-    color: #064e3b;
-    margin-bottom: 32px;
-    position: relative;
-  }
-  .section-title::after {
-    content: '';
-    display: block;
-    width: 48px;
-    height: 3px;
-    background: #059669;
-    margin: 10px auto 0;
-    border-radius: 2px;
-  }
+/* COMPANY INFO */
+.company-info{background:#fff;border-radius:16px;padding:28px;border:1px solid #d1fae5;box-shadow:0 4px 12px rgba(5,150,105,.07);margin-bottom:32px}
+.company-info h2{font-size:18px;font-weight:700;color:#064e3b;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #ecfdf5}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.info-item{background:#f0fdf4;border-radius:10px;padding:12px 16px}
+.info-label{font-size:11px;color:#059669;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.info-value{font-size:14px;color:#064e3b;font-weight:600;line-height:1.4}
 
-  /* CARDS */
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-bottom: 40px;
-  }
-  .card {
-    background: #fff;
-    border-radius: 14px;
-    padding: 24px;
-    border: 1px solid #d1fae5;
-    box-shadow: 0 4px 12px rgba(5,150,105,.07);
-  }
-  .card-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    margin-bottom: 16px;
-  }
-  .card-icon.green { background: #dcfce7; }
-  .card-icon.teal  { background: #ccfbf1; }
-  .card-icon.blue  { background: #dbeafe; }
-  .card h3 { font-size: 16px; font-weight: 700; color: #065f46; margin-bottom: 8px; }
-  .card p  { font-size: 14px; color: #6b7280; line-height: 1.6; }
+/* FOUNDER */
+.founder-card{background:#fff;border-radius:16px;padding:28px;border:1px solid #d1fae5;box-shadow:0 4px 12px rgba(5,150,105,.07);margin-bottom:32px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.founder-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#059669,#0f766e);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;flex-shrink:0}
+.founder-details h3{font-size:20px;font-weight:700;color:#064e3b;margin-bottom:4px}
+.founder-details p{font-size:14px;color:#6b7280;margin-bottom:8px}
+.founder-badge{display:inline-block;background:#ecfdf5;color:#059669;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:600;margin:2px}
 
-  /* MISSION */
-  .mission {
-    background: #fff;
-    border-radius: 16px;
-    padding: 32px;
-    border: 1px solid #d1fae5;
-    box-shadow: 0 4px 12px rgba(5,150,105,.07);
-    margin-bottom: 32px;
-  }
-  .mission h2 { font-size: 20px; font-weight: 700; color: #064e3b; margin-bottom: 20px; }
-  .mission-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 16px;
-    padding: 14px;
-    background: #f0fdf4;
-    border-radius: 10px;
-  }
-  .mission-dot {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: #059669;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-  .mission-text { font-size: 15px; color: #374151; line-height: 1.5; }
-  .mission-text strong { color: #065f46; }
+/* DOCTOR */
+.doctor-card{background:#fff;border-radius:16px;padding:28px;border:1px solid #d1fae5;box-shadow:0 4px 12px rgba(5,150,105,.07);margin-bottom:32px;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.doctor-img{width:160px;height:200px;object-fit:cover;border-radius:12px;border:4px solid #059669;flex-shrink:0}
+.doctor-details{flex:1;min-width:200px}
+.doctor-details h3{font-size:22px;font-weight:700;color:#064e3b;margin-bottom:4px}
+.doctor-details .degree{color:#059669;font-weight:600;font-size:14px;margin-bottom:12px}
+.doc-badge{display:inline-flex;align-items:center;gap:6px;background:#ecfdf5;color:#065f46;border-radius:8px;padding:6px 12px;font-size:13px;margin:4px 4px 4px 0;font-weight:600}
+.doctor-quote{background:#ecfdf5;border-left:4px solid #059669;border-radius:0 8px 8px 0;padding:12px 16px;margin-top:14px;font-style:italic;font-size:13px;color:#064e3b;line-height:1.6}
 
-  /* TRUST BADGES */
-  .trust-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 16px;
-    margin-bottom: 40px;
-  }
-  .trust-badge {
-    background: #fff;
-    border-radius: 12px;
-    padding: 18px;
-    text-align: center;
-    border: 1px solid #d1fae5;
-    box-shadow: 0 2px 8px rgba(5,150,105,.06);
-  }
-  .trust-badge .icon { font-size: 28px; margin-bottom: 8px; }
-  .trust-badge p { font-size: 13px; font-weight: 600; color: #065f46; }
+/* MISSION */
+.mission{background:#fff;border-radius:16px;padding:32px;border:1px solid #d1fae5;box-shadow:0 4px 12px rgba(5,150,105,.07);margin-bottom:32px}
+.mission h2{font-size:20px;font-weight:700;color:#064e3b;margin-bottom:20px}
+.mission-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;padding:14px;background:#f0fdf4;border-radius:10px}
+.mission-dot{width:28px;height:28px;border-radius:50%;background:#059669;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+.mission-text{font-size:15px;color:#374151;line-height:1.5}
+.mission-text strong{color:#065f46}
 
-  /* CTA */
-  .cta-box {
-    background: linear-gradient(135deg, #064e3b, #0f766e);
-    border-radius: 16px;
-    padding: 40px;
-    text-align: center;
-    color: #fff;
-  }
-  .cta-box h2 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
-  .cta-box p  { font-size: 15px; opacity: .85; margin-bottom: 24px; }
-  .wa-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #25D366;
-    color: #fff;
-    padding: 14px 28px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 15px;
-    transition: transform .2s, box-shadow .2s;
-    box-shadow: 0 4px 14px rgba(37,211,102,.35);
-  }
-  .wa-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37,211,102,.4);
-  }
-  .wa-btn svg { flex-shrink: 0; }
+/* TRUST BADGES */
+.trust-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px;margin-bottom:40px}
+.trust-badge{background:#fff;border-radius:12px;padding:18px;text-align:center;border:1px solid #d1fae5;box-shadow:0 2px 8px rgba(5,150,105,.06)}
+.trust-badge .icon{font-size:28px;margin-bottom:8px}
+.trust-badge p{font-size:13px;font-weight:600;color:#065f46}
 
-  /* FOOTER */
-  footer {
-    background: #064e3b;
-    color: #a7f3d0;
-    text-align: center;
-    padding: 20px;
-    font-size: 13px;
-    margin-top: 40px;
-  }
+/* ISO BADGE */
+.iso-section{background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-radius:16px;padding:24px;text-align:center;margin-bottom:32px;border:2px solid #059669}
+.iso-section h3{font-size:18px;font-weight:700;color:#064e3b;margin-bottom:8px}
+.iso-section p{font-size:14px;color:#065f46}
+.iso-badge{display:inline-block;background:#059669;color:#fff;padding:10px 24px;border-radius:50px;font-weight:700;font-size:16px;margin:10px 0}
 
-  /* MOBILE */
-  @media (max-width: 600px) {
-    .menu-toggle { display: block; }
-    .nav-links {
-      display: none;
-      position: absolute;
-      top: 73px;
-      right: 0;
-      background: #fff;
-      flex-direction: column;
-      width: 220px;
-      padding: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.12);
-      border-radius: 12px;
-    }
-    .nav-links a { padding: 12px; border-bottom: 1px solid #eee; }
-    .nav-links.open { display: flex; }
-    .hero h1 { font-size: 26px; }
-    .stat { min-width: 50%; border-right: none; border-bottom: 1px solid #e5e7eb; }
-    .topbar { font-size: 11px; }
-    .cta-box { padding: 28px 20px; }
-    .cta-box h2 { font-size: 18px; }
-  }
+/* ADDRESS */
+.address-card{background:#fff;border-radius:14px;padding:24px;border:1px solid #d1fae5;box-shadow:0 4px 12px rgba(5,150,105,.07);margin-bottom:32px}
+.address-card h3{font-size:16px;font-weight:700;color:#064e3b;margin-bottom:14px}
+.address-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:14px;color:#374151}
+.address-row span:first-child{font-size:18px;flex-shrink:0}
+
+/* CTA */
+.cta-box{background:linear-gradient(135deg,#064e3b,#0f766e);border-radius:16px;padding:40px;text-align:center;color:#fff}
+.cta-box h2{font-size:22px;font-weight:700;margin-bottom:10px}
+.cta-box p{font-size:15px;opacity:.85;margin-bottom:24px}
+.wa-btn{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px;transition:transform .2s;box-shadow:0 4px 14px rgba(37,211,102,.35);margin:6px}
+.wa-btn:hover{transform:translateY(-2px)}
+.call-btn{display:inline-flex;align-items:center;gap:10px;background:#0f766e;color:#fff;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px;transition:transform .2s;margin:6px}
+.call-btn:hover{transform:translateY(-2px)}
+
+/* FOOTER */
+footer{background:#064e3b;color:#a7f3d0;text-align:center;padding:20px 20px 70px;font-size:13px;margin-top:40px;line-height:2}
+
+/* BOTTOM BAR */
+.bottom-bar{position:fixed;bottom:0;left:0;width:100%;background:#25D366;text-align:center;padding:14px;font-weight:700;z-index:999}
+.bottom-bar a{color:white;text-decoration:none;font-size:15px}
+
+/* MOBILE */
+@media(max-width:600px){
+.menu-toggle{display:block}
+.nav-links{display:none;position:absolute;top:73px;right:0;background:#fff;flex-direction:column;width:220px;padding:10px;box-shadow:0 8px 20px rgba(0,0,0,.12);border-radius:12px}
+.nav-links a{padding:12px;border-bottom:1px solid #eee}
+.nav-links.open{display:flex}
+.hero h1{font-size:24px}
+.stat{min-width:50%;border-right:none;border-bottom:1px solid #e5e7eb}
+.topbar{font-size:11px}
+.cta-box{padding:28px 20px}
+.doctor-card{flex-direction:column;text-align:center}
+.founder-card{flex-direction:column;text-align:center}
+}
 </style>
 </head>
 <body>
@@ -263,18 +139,16 @@
 <!-- TOP BAR -->
 <div class="topbar">
   <span>📞 8434813523</span>
-  <span>🌿 100% Ayurvedic Treatment</span>
+  <span>🚚 Delivery Pan India</span>
 </div>
 
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="logo-box">
     <img src="devdic logo.png" class="logo" alt="Devdic Logo">
-    <div class="company-name">
-      DEVDIC HERBAL OPC PRIVATE LIMITED
-    </div>
+    <div class="company-name">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
   </div>
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   <div class="nav-links" id="navLinks">
     <a href="index.html">Home</a>
     <a href="product.html">Products</a>
@@ -292,22 +166,10 @@
 
 <!-- STATS BAR -->
 <div class="stats-bar">
-  <div class="stat">
-    <div class="stat-num">5000+</div>
-    <div class="stat-label">Patients Helped</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">100%</div>
-    <div class="stat-label">Herbal Products</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">0</div>
-    <div class="stat-label">Side Effects</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">10+</div>
-    <div class="stat-label">Years Experience</div>
-  </div>
+  <div class="stat"><div class="stat-num">5000+</div><div class="stat-label">Patients Helped</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Herbal Products</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">Side Effects</div></div>
+  <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Years Experience</div></div>
 </div>
 
 <!-- MAIN CONTENT -->
@@ -332,6 +194,87 @@
       <h3>Proven Results</h3>
       <p>5000+ patients ne humara treatment lekar apna blood sugar naturally control kiya hai — real results, real people.</p>
     </div>
+    <div class="card">
+      <div class="card-icon amber">📜</div>
+      <h3>Registered Company</h3>
+      <p>Hum Government of India ke Ministry of Corporate Affairs mein registered ek OPC Private Limited company hain.</p>
+    </div>
+  </div>
+
+  <!-- COMPANY INFO -->
+  <div class="company-info">
+    <h2>🏢 Company Details</h2>
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label">Company Name</div>
+        <div class="info-value">DEVDIC HERBAL (OPC) PRIVATE LIMITED</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Incorporated On</div>
+        <div class="info-value">13 July 2020</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">CIN Number</div>
+        <div class="info-value">U24110BR2020OPC046805</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Type</div>
+        <div class="info-value">OPC Private Limited</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Registered State</div>
+        <div class="info-value">Bihar, India</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Email</div>
+        <div class="info-value">devdicherbal4you@gmail.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ISO CERTIFICATION -->
+  <div class="iso-section">
+    <h3>🏅 ISO Certified Company</h3>
+    <div class="iso-badge">✅ ISO Certified</div>
+    <p>Hamare products aur processes international quality standards ke hisaab se certified hain.</p>
+  </div>
+
+  <!-- FOUNDER -->
+  <div class="section-title">Hamare Founder</div>
+  <div class="founder-card">
+    <div class="founder-avatar">RK</div>
+    <div class="founder-details">
+      <h3>Randhir Kumar</h3>
+      <p>Founder & Director, DEVDIC HERBAL OPC PRIVATE LIMITED</p>
+      <div>
+        <span class="founder-badge">🌿 Ayurvedic Entrepreneur</span>
+        <span class="founder-badge">📍 Samastipur, Bihar</span>
+        <span class="founder-badge">🏢 Est. 2020</span>
+      </div>
+      <div style="margin-top:14px;background:#f0fdf4;border-left:4px solid #059669;border-radius:0 8px 8px 0;padding:12px 16px;font-style:italic;font-size:13px;color:#064e3b;line-height:1.6">
+        "Hamara sapna hai ki har diabetes patient ko safe, natural aur affordable Ayurvedic treatment mile — bina kisi side effect ke. Isliye humne DEVDIC HERBAL ki neenv rakhi."
+      </div>
+    </div>
+  </div>
+
+  <!-- DOCTOR -->
+  <div class="section-title">Hamare Expert Doctor</div>
+  <div class="doctor-card">
+    <img src="dr.png" class="doctor-img" alt="Dr. R.K. Roy">
+    <div class="doctor-details">
+      <h3>Dr. R.K. Roy</h3>
+      <div class="degree">B.A.M.S – Ayurvedic Medical Doctor</div>
+      <div>
+        <span class="doc-badge">🏥 10+ Years Experience</span>
+        <span class="doc-badge">🩺 Diabetes Specialist</span>
+        <span class="doc-badge">📍 Samastipur, Bihar</span>
+        <span class="doc-badge">🏆 5000+ Patients Treated</span>
+        <span class="doc-badge">🌿 Ayurveda Expert</span>
+      </div>
+      <div class="doctor-quote">
+        "Diabetes ek lifestyle disease hai. Sahi Ayurvedic treatment aur discipline se ise control kiya ja sakta hai — main har patient ko personally guide karta hoon."
+      </div>
+    </div>
   </div>
 
   <!-- MISSION -->
@@ -339,71 +282,74 @@
     <h2>🎯 Hamari Mission</h2>
     <div class="mission-item">
       <div class="mission-dot">1</div>
-      <div class="mission-text">
-        <strong>Har ghar tak safe Ayurvedic solution pahuchana</strong> — affordable aur accessible treatment sabke liye
-      </div>
+      <div class="mission-text"><strong>Har ghar tak safe Ayurvedic solution pahuchana</strong> — affordable aur accessible treatment sabke liye</div>
     </div>
     <div class="mission-item">
       <div class="mission-dot">2</div>
-      <div class="mission-text">
-        <strong>Diabetes ko naturally control karna</strong> — bina chemical medicines ke, sirf herbs ki power se
-      </div>
+      <div class="mission-text"><strong>Diabetes ko naturally control karna</strong> — bina chemical medicines ke, sirf herbs ki power se</div>
     </div>
     <div class="mission-item">
       <div class="mission-dot">3</div>
-      <div class="mission-text">
-        <strong>Side-effect free treatment dena</strong> — 100% herbal ingredients jo body ke saath kaam karein, against nahi
-      </div>
+      <div class="mission-text"><strong>Side-effect free treatment dena</strong> — 100% herbal ingredients jo body ke saath kaam karein</div>
     </div>
+    <div class="mission-item">
+      <div class="mission-dot">4</div>
+      <div class="mission-text"><strong>Quality aur trust banaye rakhna</strong> — ISO certified products, doctor guided treatment</div>
+    </div>
+  </div>
+
+  <!-- ADDRESS -->
+  <div class="address-card">
+    <h3>📍 Hamara Pata</h3>
+    <div class="address-row"><span>🏠</span><span>H/O Randhir Kumar, S/O Ravindra Roy, Vill & Tola – Kasba, Block – Tajpur, Ward-5</span></div>
+    <div class="address-row"><span>📌</span><span>Samastipur, Bihar – 848122, India</span></div>
+    <div class="address-row"><span>📞</span><span>8434813523</span></div>
+    <div class="address-row"><span>📧</span><span>devdicherbal4you@gmail.com</span></div>
   </div>
 
   <!-- TRUST BADGES -->
   <div class="section-title">Kyun Chunein Hume?</div>
   <div class="trust-row">
-    <div class="trust-badge"><div class="icon">✅</div><p>Doctor Guided Treatment</p></div>
-    <div class="trust-badge"><div class="icon">🌿</div><p>100% Natural Herbs</p></div>
+    <div class="trust-badge"><div class="icon">✅</div><p>Doctor Guided</p></div>
+    <div class="trust-badge"><div class="icon">🌿</div><p>100% Natural</p></div>
     <div class="trust-badge"><div class="icon">😴</div><p>No Side Effects</p></div>
-    <div class="trust-badge"><div class="icon">⭐</div><p>Real Patient Results</p></div>
+    <div class="trust-badge"><div class="icon">🏅</div><p>ISO Certified</p></div>
+    <div class="trust-badge"><div class="icon">📜</div><p>Govt. Registered</p></div>
     <div class="trust-badge"><div class="icon">📞</div><p>Free Consultation</p></div>
-    <div class="trust-badge"><div class="icon">📄</div><p>Certified Products</p></div>
   </div>
 
   <!-- CTA -->
   <div class="cta-box">
     <h2>Aaj Hi Shuru Karein Apna Diabetes-Free Safar</h2>
     <p>Free consultation ke liye abhi WhatsApp karein — hamare doctor aapki help ke liye tayyar hain.</p>
-    <a class="wa-btn"
-       href="https://wa.me/918434813523?text=About page se aaya hu, mujhe diabetes consultation chahiye"
-       target="_blank">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
-      Doctor se Free Baat Karein
-    </a>
+    <a class="wa-btn" href="https://wa.me/918434813523?text=Namaste!%20Mujhe%20Diabetes%20ke%20liye%20Ayurvedic%20treatment%20ki%20jankari%20chahiye." target="_blank">💬 WhatsApp Karein</a>
+    <a class="call-btn" href="tel:8434813523">📞 Call Karein</a>
   </div>
 
-</div><!-- end .section -->
+</div>
 
 <!-- FOOTER -->
 <footer>
-  &copy; 2025 DEVDIC HERBAL OPC PRIVATE LIMITED — All Rights Reserved | Ayurvedic Diabetes Treatment
+  🌿 DEVDIC HERBAL OPC PRIVATE LIMITED<br>
+  📍 Kasba, Tajpur, Samastipur, Bihar – 848122<br>
+  📞 8434813523 | 📧 devdicherbal4you@gmail.com<br>
+  <span style="font-size:11px;color:#6ee7b7">© 2017 Devdic Herbal. All Rights Reserved.</span>
 </footer>
 
-<script>
-  function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("open");
-  }
+<!-- STICKY BOTTOM BAR -->
+<div class="bottom-bar">
+  <a href="https://wa.me/918434813523?text=Namaste!%20Mujhe%20Diabetes%20ke%20liye%20Ayurvedic%20treatment%20ki%20jankari%20chahiye." target="_blank">💬 WhatsApp Par Free Consultation</a>
+</div>
 
-  // Auto active link
-  let currentPage = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll("#navLinks a").forEach(link => {
-    if (link.getAttribute("href") === currentPage) {
-      link.classList.add("active");
-    }
-    link.addEventListener("click", () => {
-      document.getElementById("navLinks").classList.remove("open");
-    });
-  });
+<script>
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("open");
+}
+let currentPage = window.location.pathname.split("/").pop()||"index.html";
+document.querySelectorAll("#navLinks a").forEach(link=>{
+  if(link.getAttribute("href")===currentPage) link.classList.add("active");
+  link.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open"));
+});
 </script>
 
 </body>
