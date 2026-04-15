@@ -5,344 +5,237 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Patient Testimonials - DEVDIC HERBAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Segoe UI',Arial,sans-serif;background:#f0fdf4;color:#1a1a1a}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#059669;
+  --green-dark:#064e3b;
+  --green-mid:#065f46;
+  --green-light:#ecfdf5;
+  --green-xlight:#f0fdf4;
+  --gold:#f59e0b;
+  --white:#ffffff;
+  --text:#0f172a;
+  --text-muted:#475569;
+  --border:#e2e8f0;
+}
+body{font-family:'Poppins',sans-serif;background:#f8fffe;color:var(--text);overflow-x:hidden}
 
-  /* TOPBAR */
-  .topbar{
-    background:#065f46;
-    color:#d1fae5;
-    padding:8px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:13px;
-    gap:10px;
-    flex-wrap:wrap;
-  }
-  .topbar a{color:#6ee7b7;text-decoration:none;font-weight:600}
-  .topbar span{display:flex;align-items:center;gap:6px}
+/* ── TOPBAR ── */
+.topbar{background:linear-gradient(135deg,var(--green-dark),var(--green-mid));color:#fff;padding:9px 24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:500;gap:8px;flex-wrap:wrap}
+.topbar a{color:#fff;text-decoration:none;display:flex;align-items:center;gap:6px}
+.topbar-right{display:flex;align-items:center;gap:6px}
+.live-dot{width:7px;height:7px;background:#4ade80;border-radius:50%;animation:pulse-dot 1.5s infinite;flex-shrink:0}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
 
-  /* NAVBAR */
-  .navbar{
-    background:#fff;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:14px 24px;
-    box-shadow:0 2px 12px rgba(0,0,0,.08);
-    position:sticky;
-    top:0;
-    z-index:100;
-  }
-  .logo-box{display:flex;align-items:center;gap:12px}
-  .logo{height:48px;border-radius:8px}
-  .company{font-weight:700;color:#065f46;font-size:13px;line-height:1.4;max-width:200px}
-  .tagline{font-size:11px;color:#6b7280;font-weight:400}
+/* ── NAVBAR ── */
+.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 24px;position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(5,150,105,.15);box-shadow:0 2px 16px rgba(0,0,0,.07)}
+.logo-box{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo{height:54px;border-radius:6px}
+.brand-text{display:flex;flex-direction:column}
+.brand-name{font-size:14px;font-weight:800;color:var(--green-dark);line-height:1.3}
+.brand-tagline{font-size:10px;color:var(--green);font-weight:600;letter-spacing:.7px;text-transform:uppercase}
+.nav-links{display:flex;gap:2px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--text-muted);font-weight:500;font-size:14px;padding:8px 14px;border-radius:8px;transition:.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--green);background:var(--green-light)}
+.nav-cta{background:var(--green)!important;color:#fff!important;border-radius:30px!important;padding:9px 20px!important;margin-left:6px}
+.nav-cta:hover{background:var(--green-dark)!important;color:#fff!important}
 
-  /* NAV LINKS */
-  .nav-links{display:flex;gap:6px;align-items:center}
-  .nav-links a{
-    text-decoration:none;
-    color:#374151;
-    font-weight:600;
-    font-size:14px;
-    padding:7px 14px;
-    border-radius:8px;
-    transition:all .2s;
-  }
-  .nav-links a:hover{background:#ecfdf5;color:#059669}
-  .nav-links a.active{background:#059669;color:#fff}
+/* hamburger */
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:6px;z-index:1100}
+.menu-toggle span{display:block;width:26px;height:3px;background:var(--green-dark);border-radius:4px;transition:.3s}
+.menu-toggle.open span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+.menu-toggle.open span:nth-child(2){opacity:0}
+.menu-toggle.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
 
-  /* HAMBURGER */
-  .menu-toggle{display:none;font-size:26px;cursor:pointer;color:#065f46;background:none;border:none;padding:4px}
+/* mobile drawer */
+.nav-drawer{position:fixed;top:0;right:-100%;width:75%;max-width:300px;height:auto;max-height:100vh;background:#fff;z-index:1050;box-shadow:-6px 0 30px rgba(0,0,0,.15);transition:right .3s ease;display:flex;flex-direction:column;padding:70px 0 20px;overflow-y:auto;border-bottom-left-radius:16px}
+.nav-drawer.open{right:0}
+.nav-drawer a{text-decoration:none;color:var(--text);font-size:16px;font-weight:500;padding:15px 24px;border-bottom:1px solid var(--green-light);transition:.2s}
+.nav-drawer a:hover,.nav-drawer a.active{color:var(--green);background:var(--green-xlight)}
+.nav-drawer .drawer-cta{margin:20px 24px 0;background:var(--green);color:#fff!important;border-radius:12px;text-align:center;padding:14px!important;font-weight:700!important;border-bottom:none!important}
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:1040;display:none}
+.nav-overlay.open{display:block}
 
-  @media(max-width:640px){
-    .menu-toggle{display:block}
-    .nav-links{
-      display:none;
-      position:absolute;
-      top:76px;left:0;right:0;
-      background:#fff;
-      flex-direction:column;
-      padding:12px 16px 16px;
-      box-shadow:0 8px 20px rgba(0,0,0,.12);
-      border-top:2px solid #ecfdf5;
-    }
-    .nav-links a{padding:12px 16px;border-radius:8px;width:100%}
-    .nav-links.open{display:flex}
-    .company{font-size:11px}
-  }
+@media(max-width:768px){
+  .menu-toggle{display:flex}
+  .nav-links{display:none}
+  .brand-name{font-size:13px}
+}
 
-  /* HERO */
-  .hero{
-    background:linear-gradient(135deg,#065f46 0%,#047857 50%,#059669 100%);
-    color:#fff;
-    text-align:center;
-    padding:60px 24px 50px;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero::before{
-    content:'';
-    position:absolute;
-    top:-60px;right:-60px;
-    width:200px;height:200px;
-    background:rgba(255,255,255,.05);
-    border-radius:50%;
-  }
-  .hero::after{
-    content:'';
-    position:absolute;
-    bottom:-80px;left:-40px;
-    width:250px;height:250px;
-    background:rgba(255,255,255,.04);
-    border-radius:50%;
-  }
-  .hero-badge{
-    display:inline-block;
-    background:rgba(255,255,255,.15);
-    border:1px solid rgba(255,255,255,.3);
-    color:#d1fae5;
-    font-size:13px;
-    font-weight:600;
-    padding:6px 18px;
-    border-radius:30px;
-    margin-bottom:20px;
-    letter-spacing:.5px;
-  }
-  .hero h1{font-size:32px;font-weight:700;margin-bottom:12px;position:relative}
-  .hero p{font-size:16px;color:#a7f3d0;max-width:500px;margin:0 auto;line-height:1.6;position:relative}
-  .hero-stats{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    margin-top:36px;
-    flex-wrap:wrap;
-    position:relative;
-  }
-  .stat{text-align:center}
-  .stat-num{font-size:28px;font-weight:700;color:#fff;display:block}
-  .stat-label{font-size:12px;color:#6ee7b7;font-weight:500;letter-spacing:.4px}
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,#065f46 0%,#047857 50%,#059669 100%);color:#fff;text-align:center;padding:60px 24px 50px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:rgba(255,255,255,.05);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:250px;height:250px;background:rgba(255,255,255,.04);border-radius:50%}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#d1fae5;font-size:13px;font-weight:600;padding:6px 18px;border-radius:30px;margin-bottom:20px;letter-spacing:.5px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,40px);font-weight:800;margin-bottom:12px;position:relative}
+.hero p{font-size:15px;color:#a7f3d0;max-width:500px;margin:0 auto;line-height:1.6;position:relative}
+.hero-stats{display:flex;justify-content:center;gap:40px;margin-top:36px;flex-wrap:wrap;position:relative}
+.stat{text-align:center}
+.stat-num{font-size:28px;font-weight:800;color:#fff;display:block}
+.stat-label{font-size:12px;color:#6ee7b7;font-weight:500;letter-spacing:.4px}
 
-  /* SECTION */
-  .section{padding:50px 24px}
-  .section-title{
-    text-align:center;
-    font-size:22px;
-    font-weight:700;
-    color:#064e3b;
-    margin-bottom:8px;
-  }
-  .section-sub{
-    text-align:center;
-    color:#6b7280;
-    font-size:15px;
-    margin-bottom:36px;
-  }
-  .divider{
-    width:60px;height:4px;
-    background:linear-gradient(90deg,#059669,#34d399);
-    border-radius:2px;
-    margin:12px auto 36px;
-  }
+/* Rating strip */
+.rating-strip{background:var(--green-dark);padding:14px 20px;display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap}
+.rating-item{color:#fff;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600}
+.rating-stars{color:#f59e0b;font-size:16px;letter-spacing:2px}
 
-  /* VIDEO GRID */
-  .video-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:24px;
-    max-width:1100px;
-    margin:0 auto;
-  }
-  .video-card{
-    background:#fff;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 4px 20px rgba(0,0,0,.08);
-    transition:transform .3s,box-shadow .3s;
-    border:1px solid #e5e7eb;
-  }
-  .video-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 12px 32px rgba(5,150,105,.15);
-  }
-  .video-wrapper{position:relative;padding-top:56.25%}
-  .video-wrapper iframe{
-    position:absolute;top:0;left:0;
-    width:100%;height:100%;
-    border:none;
-  }
-  .video-info{
-    padding:16px 18px;
-    border-top:1px solid #f3f4f6;
-  }
-  .video-label{
-    display:inline-block;
-    background:#ecfdf5;
-    color:#059669;
-    font-size:11px;
-    font-weight:600;
-    padding:3px 10px;
-    border-radius:20px;
-    margin-bottom:8px;
-    letter-spacing:.3px;
-  }
-  .video-title{
-    font-size:14px;
-    font-weight:600;
-    color:#1f2937;
-    line-height:1.4;
-  }
-  .video-sub{font-size:12px;color:#9ca3af;margin-top:4px}
+/* ── SECTION ── */
+.section{padding:50px 24px}
+.section-title{text-align:center;font-size:22px;font-weight:700;color:#064e3b;margin-bottom:8px}
+.section-sub{text-align:center;color:#6b7280;font-size:15px;margin-bottom:36px}
+.divider{width:60px;height:4px;background:linear-gradient(90deg,#059669,#34d399);border-radius:2px;margin:12px auto 36px}
 
-  /* REVIEW CARDS */
-  .reviews{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
-    max-width:1100px;
-    margin:0 auto;
-  }
-  .review-card{
-    background:#fff;
-    border-radius:14px;
-    padding:22px;
-    box-shadow:0 2px 12px rgba(0,0,0,.06);
-    border:1px solid #e5e7eb;
-    transition:box-shadow .2s;
-  }
-  .review-card:hover{box-shadow:0 6px 24px rgba(5,150,105,.12)}
-  .stars{color:#f59e0b;font-size:16px;margin-bottom:10px;letter-spacing:2px}
-  .review-text{font-size:14px;color:#374151;line-height:1.6;margin-bottom:14px}
-  .reviewer{display:flex;align-items:center;gap:10px}
-  .avatar{
-    width:38px;height:38px;border-radius:50%;
-    background:linear-gradient(135deg,#059669,#34d399);
-    display:flex;align-items:center;justify-content:center;
-    color:#fff;font-weight:700;font-size:14px;flex-shrink:0;
-  }
-  .reviewer-name{font-weight:600;font-size:14px;color:#1f2937}
-  .reviewer-city{font-size:12px;color:#9ca3af}
+/* ── FILTER BAR ── */
+.filter-section{background:#fff;padding:20px 24px;border-bottom:1px solid var(--border);position:sticky;top:78px;z-index:90;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.filter-grid{display:flex;gap:12px;flex-wrap:wrap;align-items:center;max-width:1100px;margin:0 auto;justify-content:center}
+.filter-select{border:1.5px solid var(--border);border-radius:30px;padding:8px 16px;font-size:13px;font-family:'Poppins',sans-serif;color:var(--text);outline:none;background:#fff;cursor:pointer;transition:.2s;font-weight:500}
+.filter-select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(5,150,105,.1)}
+.filter-search{flex:1;min-width:200px;max-width:280px;border:1.5px solid var(--border);border-radius:30px;padding:9px 16px 9px 38px;font-size:13px;font-family:'Poppins',sans-serif;outline:none;transition:.2s;color:var(--text);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat 13px center}
+.filter-search:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(5,150,105,.1)}
+.filter-reset{background:none;border:1.5px solid #fecaca;border-radius:30px;padding:8px 16px;font-size:13px;font-weight:600;color:#ef4444;cursor:pointer;font-family:'Poppins',sans-serif;transition:.2s}
+.filter-reset:hover{background:#fff5f5}
 
-  /* CTA */
-  .cta{
-    background:linear-gradient(135deg,#064e3b,#065f46);
-    color:#fff;
-    text-align:center;
-    padding:60px 24px;
-  }
-  .cta h2{font-size:26px;font-weight:700;margin-bottom:10px}
-  .cta p{color:#a7f3d0;font-size:16px;margin-bottom:30px;max-width:480px;margin-left:auto;margin-right:auto}
-  .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+/* ── VIDEO GRID ── */
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1100px;margin:0 auto}
+.video-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:transform .3s,box-shadow .3s;border:1px solid #e5e7eb;opacity:0;transform:translateY(20px);animation:fadeUp .5s ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.video-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(5,150,105,.15)}
+.video-wrapper{position:relative;padding-top:56.25%}
+.video-wrapper iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
+.video-info{padding:16px 18px;border-top:1px solid #f3f4f6}
+.video-label{display:inline-block;background:#ecfdf5;color:#059669;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:8px;letter-spacing:.3px}
+.video-title{font-size:14px;font-weight:700;color:#1f2937;line-height:1.4}
+.video-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.video-tag{background:#f1f5f9;color:#475569;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px}
+.video-tag.state{background:#dbeafe;color:#1e40af}
+.video-tag.sugar{background:#fce7f3;color:#9d174d}
+.video-tag.year-diab{background:#fff7ed;color:#c2410c}
+.video-tag.upload{background:#f0fdf4;color:#166534}
+.video-actions{display:flex;gap:8px;margin-top:12px;padding-top:10px;border-top:1px solid #f3f4f6}
+.btn-share-wa{flex:1;background:#ecfdf5;color:#059669;border:1.5px solid rgba(5,150,105,.2);border-radius:10px;padding:8px 10px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;display:flex;align-items:center;justify-content:center;gap:6px;transition:.2s;text-decoration:none}
+.btn-share-wa:hover{background:rgba(5,150,105,.15)}
 
-  .btn-whatsapp{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:14px 26px;
-    background:#25D366;
-    color:#fff;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:700;
-    font-size:15px;
-    transition:transform .2s,background .2s;
-    box-shadow:0 4px 14px rgba(37,211,102,.4);
-  }
-  .btn-whatsapp:hover{background:#1ebe5c;transform:translateY(-2px)}
+/* Consult row after every 3 videos */
+.consult-row{grid-column:1/-1;background:linear-gradient(135deg,#ecfdf5,#d1fae5);border:2px solid rgba(5,150,105,.2);border-radius:16px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin:4px 0}
+.consult-row-text{font-size:15px;font-weight:700;color:var(--green-dark)}
+.consult-row-sub{font-size:13px;color:var(--text-muted);margin-top:3px}
+.consult-row-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn-consult-wa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;border:none;border-radius:12px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;display:flex;align-items:center;gap:8px;text-decoration:none;transition:.2s;white-space:nowrap}
+.btn-consult-wa:hover{transform:scale(1.03);box-shadow:0 6px 20px rgba(37,211,102,.4)}
+.btn-consult-call{background:#fff;color:var(--green-dark);border:1.5px solid var(--green);border-radius:12px;padding:11px 20px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;display:flex;align-items:center;gap:8px;text-decoration:none;transition:.2s;white-space:nowrap}
+.btn-consult-call:hover{background:var(--green-light)}
 
-  .btn-call{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:14px 26px;
-    background:rgba(255,255,255,.1);
-    border:1.5px solid rgba(255,255,255,.3);
-    color:#fff;
-    border-radius:12px;
-    text-decoration:none;
-    font-weight:700;
-    font-size:15px;
-    transition:background .2s;
-  }
-  .btn-call:hover{background:rgba(255,255,255,.2)}
+/* YouTube link bar */
+.yt-bar{max-width:1100px;margin:28px auto 0;background:linear-gradient(135deg,#ff0000,#cc0000);border-radius:14px;padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:12px;text-decoration:none;transition:.2s;box-shadow:0 4px 16px rgba(255,0,0,.25)}
+.yt-bar:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,0,0,.35)}
+.yt-bar-text{color:#fff;font-size:15px;font-weight:700}
+.yt-bar-sub{color:rgba(255,255,255,.8);font-size:12px;margin-top:2px}
 
-  .back-btn{
-    display:inline-flex;align-items:center;gap:6px;
-    margin-top:24px;
-    padding:10px 20px;
-    background:rgba(255,255,255,.12);
-    color:#d1fae5;
-    border-radius:8px;
-    text-decoration:none;
-    font-size:14px;
-    border:1px solid rgba(255,255,255,.2);
-    transition:background .2s;
-  }
-  .back-btn:hover{background:rgba(255,255,255,.2)}
+/* Load more */
+.load-more-wrap{text-align:center;margin-top:32px}
+.btn-load-more{background:#fff;border:2px solid var(--green);color:var(--green);border-radius:30px;padding:12px 32px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;transition:.2s}
+.btn-load-more:hover{background:var(--green);color:#fff}
+.no-more{font-size:13px;color:var(--text-muted);margin-top:12px}
 
-  /* FLOAT BUTTON */
-  .float-wa{
-    position:fixed;bottom:24px;right:24px;
-    background:#25D366;
-    color:#fff;
-    width:56px;height:56px;
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    text-decoration:none;
-    font-size:26px;
-    box-shadow:0 4px 18px rgba(37,211,102,.5);
-    z-index:200;
-    transition:transform .2s;
-  }
-  .float-wa:hover{transform:scale(1.1)}
-  .float-pulse{
-    position:fixed;bottom:24px;right:24px;
-    width:56px;height:56px;border-radius:50%;
-    background:rgba(37,211,102,.4);
-    z-index:199;
-    animation:pulse 2s infinite;
-  }
-  @keyframes pulse{
-    0%{transform:scale(1);opacity:.8}
-    70%{transform:scale(1.7);opacity:0}
-    100%{transform:scale(1.7);opacity:0}
-  }
+/* ── REVIEW CARDS ── */
+.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:1100px;margin:0 auto}
+.review-card{background:#fff;border-radius:14px;padding:22px;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid #e5e7eb;transition:box-shadow .2s;position:relative;opacity:0;transform:translateY(20px);animation:fadeUp .5s ease forwards}
+.review-card:hover{box-shadow:0 6px 24px rgba(5,150,105,.12)}
+.verified-badge{display:inline-flex;align-items:center;gap:4px;background:#dcfce7;color:#166534;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.stars{color:#f59e0b;font-size:16px;margin-bottom:10px;letter-spacing:2px}
+.review-text{font-size:14px;color:#374151;line-height:1.6;margin-bottom:14px}
+.reviewer{display:flex;align-items:center;gap:10px}
+.avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0}
+.reviewer-name{font-weight:600;font-size:14px;color:#1f2937}
+.reviewer-city{font-size:12px;color:#9ca3af}
 
-  /* FOOTER */
-  footer{
-    background:#022c22;
-    color:#6ee7b7;
-    text-align:center;
-    padding:20px;
-    font-size:13px;
-  }
+/* ── FAQ ── */
+.faq-wrap{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.2s}
+.faq-item.open{border-color:var(--green);box-shadow:0 4px 16px rgba(5,150,105,.1)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;cursor:pointer;font-size:15px;font-weight:600;color:var(--text);gap:12px;user-select:none}
+.faq-q:hover{background:var(--green-xlight)}
+.faq-icon{font-size:20px;color:var(--green);transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 20px 18px;font-size:14px;color:var(--text-muted);line-height:1.7;border-top:1px solid var(--green-light)}
+.faq-item.open .faq-a{display:block}
+
+/* ── CTA ── */
+.cta{background:linear-gradient(135deg,#064e3b,#065f46);color:#fff;text-align:center;padding:60px 24px}
+.cta h2{font-size:26px;font-weight:700;margin-bottom:10px}
+.cta p{color:#a7f3d0;font-size:16px;margin-bottom:30px;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-whatsapp{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;background:#25D366;color:#fff;border-radius:12px;text-decoration:none;font-weight:700;font-size:15px;transition:transform .2s,background .2s;box-shadow:0 4px 14px rgba(37,211,102,.4)}
+.btn-whatsapp:hover{background:#1ebe5c;transform:translateY(-2px)}
+.btn-call{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);color:#fff;border-radius:12px;text-decoration:none;font-weight:700;font-size:15px;transition:background .2s}
+.btn-call:hover{background:rgba(255,255,255,.2)}
+
+/* ── FOOTER ── */
+footer{background:#022c22;color:#6ee7b7;text-align:center;padding:20px 20px 80px;font-size:13px;line-height:2}
+footer a{color:#4ade80;text-decoration:none}
+.footer-copy{margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;color:#94a3b8}
+
+/* ── BOTTOM BAR ── */
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#25d366,#128c7e);text-align:center;padding:0;font-weight:700;z-index:998;font-size:14px;box-shadow:0 -3px 20px rgba(0,0,0,.2);display:flex}
+.bottom-bar a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;flex:1;padding:14px 10px}
+.bottom-bar a:first-child{border-right:1px solid rgba(255,255,255,.3)}
+
+/* Empty state */
+.empty-state{text-align:center;padding:60px 20px;display:none}
+.empty-state.show{display:block}
+.empty-state h3{font-size:18px;color:var(--text-muted);margin-bottom:8px}
+
+@media(max-width:640px){
+  .filter-grid{gap:8px}
+  .filter-select{font-size:12px;padding:7px 12px}
+  .consult-row{flex-direction:column;text-align:center}
+  .consult-row-btns{justify-content:center}
+  .bottom-bar{font-size:13px}
+}
 </style>
 </head>
 <body>
 
 <!-- TOPBAR -->
 <div class="topbar">
-  <span>📞 <a href="tel:8434813523">8434813523</a></span>
-  <span>🌿 100% Herbal &amp; Natural Products</span>
-  <span>🚚 Free Delivery Available</span>
+  <a href="tel:8434813523">📞 8434813523</a>
+  <div class="topbar-right">
+    <div class="live-dot"></div>
+    🌿 100% Herbal &amp; Natural Products
+  </div>
 </div>
 
 <!-- NAVBAR -->
 <div class="navbar">
-  <div class="logo-box">
-    <img src="devdic logo.png" class="logo" alt="Devdic Herbal Logo">
-    <div>
-      <div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
-      <div class="tagline">Trusted Herbal Healthcare</div>
+  <a class="logo-box" href="index.html">
+    <img src="devdic logo.png" class="logo" alt="Devdic Herbal">
+    <div class="brand-text">
+      <div class="brand-name">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
     </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" data-page="index">Home</a>
+    <a href="product.html" data-page="product">Products</a>
+    <a href="testimonials.html" data-page="testimonials">Testimonial</a>
+    <a href="about.html" data-page="about">About</a>
+    <a href="contact.html" data-page="contact">Contact</a>
+    <a href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20diabetes%20ke%20liye%20free%20consultation%20chahiye.%20Kripya%20mujhse%20sampark%20karein." target="_blank" class="nav-cta">💬 Free Consult</a>
   </div>
-  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
-  <div class="nav-links" id="navLinks">
-    <a href="index.html">Home</a>
-    <a href="product.html">Products</a>
-    <a href="testimonials.html" class="active">Testimonials</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
+  <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
+<div class="nav-drawer" id="navDrawer">
+  <a href="index.html" data-page="index">Home</a>
+  <a href="product.html" data-page="product">Products</a>
+  <a href="testimonials.html" data-page="testimonials">Testimonial</a>
+  <a href="about.html" data-page="about">About</a>
+  <a href="contact.html" data-page="contact">Contact</a>
+  <a href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20diabetes%20ke%20liye%20free%20consultation%20chahiye.%20Kripya%20mujhse%20sampark%20karein." target="_blank" class="drawer-cta">💬 Free Consult</a>
 </div>
 
 <!-- HERO -->
@@ -351,142 +244,150 @@
   <h1>🎥 Patient Testimonials</h1>
   <p>देखें हमारे मरीजों का असली अनुभव और शानदार रिजल्ट — उन्हीं की जुबानी</p>
   <div class="hero-stats">
-    <div class="stat">
-      <span class="stat-num">5000+</span>
-      <span class="stat-label">PATIENTS TREATED</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">98%</span>
-      <span class="stat-label">SATISFACTION RATE</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">10+</span>
-      <span class="stat-label">YEARS EXPERIENCE</span>
-    </div>
+    <div class="stat"><span class="stat-num" data-target="5000">0</span><span class="stat-label">PATIENTS TREATED</span></div>
+    <div class="stat"><span class="stat-num" data-target="98">0</span><span class="stat-label">SATISFACTION RATE %</span></div>
+    <div class="stat"><span class="stat-num" data-target="10">0</span><span class="stat-label">YEARS EXPERIENCE</span></div>
   </div>
 </div>
 
-<!-- VIDEOS -->
+<!-- RATING STRIP -->
+<div class="rating-strip">
+  <div class="rating-item"><span class="rating-stars">★★★★★</span> 4.9 Average Rating</div>
+  <div class="rating-item">👥 5000+ Happy Patients</div>
+  <div class="rating-item">✅ 100% Verified Reviews</div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-section">
+  <div class="filter-grid">
+    <select class="filter-select" id="filterState" onchange="applyFilters()">
+      <option value="">🗺️ All States</option>
+      <option>Uttar Pradesh</option>
+      <option>Bihar</option>
+      <option>Jharkhand</option>
+      <option>West Bengal</option>
+      <option>Odisha</option>
+      <option>Chhattisgarh</option>
+      <option>Madhya Pradesh</option>
+      <option>Delhi</option>
+      <option>Rajasthan</option>
+      <option>Haryana</option>
+      <option>Punjab</option>
+      <option>Himachal Pradesh</option>
+      <option>Uttarakhand</option>
+      <option>Nepal</option>
+    </select>
+    <select class="filter-select" id="filterSugar" onchange="applyFilters()">
+      <option value="">🩸 All Sugar Levels</option>
+      <option>200+</option>
+      <option>300+</option>
+      <option>400+</option>
+      <option>500+</option>
+    </select>
+    <select class="filter-select" id="filterDiabYears" onchange="applyFilters()">
+      <option value="">📅 Diabetes Since</option>
+      <option>1-3 Years</option>
+      <option>3-5 Years</option>
+      <option>5-10 Years</option>
+      <option>10+ Years</option>
+    </select>
+    <select class="filter-select" id="filterYear" onchange="applyFilters()">
+      <option value="">📆 Upload Year</option>
+      <option>2022</option>
+      <option>2023</option>
+      <option>2024</option>
+      <option>2025</option>
+    </select>
+    <input type="text" class="filter-search" id="filterSearch" placeholder="Search patient name, state..." oninput="applyFilters()">
+    <button class="filter-reset" onclick="resetFilters()">✕ Reset</button>
+  </div>
+</div>
+
+<!-- VIDEOS SECTION -->
 <div class="section" style="background:#fff">
   <div class="section-title">🎬 Video Testimonials</div>
   <p class="section-sub">हमारे मरीजों के real video reviews — unedited &amp; authentic</p>
   <div class="divider"></div>
-  <div class="video-grid">
 
-    <div class="video-card">
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/goA_3s4YYZ8" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="video-info">
-        <div class="video-label">✅ Diabetes Control</div>
-        <div class="video-title">Blood Sugar Level Normal Hua</div>
-        <div class="video-sub">Verified Patient Review</div>
-      </div>
+  <div class="video-grid" id="videoGrid"></div>
+
+  <div class="empty-state" id="emptyVideos">
+    <div style="font-size:50px;margin-bottom:12px">🔍</div>
+    <h3>Koi video nahi mila</h3>
+    <p style="color:#94a3b8;font-size:14px">Filter change karein ya reset karein</p>
+  </div>
+
+  <!-- YouTube Channel Link -->
+  <a href="https://www.youtube.com/@devdic/videos" target="_blank" class="yt-bar">
+    <span style="font-size:28px">▶️</span>
+    <div>
+      <div class="yt-bar-text">To Watch More Videos — Visit Our YouTube Channel</div>
+      <div class="yt-bar-sub">Subscribe karo aur naye patient results dekhte raho 🔔</div>
     </div>
+  </a>
 
-    <div class="video-card">
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/XO_ofb4noFw" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="video-info">
-        <div class="video-label">✅ Herbal Treatment</div>
-        <div class="video-title">Natural Ingredients Se Mila Fayda</div>
-        <div class="video-sub">Verified Patient Review</div>
-      </div>
-    </div>
-
-    <div class="video-card">
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/q4hB-L0yRUE" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="video-info">
-        <div class="video-label">✅ 3 Month Result</div>
-        <div class="video-title">3 Mahine Mein Astonishing Change</div>
-        <div class="video-sub">Verified Patient Review</div>
-      </div>
-    </div>
-
-    <div class="video-card">
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/AdPOk6dyDEE" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="video-info">
-        <div class="video-label">✅ Sugar Free Life</div>
-        <div class="video-title">Medicines Band Ho Gayi!</div>
-        <div class="video-sub">Verified Patient Review</div>
-      </div>
-    </div>
-
-    <div class="video-card">
-      <div class="video-wrapper">
-        <iframe src="https://www.youtube.com/embed/iGbzq_UgioY" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="video-info">
-        <div class="video-label">✅ Family Treated</div>
-        <div class="video-title">Poore Parivaar Ne Liya Faayda</div>
-        <div class="video-sub">Verified Patient Review</div>
-      </div>
-    </div>
-
+  <div class="load-more-wrap" id="loadMoreWrap">
+    <button class="btn-load-more" id="loadMoreBtn" onclick="loadMore()">Load More Videos ↓</button>
+    <div class="no-more" id="noMoreMsg" style="display:none">✅ Saare videos dekh liye!</div>
   </div>
 </div>
 
 <!-- WRITTEN REVIEWS -->
 <div class="section" style="background:#f0fdf4">
   <div class="section-title">💬 Written Reviews</div>
-  <p class="section-sub">Humhare khush patients ka feedback</p>
+  <p class="section-sub">Hamare khush patients ka feedback</p>
   <div class="divider"></div>
   <div class="reviews">
 
-    <div class="review-card">
+    <div class="review-card" style="animation-delay:.1s">
+      <div class="verified-badge">✅ Verified Patient</div>
       <div class="stars">★★★★★</div>
       <p class="review-text">"3 mahine ke andar mera blood sugar completely normal ho gaya. Koi side effect nahi, bilkul natural treatment. Main bahut khush hoon!"</p>
       <div class="reviewer">
-        <div class="avatar">RK</div>
-        <div>
-          <div class="reviewer-name">Ramesh Kumar</div>
-          <div class="reviewer-city">Lucknow, UP</div>
-        </div>
+        <div class="avatar" style="background:linear-gradient(135deg,#059669,#34d399)">RK</div>
+        <div><div class="reviewer-name">Ramesh Kumar</div><div class="reviewer-city">Lucknow, UP</div></div>
       </div>
     </div>
 
-    <div class="review-card">
+    <div class="review-card" style="animation-delay:.2s">
+      <div class="verified-badge">✅ Verified Patient</div>
       <div class="stars">★★★★★</div>
       <p class="review-text">"Doctor sahab ki guidance bahut helpful thi. WhatsApp par puri jaankari di. Ab mujhe diabetes ki medicines leni nahi padti."</p>
       <div class="reviewer">
-        <div class="avatar">SP</div>
-        <div>
-          <div class="reviewer-name">Sunita Patel</div>
-          <div class="reviewer-city">Agra, UP</div>
-        </div>
+        <div class="avatar" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">SP</div>
+        <div><div class="reviewer-name">Sunita Patel</div><div class="reviewer-city">Agra, UP</div></div>
       </div>
     </div>
 
-    <div class="review-card">
+    <div class="review-card" style="animation-delay:.3s">
+      <div class="verified-badge">✅ Verified Patient</div>
       <div class="stars">★★★★★</div>
       <p class="review-text">"Free delivery aur best quality products. Herbal treatment se itna fark padega, mujhe pata nahi tha. Highly recommend karta hoon!"</p>
       <div class="reviewer">
-        <div class="avatar">MV</div>
-        <div>
-          <div class="reviewer-name">Mohan Verma</div>
-          <div class="reviewer-city">Kanpur, UP</div>
-        </div>
+        <div class="avatar" style="background:linear-gradient(135deg,#dc2626,#f87171)">MV</div>
+        <div><div class="reviewer-name">Mohan Verma</div><div class="reviewer-city">Kanpur, UP</div></div>
       </div>
     </div>
 
-    <div class="review-card">
+    <div class="review-card" style="animation-delay:.4s">
+      <div class="verified-badge">✅ Verified Patient</div>
       <div class="stars">★★★★★</div>
       <p class="review-text">"Meri maa ko 10 saal se diabetes tha. Devdic ke products se bahut relief mila. Pure natural ingredients, bilkul safe hai."</p>
       <div class="reviewer">
-        <div class="avatar">AS</div>
-        <div>
-          <div class="reviewer-name">Anjali Singh</div>
-          <div class="reviewer-city">Bareilly, UP</div>
-        </div>
+        <div class="avatar" style="background:linear-gradient(135deg,#d97706,#fbbf24)">AS</div>
+        <div><div class="reviewer-name">Anjali Singh</div><div class="reviewer-city">Bareilly, UP</div></div>
       </div>
     </div>
 
   </div>
+</div>
+
+<!-- FAQ -->
+<div class="section" style="background:#fff">
+  <div class="section-title">❓ Frequently Asked Questions</div>
+  <p class="section-sub">Aapke sawaalon ke jawab</p>
+  <div class="divider"></div>
+  <div class="faq-wrap" id="faqWrap"></div>
 </div>
 
 <!-- CTA -->
@@ -494,36 +395,236 @@
   <h2>Aap Bhi Sugar Control Kar Sakte Hain!</h2>
   <p>Expert doctor se seedha baat karein. Free consultation available hai.</p>
   <div class="cta-btns">
-    <a class="btn-whatsapp" href="https://wa.me/918434813523?text=Mujhe diabetes consultation chahiye" target="_blank">
-      💬 WhatsApp Par Baat Karein
-    </a>
-    <a class="btn-call" href="tel:8434813523">
-      📞 Call Now: 8434813523
-    </a>
+    <a class="btn-whatsapp" href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20diabetes%20ke%20liye%20free%20consultation%20chahiye." target="_blank">💬 WhatsApp Par Baat Karein</a>
+    <a class="btn-call" href="tel:8434813523">📞 Call Now: 8434813523</a>
   </div>
-  <br>
-  <a class="back-btn" href="index.html">⬅ Back to Home</a>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  &copy; 2024 DEVDIC HERBAL OPC PRIVATE LIMITED | All Rights Reserved
+  <p>🌿 <strong style="color:#e2e8f0">DEVDIC HERBAL OPC PRIVATE LIMITED</strong></p>
+  <p>📞 <a href="tel:8434813523">8434813523</a> &nbsp;|&nbsp; 💬 <a href="https://wa.me/918434813523" target="_blank">WhatsApp</a> &nbsp;|&nbsp; 🚚 Delivery PAN India</p>
+  <p class="footer-copy">© 2017 DEVDIC HERBAL. All Rights Reserved.</p>
 </footer>
 
-<!-- FLOAT WHATSAPP -->
-<div class="float-pulse"></div>
-<a class="float-wa" href="https://wa.me/918434813523" target="_blank" title="WhatsApp">💬</a>
+<!-- BOTTOM BAR -->
+<div class="bottom-bar">
+  <a href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20diabetes%20ke%20liye%20free%20consultation%20chahiye." target="_blank">💬 WhatsApp Karein – Free!</a>
+  <a href="tel:8434813523">📞 Call Now</a>
+</div>
 
 <script>
-  function toggleMenu(){
-    document.getElementById("navLinks").classList.toggle("open");
-  }
-  let current = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll("#navLinks a").forEach(a=>{
-    if(a.getAttribute("href")===current) a.classList.add("active");
-    a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open"));
-  });
-</script>
+// ── NAVBAR ──
+function toggleMenu(){
+  document.getElementById('menuToggle').classList.toggle('open');
+  document.getElementById('navDrawer').classList.toggle('open');
+  document.getElementById('navOverlay').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu(){
+  document.getElementById('menuToggle').classList.remove('open');
+  document.getElementById('navDrawer').classList.remove('open');
+  document.getElementById('navOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
+// ── ACTIVE NAV ──
+(function(){
+  var path = window.location.pathname;
+  var page = path.split('/').pop().replace('.html','') || 'index';
+  if(path === '/' || path === '') page = 'index';
+  document.querySelectorAll('[data-page]').forEach(function(el){
+    el.classList.toggle('active', el.dataset.page === page);
+  });
+})();
+
+// ── COUNTER ANIMATION ──
+function animateCounters(){
+  document.querySelectorAll('.stat-num[data-target]').forEach(function(el){
+    var target = parseInt(el.dataset.target);
+    var duration = 1800;
+    var start = null;
+    function step(ts){
+      if(!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3);
+      var val = Math.floor(ease * target);
+      el.textContent = val.toLocaleString('en-IN') + (target >= 100 && progress < 1 ? '' : (target === 98 ? '%' : (target >= 1000 ? '+' : '+')));
+      if(progress < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString('en-IN') + (target === 98 ? '%' : '+');
+    }
+    requestAnimationFrame(step);
+  });
+}
+var counterDone = false;
+var heroObserver = new IntersectionObserver(function(entries){
+  if(entries[0].isIntersecting && !counterDone){ counterDone = true; animateCounters(); }
+},{threshold:0.3});
+heroObserver.observe(document.querySelector('.hero'));
+
+// ── VIDEO DATA ──
+// Add your videos here. Fields: id, embedUrl, label, title, state, sugar, diabYears, uploadYear, patientName
+var allVideos = [
+  {id:'v1', embedUrl:'https://www.youtube.com/embed/goA_3s4YYZ8', label:'✅ Diabetes Control', title:'Blood Sugar Level Normal Hua', state:'Uttar Pradesh', sugar:'300+', diabYears:'3-5 Years', uploadYear:'2023', patientName:'Ramesh Kumar'},
+  {id:'v2', embedUrl:'https://www.youtube.com/embed/XO_ofb4noFw', label:'✅ Herbal Treatment', title:'Natural Ingredients Se Mila Fayda', state:'Bihar', sugar:'200+', diabYears:'1-3 Years', uploadYear:'2023', patientName:'Sunita Devi'},
+  {id:'v3', embedUrl:'https://www.youtube.com/embed/q4hB-L0yRUE', label:'✅ 3 Month Result', title:'3 Mahine Mein Astonishing Change', state:'Jharkhand', sugar:'400+', diabYears:'5-10 Years', uploadYear:'2024', patientName:'Mohan Singh'},
+  {id:'v4', embedUrl:'https://www.youtube.com/embed/AdPOk6dyDEE', label:'✅ Sugar Free Life', title:'Medicines Band Ho Gayi!', state:'West Bengal', sugar:'500+', diabYears:'10+ Years', uploadYear:'2024', patientName:'Anjali Roy'},
+  {id:'v5', embedUrl:'https://www.youtube.com/embed/iGbzq_UgioY', label:'✅ Family Treated', title:'Poore Parivaar Ne Liya Faayda', state:'Uttar Pradesh', sugar:'300+', diabYears:'3-5 Years', uploadYear:'2025', patientName:'Vikram Sharma'},
+];
+
+// Sort ascending by uploadYear
+allVideos.sort(function(a,b){ return parseInt(a.uploadYear) - parseInt(b.uploadYear); });
+
+var filteredVideos = allVideos.slice();
+var shownCount = 0;
+var INITIAL_SHOW = 6;
+var LOAD_MORE = 3;
+
+function buildVideoCard(v, delay){
+  var shareMsg = encodeURIComponent('Dekho, ' + v.patientName + ' ko Devdic Herbal se diabetes mein kitna faayda hua! ' + v.embedUrl);
+  return '<div class="video-card" style="animation-delay:' + delay + 's" data-state="'+v.state+'" data-sugar="'+v.sugar+'" data-diab="'+v.diabYears+'" data-year="'+v.uploadYear+'">'
+    + '<div class="video-wrapper"><iframe src="'+v.embedUrl+'" loading="lazy" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe></div>'
+    + '<div class="video-info">'
+    + '<div class="video-label">'+v.label+'</div>'
+    + '<div class="video-title">'+v.title+'</div>'
+    + '<div class="video-meta">'
+    + '<span class="video-tag state">🗺️ '+v.state+'</span>'
+    + '<span class="video-tag sugar">🩸 Sugar: '+v.sugar+'</span>'
+    + '<span class="video-tag year-diab">⏳ '+v.diabYears+'</span>'
+    + '<span class="video-tag upload">📆 '+v.uploadYear+'</span>'
+    + '</div>'
+    + '<div class="video-actions">'
+    + '<a class="btn-share-wa" href="https://wa.me/?text='+shareMsg+'" target="_blank">💬 Share on WhatsApp</a>'
+    + '</div>'
+    + '</div></div>';
+}
+
+function buildConsultRow(){
+  return '<div class="consult-row">'
+    + '<div><div class="consult-row-text">🌿 Kya aap bhi diabetes se pareshan hain?</div><div class="consult-row-sub">Abhi expert se free consultation lein!</div></div>'
+    + '<div class="consult-row-btns">'
+    + '<a class="btn-consult-wa" href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20bhi%20diabetes%20ke%20liye%20consultancy%20chahiye." target="_blank">💬 Mujhe Bhi Consultancy Chahiye</a>'
+    + '<a class="btn-consult-call" href="tel:8434813523">📞 Call Now</a>'
+    + '</div></div>';
+}
+
+function renderVideos(){
+  var grid = document.getElementById('videoGrid');
+  var empty = document.getElementById('emptyVideos');
+  var loadWrap = document.getElementById('loadMoreWrap');
+
+  if(filteredVideos.length === 0){
+    grid.innerHTML = '';
+    empty.classList.add('show');
+    loadWrap.style.display = 'none';
+    return;
+  }
+  empty.classList.remove('show');
+
+  var html = '';
+  var delayIdx = 0;
+  for(var i = 0; i < shownCount; i++){
+    html += buildVideoCard(filteredVideos[i], (delayIdx % 3) * 0.1);
+    delayIdx++;
+    // Insert consult row after every 3 videos
+    if((i + 1) % 3 === 0 && i + 1 < shownCount){
+      html += buildConsultRow();
+    }
+  }
+  grid.innerHTML = html;
+
+  // Load more button
+  loadWrap.style.display = 'block';
+  if(shownCount >= filteredVideos.length){
+    document.getElementById('loadMoreBtn').style.display = 'none';
+    document.getElementById('noMoreMsg').style.display = 'block';
+  } else {
+    document.getElementById('loadMoreBtn').style.display = 'inline-block';
+    document.getElementById('noMoreMsg').style.display = 'none';
+  }
+}
+
+function loadMore(){
+  shownCount = Math.min(shownCount + LOAD_MORE, filteredVideos.length);
+  renderVideos();
+}
+
+function applyFilters(){
+  var state = document.getElementById('filterState').value;
+  var sugar = document.getElementById('filterSugar').value;
+  var diab = document.getElementById('filterDiabYears').value;
+  var year = document.getElementById('filterYear').value;
+  var search = document.getElementById('filterSearch').value.toLowerCase();
+
+  filteredVideos = allVideos.filter(function(v){
+    return (!state || v.state === state)
+      && (!sugar || v.sugar === sugar)
+      && (!diab || v.diabYears === diab)
+      && (!year || v.uploadYear === year)
+      && (!search || v.title.toLowerCase().includes(search) || v.state.toLowerCase().includes(search) || v.patientName.toLowerCase().includes(search));
+  });
+
+  shownCount = Math.min(INITIAL_SHOW, filteredVideos.length);
+  renderVideos();
+}
+
+function resetFilters(){
+  document.getElementById('filterState').value = '';
+  document.getElementById('filterSugar').value = '';
+  document.getElementById('filterDiabYears').value = '';
+  document.getElementById('filterYear').value = '';
+  document.getElementById('filterSearch').value = '';
+  applyFilters();
+}
+
+// Initial render
+filteredVideos = allVideos.slice();
+shownCount = Math.min(INITIAL_SHOW, allVideos.length);
+renderVideos();
+
+// ── FAQ ──
+var faqs = [
+  {q:'Kya ye products diabetes ko support karte hain?', a:'Hamare herbal products healthy blood sugar management aur overall wellness ko support karne ke liye banaye gaye hain. Results person to person alag ho sakte hain.'},
+  {q:'Result kitne din mein dekhne ko mil sakta hai?', a:'Har vyakti ka response alag hota hai. Kuch logon ko jaldi improvement mehsoos hoti hai, kuch ko regular use aur proper routine ke saath samay lagta hai. Lekin ek saptah ke baad result milna shuru ho jaata hai.'},
+  {q:'Kya allopathic medicine ke saath use kar sakte hain?', a:'Hamari medicine 100% herbal hai, ise allopathic medicine ke saath le sakte hain.'},
+  {q:'Kya iske side effects hain?', a:'Products herbal ingredients par based hain. Agar kisi ingredient se allergy ho ya koi health condition ho to pehle salah lein. Aisi koi side effect dekhne ko nahi mili hai.'},
+  {q:'Delivery kitne din mein hoti hai?', a:'Aam taur par location ke hisaab se 3 se 7 working days mein delivery ho jaati hai.'},
+  {q:'Kya PAN India delivery available hai?', a:'Haan, Bharat ke kai raajyon mein delivery available hai. Jahan bhi Speed Post ki suvidha hai.'},
+  {q:'Order kaise karein?', a:'Website par diye gaye WhatsApp button par click karke direct order ya consultation le sakte hain.'},
+  {q:'Kya consultation free hai?', a:'Haan, basic WhatsApp consultation available hai. Clinic visit par fee hai.'},
+  {q:'Kya testimonials real hain?', a:'Sabhi testimonials 100% real hain.'},
+  {q:'Kya diet aur exercise bhi zaruri hai?', a:'Haan, balanced diet, regular exercise aur healthy lifestyle blood sugar management mein important role nibhate hain. Agar nahi bhi karte hain to koi problem nahi.'},
+  {q:'Kya sugar report dekhkar guidance mil sakta hai?', a:'Haan, aap WhatsApp par report share karke basic guidance le sakte hain.'},
+  {q:'Kya har age group use kar sakta hai?', a:'Haan, 20 year aur usse adhik umra ke log use kar sakte hain.'},
+  {q:'Kya koi parhez karna padta hai?', a:'Haan, milk aur iske products aur refined food se parhez karna chahiye.'},
+];
+
+var faqHtml = '';
+faqs.forEach(function(f, i){
+  faqHtml += '<div class="faq-item" id="faq'+i+'">'
+    + '<div class="faq-q" onclick="toggleFaq('+i+')">'
+    + '<span>'+f.q+'</span>'
+    + '<span class="faq-icon">+</span>'
+    + '</div>'
+    + '<div class="faq-a">'+f.a+'</div>'
+    + '</div>';
+});
+document.getElementById('faqWrap').innerHTML = faqHtml;
+
+function toggleFaq(i){
+  var item = document.getElementById('faq'+i);
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(el){ el.classList.remove('open'); });
+  if(!isOpen) item.classList.add('open');
+}
+
+// ── SCROLL ANIMATIONS ──
+var observer = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.review-card').forEach(function(el){ observer.observe(el); });
+</script>
 </body>
 </html>
