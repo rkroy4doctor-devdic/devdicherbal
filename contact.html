@@ -1,211 +1,234 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact - DEVDIC HERBAL</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-body{font-family:Arial;margin:0;background:linear-gradient(to right,#e6f4f1,#f0fdf4)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',Arial,sans-serif;background:linear-gradient(to right,#e6f4f1,#f0fdf4);color:#222}
 
-.navbar{background:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
-.nav-links a{margin:0 10px;text-decoration:none;color:#065f46;font-weight:600}
+/* TOP BAR */
+.topbar{background:#0f766e;color:#fff;padding:8px 15px;display:flex;justify-content:space-between;font-size:13px;flex-wrap:wrap;gap:6px}
 
-.hero{background:linear-gradient(135deg,#065f46,#10b981);color:#fff;text-align:center;padding:40px}
+/* NAVBAR */
+.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.logo-box{display:flex;align-items:center;gap:10px}
+.logo{height:45px}
+.company{font-weight:700;color:#065f46;font-size:14px}
+.nav-links{display:flex;gap:20px}
+.nav-links a{text-decoration:none;color:#333;font-weight:600;transition:.2s}
+.nav-links a.active,.nav-links a:hover{color:#059669}
+.menu-toggle{display:none;font-size:26px;cursor:pointer;background:none;border:none}
 
-.contact{display:flex;gap:25px;flex-wrap:wrap;padding:40px;justify-content:center}
+/* HERO */
+.hero{background:linear-gradient(135deg,#065f46,#10b981);color:#fff;text-align:center;padding:50px 20px}
+.hero h1{font-size:28px;font-weight:700}
+
+/* CONTACT CARDS */
+.contact{display:flex;gap:25px;flex-wrap:wrap;padding:40px 20px;justify-content:center}
 .card{background:#fff;padding:25px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.1);text-align:center;width:260px}
-.card a{display:inline-block;margin-top:10px;padding:10px 20px;border-radius:25px;background:#10b981;color:#fff;text-decoration:none}
+.card h3{color:#064e3b;margin-bottom:10px;font-size:18px}
+.card p{color:#555;margin-bottom:10px;font-size:14px}
+.card a{display:inline-block;margin-top:10px;padding:10px 22px;border-radius:25px;background:#059669;color:#fff;text-decoration:none;font-weight:600;transition:.3s}
+.card a:hover{background:#047857}
 
-.map-section{padding:40px;text-align:center}
+/* MAP SECTION */
+.map-section{padding:30px 20px 50px;text-align:center}
+.map-section h2{color:#064e3b;font-size:22px;margin-bottom:24px}
 .map-grid{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
 .map-card{background:#fff;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.1);padding:15px;width:300px}
-.map-card iframe{width:100%;height:200px;border-radius:10px}
+.map-card h4{color:#064e3b;margin-bottom:10px;font-size:15px}
+.map-card iframe{width:100%;height:200px;border:none;border-radius:10px}
 
-.chat-btn{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer}
-.chat-box{position:fixed;bottom:90px;right:20px;width:330px;height:460px;background:#fff;border-radius:15px;box-shadow:0 15px 50px rgba(0,0,0,.3);display:none;flex-direction:column}
-.chat-header{background:#065f46;color:#fff;padding:12px;text-align:center}
+/* STICKY BOTTOM BAR */
+.bottom-bar{position:fixed;bottom:0;left:0;width:100%;background:#25D366;text-align:center;padding:14px;font-weight:700;z-index:999}
+.bottom-bar a{color:white;text-decoration:none;font-size:15px}
+
+/* CHATBOT */
+.chat-btn{position:fixed;bottom:65px;right:20px;background:#25D366;color:#fff;width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;box-shadow:0 4px 15px rgba(37,211,102,.4);z-index:998}
+.chat-box{position:fixed;bottom:130px;right:20px;width:330px;height:460px;background:#fff;border-radius:15px;box-shadow:0 15px 50px rgba(0,0,0,.3);display:none;flex-direction:column;z-index:997}
+.chat-header{background:#065f46;color:#fff;padding:12px;text-align:center;border-radius:15px 15px 0 0;font-weight:600}
 .chat-messages{flex:1;padding:10px;overflow-y:auto}
-.msg{margin:6px 0;padding:10px;border-radius:10px;max-width:80%}
+.msg{margin:6px 0;padding:10px;border-radius:10px;max-width:80%;font-size:13px;line-height:1.5}
 .user{background:#dcfce7;margin-left:auto}
 .bot{background:#f1f5f9}
-.chat-input{display:flex}
-.chat-input input{flex:1;padding:10px;border:none}
-.chat-input button{background:#10b981;color:#fff;border:none;padding:10px}
+.chat-input{display:flex;border-top:1px solid #eee}
+.chat-input input{flex:1;padding:10px;border:none;outline:none;font-family:'Poppins',Arial,sans-serif;font-size:13px;border-radius:0 0 0 15px}
+.chat-input button{background:#059669;color:#fff;border:none;padding:10px 14px;cursor:pointer;font-weight:600;border-radius:0 0 15px 0}
+
+/* MOBILE */
+@media(max-width:600px){
+  .menu-toggle{display:block}
+  .nav-links{
+    position:absolute;top:70px;right:0;
+    background:#fff;flex-direction:column;
+    width:200px;display:none;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    padding:10px;border-radius:10px;z-index:200
+  }
+  .nav-links a{padding:12px;border-bottom:1px solid #eee}
+  .nav-links.open{display:flex}
+  .company{font-size:11px}
+  .hero h1{font-size:22px}
+  .card{width:100%;max-width:320px}
+  .map-card{width:100%;max-width:340px}
+  .chat-box{width:290px;right:10px}
+}
 </style>
 </head>
-
 <body>
 
+<!-- TOP BAR -->
+<div class="topbar">
+  <div>📞 8434813523</div>
+  <div>🚚 Delivery Pan India</div>
+</div>
+
+<!-- NAVBAR -->
 <div class="navbar">
-<div><b>DEVDIC HERBAL</b></div>
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="product.html">Products</a>
-<a href="testimonials.html">Testimonials</a>
-<a href="about.html">About</a>
-<a href="contact.html">Contact</a>
-</div>
+  <div class="logo-box">
+    <img src="devdic logo.png" class="logo" alt="Devdic Herbal Logo">
+    <div class="company">DEVDIC HERBAL OPC PRIVATE LIMITED</div>
+  </div>
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="product.html">Products</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
 </div>
 
+<!-- HERO -->
 <div class="hero">
-<h1>Contact Us</h1>
+  <h1>Contact Us</h1>
 </div>
 
+<!-- CONTACT CARDS -->
 <div class="contact">
-<div class="card"><h3>📞 Phone</h3><p>+91 8434813523</p><a href="tel:8434813523">Call Now</a></div>
-<div class="card"><h3>💬 WhatsApp</h3><a href="https://wa.me/918434813523">Chat Now</a></div>
-<div class="card"><h3>📧 Email</h3><p>devdicherbal@gmail.com</p></div>
+  <div class="card">
+    <h3>📞 Phone</h3>
+    <p>+91 8434813523</p>
+    <a href="tel:8434813523">Call Now</a>
+  </div>
+  <div class="card">
+    <h3>💬 WhatsApp</h3>
+    <p>Chat karein hamare team se</p>
+    <a href="https://wa.me/918434813523">Chat Now</a>
+  </div>
+  <div class="card">
+    <h3>📧 Email</h3>
+    <p>devdicherbal@gmail.com</p>
+  </div>
 </div>
 
+<!-- MAP SECTION -->
 <div class="map-section">
-<h2>📍 Our Branch Locations</h2>
-<div class="map-grid">
-<div class="map-card"><h4>Tajpur</h4><iframe src="https://maps.google.com/maps?q=25.8547,85.6664&z=15&output=embed"></iframe></div>
-<div class="map-card"><h4>Bokaro</h4><iframe src="https://maps.google.com/maps?q=23.6659,86.1466&z=15&output=embed"></iframe></div>
-<div class="map-card"><h4>Jamshedpur</h4><iframe src="https://maps.google.com/maps?q=22.7995,86.1340&z=15&output=embed"></iframe></div>
-<div class="map-card"><h4>Chakradharpur</h4><iframe src="https://maps.google.com/maps?q=22.6698,85.6073&z=15&output=embed"></iframe></div>
-</div>
+  <h2>📍 Our Branch Locations</h2>
+  <div class="map-grid">
+    <div class="map-card"><h4>Tajpur</h4><iframe src="https://maps.google.com/maps?q=25.8547,85.6664&z=15&output=embed" loading="lazy"></iframe></div>
+    <div class="map-card"><h4>Bokaro</h4><iframe src="https://maps.google.com/maps?q=23.6659,86.1466&z=15&output=embed" loading="lazy"></iframe></div>
+    <div class="map-card"><h4>Jamshedpur</h4><iframe src="https://maps.google.com/maps?q=22.7995,86.1340&z=15&output=embed" loading="lazy"></iframe></div>
+    <div class="map-card"><h4>Chakradharpur</h4><iframe src="https://maps.google.com/maps?q=22.6698,85.6073&z=15&output=embed" loading="lazy"></iframe></div>
+  </div>
 </div>
 
+<!-- STICKY BOTTOM BAR -->
+<div class="bottom-bar" style="padding-bottom:env(safe-area-inset-bottom)">
+  <a href="https://wa.me/918434813523?text=Namaste!%20Mujhe%20Diabetes%20ke%20liye%20Ayurvedic%20treatment%20ki%20jankari%20chahiye." target="_blank">💬 WhatsApp Par Free Consultation</a>
+</div>
+
+<!-- CHATBOT BUTTON -->
 <div class="chat-btn" onclick="toggleChat()">💬</div>
-
 <div class="chat-box" id="chatBox">
-<div class="chat-header">AI Assistant</div>
-<div class="chat-messages" id="chatMessages"></div>
-<div class="chat-input">
-<input id="userInput" placeholder="Type here...">
-<button onclick="send()">Send</button>
-</div>
+  <div class="chat-header">🤖 AI Assistant</div>
+  <div class="chat-messages" id="chatMessages"></div>
+  <div class="chat-input">
+    <input id="userInput" placeholder="Type here..." onkeydown="if(event.key==='Enter')send()">
+    <button onclick="send()">Send</button>
+  </div>
 </div>
 
 <script>
+// NAVBAR TOGGLE
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("open");
+}
+// Active link
+let currentPage = window.location.pathname.split("/").pop();
+document.querySelectorAll("#navLinks a").forEach(link=>{
+  if(link.getAttribute("href")===currentPage) link.classList.add("active");
+});
 
+// CHATBOT
 let products={
-"db boost":510,
-"db life":544,
-"db pan":220,
-"dbx sun":450,
-"quick qr":110,
-"sugar low":510,
-"sugar key":540
+  "db boost":510,"db life":544,"db pan":220,
+  "dbx sun":450,"quick qr":110,"sugar low":510,"sugar key":540
 };
-
 let cart={};
 let lastProduct=null;
 
 function toggleChat(){
-let box=document.getElementById("chatBox");
-box.style.display = box.style.display==="flex"?"none":"flex";
-if(chatMessages.innerHTML===""){
-bot("Namaste 🙏 aapko kya chahiye ya problem batayein");
+  let box=document.getElementById("chatBox");
+  box.style.display=box.style.display==="flex"?"none":"flex";
+  if(document.getElementById("chatMessages").innerHTML===""){
+    bot("Namaste 🙏 aapko kya chahiye ya problem batayein");
+  }
 }
-}
-
 function bot(t){
-chatMessages.innerHTML+=`<div class="msg bot">${t}</div>`;
-scroll();
+  document.getElementById("chatMessages").innerHTML+=`<div class="msg bot">${t}</div>`;
+  scroll();
 }
-
-function user(t){
-chatMessages.innerHTML+=`<div class="msg user">${t}</div>`;
-scroll();
+function userMsg(t){
+  document.getElementById("chatMessages").innerHTML+=`<div class="msg user">${t}</div>`;
+  scroll();
 }
-
 function scroll(){
-chatMessages.scrollTop=chatMessages.scrollHeight;
+  let cm=document.getElementById("chatMessages");
+  cm.scrollTop=cm.scrollHeight;
 }
-
 function send(){
-let input=document.getElementById("userInput");
-let text=input.value.toLowerCase();
-if(!text)return;
-user(input.value);
-input.value="";
-reply(text);
+  let input=document.getElementById("userInput");
+  let text=input.value.toLowerCase().trim();
+  if(!text)return;
+  userMsg(input.value);
+  input.value="";
+  reply(text);
 }
-
 function reply(t){
-
-// PRODUCT
-for(let p in products){
-if(t.includes(p)){
-lastProduct=p;
-cart[p]=1;
-bot(p.toUpperCase()+" ₹"+products[p]+" ka hai. Kitne piece chahiye?");
-return;
+  for(let p in products){
+    if(t.includes(p)){
+      lastProduct=p;cart[p]=1;
+      bot(p.toUpperCase()+" ₹"+products[p]+" ka hai. Kitne piece chahiye?");
+      return;
+    }
+  }
+  let num=parseInt(t);
+  if(num>0&&lastProduct){
+    cart[lastProduct]=num;
+    let total=0,msg="Order Summary:\n";
+    for(let i in cart){let price=products[i]*cart[i];total+=price;msg+=i+" x "+cart[i]+" = ₹"+price+"\n";}
+    msg+="Total ₹"+total;
+    bot(msg);bot("Order confirm karne ke liye 'order' likhein");
+    return;
+  }
+  if(t.includes("sugar")||t.includes("diabetes")){bot("Aapko kitne saal se sugar hai?");return;}
+  if(t.includes("insulin")||t.includes("medicine")){bot("Abhi aapka sugar kitna rehta hai fasting aur PP?");return;}
+  if(t.includes("300")||t.includes("250")){bot("Itna high sugar dangerous ho sakta hai.");bot("Aap chahein to main aapki baat hamare junior doctor se karwa sakta hoon.");return;}
+  if(t.includes("doctor")){bot("Free consultation ke liye apna number batayein.");return;}
+  if(t.includes("order")){
+    let total=0,msg="Order:\n";
+    for(let i in cart){let price=products[i]*cart[i];total+=price;msg+=i+" x "+cart[i]+" = ₹"+price+"\n";}
+    msg+="Total ₹"+total;
+    window.open("https://wa.me/918434813523?text="+encodeURIComponent(msg));
+    return;
+  }
+  bot("Product ka naam ya apni problem batayein");
 }
-}
-
-// QUANTITY
-let num=parseInt(t);
-if(num>0 && lastProduct){
-cart[lastProduct]=num;
-
-let total=0;
-let msg="Order Summary:\n";
-
-for(let i in cart){
-let price=products[i]*cart[i];
-total+=price;
-msg+=i+" x "+cart[i]+" = ₹"+price+"\n";
-}
-
-msg+="Total ₹"+total;
-
-bot(msg);
-bot("Order confirm karne ke liye 'order' likhein");
-return;
-}
-
-// PROBLEM
-if(t.includes("sugar")||t.includes("diabetes")){
-bot("Aapko kitne saal se sugar hai?");
-return;
-}
-
-// MEDICINE
-if(t.includes("insulin")||t.includes("medicine")){
-bot("Abhi aapka sugar kitna rehta hai fasting aur PP?");
-return;
-}
-
-// HIGH SUGAR
-if(t.includes("300")||t.includes("250")){
-bot("Itna high sugar dangerous ho sakta hai.");
-bot("Aap chahein to main aapki baat hamare junior doctor se karwa sakta hoon.");
-return;
-}
-
-// DOCTOR
-if(t.includes("doctor")){
-bot("Free consultation ke liye apna number batayein.");
-return;
-}
-
-// ORDER FINAL
-if(t.includes("order")){
-let total=0;
-let msg="Order:\n";
-
-for(let i in cart){
-let price=products[i]*cart[i];
-total+=price;
-msg+=i+" x "+cart[i]+" = ₹"+price+"\n";
-}
-
-msg+="Total ₹"+total;
-
-window.open("https://wa.me/918434813523?text="+encodeURIComponent(msg));
-return;
-}
-
-// DEFAULT
-bot("Product ka naam ya apni problem batayein");
-
-}
-
 </script>
-
 </body>
 </html>
