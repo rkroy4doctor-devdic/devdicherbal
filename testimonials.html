@@ -50,7 +50,8 @@ body{font-family:'Poppins',sans-serif;background:#f8fffe;color:var(--text);overf
 .menu-toggle.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
 
 /* mobile drawer */
-.nav-drawer{position:fixed;top:0;right:-100%;width:75%;max-width:300px;height:auto;max-height:100vh;background:#fff;z-index:1050;box-shadow:-6px 0 30px rgba(0,0,0,.15);transition:right .3s ease;display:flex;flex-direction:column;padding:70px 0 20px;overflow-y:auto;border-bottom-left-radius:16px}
+.drawer-head{background:linear-gradient(135deg,#064e3b,#0f766e);padding:18px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-drawer{position:fixed;top:0;right:-100%;width:75%;max-width:300px;height:auto;max-height:100vh;background:#fff;z-index:1050;box-shadow:-6px 0 30px rgba(0,0,0,.15);transition:right .3s ease;display:flex;flex-direction:column;padding:0 0 20px;overflow-y:auto;border-bottom-left-radius:16px}
 .nav-drawer.open{right:0}
 .nav-drawer a{text-decoration:none;color:var(--text);font-size:16px;font-weight:500;padding:15px 24px;border-bottom:1px solid var(--green-light);transition:.2s}
 .nav-drawer a:hover,.nav-drawer a.active{color:var(--green);background:var(--green-xlight)}
@@ -230,12 +231,21 @@ footer a{color:#4ade80;text-decoration:none}
 
 <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
 <div class="nav-drawer" id="navDrawer">
-  <a href="index.html" data-page="index">Home</a>
-  <a href="product.html" data-page="product">Products</a>
-  <a href="testimonials.html" data-page="testimonials">Testimonial</a>
-  <a href="about.html" data-page="about">About</a>
-  <a href="contact.html" data-page="contact">Contact</a>
-  <a href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20diabetes%20ke%20liye%20free%20consultation%20chahiye.%20Kripya%20mujhse%20sampark%20karein." target="_blank" class="drawer-cta">💬 Free Consult</a>
+  <div class="drawer-head">
+    <img src="devdic logo.png" alt="Logo" style="height:40px;border-radius:6px">
+    <div>
+      <div style="font-size:13px;font-weight:700;color:#fff;line-height:1.3">DEVDIC HERBAL</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.75)">OPC Private Limited</div>
+    </div>
+    <button onclick="closeMenu()" style="margin-left:auto;background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center">✕</button>
+  </div>
+  <a href="index.html" data-page="index">🏠 Home</a>
+  <a href="product.html" data-page="product">🌿 Products</a>
+  <a href="testimonials.html" data-page="testimonials">⭐ Testimonials</a>
+  <a href="about.html" data-page="about">👥 About Us</a>
+  <a href="contact.html" data-page="contact">📞 Contact</a>
+  <a href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20diabetes%20ke%20liye%20free%20consultation%20chahiye.%20Kripya%20mujhse%20sampark%20karein." target="_blank" class="drawer-cta">💬 Free Consult on WhatsApp</a>
+  <a href="tel:8434813523" style="display:block;text-align:center;margin:8px 24px 4px;padding:12px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;color:#065f46;background:#ecfdf5;border:1.5px solid #059669;border-bottom:none!important">📞 Call: 8434813523</a>
 </div>
 
 <!-- HERO -->
