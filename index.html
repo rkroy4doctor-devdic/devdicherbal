@@ -262,6 +262,62 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   border-radius:2px;margin:8px auto 0;
 }
 .section-sub{color:#666;font-size:14px;margin-bottom:32px;margin-top:8px}
+/* ─── APP DOWNLOAD SECTION ─── */
+.apk-section{
+  background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
+  padding:55px 22px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.apk-section::before{
+  content:'📱';font-size:220px;opacity:.05;
+  position:absolute;left:-40px;top:-40px;
+  pointer-events:none;
+}
+.apk-inner{max-width:700px;margin:0 auto;position:relative;z-index:1}
+.apk-section h2{color:#fff;font-size:26px;font-weight:800;margin-bottom:10px}
+.apk-section p{color:rgba(255,255,255,.8);font-size:14px;margin-bottom:24px;line-height:1.7}
+.apk-download-btn{
+  display:inline-flex;align-items:center;gap:12px;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:#fff;padding:18px 38px;border-radius:16px;
+  text-decoration:none;font-size:17px;font-weight:800;
+  box-shadow:0 8px 30px rgba(34,197,94,.4);
+  transition:.3s;margin-bottom:24px;
+}
+.apk-download-btn:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(34,197,94,.6)}
+.apk-meta{
+  display:flex;justify-content:center;flex-wrap:wrap;gap:14px;
+  margin-bottom:28px;
+}
+.apk-meta span{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  color:rgba(255,255,255,.85);padding:6px 16px;
+  border-radius:30px;font-size:12.5px;font-weight:600;
+}
+.install-steps{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:16px;padding:24px;text-align:left;
+  max-width:500px;margin:0 auto;
+}
+.install-steps h4{
+  color:#fff;font-size:15px;font-weight:700;
+  margin-bottom:16px;text-align:center;
+}
+.install-step{
+  display:flex;align-items:flex-start;gap:14px;
+  margin-bottom:14px;
+}
+.install-step:last-child{margin-bottom:0}
+.step-num{
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  color:#fff;font-size:13px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+}
+.install-step p{color:rgba(255,255,255,.8);font-size:13px;line-height:1.6}
+.install-step p strong{color:#fff}
 /* ─── PATIENT CHAT SECTION ─── */
 .chat-section{
   background:linear-gradient(135deg,#0d1b4b,#1a3a8f,#1a73e8);
@@ -699,6 +755,44 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   <div class="stat-item">
     <div class="stat-num"><span class="count" data-target="4">0</span><sup>+</sup></div>
     <div class="stat-label">Branch Locations</div>
+  </div>
+</div>
+<!-- APP DOWNLOAD SECTION -->
+<div class="apk-section fade-in">
+  <div class="apk-inner">
+    <h2>📱 Devdic Chat App Download Karein</h2>
+    <p>Hamare <strong style="color:#fff">Android App</strong> ko seedha apne phone mein install karein aur doctor se chat karein, apni report bhejein, aur clinic se connected rahein — bilkul free!</p>
+    <div class="apk-meta">
+      <span>📦 22.3 MB</span>
+      <span>🤖 Android 6.0+</span>
+      <span>✅ 100% Safe & Secure</span>
+      <span>🆓 Bilkul Free</span>
+    </div>
+    <a class="apk-download-btn"
+       href="https://github.com/rkroy4doctor-devdic/devdicherbal/releases/download/v1.0/DEVDIC.CHAT.apk"
+       onclick="gtag('event','apk_download',{event_category:'engagement',event_label:'apk_download_btn'})"
+       download>
+      ⬇️ App Download Karein (APK)
+    </a>
+    <div class="install-steps">
+      <h4>📋 Install Kaise Karein — 4 Simple Steps</h4>
+      <div class="install-step">
+        <div class="step-num">1</div>
+        <p><strong>Upar Download button dabao</strong> — DEVDIC.CHAT.apk download hogi</p>
+      </div>
+      <div class="install-step">
+        <div class="step-num">2</div>
+        <p><strong>Settings → Security → Unknown Sources ON karo</strong> (ya "Install unknown apps" allow karo)</p>
+      </div>
+      <div class="install-step">
+        <div class="step-num">3</div>
+        <p><strong>Downloaded APK file open karo</strong> aur Install dabao</p>
+      </div>
+      <div class="install-step">
+        <div class="step-num">4</div>
+        <p><strong>App kholo → Login karo</strong> apne Patient ID se aur chat shuru karo! 🎉</p>
+      </div>
+    </div>
   </div>
 </div>
 <!-- PATIENT CHAT SECTION -->
