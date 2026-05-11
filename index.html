@@ -1,7 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-409HSPL4Y5"></script>
 <script>
@@ -10,7 +10,6 @@
   gtag('js', new Date());
   gtag('config', 'G-409HSPL4Y5');
 </script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="DEVDIC HERBAL – 100% Ayurvedic Diabetes Treatment. 5000+ Patients Benefited. Dr. R.K. Roy, B.A.M.S, 10 Years Experience. Free Consultation Available.">
@@ -19,7 +18,6 @@
 <meta property="og:type" content="website">
 <title>DEVDIC HERBAL – Diabetes Control Ayurvedic Treatment</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
 :root{
   --green:#059669;
@@ -29,6 +27,8 @@
   --green-pale:#d1fae5;
   --red:#ef4444;
   --gold:#f59e0b;
+  --blue:#1a73e8;
+  --blue-dark:#0d5bd1;
   --text:#1a1a2e;
   --text-muted:#555;
   --white:#fff;
@@ -41,7 +41,6 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text);overflow-x:hidden}
-
 /* ─── TOP BAR ─── */
 .topbar{
   background:linear-gradient(90deg,var(--green-dark),var(--green-mid));
@@ -50,7 +49,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   font-size:12.5px;flex-wrap:wrap;gap:6px;
 }
 .topbar a{color:#fff;text-decoration:none}
-
 /* ─── NAVBAR ─── */
 .navbar{
   background:#fff;
@@ -62,12 +60,27 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
 .logo{height:46px;border-radius:6px}
 .company{font-weight:700;color:var(--green-dark);font-size:13.5px;line-height:1.3}
 .company span{display:block;font-size:10.5px;font-weight:400;color:#888;text-transform:uppercase;letter-spacing:.5px}
-.nav-links{display:flex;gap:6px}
+.nav-links{display:flex;gap:6px;align-items:center}
 .nav-links a{
   text-decoration:none;color:#444;font-weight:600;font-size:14px;
   padding:7px 14px;border-radius:8px;transition:.25s;
 }
 .nav-links a:hover,.nav-links a.active{color:var(--green);background:var(--green-light)}
+/* Chat nav link — special blue style */
+.nav-links .nav-chat{
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  color:#fff !important;
+  border-radius:20px !important;
+  padding:7px 16px !important;
+  font-size:13px !important;
+  box-shadow:0 3px 12px rgba(26,115,232,.35);
+  transition:.25s !important;
+}
+.nav-links .nav-chat:hover{
+  transform:translateY(-2px);
+  box-shadow:0 5px 18px rgba(26,115,232,.5);
+  background:linear-gradient(135deg,var(--blue-dark),#0a4ab8) !important;
+}
 .menu-toggle{
   display:none;background:none;border:none;
   width:40px;height:40px;cursor:pointer;
@@ -119,6 +132,17 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   border-left-color:var(--green);
 }
 .drawer-nav a .nav-icon{font-size:20px;width:26px;text-align:center}
+/* Drawer chat link */
+.drawer-nav .drawer-chat{
+  background:linear-gradient(135deg,#e8f0fe,#d2e3fc);
+  color:var(--blue) !important;
+  border-left-color:var(--blue) !important;
+  font-weight:700 !important;
+}
+.drawer-nav .drawer-chat:hover{
+  background:linear-gradient(135deg,#d2e3fc,#c2d7fa) !important;
+  color:var(--blue-dark) !important;
+}
 .drawer-footer{
   padding:18px 22px;border-top:1px solid #eee;
   display:flex;gap:10px;flex-direction:column;
@@ -132,7 +156,8 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
 .d-wa:hover{background:#1da851}
 .d-call{background:var(--green-light);color:var(--green-dark);border:1.5px solid var(--green)}
 .d-call:hover{background:var(--green-pale)}
-
+.d-chat{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;box-shadow:0 3px 12px rgba(26,115,232,.3)}
+.d-chat:hover{opacity:.9;transform:translateY(-1px)}
 /* ─── HERO ─── */
 .hero{
   position:relative;
@@ -193,7 +218,18 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
 .btn-wa:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.5)}
 .btn-outline{background:rgba(255,255,255,.12);color:#fff;border:2px solid rgba(255,255,255,.5);backdrop-filter:blur(4px)}
 .btn-outline:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
-
+/* Chat hero button */
+.btn-chat{
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  color:#fff;
+  box-shadow:0 6px 20px rgba(26,115,232,.45);
+  border:2px solid rgba(255,255,255,.3);
+}
+.btn-chat:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(26,115,232,.6);
+  background:linear-gradient(135deg,var(--blue-dark),#0a4ab8);
+}
 /* ─── STATS BAR ─── */
 .stats-bar{
   background:#fff;
@@ -213,7 +249,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
 }
 .stat-num sup{font-size:18px}
 .stat-label{font-size:12px;color:#666;font-weight:500}
-
 /* ─── SECTION BASE ─── */
 .section{padding:60px 22px;text-align:center}
 .section-alt{background:linear-gradient(180deg,#f0fdf4,#f8fffe)}
@@ -227,7 +262,54 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   border-radius:2px;margin:8px auto 0;
 }
 .section-sub{color:#666;font-size:14px;margin-bottom:32px;margin-top:8px}
-
+/* ─── PATIENT CHAT SECTION ─── */
+.chat-section{
+  background:linear-gradient(135deg,#0d1b4b,#1a3a8f,#1a73e8);
+  padding:50px 22px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.chat-section::before{
+  content:'💬';font-size:200px;opacity:.05;
+  position:absolute;right:-30px;top:-30px;
+  pointer-events:none;
+}
+.chat-section-inner{max-width:680px;margin:0 auto;position:relative;z-index:1}
+.chat-section h2{
+  color:#fff;font-size:26px;font-weight:800;
+  margin-bottom:10px;
+}
+.chat-section p{
+  color:rgba(255,255,255,.85);font-size:14.5px;
+  margin-bottom:28px;line-height:1.7;
+}
+.chat-section-badges{
+  display:flex;justify-content:center;flex-wrap:wrap;gap:10px;
+  margin-bottom:28px;
+}
+.chat-section-badge{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);
+  color:#fff;padding:7px 16px;border-radius:30px;
+  font-size:12.5px;font-weight:600;
+  backdrop-filter:blur(4px);
+}
+.btn-chat-main{
+  background:#fff;
+  color:var(--blue-dark);
+  padding:16px 36px;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:800;
+  text-decoration:none;
+  display:inline-flex;align-items:center;gap:10px;
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
+  transition:.3s;
+  border:none;
+}
+.btn-chat-main:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 40px rgba(0,0,0,.35);
+}
 /* ─── PROBLEM SECTION ─── */
 .problem-wrap{max-width:820px;margin:0 auto}
 .problem-grid{
@@ -258,7 +340,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
 .btn-green:hover{background:#047857;transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 .btn-call{background:var(--green-mid);color:#fff;box-shadow:0 6px 20px rgba(15,118,110,.3)}
 .btn-call:hover{background:var(--green-dark);transform:translateY(-2px)}
-
 /* ─── HOW IT WORKS ─── */
 .steps-wrap{
   display:flex;justify-content:center;align-items:flex-start;
@@ -284,7 +365,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
 .step-icon{font-size:28px;display:block;margin-bottom:6px}
 .step h3{font-size:14px;color:var(--green-dark);font-weight:700;margin-bottom:6px}
 .step p{font-size:12px;color:#666;line-height:1.6}
-
 /* ─── DOCTOR SECTION ─── */
 .doctor-card{
   display:flex;flex-wrap:wrap;gap:30px;
@@ -328,7 +408,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   padding:14px 18px;font-style:italic;font-size:13px;color:var(--green-dark);
   line-height:1.7;
 }
-
 /* ─── TEAM SECTION ─── */
 .team-grid{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));
@@ -357,7 +436,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   background:var(--green-light);padding:4px 14px;
   border-radius:20px;display:inline-block;
 }
-
 /* ─── VIDEOS ─── */
 .videos{
   display:grid;
@@ -372,7 +450,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   width:100%;height:210px;
   border:none;display:block;
 }
-
 /* ─── PRODUCTS ─── */
 .products{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
@@ -402,7 +479,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   transition:.2s;
 }
 .prod-btn:hover{opacity:.9}
-
 /* ─── REVIEWS ─── */
 .reviews{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
@@ -426,7 +502,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
 .reviewer-name{font-size:13.5px;font-weight:700;color:var(--green-dark)}
 .reviewer-loc{font-size:11.5px;color:#888}
 .google-badge{font-size:11px;color:#999;margin-top:8px;display:flex;align-items:center;gap:4px}
-
 /* ─── CTA ─── */
 .cta{
   background:linear-gradient(135deg,#042f1e,var(--green-dark),var(--green-mid));
@@ -440,7 +515,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
 .cta h2{font-size:30px;font-weight:800;margin-bottom:10px}
 .cta p{font-size:15px;margin-bottom:30px;opacity:.88}
 .cta-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
-
 /* ─── FOOTER ─── */
 .footer{
   background:#0d1117;color:#9ca3af;
@@ -458,7 +532,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
 }
 .footer .f-links a:hover{color:#fff}
 .footer .f-copy{font-size:11px;color:#4b5563;margin-top:8px}
-
 /* ─── FLOATING BUTTONS ─── */
 .float-wa{
   position:fixed;bottom:75px;right:20px;
@@ -469,6 +542,25 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   transition:.3s;display:flex;align-items:center;gap:6px;
 }
 .float-wa:hover{background:#1da851;transform:scale(1.05)}
+/* Floating Patient Chat Button */
+.float-chat{
+  position:fixed;bottom:145px;right:20px;
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  color:#fff;
+  padding:13px 18px;border-radius:50px;
+  text-decoration:none;font-weight:700;font-size:14px;
+  z-index:998;
+  display:flex;align-items:center;gap:6px;
+  box-shadow:0 4px 18px rgba(26,115,232,.5);
+  transition:.3s;
+  animation:chatGlow 2.5s infinite;
+}
+.float-chat:hover{transform:scale(1.05);box-shadow:0 6px 24px rgba(26,115,232,.7)}
+@keyframes chatGlow{
+  0%  {box-shadow:0 4px 18px rgba(26,115,232,.5)}
+  50% {box-shadow:0 4px 28px rgba(26,115,232,.8)}
+  100%{box-shadow:0 4px 18px rgba(26,115,232,.5)}
+}
 .bottom-bar{
   position:fixed;bottom:0;left:0;width:100%;
   background:#25D366;text-align:center;
@@ -476,11 +568,9 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   font-weight:700;z-index:999;
 }
 .bottom-bar a{color:#fff;text-decoration:none;font-size:14.5px}
-
 /* ─── SCROLL ANIMATION ─── */
 .fade-in{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
-
 /* ─── MOBILE ─── */
 @media(max-width:640px){
   .menu-toggle{display:flex}
@@ -499,18 +589,18 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   .steps-wrap{gap:16px}
   .step{min-width:140px}
   .cta h2{font-size:24px}
+  .chat-section h2{font-size:22px}
+  .float-chat{bottom:148px;padding:11px 15px;font-size:13px}
 }
 </style>
 </head>
 <body>
-
 <!-- TOP BAR -->
 <div class="topbar">
   <div>📞 <a href="tel:8434813523">8434813523</a></div>
   <div>🚚 Free Delivery Pan India</div>
   <div>🕐 Mon–Sat 9am–7pm</div>
 </div>
-
 <!-- NAVBAR -->
 <div class="navbar">
   <div class="logo-box">
@@ -526,12 +616,12 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
     <a href="testimonials.html">Testimonials</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+    <a href="https://rkroy4doctor-devdic.github.io/devdic-chat-web/" target="_blank" class="nav-chat">💬 Patient Chat</a>
   </div>
   <button class="menu-toggle" onclick="openDrawer()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </div>
-
 <!-- DRAWER -->
 <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
 <div class="drawer" id="drawer">
@@ -549,13 +639,14 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
     <a href="testimonials.html"><span class="nav-icon">⭐</span> Testimonials</a>
     <a href="about.html"><span class="nav-icon">👥</span> About Us</a>
     <a href="contact.html"><span class="nav-icon">📞</span> Contact</a>
+    <a href="https://rkroy4doctor-devdic.github.io/devdic-chat-web/" target="_blank" class="drawer-chat"><span class="nav-icon">💬</span> Patient Chat</a>
   </nav>
   <div class="drawer-footer">
+    <a class="d-chat" href="https://rkroy4doctor-devdic.github.io/devdic-chat-web/" target="_blank">💬 Patient Chat / Login</a>
     <a class="d-wa" href="https://wa.me/918434813523?text=Namaste!%20Mujhe%20Diabetes%20ke%20liye%20Ayurvedic%20treatment%20ki%20jankari%20chahiye." target="_blank">💬 WhatsApp Karein</a>
     <a class="d-call" href="tel:8434813523">📞 Call: 8434813523</a>
   </div>
 </div>
-
 <!-- HERO -->
 <div class="hero">
   <div class="hero-bg-pattern"></div>
@@ -580,10 +671,13 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
        onclick="gtag('event','whatsapp_click',{event_category:'contact',event_label:'hero_wa_btn'})">
       💬 Free Consultation
     </a>
+    <a class="btn btn-chat" href="https://rkroy4doctor-devdic.github.io/devdic-chat-web/" target="_blank"
+       onclick="gtag('event','chat_click',{event_category:'engagement',event_label:'hero_chat_btn'})">
+      🏥 Patient Login / Chat
+    </a>
     <a class="btn btn-outline" href="product.html">🛒 View Products</a>
   </div>
 </div>
-
 <!-- STATS BAR -->
 <div class="stats-bar">
   <div class="stat-item">
@@ -607,7 +701,23 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
     <div class="stat-label">Branch Locations</div>
   </div>
 </div>
-
+<!-- PATIENT CHAT SECTION -->
+<div class="chat-section fade-in">
+  <div class="chat-section-inner">
+    <h2>💬 Pehle Se Patient Hain?</h2>
+    <p>Hamare <strong>Online Patient Portal</strong> pe login karein aur seedha doctor ya staff se chat karein — apni report bhejein, sawaal poochein, follow-up karein.</p>
+    <div class="chat-section-badges">
+      <span class="chat-section-badge">🔒 Secure & Private</span>
+      <span class="chat-section-badge">⚡ Instant Response</span>
+      <span class="chat-section-badge">📱 Mobile Friendly</span>
+      <span class="chat-section-badge">🌐 Kahi Se Bhi</span>
+    </div>
+    <a class="btn-chat-main" href="https://rkroy4doctor-devdic.github.io/devdic-chat-web/" target="_blank"
+       onclick="gtag('event','chat_click',{event_category:'engagement',event_label:'chat_section_btn'})">
+      💬 Patient Chat Portal Kholein →
+    </a>
+  </div>
+</div>
 <!-- PROBLEM SECTION -->
 <div class="section section-alt fade-in">
   <div class="section-title">😟 Kya Aap Ye Problems Face Kar Rahe Hain?</div>
@@ -634,7 +744,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
     </div>
   </div>
 </div>
-
 <!-- HOW IT WORKS -->
 <div class="section fade-in">
   <div class="section-title">🔄 Kaise Kaam Karta Hai?</div>
@@ -662,7 +771,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
     </div>
   </div>
 </div>
-
 <!-- DOCTOR SECTION -->
 <div class="section section-alt fade-in">
   <div class="section-title">👨‍⚕️ Hamare Expert Doctor</div>
@@ -688,7 +796,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
     </div>
   </div>
 </div>
-
 <!-- TEAM SECTION -->
 <div class="section fade-in">
   <div class="section-title">🤝 Hamari Team</div>
@@ -716,7 +823,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
     </div>
   </div>
 </div>
-
 <!-- VIDEO TESTIMONIALS -->
 <div class="section section-alt fade-in">
   <div class="section-title">🎥 Real Patients Ke Results (Proof)</div>
@@ -728,7 +834,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
     <div class="video-wrap"><iframe src="https://www.youtube.com/embed/AdPOk6dyDEE" loading="lazy" title="Patient Result 4" allowfullscreen></iframe></div>
   </div>
 </div>
-
 <!-- PRODUCTS -->
 <div class="section fade-in">
   <div class="section-title">🌿 Our Products</div>
@@ -756,7 +861,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
     </a>
   </div>
 </div>
-
 <!-- GOOGLE REVIEWS -->
 <div class="section section-alt fade-in">
   <div class="section-title">⭐ Customers Ka Feedback</div>
@@ -836,7 +940,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
     </div>
   </div>
 </div>
-
 <!-- CTA -->
 <div class="cta fade-in">
   <h2>Aaj Hi Shuruaat Karein 🌿</h2>
@@ -846,7 +949,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
     <a class="btn btn-call" href="tel:8434813523">📞 Call Karein</a>
   </div>
 </div>
-
 <!-- FOOTER -->
 <div class="footer">
   <div class="f-brand">🌿 DEVDIC HERBAL OPC PRIVATE LIMITED</div>
@@ -857,18 +959,21 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
     <a href="testimonials.html">Testimonials</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
+    <a href="https://rkroy4doctor-devdic.github.io/devdic-chat-web/" target="_blank" style="color:#93c5fd">💬 Patient Chat</a>
   </div>
   <div class="f-copy">© 2017–2025 Devdic Herbal. All Rights Reserved.</div>
 </div>
-
+<!-- FLOATING PATIENT CHAT BUTTON -->
+<a class="float-chat" href="https://rkroy4doctor-devdic.github.io/devdic-chat-web/" target="_blank"
+   onclick="gtag('event','chat_click',{event_category:'engagement',event_label:'float_chat_btn'})">
+  💬 Patient Chat
+</a>
 <!-- FLOATING WHATSAPP -->
 <a class="float-wa" href="https://wa.me/918434813523?text=Namaste!%20Mujhe%20Diabetes%20ke%20liye%20Ayurvedic%20treatment%20ki%20jankari%20chahiye." target="_blank">💬 WhatsApp</a>
-
 <!-- STICKY BOTTOM BAR -->
 <div class="bottom-bar">
   <a href="https://wa.me/918434813523?text=Namaste!%20Mujhe%20Diabetes%20ke%20liye%20Ayurvedic%20treatment%20ki%20jankari%20chahiye." target="_blank">💬 WhatsApp Par Free Consultation – Abhi Karein!</a>
 </div>
-
 <script>
 // DRAWER
 function openDrawer(){
@@ -881,20 +986,17 @@ function closeDrawer(){
   document.getElementById('drawerOverlay').classList.remove('open');
   document.body.style.overflow='';
 }
-
 // ACTIVE NAV
 let cp=window.location.pathname.split('/').pop()||'index.html';
 document.querySelectorAll('#navLinks a,.drawer-nav a').forEach(a=>{
   if(a.getAttribute('href')===cp)a.classList.add('active');
   else a.classList.remove('active');
 });
-
 // SCROLL FADE IN
 const obs=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
 },{threshold:0.1});
 document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
-
 // ANIMATED COUNTER
 function animateCount(el,target,duration=1800){
   let start=0,step=target/((duration/16));
