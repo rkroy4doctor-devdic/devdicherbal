@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -293,6 +294,20 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
   color:rgba(255,255,255,.85);padding:6px 16px;
   border-radius:30px;font-size:12.5px;font-weight:600;
+}
+.apk-cards{
+  display:flex;justify-content:center;flex-wrap:wrap;gap:18px;
+  margin-bottom:28px;
+}
+.apk-card{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);
+  border-radius:16px;padding:22px 20px;flex:1 1 250px;max-width:280px;
+}
+.apk-card h3{color:#fff;font-size:15.5px;font-weight:700;margin-bottom:4px}
+.apk-card-sub{color:rgba(255,255,255,.6);font-size:12px;margin-bottom:16px}
+.apk-card .apk-download-btn{
+  width:100%;justify-content:center;padding:13px 18px;
+  font-size:14px;margin-bottom:0;
 }
 .install-steps{
   background:rgba(255,255,255,.07);
@@ -763,22 +778,37 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
     <h2>📱 Devdic Chat App Download Karein</h2>
     <p>Hamare <strong style="color:#fff">Android App</strong> ko seedha apne phone mein install karein aur doctor se chat karein, apni report bhejein, aur clinic se connected rahein — bilkul free!</p>
     <div class="apk-meta">
-      <span>📦 22.3 MB</span>
-      <span>🤖 Android 6.0+</span>
+      <span>🤖 Android</span>
       <span>✅ 100% Safe & Secure</span>
       <span>🆓 Bilkul Free</span>
     </div>
-    <a class="apk-download-btn"
-       href="https://github.com/rkroy4doctor-devdic/devdicherbal/releases/download/v1.0/DEVDIC.CHAT.apk"
-       onclick="gtag('event','apk_download',{event_category:'engagement',event_label:'apk_download_btn'})"
-       download>
-      ⬇️ App Download Karein (APK)
-    </a>
+    <div class="apk-cards">
+      <div class="apk-card">
+        <h3>🆕 Naye Phone ke liye</h3>
+        <p class="apk-card-sub">Latest version</p>
+        <a class="apk-download-btn"
+           href="https://github.com/rkroy4doctor-devdic/devdicherbal/releases/latest/download/DEVDIC.CHAT.apk"
+           onclick="gtag('event','apk_download',{event_category:'engagement',event_label:'apk_download_new'})"
+           download>
+          ⬇️ Download (New)
+        </a>
+      </div>
+      <div class="apk-card">
+        <h3>📱 Purane Phone ke liye</h3>
+        <p class="apk-card-sub">Old version</p>
+        <a class="apk-download-btn"
+           href="https://github.com/rkroy4doctor-devdic/devdicherbal/releases/download/old-phone/DEVDIC.CHAT.apk"
+           onclick="gtag('event','apk_download',{event_category:'engagement',event_label:'apk_download_old'})"
+           download>
+          ⬇️ Download (Old)
+        </a>
+      </div>
+    </div>
     <div class="install-steps">
       <h4>📋 Install Kaise Karein — 4 Simple Steps</h4>
       <div class="install-step">
         <div class="step-num">1</div>
-        <p><strong>Upar Download button dabao</strong> — DEVDIC.CHAT.apk download hogi</p>
+        <p><strong>Apne phone ke hisaab se New ya Old button dabao</strong> — DEVDIC.CHAT.apk download hogi</p>
       </div>
       <div class="install-step">
         <div class="step-num">2</div>
