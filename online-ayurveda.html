@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DEVDIC Online Ayurvedic Consultation — Bharat mein kahin se bhi experienced Ayurvedic Doctor se online consultation lein. Video consultation, digital prescription, follow-up care.">
+<title>Online Ayurveda Consultation – DEVDIC HERBAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--green:#059669;
+--green-dark:#064e3b;
+--green-mid:#065f46;
+--green-light:#ecfdf5;
+--green-xlight:#f0fdf4;
+--gold:#f59e0b;
+--amber-bg:#fffbeb;
+--amber-border:#fde68a;
+--amber-text:#92400e;
+--red-bg:#fef2f2;
+--red-border:#fecaca;
+--red-text:#991b1b;
+--blue-bg:#eff6ff;
+--blue-border:#bfdbfe;
+--blue-text:#1e40af;
+--white:#ffffff;
+--text:#0f172a;
+--text-muted:#475569;
+--border:#e2e8f0;
+--shadow:0 4px 24px rgba(0,0,0,.08);
+--shadow-hover:0 16px 48px rgba(5,150,105,.2);
+}
+body{font-family:'Poppins',sans-serif;background:#f8fffe;color:var(--text);overflow-x:hidden}
+a{font-family:inherit}
+
+/* ── TOPBAR / NAVBAR (shared with rest of site) ── */
+.topbar{background:linear-gradient(135deg,var(--green-dark),var(--green-mid));color:#fff;padding:9px 24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:500;gap:8px;flex-wrap:wrap}
+.topbar a{color:#fff;text-decoration:none;display:flex;align-items:center;gap:6px}
+.topbar-right{display:flex;align-items:center;gap:6px}
+.live-dot{width:7px;height:7px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+
+.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 24px;position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(5,150,105,.15);box-shadow:0 2px 16px rgba(0,0,0,.07)}
+.logo-box{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo{height:54px;border-radius:6px}
+.brand-text{display:flex;flex-direction:column}
+.brand-name{font-size:14px;font-weight:800;color:var(--green-dark);line-height:1.3}
+.brand-tagline{font-size:10px;color:var(--green);font-weight:600;letter-spacing:.7px;text-transform:uppercase}
+@media(max-width:768px){.logo{height:52px}.brand-name{font-size:13px}.brand-tagline{font-size:9px}}
+.nav-links{display:flex;gap:2px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--text-muted);font-weight:500;font-size:13.5px;padding:8px 12px;border-radius:8px;transition:.2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--green);background:var(--green-light)}
+.nav-cta{background:var(--green)!important;color:#fff!important;border-radius:30px!important;padding:9px 18px!important;margin-left:6px}
+.nav-cta:hover{background:var(--green-dark)!important;color:#fff!important}
+
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:6px;z-index:1100}
+.menu-toggle span{display:block;width:26px;height:3px;background:var(--green-dark);border-radius:4px;transition:.3s}
+.menu-toggle.open span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+.menu-toggle.open span:nth-child(2){opacity:0}
+.menu-toggle.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+
+.drawer-head{background:linear-gradient(135deg,#064e3b,#0f766e);padding:18px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-drawer{position:fixed;top:0;right:-100%;width:75%;max-width:300px;height:auto;max-height:100vh;background:#fff;z-index:1050;box-shadow:-6px 0 30px rgba(0,0,0,.15);transition:right .3s ease;display:flex;flex-direction:column;padding:0 0 20px;overflow-y:auto;border-bottom-left-radius:16px}
+.nav-drawer.open{right:0}
+.nav-drawer a{text-decoration:none;color:var(--text);font-size:16px;font-weight:500;padding:15px 24px;border-bottom:1px solid var(--green-light);transition:.2s}
+.nav-drawer a:hover,.nav-drawer a.active{color:var(--green);background:var(--green-xlight)}
+.nav-drawer .drawer-cta{margin:20px 24px 0;background:var(--green);color:#fff!important;border-radius:12px;text-align:center;padding:14px!important;font-weight:700!important;border-bottom:none!important}
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:1040;display:none}
+.nav-overlay.open{display:block}
+
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,var(--green-dark) 0%,#065f46 40%,#047857 100%);padding:64px 20px 54px;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.page-hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:60px;background:linear-gradient(to bottom,transparent,#f8fffe)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:30px;padding:7px 18px;font-size:13px;font-weight:600;color:#fff;margin-bottom:18px;backdrop-filter:blur(5px)}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,6vw,50px);color:#fff;font-weight:800;line-height:1.25;margin-bottom:14px;max-width:800px;margin-left:auto;margin-right:auto}
+.page-hero .hero-sub{color:#d1fae5;font-size:16px;font-weight:600;max-width:620px;margin:0 auto 14px}
+.page-hero p.hero-support{color:rgba(255,255,255,.82);font-size:14px;line-height:1.8;max-width:620px;margin:0 auto 26px}
+.hero-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:20px;position:relative;z-index:1}
+.btn{padding:14px 26px;border-radius:12px;text-decoration:none;font-weight:700;font-size:14.5px;display:inline-flex;align-items:center;gap:8px;transition:.25s;border:none;cursor:pointer;font-family:'Poppins',sans-serif}
+.btn-wa{background:#25D366;color:#fff;box-shadow:0 6px 20px rgba(37,211,102,.4)}
+.btn-wa:hover{background:#1da851;transform:translateY(-2px)}
+.btn-outline{background:rgba(255,255,255,.12);color:#fff;border:2px solid rgba(255,255,255,.5)}
+.btn-outline:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
+.hero-trustline{color:rgba(255,255,255,.7);font-size:12.5px;font-weight:500;position:relative;z-index:1}
+
+/* TRUST STRIP */
+.trust-strip{background:var(--green-dark);padding:22px 20px;display:flex;justify-content:center;gap:26px;flex-wrap:wrap}
+.trust-item{color:#fff;display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:500}
+.trust-item span:first-child{font-size:20px}
+
+/* GENERIC SECTION */
+.section{padding:60px 20px;max-width:1100px;margin:0 auto}
+.section-narrow{max-width:820px}
+.section-alt{background:var(--green-xlight)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,32px);font-weight:800;color:var(--green-dark);text-align:center;margin-bottom:14px}
+.sec-lead{text-align:center;color:var(--text-muted);font-size:14.5px;line-height:1.9;max-width:720px;margin:0 auto 36px}
+.sec-lead p+p{margin-top:10px}
+
+/* CARD GRID */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.info-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:24px 22px;box-shadow:var(--shadow);transition:.25s}
+.info-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:rgba(5,150,105,.25)}
+.info-card .ic-icon{font-size:28px;margin-bottom:12px;display:block}
+.info-card h3{font-size:15.5px;font-weight:700;color:var(--green-dark);margin-bottom:8px;line-height:1.4}
+.info-card p{font-size:13px;color:var(--text-muted);line-height:1.75}
+
+/* NUMBERED STEP CARDS */
+.step-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;max-width:1000px;margin:0 auto}
+.step-card{background:#fff;border-radius:18px;padding:24px 20px;box-shadow:var(--shadow);position:relative;border:1px solid var(--border)}
+.step-num{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green-mid));color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:0 4px 12px rgba(5,150,105,.3)}
+.step-card h3{font-size:15px;font-weight:700;color:var(--green-dark);margin-bottom:8px}
+.step-card p{font-size:13px;color:var(--text-muted);line-height:1.75}
+
+/* CALLOUT BOXES */
+.callout{border-radius:16px;padding:20px 22px;margin:18px 0;display:flex;gap:14px;align-items:flex-start}
+.callout .co-icon{font-size:24px;flex-shrink:0;line-height:1}
+.callout h4{font-size:14.5px;font-weight:700;margin-bottom:6px}
+.callout p{font-size:13px;line-height:1.8}
+.callout-amber{background:var(--amber-bg);border:1.5px solid var(--amber-border)}
+.callout-amber h4{color:var(--amber-text)}
+.callout-amber p{color:#78350f}
+.callout-red{background:var(--red-bg);border:1.5px solid var(--red-border)}
+.callout-red h4{color:var(--red-text)}
+.callout-red p{color:#7f1d1d}
+.callout-blue{background:var(--blue-bg);border:1.5px solid var(--blue-border)}
+.callout-blue h4{color:var(--blue-text)}
+.callout-blue p{color:#1e3a8a}
+
+/* HEALTH CONCERN CARDS */
+.concern-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:22px 22px 18px;box-shadow:var(--shadow)}
+.concern-card h3{font-size:15px;font-weight:700;color:var(--green-dark);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.concern-card ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.concern-card li{font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px}
+.concern-card li::before{content:'•';color:var(--green);font-weight:900;font-size:16px}
+
+/* CHECKLIST */
+.checklist-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:26px;box-shadow:var(--shadow);max-width:640px;margin:0 auto}
+.checklist{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 18px;margin-top:6px}
+.checklist li{font-size:13.5px;color:var(--text);display:flex;align-items:center;gap:8px;padding:6px 0}
+.checklist li::before{content:'✔';color:var(--green);font-weight:800}
+
+/* TIMELINE / JOURNEY FLOW */
+.flow{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0;max-width:1000px;margin:0 auto}
+.flow-step{background:#fff;border:1.5px solid rgba(5,150,105,.2);border-radius:14px;padding:14px 16px;font-size:12.5px;font-weight:600;color:var(--green-dark);text-align:center;box-shadow:var(--shadow);min-width:130px}
+.flow-arrow{color:var(--green);font-size:18px;font-weight:800;padding:0 8px}
+@media(max-width:640px){.flow{flex-direction:column}.flow-arrow{transform:rotate(90deg);padding:4px 0}}
+
+/* FAQ ACCORDION */
+.faq-wrap{max-width:760px;margin:0 auto}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.faq-item summary{padding:18px 22px;font-size:14.5px;font-weight:700;color:var(--green-dark);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:22px;color:var(--green);font-weight:400;flex-shrink:0;transition:.2s}
+.faq-item[open] summary::after{content:'−'}
+.faq-item .faq-a{padding:0 22px 20px;font-size:13.5px;color:var(--text-muted);line-height:1.8}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#042f1e,var(--green-dark),var(--green-mid));color:#fff;text-align:center;padding:60px 22px;border-radius:24px;max-width:1000px;margin:0 auto}
+.cta-banner h2{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,30px);font-weight:800;margin-bottom:10px}
+.cta-banner p{font-size:14px;margin-bottom:26px;opacity:.88}
+.cta-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+
+/* TRUST/PROFESSIONAL TEXT SECTION */
+.trust-section{max-width:720px;margin:0 auto;text-align:center}
+
+/* FORM */
+.form-wrap{max-width:680px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:22px;box-shadow:var(--shadow);padding:32px 28px}
+.form-section-title{font-size:14px;font-weight:800;color:var(--green-dark);text-transform:uppercase;letter-spacing:.5px;margin:22px 0 14px;padding-top:10px;border-top:1px solid var(--green-light)}
+.form-section-title:first-child{margin-top:0;padding-top:0;border-top:none}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+@media(max-width:560px){.f-row{grid-template-columns:1fr}}
+.f-field label{display:block;font-size:13px;font-weight:600;color:var(--text-muted);margin-bottom:6px}
+.f-field input[type=text],.f-field input[type=tel],.f-field input[type=number],.f-field select,.f-field textarea{
+  width:100%;border:1.5px solid var(--border);border-radius:10px;padding:11px 13px;font-size:13.5px;font-family:'Poppins',sans-serif;outline:none;transition:.2s;color:var(--text);background:#fff;
+}
+.f-field input:focus,.f-field select:focus,.f-field textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(5,150,105,.1)}
+.f-field textarea{resize:vertical;min-height:80px}
+.radio-row{display:flex;gap:18px;margin-top:6px}
+.radio-opt{display:flex;align-items:center;gap:6px;font-size:13.5px;color:var(--text)}
+.radio-opt input{accent-color:var(--green)}
+.consent-row{display:flex;gap:10px;align-items:flex-start;margin:20px 0;font-size:12.5px;color:var(--text-muted);line-height:1.7}
+.consent-row input{margin-top:3px;accent-color:var(--green);flex-shrink:0}
+.btn-submit{width:100%;background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;border:none;border-radius:12px;padding:15px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;transition:.2s}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(5,150,105,.4)}
+
+/* THANK YOU STATE */
+.thankyou-box{max-width:560px;margin:0 auto;background:#fff;border:1.5px solid rgba(5,150,105,.3);border-radius:22px;padding:44px 32px;text-align:center;box-shadow:var(--shadow)}
+.thankyou-box .ty-icon{font-size:52px;margin-bottom:16px}
+.thankyou-box h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--green-dark);font-weight:800;margin-bottom:10px}
+.thankyou-box p{font-size:13.5px;color:var(--text-muted);line-height:1.8;margin-bottom:16px}
+.ty-status{display:inline-block;background:var(--green-light);color:var(--green-dark);font-weight:700;font-size:12.5px;padding:8px 18px;border-radius:30px;margin-bottom:14px}
+
+/* FOOTER */
+.footer{background:#0a1628;text-align:center;padding:28px 20px 80px;font-size:13px;line-height:2}
+.footer p{color:#cbd5e1}
+.footer a{color:#4ade80;text-decoration:none}
+.footer-delivery-note{font-size:12px;color:#94a3b8;margin-top:4px}
+.footer-delivery-note .red-star-note{color:#ff5555;font-weight:800;font-size:14px}
+.footer-copy{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;color:#94a3b8}
+
+.float-wa{position:fixed;bottom:80px;right:20px;background:#25D366;color:#fff;padding:13px 18px;border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;z-index:998;box-shadow:0 4px 18px rgba(37,211,102,.45);transition:.3s;display:flex;align-items:center;gap:6px}
+.float-wa:hover{background:#1da851;transform:scale(1.05)}
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#25d366,#128c7e);text-align:center;padding:16px;font-weight:700;z-index:998;font-size:15px;box-shadow:0 -3px 20px rgba(0,0,0,.2)}
+.bottom-bar a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:10px}
+
+@media(max-width:768px){
+  .menu-toggle{display:flex}
+  .nav-links{display:none}
+  .topbar{font-size:12px;padding:8px 14px}
+  .section{padding:44px 16px}
+  .form-wrap{padding:26px 18px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="tel:8434813523">📞 8434813523</a>
+  <div class="topbar-right">
+    <div class="live-dot"></div>
+    🚚 <span style="color:#ff5555;font-weight:900">*</span>Free Delivery Available
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <a class="logo-box" href="index.html">
+    <img src="devdic logo.png" class="logo" alt="Devdic Herbal">
+    <div class="brand-text">
+      <div class="brand-name">DEVDIC HERBAL OPC PVT. LTD.</div>
+      <div class="brand-tagline">Ayurvedic Diabetes Specialist</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" data-page="index">Home</a>
+    <a href="diabetes.html" data-page="diabetes">Diabetes</a>
+    <a href="online-ayurveda.html" data-page="online-ayurveda">Online Ayurveda</a>
+    <a href="product.html" data-page="product">Products</a>
+    <a href="testimonials.html" data-page="testimonials">Testimonial</a>
+    <a href="about.html" data-page="about">About</a>
+    <a href="contact.html" data-page="contact">Contact</a>
+    <a href="#consult-form" class="nav-cta">💬 Consult Online</a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
+
+<div class="nav-drawer" id="navDrawer">
+  <div class="drawer-head">
+    <img src="devdic logo.png" alt="Logo" style="height:40px;border-radius:6px">
+    <div>
+      <div style="font-size:13px;font-weight:700;color:#fff;line-height:1.3">DEVDIC HERBAL</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.75)">OPC Private Limited</div>
+    </div>
+    <button onclick="closeMenu()" style="margin-left:auto;background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center">✕</button>
+  </div>
+  <a href="index.html" data-page="index">🏠 Home</a>
+  <a href="diabetes.html" data-page="diabetes">🩸 Diabetes</a>
+  <a href="online-ayurveda.html" data-page="online-ayurveda">💻 Online Ayurveda</a>
+  <a href="product.html" data-page="product">🌿 Products</a>
+  <a href="testimonials.html" data-page="testimonials">⭐ Testimonials</a>
+  <a href="about.html" data-page="about">👥 About Us</a>
+  <a href="contact.html" data-page="contact">📞 Contact</a>
+  <a href="#consult-form" class="drawer-cta">💬 Consult Online</a>
+</div>
+
+<!-- 1. HERO -->
+<div class="page-hero">
+  <div class="hero-badge">💻 Online Ayurvedic Consultation</div>
+  <h1>Online Ayurvedic <span style="color:#4ade80">Consultation</span></h1>
+  <p class="hero-sub">भारत में कहीं से भी अनुभवी Ayurvedic Doctor से Online Consultation लें</p>
+  <p class="hero-support">अपनी स्वास्थ्य समस्या के बारे में हमें बताएं। हमारी टीम आपकी जानकारी लेकर आपकी समस्या के अनुसार उपयुक्त Ayurvedic Doctor से consultation arrange करेगी।</p>
+  <div class="hero-btns">
+    <a class="btn btn-wa" href="#consult-form">📝 Consult Online</a>
+  </div>
+  <div class="hero-trustline">Video Consultation • Digital Prescription • Follow-up Care</div>
+</div>
+
+<div class="trust-strip">
+  <div class="trust-item"><span>📹</span> Video Consultation</div>
+  <div class="trust-item"><span>📄</span> Digital Prescription</div>
+  <div class="trust-item"><span>🔁</span> Follow-up Care</div>
+  <div class="trust-item"><span>🌍</span> Anywhere in India</div>
+</div>
+
+<!-- 2. HOW IT WORKS -->
+<div class="section">
+  <div class="sec-title">Online Consultation कैसे काम करता है?</div>
+  <div class="step-grid">
+    <div class="step-card"><div class="step-num">1</div><h3>अपनी समस्या बताएं</h3><p>अपनी health problem और basic details हमें बताएं। हमारी team आपकी request receive करेगी।</p></div>
+    <div class="step-card"><div class="step-num">2</div><h3>हमारी Team आपसे बात करेगी</h3><p>हमारी team आपको call करके आपकी समस्या, symptoms, medical history और available reports के बारे में आवश्यक जानकारी लेगी।</p></div>
+    <div class="step-card"><div class="step-num">3</div><h3>उचित Ayurvedic Doctor Assign होगा</h3><p>आपकी दी गई जानकारी के आधार पर आपकी consultation को उपयुक्त Ayurvedic Doctor के साथ schedule किया जाएगा।</p></div>
+    <div class="step-card"><div class="step-num">4</div><h3>Consultation Fee Pay करें</h3><p>Doctor और consultation details confirm होने के बाद online consultation fee का payment करें।</p></div>
+    <div class="step-card"><div class="step-num">5</div><h3>Video Consultation</h3><p>Scheduled time पर अपने Ayurvedic Doctor से secure video consultation करें और अपनी समस्या के बारे में विस्तार से चर्चा करें।</p></div>
+    <div class="step-card"><div class="step-num">6</div><h3>Prescription + Follow-up</h3><p>Consultation के बाद Doctor आवश्यक prescription, treatment instructions और follow-up guidance प्रदान करेंगे।</p></div>
+  </div>
+</div>
+
+<!-- 3. CONSULT CTA -->
+<div style="padding:10px 20px 20px">
+  <div class="cta-banner">
+    <h2>अपनी स्वास्थ्य समस्या से परेशान हैं?</h2>
+    <p>घर बैठे Ayurvedic Doctor से consultation लें।</p>
+    <div class="cta-btns"><a class="btn btn-wa" href="#consult-form">📝 Consult Online</a></div>
+    <p style="margin-top:16px;font-size:12px;opacity:.75">पहले अपनी समस्या बताएं — हमारी team आगे की प्रक्रिया में आपकी सहायता करेगी।</p>
+  </div>
+</div>
+
+<!-- 4. HEALTH CONCERNS -->
+<div class="section section-alt">
+  <div class="sec-title">किन स्वास्थ्य समस्याओं के लिए Consultation ले सकते हैं?</div>
+  <div class="card-grid">
+    <div class="concern-card"><h3>🍽️ Digestive Health</h3><ul><li>Constipation</li><li>Gas &amp; Bloating</li><li>Indigestion</li><li>Acidity-related complaints</li><li>Loss of appetite</li></ul></div>
+    <div class="concern-card"><h3>🤧 Respiratory &amp; Seasonal Complaints</h3><ul><li>Common Cold</li><li>Mild Cough</li><li>Seasonal Throat Complaints</li></ul></div>
+    <div class="concern-card"><h3>🩹 Piles &amp; Related Complaints</h3><ul><li>Piles-related symptoms</li><li>Constipation-associated discomfort</li></ul></div>
+    <div class="concern-card"><h3>⚖️ Thyroid &amp; Metabolic Health</h3><ul><li>Thyroid-related concerns</li><li>Existing thyroid reports की review-based consultation</li></ul></div>
+    <div class="concern-card"><h3>🦴 Joint &amp; Musculoskeletal Complaints</h3><ul><li>Joint discomfort</li><li>General musculoskeletal complaints</li></ul></div>
+  </div>
+  <div class="callout callout-amber" style="max-width:820px;margin:28px auto 0">
+    <span class="co-icon">⚠️</span>
+    <div><h4>Important Note</h4><p>हर health condition online consultation के लिए suitable नहीं होती। आपकी symptoms और medical history के आधार पर Doctor consultation की suitability तय करेंगे। Emergency या गंभीर symptoms की स्थिति में तत्काल appropriate medical care लेना आवश्यक है।</p></div>
+  </div>
+</div>
+
+<!-- 5. WHY CHOOSE US -->
+<div class="section">
+  <div class="sec-title">क्यों चुनें DEVDIC Online Ayurveda?</div>
+  <div class="card-grid">
+    <div class="info-card"><span class="ic-icon">🌍</span><h3>Consultation from Anywhere</h3><p>भारत में कहीं से भी अपने घर से Ayurvedic consultation की सुविधा।</p></div>
+    <div class="info-card"><span class="ic-icon">🩺</span><h3>Doctor-Based Consultation</h3><p>आपकी consultation qualified Ayurvedic Doctor द्वारा की जाएगी।</p></div>
+    <div class="info-card"><span class="ic-icon">📋</span><h3>Personalized Consultation</h3><p>Doctor आपकी health history, symptoms और available reports को ध्यान में रखकर consultation देंगे।</p></div>
+    <div class="info-card"><span class="ic-icon">📄</span><h3>Digital Prescription</h3><p>Consultation के बाद prescription और treatment instructions digitally उपलब्ध कराए जा सकते हैं।</p></div>
+    <div class="info-card"><span class="ic-icon">🔁</span><h3>Follow-up Care</h3><p>Consultation के बाद follow-up की सुविधा ताकि treatment journey continuous रहे।</p></div>
+    <div class="info-card"><span class="ic-icon">⏱️</span><h3>Convenient &amp; Time Saving</h3><p>Clinic तक travel किए बिना घर से consultation लेने की सुविधा।</p></div>
+  </div>
+</div>
+
+<!-- 6. WHAT YOU NEED -->
+<div class="section section-alt section-narrow" style="max-width:820px">
+  <div class="sec-title">Consultation से पहले क्या तैयार रखें?</div>
+  <p class="sec-lead" style="margin-bottom:16px">यदि उपलब्ध हो तो:</p>
+  <div class="checklist-card">
+    <ul class="checklist">
+      <li>Previous medical reports</li><li>Current medicines की details</li>
+      <li>Previous prescriptions</li><li>Relevant diagnostic reports</li>
+      <li>अपनी symptoms की जानकारी</li><li>Problem कब से है इसकी जानकारी</li>
+    </ul>
+  </div>
+  <p class="sec-lead" style="margin-top:16px;margin-bottom:0">सही और पूरी जानकारी देने से Doctor को आपकी स्थिति को बेहतर समझने में सहायता मिलती है।</p>
+</div>
+
+<!-- 7. PATIENT JOURNEY -->
+<div class="section">
+  <div class="sec-title">आपकी Consultation Journey</div>
+  <div class="flow">
+    <div class="flow-step">Problem Registration</div><div class="flow-arrow">→</div>
+    <div class="flow-step">Team Call</div><div class="flow-arrow">→</div>
+    <div class="flow-step">Patient Assessment</div><div class="flow-arrow">→</div>
+    <div class="flow-step">Doctor Assignment</div><div class="flow-arrow">→</div>
+    <div class="flow-step">Payment</div><div class="flow-arrow">→</div>
+    <div class="flow-step">Video Consultation</div><div class="flow-arrow">→</div>
+    <div class="flow-step">Prescription</div><div class="flow-arrow">→</div>
+    <div class="flow-step">Follow-up</div>
+  </div>
+</div>
+
+<!-- 8. TRUST/PROFESSIONAL -->
+<div class="section section-alt">
+  <div class="trust-section">
+    <div class="sec-title">Ayurveda, अब आपके घर तक</div>
+    <p class="sec-lead">Ayurvedic healthcare को convenient और accessible बनाने के उद्देश्य से DEVDIC Online Ayurveda आपको भारत के अलग-अलग स्थानों से Ayurvedic consultation लेने की सुविधा प्रदान करता है। हमारा उद्देश्य है कि patient को consultation process में सही information, appropriate doctor access और structured follow-up support मिल सके।</p>
+  </div>
+</div>
+
+<!-- 9. IMPORTANT INFO -->
+<div class="section section-narrow" style="max-width:820px">
+  <div class="sec-title">महत्वपूर्ण सूचना</div>
+  <div class="callout callout-red">
+    <span class="co-icon">🚨</span>
+    <div><p>Online consultation हर medical condition के लिए उपयुक्त नहीं होती। यदि आपको severe pain, difficulty in breathing, loss of consciousness, severe bleeding, very high fever, sudden neurological symptoms या किसी अन्य emergency symptom का अनुभव हो रहा है, तो online consultation के बजाय तत्काल appropriate emergency medical care लें।</p></div>
+  </div>
+  <div class="callout callout-blue">
+    <span class="co-icon">ℹ️</span>
+    <div><p>Doctor द्वारा treatment और prescription आपकी consultation और उपलब्ध medical information के आधार पर निर्धारित किया जाएगा। Self-medication से बचें और बिना qualified healthcare professional की सलाह के medicines शुरू या बंद न करें।</p></div>
+  </div>
+</div>
+
+<!-- 10. FAQ -->
+<div class="section">
+  <div class="sec-title">Frequently Asked Questions</div>
+  <div class="faq-wrap">
+    <details class="faq-item"><summary>क्या मैं भारत के किसी भी शहर से consultation ले सकता हूँ?</summary><div class="faq-a">हाँ। Online consultation के माध्यम से भारत में कहीं से भी consultation request submit की जा सकती है, subject to service availability and applicable requirements.</div></details>
+    <details class="faq-item"><summary>क्या मुझे पहले Doctor चुनना होगा?</summary><div class="faq-a">नहीं। पहले आप अपनी problem register करेंगे। हमारी team आपसे आवश्यक जानकारी लेकर आपकी consultation के लिए suitable Ayurvedic Doctor assign/schedule करेगी।</div></details>
+    <details class="faq-item"><summary>Consultation कैसे होगी?</summary><div class="faq-a">Consultation scheduled time पर video call के माध्यम से होगी।</div></details>
+    <details class="faq-item"><summary>क्या consultation के बाद prescription मिलेगा?</summary><div class="faq-a">यदि Doctor consultation के बाद prescription उचित समझते हैं, तो prescription और relevant treatment instructions digitally उपलब्ध कराए जा सकते हैं।</div></details>
+    <details class="faq-item"><summary>क्या मैं अपनी medical reports दिखा सकता हूँ?</summary><div class="faq-a">हाँ। यदि आपके पास relevant reports या previous prescriptions हैं, तो consultation process के दौरान उन्हें उपलब्ध कराया जा सकता है।</div></details>
+    <details class="faq-item"><summary>Consultation की fee कितनी है?</summary><div class="faq-a">Consultation fee Doctor/service type के अनुसार अलग हो सकती है। Doctor assignment और appointment details confirm होने के बाद applicable fee दिखाई जाएगी।</div></details>
+    <details class="faq-item"><summary>अगर मैं consultation के लिए available नहीं हूँ तो?</summary><div class="faq-a">Appointment availability के अनुसार rescheduling की सुविधा दी जा सकती है। Applicable cancellation/rescheduling policy service terms के अनुसार होगी।</div></details>
+    <details class="faq-item"><summary>क्या हर बीमारी का online treatment किया जा सकता है?</summary><div class="faq-a">नहीं। कुछ conditions में physical examination, diagnostic testing या urgent medical evaluation आवश्यक हो सकती है। ऐसी स्थिति में Doctor appropriate medical care की सलाह दे सकते हैं।</div></details>
+  </div>
+</div>
+
+<!-- 11. FINAL CTA -->
+<div style="padding:10px 20px 20px">
+  <div class="cta-banner">
+    <h2>अपनी समस्या आज ही Register करें</h2>
+    <p>अपनी health problem हमें बताएं और हमारी team से आगे की consultation process के लिए संपर्क प्राप्त करें।</p>
+    <div class="cta-btns"><a class="btn btn-wa" href="#consult-form">📝 Consult Online</a></div>
+    <p style="margin-top:16px;font-size:11.5px;opacity:.75">Problem बताएं → Team Call → Doctor Assignment → Payment → Video Consultation → Prescription + Follow-up</p>
+  </div>
+</div>
+
+<!-- 12. REGISTRATION FORM -->
+<div class="section section-alt" id="consult-form">
+  <div class="sec-title">Consultation Request Register करें</div>
+  <p class="sec-lead">नीचे अपनी details भरें — हमारी team जल्द ही आपसे संपर्क करेगी।</p>
+
+  <form class="form-wrap" id="consultForm">
+    <div class="form-section-title">Personal Details</div>
+    <div class="f-row">
+      <div class="f-field"><label>Full Name *</label><input type="text" id="f_name" required></div>
+      <div class="f-field"><label>Mobile Number *</label><input type="tel" id="f_mobile" pattern="[0-9]{10}" maxlength="10" required></div>
+    </div>
+    <div class="f-row">
+      <div class="f-field"><label>Age</label><input type="number" id="f_age" min="0" max="120"></div>
+      <div class="f-field"><label>Gender</label>
+        <select id="f_gender"><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select>
+      </div>
+    </div>
+    <div class="f-field" style="margin-bottom:14px"><label>City / State</label><input type="text" id="f_city"></div>
+
+    <div class="form-section-title">Health Details</div>
+    <div class="f-field" style="margin-bottom:14px">
+      <label>What problem are you facing? *</label>
+      <select id="f_problem" required>
+        <option value="">Select a problem</option>
+        <option>Constipation</option><option>Gas / Bloating</option><option>Indigestion</option>
+        <option>Acidity-related complaints</option><option>Loss of Appetite</option>
+        <option>Cold</option><option>Cough</option><option>Piles</option>
+        <option>Thyroid-related concern</option><option>Joint / Musculoskeletal complaint</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="form-section-title">Additional Information</div>
+    <div class="f-field" style="margin-bottom:14px"><label>Since when are you experiencing this problem?</label><input type="text" id="f_since" placeholder="जैसे: 2 हफ्ते से, 6 महीने से"></div>
+    <div class="f-field" style="margin-bottom:14px"><label>Briefly describe your problem</label><textarea id="f_desc"></textarea></div>
+    <div class="f-field" style="margin-bottom:14px">
+      <label>Are you currently taking any medicines?</label>
+      <div class="radio-row">
+        <label class="radio-opt"><input type="radio" name="f_meds" value="Yes"> Yes</label>
+        <label class="radio-opt"><input type="radio" name="f_meds" value="No" checked> No</label>
+      </div>
+    </div>
+    <div class="f-field" style="margin-bottom:14px">
+      <label>Do you have any previous medical reports?</label>
+      <div class="radio-row">
+        <label class="radio-opt"><input type="radio" name="f_reports" value="Yes"> Yes</label>
+        <label class="radio-opt"><input type="radio" name="f_reports" value="No" checked> No</label>
+      </div>
+      <p style="font-size:12px;color:#94a3b8;margin-top:6px">Reports online upload possible nahi hai abhi — consultation call ke dauraan aap unhe WhatsApp par bhej sakte hain.</p>
+    </div>
+
+    <label class="consent-row">
+      <input type="checkbox" id="f_consent" required>
+      <span>I confirm that the information provided by me is accurate to the best of my knowledge and I agree to be contacted by DEVDIC regarding my consultation request.</span>
+    </label>
+
+    <button type="submit" class="btn-submit">Submit Consultation Request</button>
+  </form>
+
+  <!-- 13. THANK YOU STATE (hidden until submit) -->
+  <div class="thankyou-box" id="thankYouBox" style="display:none">
+    <div class="ty-icon">✅</div>
+    <h3>Your Consultation Request Has Been Received</h3>
+    <div class="ty-status">Request Received</div>
+    <p>Thank you for contacting DEVDIC Online Ayurveda.<br>हमारी team आपकी request की समीक्षा करके आपसे दिए गए mobile number पर संपर्क करेगी।</p>
+    <p style="font-size:12px;color:#94a3b8">कृपया अपना phone available रखें। हमारी team consultation process के अगले चरण के लिए आपसे संपर्क करेगी।</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>🌿 <strong style="color:#e2e8f0">DEVDIC HERBAL OPC PRIVATE LIMITED</strong></p>
+  <p>📞 <a href="tel:8434813523">8434813523</a> &nbsp;|&nbsp; 💬 <a href="https://wa.me/918434813523" target="_blank">WhatsApp</a> &nbsp;|&nbsp; 🚚 Delivery PAN India</p>
+  <p class="footer-delivery-note"><span class="red-star-note">*</span> Free delivery on first order only</p>
+  <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:8px">
+    <a href="index.html">Home</a><a href="diabetes.html">Diabetes</a><a href="online-ayurveda.html">Online Ayurveda</a>
+    <a href="product.html">Products</a><a href="testimonials.html">Testimonials</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  </div>
+  <p class="footer-copy">© 2017 DEVDIC HERBAL. All Rights Reserved.</p>
+</div>
+
+<a class="float-wa" href="https://wa.me/918434813523?text=Namaskar%2C%20mujhe%20Online%20Ayurvedic%20consultation%20chahiye." target="_blank">💬 WhatsApp</a>
+
+<div class="bottom-bar">
+  <a href="#consult-form">📝 Consultation Register Karein — Free</a>
+</div>
+
+<script>
+(function(){
+  var path = window.location.pathname;
+  var page = path.split('/').pop().replace('.html','') || 'index';
+  if(path === '/' || path === '') page = 'index';
+  document.querySelectorAll('[data-page]').forEach(function(el){
+    if(el.dataset.page === page){ el.classList.add('active'); } else { el.classList.remove('active'); }
+  });
+})();
+function toggleMenu(){
+  document.getElementById('menuToggle').classList.toggle('open');
+  document.getElementById('navDrawer').classList.toggle('open');
+  document.getElementById('navOverlay').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu(){
+  document.getElementById('menuToggle').classList.remove('open');
+  document.getElementById('navDrawer').classList.remove('open');
+  document.getElementById('navOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// REGISTRATION FORM -> builds a WhatsApp message (no backend on this static site)
+document.getElementById('consultForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var name = document.getElementById('f_name').value.trim();
+  var mobile = document.getElementById('f_mobile').value.trim();
+  var age = document.getElementById('f_age').value.trim();
+  var gender = document.getElementById('f_gender').value;
+  var city = document.getElementById('f_city').value.trim();
+  var problem = document.getElementById('f_problem').value;
+  var since = document.getElementById('f_since').value.trim();
+  var desc = document.getElementById('f_desc').value.trim();
+  var meds = document.querySelector('input[name="f_meds"]:checked').value;
+  var reports = document.querySelector('input[name="f_reports"]:checked').value;
+
+  var lines = [
+    'Namaste, mujhe Online Ayurvedic Consultation chahiye.',
+    'Name: ' + name,
+    'Mobile: ' + mobile
+  ];
+  if(age) lines.push('Age: ' + age);
+  if(gender) lines.push('Gender: ' + gender);
+  if(city) lines.push('City/State: ' + city);
+  lines.push('Problem: ' + problem);
+  if(since) lines.push('Since: ' + since);
+  if(desc) lines.push('Description: ' + desc);
+  lines.push('Currently on medicines: ' + meds);
+  lines.push('Has previous reports: ' + reports);
+
+  var msg = encodeURIComponent(lines.join('\n'));
+  window.open('https://wa.me/918434813523?text=' + msg, '_blank');
+
+  document.getElementById('consultForm').style.display = 'none';
+  var ty = document.getElementById('thankYouBox');
+  ty.style.display = 'block';
+  ty.scrollIntoView({behavior:'smooth', block:'center'});
+});
+</script>
+</body>
+</html>

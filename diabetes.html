@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DEVDIC Diabetes Care — Doctor-guided Ayurvedic consultation aur DEVDIC ke apne Ayurvedic diabetes products. Personalized care, regular follow-up.">
+<title>Diabetes Care – DEVDIC HERBAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--green:#059669;
+--green-dark:#064e3b;
+--green-mid:#065f46;
+--green-light:#ecfdf5;
+--green-xlight:#f0fdf4;
+--gold:#f59e0b;
+--amber-bg:#fffbeb;
+--amber-border:#fde68a;
+--amber-text:#92400e;
+--red-bg:#fef2f2;
+--red-border:#fecaca;
+--red-text:#991b1b;
+--blue-bg:#eff6ff;
+--blue-border:#bfdbfe;
+--blue-text:#1e40af;
+--white:#ffffff;
+--text:#0f172a;
+--text-muted:#475569;
+--border:#e2e8f0;
+--shadow:0 4px 24px rgba(0,0,0,.08);
+--shadow-hover:0 16px 48px rgba(5,150,105,.2);
+}
+body{font-family:'Poppins',sans-serif;background:#f8fffe;color:var(--text);overflow-x:hidden}
+a{font-family:inherit}
+
+/* ── TOPBAR / NAVBAR (shared with rest of site) ── */
+.topbar{background:linear-gradient(135deg,var(--green-dark),var(--green-mid));color:#fff;padding:9px 24px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:500;gap:8px;flex-wrap:wrap}
+.topbar a{color:#fff;text-decoration:none;display:flex;align-items:center;gap:6px}
+.topbar-right{display:flex;align-items:center;gap:6px}
+.live-dot{width:7px;height:7px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+
+.navbar{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 24px;position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(5,150,105,.15);box-shadow:0 2px 16px rgba(0,0,0,.07)}
+.logo-box{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo{height:54px;border-radius:6px}
+.brand-text{display:flex;flex-direction:column}
+.brand-name{font-size:14px;font-weight:800;color:var(--green-dark);line-height:1.3}
+.brand-tagline{font-size:10px;color:var(--green);font-weight:600;letter-spacing:.7px;text-transform:uppercase}
+@media(max-width:768px){.logo{height:52px}.brand-name{font-size:13px}.brand-tagline{font-size:9px}}
+.nav-links{display:flex;gap:2px;align-items:center}
+.nav-links a{text-decoration:none;color:var(--text-muted);font-weight:500;font-size:13.5px;padding:8px 12px;border-radius:8px;transition:.2s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:var(--green);background:var(--green-light)}
+.nav-cta{background:var(--green)!important;color:#fff!important;border-radius:30px!important;padding:9px 18px!important;margin-left:6px}
+.nav-cta:hover{background:var(--green-dark)!important;color:#fff!important}
+
+.menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:6px;z-index:1100}
+.menu-toggle span{display:block;width:26px;height:3px;background:var(--green-dark);border-radius:4px;transition:.3s}
+.menu-toggle.open span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+.menu-toggle.open span:nth-child(2){opacity:0}
+.menu-toggle.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+
+.drawer-head{background:linear-gradient(135deg,#064e3b,#0f766e);padding:18px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-drawer{position:fixed;top:0;right:-100%;width:75%;max-width:300px;height:auto;max-height:100vh;background:#fff;z-index:1050;box-shadow:-6px 0 30px rgba(0,0,0,.15);transition:right .3s ease;display:flex;flex-direction:column;padding:0 0 20px;overflow-y:auto;border-bottom-left-radius:16px}
+.nav-drawer.open{right:0}
+.nav-drawer a{text-decoration:none;color:var(--text);font-size:16px;font-weight:500;padding:15px 24px;border-bottom:1px solid var(--green-light);transition:.2s}
+.nav-drawer a:hover,.nav-drawer a.active{color:var(--green);background:var(--green-xlight)}
+.nav-drawer .drawer-cta{margin:20px 24px 0;background:var(--green);color:#fff!important;border-radius:12px;text-align:center;padding:14px!important;font-weight:700!important;border-bottom:none!important}
+.nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:1040;display:none}
+.nav-overlay.open{display:block}
+
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,var(--green-dark) 0%,#065f46 40%,#047857 100%);padding:64px 20px 54px;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.page-hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:60px;background:linear-gradient(to bottom,transparent,#f8fffe)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:30px;padding:7px 18px;font-size:13px;font-weight:600;color:#fff;margin-bottom:18px;backdrop-filter:blur(5px)}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,6vw,50px);color:#fff;font-weight:800;line-height:1.25;margin-bottom:14px;max-width:800px;margin-left:auto;margin-right:auto}
+.page-hero .hero-sub{color:#d1fae5;font-size:16px;font-weight:600;max-width:620px;margin:0 auto 14px}
+.page-hero p.hero-support{color:rgba(255,255,255,.82);font-size:14px;line-height:1.8;max-width:620px;margin:0 auto 26px}
+.hero-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:20px;position:relative;z-index:1}
+.btn{padding:14px 26px;border-radius:12px;text-decoration:none;font-weight:700;font-size:14.5px;display:inline-flex;align-items:center;gap:8px;transition:.25s;border:none;cursor:pointer;font-family:'Poppins',sans-serif}
+.btn-wa{background:#25D366;color:#fff;box-shadow:0 6px 20px rgba(37,211,102,.4)}
+.btn-wa:hover{background:#1da851;transform:translateY(-2px)}
+.btn-outline{background:rgba(255,255,255,.12);color:#fff;border:2px solid rgba(255,255,255,.5)}
+.btn-outline:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
+.hero-trustline{color:rgba(255,255,255,.7);font-size:12.5px;font-weight:500;position:relative;z-index:1}
+
+/* TRUST STRIP */
+.trust-strip{background:var(--green-dark);padding:22px 20px;display:flex;justify-content:center;gap:26px;flex-wrap:wrap}
+.trust-item{color:#fff;display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:500}
+.trust-item span:first-child{font-size:20px}
+
+/* GENERIC SECTION */
+.section{padding:60px 20px;max-width:1100px;margin:0 auto}
+.section-narrow{max-width:820px}
+.section-alt{background:var(--green-xlight)}
+.section-alt-wrap{background:var(--green-xlight)}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,32px);font-weight:800;color:var(--green-dark);text-align:center;margin-bottom:14px}
+.sec-lead{text-align:center;color:var(--text-muted);font-size:14.5px;line-height:1.9;max-width:720px;margin:0 auto 36px}
+.sec-lead p+p{margin-top:10px}
+
+/* CARD GRID */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.info-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:24px 22px;box-shadow:var(--shadow);transition:.25s}
+.info-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:rgba(5,150,105,.25)}
+.info-card .ic-icon{font-size:28px;margin-bottom:12px;display:block}
+.info-card h3{font-size:15.5px;font-weight:700;color:var(--green-dark);margin-bottom:8px;line-height:1.4}
+.info-card p{font-size:13px;color:var(--text-muted);line-height:1.75}
+
+/* CALLOUT BOXES */
+.callout{border-radius:16px;padding:20px 22px;margin:18px 0;display:flex;gap:14px;align-items:flex-start}
+.callout .co-icon{font-size:24px;flex-shrink:0;line-height:1}
+.callout h4{font-size:14.5px;font-weight:700;margin-bottom:6px}
+.callout p{font-size:13px;line-height:1.8}
+.callout-amber{background:var(--amber-bg);border:1.5px solid var(--amber-border)}
+.callout-amber h4{color:var(--amber-text)}
+.callout-amber p{color:#78350f}
+.callout-red{background:var(--red-bg);border:1.5px solid var(--red-border)}
+.callout-red h4{color:var(--red-text)}
+.callout-red p{color:#7f1d1d}
+.callout-blue{background:var(--blue-bg);border:1.5px solid var(--blue-border)}
+.callout-blue h4{color:var(--blue-text)}
+.callout-blue p{color:#1e3a8a}
+.callout-green{background:var(--green-light);border:1.5px solid rgba(5,150,105,.25)}
+.callout-green h4{color:var(--green-dark)}
+.callout-green p{color:var(--green-mid)}
+
+/* CHECKLIST */
+.checklist-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:26px;box-shadow:var(--shadow);max-width:640px;margin:0 auto}
+.checklist{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px 18px;margin-top:6px}
+.checklist li{font-size:13.5px;color:var(--text);display:flex;align-items:center;gap:8px;padding:6px 0}
+.checklist li::before{content:'✔';color:var(--green);font-weight:800}
+
+/* TIMELINE / APPROACH FLOW */
+.flow{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0;max-width:900px;margin:0 auto}
+.flow-step{background:#fff;border:1.5px solid rgba(5,150,105,.2);border-radius:14px;padding:14px 18px;font-size:12.5px;font-weight:600;color:var(--green-dark);text-align:center;box-shadow:var(--shadow);min-width:140px}
+.flow-arrow{color:var(--green);font-size:18px;font-weight:800;padding:0 10px}
+@media(max-width:640px){.flow{flex-direction:column}.flow-arrow{transform:rotate(90deg);padding:4px 0}}
+
+/* PRODUCT SHOWCASE (reuses site product data) */
+.prod-showcase{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px;max-width:900px;margin:0 auto}
+.prod-mini-card{background:#fff;border-radius:18px;padding:16px;box-shadow:var(--shadow);text-decoration:none;color:var(--text);display:block;border:1.5px solid transparent;transition:.25s}
+.prod-mini-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover);border-color:rgba(5,150,105,.25)}
+.prod-mini-card img{width:100%;height:150px;object-fit:contain;border-radius:12px;margin-bottom:10px;background:var(--green-xlight);padding:8px}
+.prod-mini-card h3{font-size:14px;font-weight:700;color:var(--green-dark);margin-bottom:8px}
+.prod-mini-card .pmc-btn{display:block;background:linear-gradient(90deg,var(--green),var(--green-mid));color:#fff;padding:8px;border-radius:8px;font-size:12px;font-weight:700;text-align:center}
+
+/* TRUST POINTS ROW */
+.trustpoints{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:24px 0}
+.trustpoint{background:#fff;border:1.5px solid rgba(5,150,105,.2);color:var(--green-dark);font-weight:700;font-size:12.5px;padding:9px 18px;border-radius:30px;box-shadow:var(--shadow)}
+
+/* FACTORS LIST */
+.factors-wrap{max-width:700px;margin:0 auto;background:#fff;border-radius:18px;padding:28px;box-shadow:var(--shadow)}
+.factors-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0}
+.factors-list span{background:var(--green-light);color:var(--green-dark);font-weight:600;font-size:13px;padding:9px 14px;border-radius:10px;text-align:center}
+
+/* JOURNEY ICON LIST */
+.journey-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;max-width:900px;margin:0 auto}
+.journey-item{background:#fff;border-radius:16px;padding:20px 14px;text-align:center;box-shadow:var(--shadow)}
+.journey-item .ji-icon{font-size:26px;display:block;margin-bottom:8px}
+.journey-item span{font-size:13px;font-weight:700;color:var(--green-dark)}
+
+/* FAQ ACCORDION */
+.faq-wrap{max-width:760px;margin:0 auto}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.faq-item summary{padding:18px 22px;font-size:14.5px;font-weight:700;color:var(--green-dark);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-size:22px;color:var(--green);font-weight:400;flex-shrink:0;transition:.2s}
+.faq-item[open] summary::after{content:'−'}
+.faq-item .faq-a{padding:0 22px 20px;font-size:13.5px;color:var(--text-muted);line-height:1.8}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,#042f1e,var(--green-dark),var(--green-mid));color:#fff;text-align:center;padding:60px 22px;border-radius:24px;max-width:1000px;margin:0 auto}
+.cta-banner h2{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,30px);font-weight:800;margin-bottom:10px}
+.cta-banner p{font-size:14px;margin-bottom:26px;opacity:.88}
+.cta-btns{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+
+/* FINAL MESSAGE */
+.final-msg{text-align:center;padding:60px 22px 80px}
+.final-msg h2{font-family:'Playfair Display',serif;font-size:clamp(20px,3.6vw,28px);color:var(--green-dark);font-weight:800;margin-bottom:14px}
+.final-msg p{font-size:14px;color:var(--text-muted);max-width:600px;margin:0 auto 24px;line-height:1.9}
+
+/* FOOTER */
+.footer{background:#0a1628;text-align:center;padding:28px 20px 80px;font-size:13px;line-height:2}
+.footer p{color:#cbd5e1}
+.footer a{color:#4ade80;text-decoration:none}
+.footer-delivery-note{font-size:12px;color:#94a3b8;margin-top:4px}
+.footer-delivery-note .red-star-note{color:#ff5555;font-weight:800;font-size:14px}
+.footer-copy{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;color:#94a3b8}
+
+.float-wa{position:fixed;bottom:80px;right:20px;background:#25D366;color:#fff;padding:13px 18px;border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;z-index:998;box-shadow:0 4px 18px rgba(37,211,102,.45);transition:.3s;display:flex;align-items:center;gap:6px}
+.float-wa:hover{background:#1da851;transform:scale(1.05)}
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;background:linear-gradient(135deg,#25d366,#128c7e);text-align:center;padding:16px;font-weight:700;z-index:998;font-size:15px;box-shadow:0 -3px 20px rgba(0,0,0,.2)}
+.bottom-bar a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:10px}
+
+@media(max-width:768px){
+  .menu-toggle{display:flex}
+  .nav-links{display:none}
+  .topbar{font-size:12px;padding:8px 14px}
+  .section{padding:44px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="tel:8434813523">📞 8434813523</a>
+  <div class="topbar-right">
+    <div class="live-dot"></div>
+    🚚 <span style="color:#ff5555;font-weight:900">*</span>Free Delivery Available
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <a class="logo-box" href="index.html">
+    <img src="devdic logo.png" class="logo" alt="Devdic Herbal">
+    <div class="brand-text">
+      <div class="brand-name">DEVDIC HERBAL OPC PVT. LTD.</div>
+      <div class="brand-tagline">Ayurvedic Diabetes Specialist</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html" data-page="index">Home</a>
+    <a href="diabetes.html" data-page="diabetes">Diabetes</a>
+    <a href="online-ayurveda.html" data-page="online-ayurveda">Online Ayurveda</a>
+    <a href="product.html" data-page="product">Products</a>
+    <a href="testimonials.html" data-page="testimonials">Testimonial</a>
+    <a href="about.html" data-page="about">About</a>
+    <a href="contact.html" data-page="contact">Contact</a>
+    <a href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20diabetes%20ke%20liye%20free%20consultation%20chahiye.%20Kripya%20mujhse%20sampark%20karein." target="_blank" class="nav-cta">💬 Free Consult</a>
+  </div>
+  <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
+
+<div class="nav-drawer" id="navDrawer">
+  <div class="drawer-head">
+    <img src="devdic logo.png" alt="Logo" style="height:40px;border-radius:6px">
+    <div>
+      <div style="font-size:13px;font-weight:700;color:#fff;line-height:1.3">DEVDIC HERBAL</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.75)">OPC Private Limited</div>
+    </div>
+    <button onclick="closeMenu()" style="margin-left:auto;background:rgba(255,255,255,.2);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center">✕</button>
+  </div>
+  <a href="index.html" data-page="index">🏠 Home</a>
+  <a href="diabetes.html" data-page="diabetes">🩸 Diabetes</a>
+  <a href="online-ayurveda.html" data-page="online-ayurveda">💻 Online Ayurveda</a>
+  <a href="product.html" data-page="product">🌿 Products</a>
+  <a href="testimonials.html" data-page="testimonials">⭐ Testimonials</a>
+  <a href="about.html" data-page="about">👥 About Us</a>
+  <a href="contact.html" data-page="contact">📞 Contact</a>
+  <a href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20diabetes%20ke%20liye%20free%20consultation%20chahiye.%20Kripya%20mujhse%20sampark%20karein." target="_blank" class="drawer-cta">💬 Free Consult on WhatsApp</a>
+</div>
+
+<!-- 1. HERO -->
+<div class="page-hero">
+  <div class="hero-badge">🩺 Doctor-Guided Ayurvedic Care</div>
+  <h1>Ayurvedic Diabetes Care, <span style="color:#4ade80">Focused on You</span></h1>
+  <p class="hero-sub">Diabetes Management ke liye Doctor-Guided Ayurvedic Care aur DEVDIC ke Own Ayurvedic Products</p>
+  <p class="hero-support">Diabetes ek long-term health condition hai jise lagatar monitoring, lifestyle management aur appropriate medical care ki aavashyakta hoti hai. DEVDIC mein hum diabetes-focused Ayurvedic care par vishesh dhyaan dete hain, jahan qualified Ayurvedic Doctors patient ki condition, symptoms, medical history aur available reports ko dhyaan mein rakhkar personalized treatment plan taiyar karte hain.</p>
+  <div class="hero-btns">
+    <a class="btn btn-wa" href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20diabetes%20ke%20liye%20consultation%20chahiye." target="_blank">💬 Consult for Diabetes</a>
+    <a class="btn btn-outline" href="#focus">🌿 Explore Diabetes Care</a>
+  </div>
+  <div class="hero-trustline">Diabetes-focused Ayurvedic Care • Doctor Consultation • Own-Brand Ayurvedic Products • Follow-up Support</div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item"><span>🩺</span> Doctor-Guided</div>
+  <div class="trust-item"><span>🌿</span> Own Ayurvedic Products</div>
+  <div class="trust-item"><span>📋</span> Personalized Care</div>
+  <div class="trust-item"><span>🔁</span> Regular Follow-up</div>
+</div>
+
+<!-- 2. OUR DIABETES FOCUS -->
+<div class="section section-narrow" id="focus">
+  <div class="sec-title">हमारा Focus — Diabetes Care</div>
+  <div class="sec-lead">
+    <p>DEVDIC की healthcare approach का एक प्रमुख focus diabetes management है।</p>
+    <p>हमारा उद्देश्य केवल किसी एक blood sugar reading पर ध्यान देना नहीं, बल्कि patient की overall diabetes journey को समझना है।</p>
+    <p>हम consultation, Ayurvedic treatment, lifestyle guidance और follow-up के माध्यम से patients को structured diabetes care प्रदान करने का प्रयास करते हैं।</p>
+  </div>
+</div>
+
+<!-- 3. WHO COMES TO US -->
+<div class="section section-alt">
+  <div class="sec-title">कौन हमारे Diabetes Care से जुड़ते हैं?</div>
+  <p class="sec-lead">हमारे पास अलग-अलग प्रकार के diabetes patients consultation के लिए आते हैं, जैसे:</p>
+  <div class="card-grid">
+    <div class="info-card">
+      <span class="ic-icon">🕰️</span>
+      <h3>Long-Term Diabetes Patients</h3>
+      <p>ऐसे patients जिन्हें कई वर्षों से diabetes है और जो अपनी ongoing diabetes care के लिए Ayurvedic approach explore करना चाहते हैं।</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">📈</span>
+      <h3>Patients with Difficult Blood Sugar Control</h3>
+      <p>ऐसे patients जिनका blood sugar desired range में बनाए रखना कठिन हो रहा है और जो अपने existing medical care के साथ Ayurvedic guidance के बारे में qualified doctor से चर्चा करना चाहते हैं।</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">💉</span>
+      <h3>Patients Considering Insulin</h3>
+      <p>कुछ patients को conventional medical care में insulin शुरू करने की सलाह दी जाती है। ऐसे patients Ayurvedic consultation के लिए हमसे संपर्क कर सकते हैं ताकि उनकी स्थिति को qualified Ayurvedic Doctor द्वारा समझा जा सके।</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">🏥</span>
+      <h3>Patients Preparing for a Medical Procedure</h3>
+      <p>कुछ patients में surgery या किसी medical procedure से पहले blood glucose management important हो सकता है। ऐसे cases में diabetes management को treating physician/surgeon के साथ coordinate करना आवश्यक होता है।</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">🌿</span>
+      <h3>Patients Looking for Ayurvedic Diabetes Care</h3>
+      <p>ऐसे patients जो diabetes के लिए Ayurveda-based, doctor-guided और structured approach चाहते हैं।</p>
+    </div>
+  </div>
+  <div class="callout callout-amber" style="max-width:820px;margin:24px auto 0">
+    <span class="co-icon">⚠️</span>
+    <div><h4>Important</h4><p>Insulin या किसी prescribed diabetes medicine को Doctor की सलाह के बिना बंद या कम नहीं करना चाहिए। कुछ patients के लिए insulin medically necessary हो सकता है।</p></div>
+  </div>
+</div>
+
+<!-- 4. WHY DEVDIC -->
+<div class="section">
+  <div class="sec-title">क्यों चुनें DEVDIC Diabetes Care?</div>
+  <div class="card-grid">
+    <div class="info-card"><span class="ic-icon">🎯</span><h3>Diabetes-Focused Approach</h3><p>हमारा primary healthcare focus diabetes care पर है।</p></div>
+    <div class="info-card"><span class="ic-icon">🩺</span><h3>Ayurvedic Doctor Consultation</h3><p>Patient की condition को qualified Ayurvedic Doctor द्वारा assess किया जाता है।</p></div>
+    <div class="info-card"><span class="ic-icon">🌿</span><h3>Our Own Ayurvedic Products</h3><p>हमारी diabetes-focused Ayurvedic formulations DEVDIC के own brand के अंतर्गत उपलब्ध हैं। Products का selection appropriate professional guidance के अनुसार किया जाना चाहिए।</p></div>
+    <div class="info-card"><span class="ic-icon">📋</span><h3>Personalized Care</h3><p>Age, symptoms, medical history, reports, current medicines और lifestyle को ध्यान में रखकर care plan तैयार किया जाता है।</p></div>
+    <div class="info-card"><span class="ic-icon">🔁</span><h3>Long-Term Follow-up</h3><p>Diabetes में एक बार consultation के बजाय regular monitoring और follow-up महत्वपूर्ण होते हैं।</p></div>
+    <div class="info-card"><span class="ic-icon">🗂️</span><h3>Structured Diabetes Care</h3><p>Consultation, treatment guidance, lifestyle support और follow-up को एक structured process में रखने का प्रयास किया जाता है।</p></div>
+  </div>
+</div>
+
+<!-- 5. OUR APPROACH -->
+<div class="section section-alt">
+  <div class="sec-title">हम Diabetes को कैसे देखते हैं?</div>
+  <p class="sec-lead">Diabetes management केवल sugar की एक reading तक सीमित नहीं है। हम patient की overall condition को समझने पर focus करते हैं।</p>
+  <div class="flow">
+    <div class="flow-step">Patient Assessment</div><div class="flow-arrow">→</div>
+    <div class="flow-step">Medical History &amp; Reports</div><div class="flow-arrow">→</div>
+    <div class="flow-step">Ayurvedic Doctor Consultation</div><div class="flow-arrow">→</div>
+    <div class="flow-step">Personalized Care Plan</div><div class="flow-arrow">→</div>
+    <div class="flow-step">Lifestyle &amp; Diet Guidance</div><div class="flow-arrow">→</div>
+    <div class="flow-step">Doctor-Guided Products</div><div class="flow-arrow">→</div>
+    <div class="flow-step">Regular Follow-up</div>
+  </div>
+</div>
+
+<!-- 6. OUR PRODUCTS -->
+<div class="section">
+  <div class="sec-title">DEVDIC — Our Own Ayurvedic Diabetes Products</div>
+  <div class="sec-lead">
+    <p>DEVDIC के पास diabetes-focused Ayurvedic products का अपना brand portfolio है। हमारा उद्देश्य ऐसे products विकसित और provide करना है जिन्हें diabetes care के context में qualified professionals की guidance के साथ इस्तेमाल किया जा सके।</p>
+    <p style="font-size:12.5px;margin-top:10px">Product selection हमेशा patient की individual condition और Doctor's advice के अनुसार होना चाहिए।</p>
+  </div>
+  <div class="prod-showcase">
+    <a class="prod-mini-card" href="product-detail.html?id=db-boost"><img src="db-boost.jpg" alt="DB Boost"><h3>DB BOOST</h3><span class="pmc-btn">View Details →</span></a>
+    <a class="prod-mini-card" href="product-detail.html?id=db-life"><img src="db-life.jpg" alt="DB Life"><h3>DB LIFE</h3><span class="pmc-btn">View Details →</span></a>
+    <a class="prod-mini-card" href="product-detail.html?id=dabatas"><img src="dabatas.jpg" alt="Dabatas"><h3>DABATAS</h3><span class="pmc-btn">View Details →</span></a>
+    <a class="prod-mini-card" href="product-detail.html?id=sugar-key"><img src="sugar-key.jpg" alt="Sugar Key"><h3>SUGAR KEY</h3><span class="pmc-btn">View Details →</span></a>
+  </div>
+  <div style="text-align:center;margin-top:28px"><a class="btn btn-wa" style="background:var(--green)" href="product.html">🛒 View All Diabetes Products</a></div>
+</div>
+
+<!-- 7. QUALITY & TRUST -->
+<div class="section section-alt section-narrow" style="max-width:820px">
+  <div class="sec-title">Trusted Ayurveda Starts with Quality</div>
+  <div class="sec-lead">
+    <p>Ayurvedic healthcare में केवल ingredients का नाम पर्याप्त नहीं है। Product quality, manufacturing standards, formulation consistency और proper quality control equally important हैं।</p>
+    <p>DEVDIC अपने Ayurvedic products के लिए quality-focused manufacturing और standardized processes पर ध्यान देता है।</p>
+  </div>
+  <div class="trustpoints">
+    <span class="trustpoint">Own Brand</span>
+    <span class="trustpoint">Diabetes-Focused Products</span>
+    <span class="trustpoint">Doctor-Guided Care</span>
+    <span class="trustpoint">Quality-Focused Manufacturing</span>
+    <span class="trustpoint">Patient Follow-up</span>
+  </div>
+</div>
+
+<!-- 8. NOT ONE SIZE FITS ALL -->
+<div class="section section-narrow">
+  <div class="sec-title">हर Diabetes Patient अलग होता है</div>
+  <p class="sec-lead">किसी दूसरे patient को फायदा हुआ treatment आपके लिए भी वही result देगा — ऐसा जरूरी नहीं है। आपकी निम्न बातों को ध्यान में रखना आवश्यक है:</p>
+  <div class="factors-wrap">
+    <div class="factors-list">
+      <span>Age</span><span>Diabetes history</span><span>Blood glucose levels</span>
+      <span>HbA1c</span><span>Current medicines</span><span>Other health conditions</span>
+      <span>Lifestyle</span><span>Medical reports</span>
+    </div>
+    <p style="font-size:13px;color:var(--text-muted);margin-top:16px;line-height:1.8">इसीलिए DEVDIC में treatment को Doctor consultation और patient-specific assessment के आधार पर approach किया जाता है।</p>
+  </div>
+</div>
+
+<!-- 9. EXISTING MEDICINES -->
+<div class="section section-alt section-narrow" style="max-width:820px">
+  <div class="sec-title">क्या Ayurvedic Care के दौरान आपकी Existing Medicines जारी रहेंगी?</div>
+  <p class="sec-lead" style="margin-bottom:8px">यह patient की individual medical condition पर depend करता है। यदि आप पहले से diabetes medicines, insulin, blood pressure medicines, cholesterol medicines या अन्य medicines ले रहे हैं, तो उन्हें अपने आप बंद, कम या बदलें नहीं। आपकी existing medicines और reports की जानकारी Doctor को देना आवश्यक है।</p>
+  <div class="callout callout-blue">
+    <span class="co-icon">ℹ️</span>
+    <div><p>Any change in prescribed conventional medication should be made only by the appropriate treating healthcare professional.</p></div>
+  </div>
+</div>
+
+<!-- 10. INSULIN -->
+<div class="section section-narrow">
+  <div class="sec-title">अगर आपको Insulin शुरू करने की सलाह दी गई है</div>
+  <p class="sec-lead" style="margin-bottom:8px">यदि किसी Doctor ने आपको insulin शुरू करने की सलाह दी है, तो insulin को अपने आप बंद करना या delay करना सुरक्षित नहीं है। आप Ayurvedic consultation लेकर अपनी diabetes care के बारे में qualified Ayurvedic Doctor से चर्चा कर सकते हैं। आपकी current treatment, reports और diabetes history को ध्यान में रखकर appropriate guidance दी जाएगी।</p>
+  <div class="callout callout-amber" style="max-width:760px;margin:18px auto 0">
+    <span class="co-icon">💉</span>
+    <div><h4>Important</h4><p>Ayurvedic consultation should not be used as a reason to discontinue medically necessary insulin or other prescribed treatment.</p></div>
+  </div>
+</div>
+
+<!-- 11. SURGERY -->
+<div class="section section-alt section-narrow" style="max-width:820px">
+  <div class="sec-title">अगर आपकी Surgery या Medical Procedure आने वाली है</div>
+  <p class="sec-lead" style="margin-bottom:14px">कुछ procedures से पहले blood glucose management important हो सकता है। यदि आपकी surgery/procedure scheduled है और blood sugar control को लेकर concern है:</p>
+  <div class="checklist-card">
+    <ul class="checklist" style="grid-template-columns:1fr">
+      <li>अपनी latest reports रखें</li>
+      <li>Current medicines की जानकारी दें</li>
+      <li>Surgeon/treating physician को अपनी complete treatment history बताएं</li>
+      <li>Diabetes management के लिए appropriate medical guidance लें</li>
+    </ul>
+  </div>
+  <p class="sec-lead" style="margin-top:16px;margin-bottom:0;font-size:12.5px">Ayurvedic consultation supportive care के लिए हो सकती है, लेकिन surgery-related medical decisions आपके treating physician/surgeon द्वारा लिए जाने चाहिए।</p>
+</div>
+
+<!-- 12. REPORTS -->
+<div class="section section-narrow">
+  <div class="sec-title">Consultation के समय अपनी Reports साथ रखें</div>
+  <div class="checklist-card">
+    <ul class="checklist">
+      <li>Fasting Blood Sugar</li><li>Post-Meal Blood Sugar</li><li>HbA1c</li>
+      <li>Kidney Function Reports</li><li>Lipid Profile</li><li>Liver Function Reports</li>
+      <li>Urine Reports</li><li>Previous prescriptions</li><li>Current medicine list</li>
+    </ul>
+  </div>
+  <p class="sec-lead" style="margin-top:16px;margin-bottom:0">Complete medical information Doctor को patient की स्थिति समझने में सहायता करती है।</p>
+</div>
+
+<!-- 13. EMERGENCY -->
+<div class="section section-alt section-narrow" style="max-width:820px">
+  <div class="sec-title">कुछ Symptoms में Online/Regular Consultation का इंतजार न करें</div>
+  <div class="callout callout-red">
+    <span class="co-icon">🚨</span>
+    <div><p>यदि आपको severe weakness, confusion, loss of consciousness, severe vomiting, breathing difficulty, chest pain, severe dehydration या अन्य emergency symptoms हों, तो तुरंत appropriate emergency medical care लें। Diabetes में severe hypo/hyperglycemia या acute complications emergency हो सकती हैं।</p></div>
+  </div>
+</div>
+
+<!-- 14. PATIENT-CENTRIC APPROACH -->
+<div class="section">
+  <div class="sec-title">हमारा उद्देश्य सिर्फ Product देना नहीं है</div>
+  <p class="sec-lead">हम मानते हैं कि diabetes care केवल medicine/product तक सीमित नहीं होनी चाहिए। एक बेहतर care journey में शामिल हो सकते हैं:</p>
+  <div class="journey-list">
+    <div class="journey-item"><span class="ji-icon">🩺</span><span>Doctor Consultation</span></div>
+    <div class="journey-item"><span class="ji-icon">📖</span><span>Patient Education</span></div>
+    <div class="journey-item"><span class="ji-icon">🥗</span><span>Lifestyle Guidance</span></div>
+    <div class="journey-item"><span class="ji-icon">🌿</span><span>Appropriate Ayurvedic Products</span></div>
+    <div class="journey-item"><span class="ji-icon">📊</span><span>Regular Monitoring</span></div>
+    <div class="journey-item"><span class="ji-icon">🔁</span><span>Follow-up Care</span></div>
+  </div>
+  <p class="sec-lead" style="margin-top:24px;margin-bottom:0">हमारा उद्देश्य patient को एक structured और responsible diabetes-care journey प्रदान करना है।</p>
+</div>
+
+<!-- 15. CTA -->
+<div style="padding:10px 20px 20px">
+  <div class="cta-banner">
+    <h2>अपनी Diabetes Care के लिए सही शुरुआत करें</h2>
+    <p>यदि आप diabetes के लिए Ayurvedic, doctor-guided care के बारे में जानना चाहते हैं, तो हमारी team से संपर्क करें।<br>अपनी reports और current medicines की जानकारी के साथ consultation लें।</p>
+    <div class="cta-btns">
+      <a class="btn btn-wa" href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20diabetes%20ke%20liye%20consultation%20chahiye." target="_blank">💬 Consult for Diabetes</a>
+      <a class="btn btn-outline" href="product.html">🛒 View Diabetes Products</a>
+    </div>
+  </div>
+</div>
+
+<!-- 16. FAQ -->
+<div class="section">
+  <div class="sec-title">Frequently Asked Questions</div>
+  <div class="faq-wrap">
+    <details class="faq-item"><summary>क्या DEVDIC केवल Diabetes पर focus करता है?</summary><div class="faq-a">DEVDIC का healthcare focus diabetes care और diabetes-focused Ayurvedic products पर है।</div></details>
+    <details class="faq-item"><summary>क्या DEVDIC के products Ayurvedic हैं?</summary><div class="faq-a">DEVDIC के diabetes-focused products Ayurvedic formulations के रूप में विकसित और marketed किए जाते हैं। Product-specific ingredients, licence और regulatory details संबंधित product information में दी जानी चाहिए।</div></details>
+    <details class="faq-item"><summary>क्या मैं अपनी existing diabetes medicine के साथ Ayurvedic consultation ले सकता हूँ?</summary><div class="faq-a">अपने current medicines की पूरी जानकारी Doctor को दें। किसी prescribed medicine को अपने आप बंद या बदलना नहीं चाहिए।</div></details>
+    <details class="faq-item"><summary>अगर मुझे insulin शुरू करने की सलाह दी गई है तो क्या मैं DEVDIC से consultation ले सकता हूँ?</summary><div class="faq-a">हाँ, आप Ayurvedic consultation के लिए संपर्क कर सकते हैं। लेकिन insulin या अन्य prescribed medicine को बिना appropriate treating doctor's advice के बंद या कम नहीं करना चाहिए।</div></details>
+    <details class="faq-item"><summary>क्या surgery से पहले diabetes के लिए consultation लिया जा सकता है?</summary><div class="faq-a">हाँ, लेकिन surgery और perioperative diabetes management आपके treating physician/surgeon की medical supervision में होना चाहिए। Ayurvedic consultation को उसका replacement नहीं माना जाना चाहिए।</div></details>
+    <details class="faq-item"><summary>क्या हर diabetes patient के लिए एक ही product होता है?</summary><div class="faq-a">नहीं। Patient की individual condition, history और treatment requirements अलग हो सकती हैं। Product selection professional guidance के अनुसार होना चाहिए।</div></details>
+    <details class="faq-item"><summary>क्या diabetes पूरी तरह ठीक हो सकती है?</summary><div class="faq-a">Diabetes एक chronic condition है और इसका management individual patient पर depend करता है।</div></details>
+  </div>
+</div>
+
+<!-- 17. FINAL MESSAGE -->
+<div class="final-msg">
+  <h2>DEVDIC — Focused on Ayurvedic Diabetes Care</h2>
+  <p>Diabetes को समझें। अपनी health को monitor करें। Qualified Doctor की guidance लें। और अपनी care journey को responsibly manage करें।</p>
+  <a class="btn btn-wa" style="background:var(--green)" href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20diabetes%20ke%20liye%20consultation%20chahiye." target="_blank">💬 Consult for Diabetes</a>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>🌿 <strong style="color:#e2e8f0">DEVDIC HERBAL OPC PRIVATE LIMITED</strong></p>
+  <p>📞 <a href="tel:8434813523">8434813523</a> &nbsp;|&nbsp; 💬 <a href="https://wa.me/918434813523" target="_blank">WhatsApp</a> &nbsp;|&nbsp; 🚚 Delivery PAN India</p>
+  <p class="footer-delivery-note"><span class="red-star-note">*</span> Free delivery on first order only</p>
+  <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:8px">
+    <a href="index.html">Home</a><a href="diabetes.html">Diabetes</a><a href="online-ayurveda.html">Online Ayurveda</a>
+    <a href="product.html">Products</a><a href="testimonials.html">Testimonials</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  </div>
+  <p class="footer-copy">© 2017 DEVDIC HERBAL. All Rights Reserved.</p>
+</div>
+
+<a class="float-wa" href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20diabetes%20ke%20liye%20consultation%20chahiye." target="_blank">💬 WhatsApp</a>
+
+<div class="bottom-bar">
+  <a href="https://wa.me/918434813523?text=Namaskar%20Doctor%2C%20mujhe%20diabetes%20ke%20liye%20consultation%20chahiye." target="_blank">💬 Diabetes Consultation – WhatsApp Par Poochhen</a>
+</div>
+
+<script>
+(function(){
+  var path = window.location.pathname;
+  var page = path.split('/').pop().replace('.html','') || 'index';
+  if(path === '/' || path === '') page = 'index';
+  document.querySelectorAll('[data-page]').forEach(function(el){
+    if(el.dataset.page === page){ el.classList.add('active'); } else { el.classList.remove('active'); }
+  });
+})();
+function toggleMenu(){
+  document.getElementById('menuToggle').classList.toggle('open');
+  document.getElementById('navDrawer').classList.toggle('open');
+  document.getElementById('navOverlay').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('navDrawer').classList.contains('open') ? 'hidden' : '';
+}
+function closeMenu(){
+  document.getElementById('menuToggle').classList.remove('open');
+  document.getElementById('navDrawer').classList.remove('open');
+  document.getElementById('navOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>

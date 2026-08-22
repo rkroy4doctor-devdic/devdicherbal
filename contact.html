@@ -204,6 +204,8 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   </div>
   <div class="nav-links" id="navLinks">
     <a href="index.html">Home</a>
+    <a href="diabetes.html">Diabetes</a>
+    <a href="online-ayurveda.html">Online Ayurveda</a>
     <a href="product.html">Products</a>
     <a href="testimonials.html">Testimonials</a>
     <a href="about.html">About</a>
@@ -227,6 +229,8 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   </div>
   <nav class="drawer-nav">
     <a href="index.html"><span class="nav-icon">🏠</span> Home</a>
+    <a href="diabetes.html"><span class="nav-icon">🩸</span> Diabetes</a>
+    <a href="online-ayurveda.html"><span class="nav-icon">💻</span> Online Ayurveda</a>
     <a href="product.html"><span class="nav-icon">🌿</span> Products</a>
     <a href="testimonials.html"><span class="nav-icon">⭐</span> Testimonials</a>
     <a href="about.html"><span class="nav-icon">👥</span> About Us</a>
@@ -313,6 +317,8 @@ body{font-family:'Poppins',Arial,sans-serif;background:#f8fffe;color:var(--text)
   <div>📍 Samastipur, Bihar &nbsp;|&nbsp; 📞 <a href="tel:8434813523" style="color:#6ee7b7;text-decoration:none">8434813523</a> &nbsp;|&nbsp; 📧 devdicherbal@gmail.com</div>
   <div class="f-links">
     <a href="index.html">Home</a>
+    <a href="diabetes.html">Diabetes</a>
+    <a href="online-ayurveda.html">Online Ayurveda</a>
     <a href="product.html">Products</a>
     <a href="testimonials.html">Testimonials</a>
     <a href="about.html">About</a>
@@ -365,7 +371,7 @@ const obs=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting)x.tar
 document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 
 // CHATBOT
-let products={'db boost':510,'db life':544,'db pan':220,'dbx sun':450,'quick qr':110,'sugar low':510,'sugar key':540};
+let products={'db boost':510,'db life':544,'dabatas':520,'db pan 10':220,'db pan powder':545,'db pan':220,'dbx qr':270,'dbx gem':560,'dbx sun':450,'dbx':52,'quick qr':110,'sugar low':510,'sugar key':540};
 let cart={};let lastProduct=null;
 
 function toggleChat(){
@@ -401,9 +407,9 @@ function reply(t){
   let num=parseInt(t);
   if(num>0&&lastProduct){
     cart[lastProduct]=num;
-    let total=0,msg='📦 Order Summary:\n';
-    for(let i in cart){let price=products[i]*cart[i];total+=price;msg+=`• ${i} × ${cart[i]} = ₹${price}\n`;}
-    msg+=`\n💰 Total: ₹${total}`;
+    let total=0,msg='📦 Order Summary:<br>';
+    for(let i in cart){let price=products[i]*cart[i];total+=price;msg+=`• ${i} × ${cart[i]} = ₹${price}<br>`;}
+    msg+=`<br>💰 Total: ₹${total}`;
     bot(msg);bot("Order confirm karne ke liye <strong>'order'</strong> likhein.");
     return;
   }
