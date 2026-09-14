@@ -96,6 +96,56 @@ flex-direction:column;
 text-align:center;
 }
 }
+
+/* ORDER FORM MODAL */
+.om-overlay{
+position:fixed;inset:0;background:rgba(0,0,0,.45);
+z-index:2000;display:none;align-items:center;justify-content:center;
+padding:18px;
+}
+.om-overlay.open{display:flex}
+.om-box{
+background:#fff;border-radius:12px;max-width:460px;width:100%;
+max-height:88vh;overflow-y:auto;box-shadow:0 10px 40px rgba(0,0,0,.2);
+}
+.om-head{
+background:var(--green-dark);color:#fff;padding:18px 22px;
+border-radius:12px 12px 0 0;display:flex;justify-content:space-between;align-items:center;
+}
+.om-head h3{margin:0;font-size:16px}
+.om-head span{font-size:11.5px;opacity:.85;display:block;margin-top:2px;font-weight:normal}
+.om-close{
+background:rgba(255,255,255,.15);border:none;color:#fff;
+width:30px;height:30px;border-radius:50%;font-size:17px;cursor:pointer;
+display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.om-body{padding:20px 22px}
+.om-field{margin-bottom:14px}
+.om-field label{
+display:block;font-size:12.5px;font-weight:bold;color:var(--text);margin-bottom:5px;
+}
+.om-field label small{color:var(--text-muted);font-weight:normal}
+.om-field input{
+width:100%;padding:10px 12px;border:1px solid var(--border);
+border-radius:8px;font-size:14px;font-family:Arial;color:var(--text);
+}
+.om-field input:focus{outline:none;border-color:var(--green)}
+.om-row{display:flex;gap:12px}
+.om-row .om-field{flex:1}
+.om-sec{
+font-size:11px;font-weight:bold;color:var(--green-dark);text-transform:uppercase;
+letter-spacing:.5px;margin:18px 0 10px;padding-top:12px;border-top:1px solid var(--border);
+}
+.om-sec:first-child{margin-top:0;padding-top:0;border-top:none}
+.om-submit{
+width:100%;padding:13px;background:#25D366;color:#fff;border:none;
+border-radius:8px;font-size:15px;font-weight:bold;cursor:pointer;margin-top:6px;
+}
+.om-submit:hover{background:#1da851}
+.om-note{font-size:11.5px;color:var(--text-muted);margin-top:10px;text-align:center}
+@media(max-width:480px){
+.om-row{flex-direction:column;gap:0}
+}
 </style>
 </head>
 
@@ -119,10 +169,77 @@ DEVDIC HERBAL
 
 <p><b>Usage:</b> Doctor ki salah ya product label ke anusaar le</p>
 
-<a class="btn" id="orderBtn" target="_blank">Order Now</a>
+<a class="btn" id="orderBtn" href="javascript:void(0)" onclick="openOrderModal()">Order Now</a>
 
 </div>
 
+</div>
+</div>
+
+<!-- ORDER FORM MODAL -->
+<div class="om-overlay" id="omOverlay">
+<div class="om-box">
+<div class="om-head">
+<div>
+<h3>Order Form</h3>
+<span id="omProductLabel">Product</span>
+</div>
+<button class="om-close" onclick="closeOrderModal()">&times;</button>
+</div>
+<div class="om-body">
+<div class="om-sec">Basic Details</div>
+<div class="om-field">
+<label>Naam / Name *</label>
+<input type="text" id="omName" placeholder="Aapka poora naam">
+</div>
+<div class="om-row">
+<div class="om-field">
+<label>Age *</label>
+<input type="text" id="omAge" placeholder="Jaise 45">
+</div>
+<div class="om-field">
+<label>Phone Number *</label>
+<input type="tel" id="omPhone" placeholder="10-digit number">
+</div>
+</div>
+<div class="om-field">
+<label>Location <small>(District)</small> *</label>
+<input type="text" id="omLocation" placeholder="Jaise Patna, Bihar">
+</div>
+
+<div class="om-sec">Sugar Details <small style="text-transform:none;font-weight:normal;color:var(--text-muted)">(pata ho to bhariye, warna khali chhod dein)</small></div>
+<div class="om-row">
+<div class="om-field">
+<label>Weight (kg)</label>
+<input type="text" id="omWeight" placeholder="Jaise 68">
+</div>
+<div class="om-field">
+<label>Diabetes Kitne Time Se</label>
+<input type="text" id="omSince" placeholder="Jaise 3 saal se">
+</div>
+</div>
+<div class="om-row">
+<div class="om-field">
+<label>Fasting Sugar</label>
+<input type="text" id="omFasting" placeholder="mg/dL">
+</div>
+<div class="om-field">
+<label>PP Sugar</label>
+<input type="text" id="omPP" placeholder="mg/dL">
+</div>
+</div>
+<div class="om-field">
+<label>HbA1c</label>
+<input type="text" id="omHba1c" placeholder="Jaise 7.2%">
+</div>
+<div class="om-field">
+<label>Abhi Kaunsi Medicine Le Rahe Hain</label>
+<input type="text" id="omMedicine" placeholder="Jaise Metformin 500mg">
+</div>
+
+<button class="om-submit" onclick="submitOrderForm()">WhatsApp Par Bhejein</button>
+<div class="om-note">Submit karte hi WhatsApp khulega aur aapki details humein bhej di jayengi</div>
+</div>
 </div>
 </div>
 
@@ -304,10 +421,53 @@ list += `<li>✔ ${b}</li>`;
 });
 document.getElementById("productBenefits").innerHTML = list;
 
-// WhatsApp Order Link
-document.getElementById("orderBtn").href =
-`https://wa.me/918434813523?text=Hello, mujhe ${p.name} order karna hai`;
+// product name for the order form / WhatsApp message
+window.currentProductName = p.name;
+document.getElementById("omProductLabel").innerText = p.name;
 
+}
+
+// ORDER FORM MODAL
+function openOrderModal(){
+document.getElementById("omOverlay").classList.add("open");
+}
+function closeOrderModal(){
+document.getElementById("omOverlay").classList.remove("open");
+}
+
+function submitOrderForm(){
+const name = document.getElementById("omName").value.trim();
+const age = document.getElementById("omAge").value.trim();
+const phone = document.getElementById("omPhone").value.trim();
+const location = document.getElementById("omLocation").value.trim();
+const weight = document.getElementById("omWeight").value.trim();
+const since = document.getElementById("omSince").value.trim();
+const fasting = document.getElementById("omFasting").value.trim();
+const pp = document.getElementById("omPP").value.trim();
+const hba1c = document.getElementById("omHba1c").value.trim();
+const medicine = document.getElementById("omMedicine").value.trim();
+
+if(!name || !age || !phone || !location){
+alert("Kripya Name, Age, Phone Number aur Location zaroor bharein");
+return;
+}
+
+let msg = `Hello, mujhe *${window.currentProductName}* order karna hai.\n\n`;
+msg += `*Patient Details:*\n`;
+msg += `Name: ${name}\n`;
+msg += `Age: ${age}\n`;
+msg += `Phone: ${phone}\n`;
+msg += `Location: ${location}\n`;
+if(weight) msg += `Weight: ${weight} kg\n`;
+if(since) msg += `Diabetes Since: ${since}\n`;
+if(fasting) msg += `Fasting Sugar: ${fasting}\n`;
+if(pp) msg += `PP Sugar: ${pp}\n`;
+if(hba1c) msg += `HbA1c: ${hba1c}\n`;
+if(medicine) msg += `Current Medicine: ${medicine}\n`;
+
+const waUrl = `https://wa.me/918434813523?text=${encodeURIComponent(msg)}`;
+window.open(waUrl, "_blank");
+closeOrderModal();
 }
 
 </script>
