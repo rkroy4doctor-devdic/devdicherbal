@@ -209,6 +209,12 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
 .modal-field input{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-size:14px;font-family:'Poppins',sans-serif;outline:none;transition:.2s;color:var(--text)}
 .modal-field input:focus{border-color:var(--green)}
 .optional-tag{font-size:11px;background:#f3f4f6;color:var(--text-muted);padding:2px 7px;border-radius:6px;margin-left:6px;font-weight:500}
+.order-modal-body{max-height:78vh;overflow-y:auto}
+.modal-row{display:flex;gap:12px}
+.modal-row .modal-field{flex:1}
+.modal-sec{font-size:11.5px;font-weight:700;color:var(--green-dark);text-transform:uppercase;letter-spacing:.4px;margin:18px 0 12px;padding-top:14px;border-top:1px dashed var(--border)}
+.modal-sec span{text-transform:none;font-weight:400;color:var(--text-muted);letter-spacing:0}
+@media(max-width:480px){.modal-row{flex-direction:column;gap:0}}
 .btn-send-wa{width:100%;background:#25D366;color:#fff;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;transition:.2s;margin-top:6px}
 .btn-send-wa:hover{background:#1da851}
 
@@ -658,6 +664,50 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
       <label>Aapka Naam <span style="color:#ef4444">*</span></label>
       <input type="text" id="patientName" placeholder="Jaise: Ramesh Kumar" maxlength="60">
     </div>
+    <div class="modal-row">
+      <div class="modal-field">
+        <label>Age <span style="color:#ef4444">*</span></label>
+        <input type="text" id="patientAge" placeholder="Jaise 45">
+      </div>
+      <div class="modal-field">
+        <label>Phone Number <span style="color:#ef4444">*</span></label>
+        <input type="tel" id="patientPhone" placeholder="10-digit number">
+      </div>
+    </div>
+    <div class="modal-field">
+      <label>Location <span class="optional-tag">District</span> <span style="color:#ef4444">*</span></label>
+      <input type="text" id="patientLocation" placeholder="Jaise Patna, Bihar">
+    </div>
+
+    <div class="modal-sec">Sugar Details <span>(pata ho to bhariye, warna khali chhod dein)</span></div>
+    <div class="modal-row">
+      <div class="modal-field">
+        <label>Weight (kg) <span class="optional-tag">Optional</span></label>
+        <input type="text" id="patientWeight" placeholder="Jaise 68">
+      </div>
+      <div class="modal-field">
+        <label>Diabetes Kitne Time Se <span class="optional-tag">Optional</span></label>
+        <input type="text" id="patientSince" placeholder="Jaise 3 saal se">
+      </div>
+    </div>
+    <div class="modal-row">
+      <div class="modal-field">
+        <label>Fasting Sugar <span class="optional-tag">Optional</span></label>
+        <input type="text" id="patientFasting" placeholder="mg/dL">
+      </div>
+      <div class="modal-field">
+        <label>PP Sugar <span class="optional-tag">Optional</span></label>
+        <input type="text" id="patientPP" placeholder="mg/dL">
+      </div>
+    </div>
+    <div class="modal-field">
+      <label>HbA1c <span class="optional-tag">Optional</span></label>
+      <input type="text" id="patientHba1c" placeholder="Jaise 7.2%">
+    </div>
+    <div class="modal-field">
+      <label>Abhi Kaunsi Medicine Le Rahe Hain <span class="optional-tag">Optional</span></label>
+      <input type="text" id="patientMedicine" placeholder="Jaise Metformin 500mg">
+    </div>
     <div class="modal-field">
       <label>Registration Number <span class="optional-tag">Optional</span></label>
       <input type="text" id="regNumber" placeholder="Agar hai to likhein, warna khali chhoden">
@@ -863,6 +913,15 @@ function openOrderModal(){
   html += '<div class="mtotal"><span>Total</span><span>₹' + grandTotal.toLocaleString('en-IN') + '</span></div>';
   document.getElementById('modalOrderSummary').innerHTML = html;
   document.getElementById('patientName').value = '';
+  document.getElementById('patientAge').value = '';
+  document.getElementById('patientPhone').value = '';
+  document.getElementById('patientLocation').value = '';
+  document.getElementById('patientWeight').value = '';
+  document.getElementById('patientSince').value = '';
+  document.getElementById('patientFasting').value = '';
+  document.getElementById('patientPP').value = '';
+  document.getElementById('patientHba1c').value = '';
+  document.getElementById('patientMedicine').value = '';
   document.getElementById('regNumber').value = '';
   document.getElementById('orderModal').classList.add('open');
 }
@@ -872,15 +931,30 @@ function closeOrderModal(){
 document.getElementById('orderModal').addEventListener('click', function(e){
   if(e.target === this) closeOrderModal();
 });
+function flagRequired(id){
+  var el = document.getElementById(id);
+  el.focus();
+  el.style.borderColor = '#ef4444';
+  setTimeout(function(){ el.style.borderColor = ''; }, 2000);
+}
 function sendWhatsApp(){
   var name = document.getElementById('patientName').value.trim();
-  if(!name){
-    document.getElementById('patientName').focus();
-    document.getElementById('patientName').style.borderColor = '#ef4444';
-    setTimeout(function(){ document.getElementById('patientName').style.borderColor = ''; }, 2000);
-    return;
-  }
+  var age = document.getElementById('patientAge').value.trim();
+  var phone = document.getElementById('patientPhone').value.trim();
+  var location = document.getElementById('patientLocation').value.trim();
+  if(!name){ flagRequired('patientName'); return; }
+  if(!age){ flagRequired('patientAge'); return; }
+  if(!phone){ flagRequired('patientPhone'); return; }
+  if(!location){ flagRequired('patientLocation'); return; }
+
+  var weight = document.getElementById('patientWeight').value.trim();
+  var since = document.getElementById('patientSince').value.trim();
+  var fasting = document.getElementById('patientFasting').value.trim();
+  var pp = document.getElementById('patientPP').value.trim();
+  var hba1c = document.getElementById('patientHba1c').value.trim();
+  var medicine = document.getElementById('patientMedicine').value.trim();
   var reg = document.getElementById('regNumber').value.trim();
+
   var keys = Object.keys(selectedItems);
   var lines = 'Namaskar Doctor,\nMujhe ye products chahiye:\n\n';
   var total = 0, totalPieces = 0;
@@ -897,7 +971,18 @@ function sendWhatsApp(){
   var grandTotal = total + convFee;
   lines += '\n🚚 Convenience Fee: ₹' + convFee;
   lines += '\n*Kul Total: ₹' + grandTotal.toLocaleString('en-IN') + '*';
-  lines += '\n\nNaam: ' + name + '\nReg. No.: ' + (reg || 'NA');
+  lines += '\n\n*Patient Details:*';
+  lines += '\nNaam: ' + name;
+  lines += '\nAge: ' + age;
+  lines += '\nPhone: ' + phone;
+  lines += '\nLocation: ' + location;
+  if(weight) lines += '\nWeight: ' + weight + ' kg';
+  if(since) lines += '\nDiabetes Since: ' + since;
+  if(fasting) lines += '\nFasting Sugar: ' + fasting;
+  if(pp) lines += '\nPP Sugar: ' + pp;
+  if(hba1c) lines += '\nHbA1c: ' + hba1c;
+  if(medicine) lines += '\nCurrent Medicine: ' + medicine;
+  lines += '\nReg. No.: ' + (reg || 'NA');
   window.open('https://wa.me/918434813523?text=' + encodeURIComponent(lines), '_blank');
   clearAllSelections();
   closeOrderModal();
