@@ -238,29 +238,33 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
   color:#6b7280;
 }
 
-/* CHANGE #1: Floating scroll-to-order button */
-.float-scroll-btn{
+/* Floating cart bar — shows cart contents directly instead of a plain icon badge */
+.float-cart-bar{
   position:fixed;
   bottom:80px;
   right:20px;
   background:var(--green);
   color:#fff;
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  display:flex;
+  display:none;
   align-items:center;
-  justify-content:center;
-  font-size:24px;
+  gap:10px;
+  padding:11px 18px 11px 16px;
+  border-radius:30px;
   cursor:pointer;
   z-index:999;
-  box-shadow:0 2px 10px rgba(0,0,0,.15);
-  border:none;
+  box-shadow:0 4px 16px rgba(0,0,0,.28);
+  border:2px solid #fff;
   font-family:'Poppins',sans-serif;
-  text-decoration:none;
   transition:background .2s;
+  max-width:calc(100% - 40px);
 }
-.float-scroll-btn:hover{background:var(--green-dark)}
+.float-cart-bar.show{display:flex}
+.float-cart-bar:hover{background:var(--green-dark)}
+.float-cart-bar .fcb-icon{font-size:21px;flex-shrink:0}
+.float-cart-bar .fcb-text{display:flex;flex-direction:column;line-height:1.25;text-align:left;white-space:nowrap}
+.float-cart-bar .fcb-count{font-size:10.5px;font-weight:600;color:#eafff4;opacity:.95}
+.float-cart-bar .fcb-total{font-size:16px;font-weight:800;color:#fff}
+.float-cart-bar .fcb-arrow{font-size:14px;margin-left:2px;opacity:.9;flex-shrink:0}
 
 .bottom-bar{position:fixed;bottom:0;left:0;right:0;background:#25D366;text-align:center;padding:16px;font-weight:700;z-index:998;font-size:15px}
 .bottom-bar a{color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:10px}
@@ -725,8 +729,15 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
   <p class="footer-copy">© 2017 DEVDIC HERBAL. All Rights Reserved.</p>
 </div>
 
-<!-- CHANGE #1: Floating scroll-to-order button (replaces float-wa) -->
-<button class="float-scroll-btn" onclick="scrollToOrder()" title="Order Summary dekhen">🛒</button>
+<!-- Floating cart bar: shows cart contents directly (not hidden inside a plain badge) -->
+<div class="float-cart-bar" id="floatCartBar" onclick="scrollToOrder()" title="Order Summary dekhen">
+  <span class="fcb-icon">🛒</span>
+  <span class="fcb-text">
+    <span class="fcb-count" id="fcbCount">0 items</span>
+    <span class="fcb-total" id="fcbTotal">₹0</span>
+  </span>
+  <span class="fcb-arrow">➜</span>
+</div>
 
 <div class="bottom-bar">
   <a href="https://wa.me/918434813523?text=Mujhe%20product%20ke%20baare%20mein%20jaankari%20chahiye" target="_blank">
@@ -852,9 +863,11 @@ function updateOrderSummary(){
   var itemsList = document.getElementById('selectedItemsList');
   var totalRow = document.getElementById('totalRow');
   var orderActions = document.getElementById('orderActions');
+  var floatBar = document.getElementById('floatCartBar');
   if(keys.length === 0){
     emptyMsg.style.display = ''; itemsList.style.display = 'none';
     totalRow.style.display = 'none'; orderActions.style.display = 'none';
+    if(floatBar) floatBar.classList.remove('show');
     return;
   }
   emptyMsg.style.display = 'none'; itemsList.style.display = 'flex';
@@ -878,6 +891,11 @@ function updateOrderSummary(){
   itemsList.innerHTML = html;
   document.getElementById('totalAmount').textContent = '₹' + grandTotal.toLocaleString('en-IN');
   document.getElementById('totalItemsCount').textContent = keys.length + ' product' + (keys.length > 1 ? 's' : '') + ', ' + totalPieces + ' piece' + (totalPieces > 1 ? 's' : '') + ' + ₹' + convFee + ' convenience fee';
+  if(floatBar){
+    floatBar.classList.add('show');
+    document.getElementById('fcbCount').textContent = totalPieces + ' piece' + (totalPieces > 1 ? 's' : '') + ' · ' + keys.length + ' product' + (keys.length > 1 ? 's' : '');
+    document.getElementById('fcbTotal').textContent = '₹' + grandTotal.toLocaleString('en-IN');
+  }
 }
 function clearAllSelections(){
   document.querySelectorAll('.product-card').forEach(function(card){
