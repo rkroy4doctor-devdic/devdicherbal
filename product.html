@@ -621,6 +621,24 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
       </div>
     </div></div>
 
+    <!-- 13 -->
+    <div class="product-card" data-category="syrup" data-name="dictease" data-price="370" data-id="p13">
+    <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+    <div class="card-img-wrap"><img src="dictease.jpg" alt="DICTEASE Syrup" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DICTEASE'"></div>
+    <div class="card-body">
+      <div class="card-tag">Syrup • Sugar Control</div>
+      <div class="card-name">DICTEASE</div>
+      <div class="card-desc">NIDDM diabetes, hyperlipidemia aur early retinopathy ke lakshano mein sahayak, insulin-dependent diabetes mein adjuvant therapy, aur diabetes ki wajah se hone wali general weakness kam karta hai.</div>
+      <div class="price-row"><div><span class="price">₹370</span></div></div>
+      <div class="card-actions"><a class="btn-detail" href="product-detail.html?id=dictease">Details</a></div>
+      <div class="select-row">
+        <label class="select-checkbox-label" onclick="toggleSelect(this,'DICTEASE',370,'p13')">
+          <input type="checkbox" onclick="event.stopPropagation();toggleSelect(this.parentElement,'DICTEASE',370,'p13')"> ☑️ Order Mein Add Karein
+        </label>
+        <div class="qty-row" id="qty-p13"><span class="qty-label">Quantity:</span><div class="qty-control"><button class="qty-btn" onclick="changeQty('p13',-1)">−</button><span class="qty-num" id="qnum-p13">1</span><button class="qty-btn" onclick="changeQty('p13',1)">+</button></div></div>
+      </div>
+    </div></div>
+
   </div><!-- /products-grid -->
 
   <div class="empty-state" id="emptyState">
