@@ -77,6 +77,17 @@ line-height:1.6;
 color:var(--text)
 }
 
+.ing-title{
+color:var(--green-dark);
+font-size:16px;
+margin:20px 0 4px;
+}
+.ing-note{
+font-size:12.5px;
+color:var(--text-muted);
+margin:0 0 8px;
+}
+
 /* BUTTON */
 .btn{
 display:inline-block;
@@ -166,6 +177,12 @@ DEVDIC HERBAL
 <div class="price" id="productPrice"></div>
 
 <ul id="productBenefits"></ul>
+
+<div id="productIngredientsWrap" style="display:none">
+<h3 class="ing-title">🌿 Ingredients</h3>
+<p class="ing-note" id="productIngredientsNote"></p>
+<ul id="productIngredients"></ul>
+</div>
 
 <p><b>Usage:</b> Doctor ki salah ya product label ke anusaar le</p>
 
@@ -257,6 +274,16 @@ benefits:[
 "Boosts energy & reduces weakness",
 "Supports healthy metabolism",
 "Ayurvedic herbal formulation"
+],
+ingredientsNote:"Composition:",
+ingredients:[
+"Methi — 5%",
+"Neem — 13%",
+"Karela — 20%",
+"Jamun Guthli — 5%",
+"Dalchini — 10%",
+"Musli Safed — 2%",
+"Ashwagandha — 80%"
 ]
 },
 
@@ -269,6 +296,16 @@ benefits:[
 "Boosts energy level",
 "Helps reduce sugar spikes after meals",
 "Supports daily diabetes care"
+],
+ingredientsNote:"Composition:",
+ingredients:[
+"Shatavari — 15%",
+"Dalchini — 10%",
+"Ashwagandha — 50%",
+"Shilajit — 5%",
+"Kutki — 10%",
+"Safed Musli — 10%",
+"Base — q.s"
 ]
 },
 
@@ -281,6 +318,21 @@ benefits:[
 "Supports insulin function",
 "Helps maintain pancreas health",
 "Ayurvedic herbal formulation"
+],
+ingredientsNote:"Composition:",
+ingredients:[
+"Ashwagandha — 2000 mg",
+"Gudmar Buti — 500 mg",
+"Shatavri — 200 mg",
+"Dalchini — 100 mg",
+"Mamejava — 500 mg",
+"Saptarangi — 500 mg",
+"Moli Seed — 300 mg",
+"Daruhaldi — 300 mg",
+"Bael Palra — 300 mg",
+"Shilajit — 300 mg",
+"Tulsi — 300 mg",
+"Base — q.s."
 ]
 },
 
@@ -293,6 +345,24 @@ benefits:[
 "Helps control blood sugar",
 "Reduces weakness & fatigue",
 "Supports metabolic health"
+],
+ingredientsNote:"Each Tablet contains:",
+ingredients:[
+"Gurmar (Gymnema sylvestre) — 200 mg",
+"Neem (Azadirachta indica) — 100 mg",
+"Karela (Momordica charantia) — 100 mg",
+"Kalmegh (Andrographis paniculata) — 50 mg",
+"Giloy (Tinospora cordifolia) — 50 mg",
+"Jamun (Syzygium cumini) — 100 mg",
+"Amla (Phyllanthus emblica) — 50 mg",
+"Asgandh (Withania somnifera) — 100 mg",
+"Shilajit (Black asphaltum punjabinum) — 100 mg",
+"Saunf (Foeniculum vulgare) — 50 mg",
+"Harad (Terminalia chebula) — 50 mg",
+"Amba Haldi (Curcuma amada) — 50 mg",
+"Moringa (Moringa oleifera) — 50 mg",
+"Aloe Vera (Aloe barbadensis) — 50 mg",
+"Vijaysar (Pterocarpus marsupium) — 100 mg"
 ]
 },
 
@@ -305,6 +375,16 @@ benefits:[
 "Reduces sugar fluctuations",
 "Supports insulin function",
 "Daily diabetes support"
+],
+ingredientsNote:"Each capsule contains:",
+ingredients:[
+"Giloe (Tinospora cordifolia) St. — 100 mg",
+"Methi Seed (Trigonella foenum) Fd. — 50 mg",
+"Gurmar (Gymnema sylvestre) Lf. — 50 mg",
+"Jamun Guthli (Eugenia jambolana) Sd. — 100 mg",
+"Ashwagandha (Withania somnifera) Rt. — 100 mg",
+"Haldi (Curcuma longa) Rz. — 80 mg",
+"Shilajeet (Asphaltum Punjabinum) Ed. — 20 mg"
 ]
 },
 
@@ -318,6 +398,23 @@ benefits:[
 "Natural detox support",
 "Reduces bloating",
 "Daily diabetes support"
+],
+ingredientsNote:"Each Hard Gelatin Capsule contains:",
+ingredients:[
+"Gudmaar — 75 mg",
+"Daruhaldi — 25 mg",
+"Saptrangi — 30 mg",
+"Neem — 50 mg",
+"Karela — 50 mg",
+"Jamun — 50 mg",
+"Giloy — 15 mg",
+"Heena — 40 mg",
+"Vijyasar — 75 mg",
+"Piprin — 20 mg",
+"Ginger — 20 mg",
+"Amaltas — 20 mg",
+"Mango Seed — 10 mg",
+"Basant Kusum Ras — 50 mg"
 ]
 },
 
@@ -330,6 +427,10 @@ benefits:[
 "Reduces sugar cravings",
 "Supports pancreas",
 "Improves insulin activity"
+],
+ingredientsNote:"Amount per serving (500 mg):",
+ingredients:[
+"Gymnema Sylvestre Extract (Gymnema Sylvestre) — 500 mg"
 ]
 },
 
@@ -343,6 +444,14 @@ benefits:[
 "Controls blood sugar",
 "Improves metabolism",
 "Boosts energy"
+],
+ingredientsNote:"Composition:",
+ingredients:[
+"Ashwagandha",
+"Giloy",
+"Haldi",
+"Safed Musli",
+"Methi Seeds"
 ]
 },
 
@@ -356,6 +465,18 @@ benefits:[
 "Cleans stomach",
 "Reduces gas & bloating",
 "Supports digestion"
+],
+ingredientsNote:"Each 100 gm contains:",
+ingredients:[
+"Isobgol (Plantago ovato) Husk — 40 gm",
+"Yashtimadhu (Glycyrrhiza globra) Rt. — 5 gm",
+"Senna (Cassia augustifolia) Lf. — 15 gm",
+"Harad (Terminalia chebula) Ft. — 10 gm",
+"Kali Mirch (Piper nigrum) Ft. — 5 gm",
+"Amaltas (Cassia fistula) Ft. — 5 gm",
+"Gulab (Rosa centifolia) — 5 gm",
+"Sajjikhar (Sodium bicarbonate) — 5 gm",
+"Ajwain (Trachypermum ammi) Sd. — 5 gm"
 ]
 },
 
@@ -369,6 +490,14 @@ benefits:[
 "Improves metabolism",
 "Supports insulin response",
 "Diabetes management"
+],
+ingredientsNote:"Composition:",
+ingredients:[
+"Ashwagandha",
+"Sanay",
+"Safed Musli",
+"Nimboli Jamun",
+"Methi Seeds"
 ]
 },
 
@@ -382,6 +511,12 @@ benefits:[
 "Improves immunity",
 "Maintains Vitamin D",
 "Overall health support"
+],
+ingredientsNote:"Each ml contains:",
+ingredients:[
+"Kelp Extract — 150 mg",
+"Ganoderma Lucidium Extract — 150 mg",
+"Cordyceps Sinensis Extract — 100 mg"
 ]
 },
 
@@ -395,6 +530,18 @@ benefits:[
 "Improves insulin sensitivity",
 "Supports metabolism",
 "Diabetes management"
+],
+ingredientsNote:"Composition:",
+ingredients:[
+"Trifla",
+"Mulethi",
+"Giloy",
+"Dalchini",
+"Tulsi",
+"Brahmi",
+"Amla",
+"Kutki",
+"Bilva"
 ]
 }
 
@@ -420,6 +567,16 @@ p.benefits.forEach(b=>{
 list += `<li>✔ ${b}</li>`;
 });
 document.getElementById("productBenefits").innerHTML = list;
+
+if(p.ingredients && p.ingredients.length){
+let ilist="";
+p.ingredients.forEach(i=>{
+ilist += `<li>${i}</li>`;
+});
+document.getElementById("productIngredients").innerHTML = ilist;
+document.getElementById("productIngredientsNote").innerText = p.ingredientsNote || "";
+document.getElementById("productIngredientsWrap").style.display = "block";
+}
 
 // product name for the order form / WhatsApp message
 window.currentProductName = p.name;
