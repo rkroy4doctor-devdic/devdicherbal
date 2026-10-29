@@ -600,6 +600,19 @@ body{font-family:'Poppins',Arial,sans-serif;background:#fff;color:var(--text);ov
   transition:.2s;
 }
 .float-chat:hover{background:var(--green-dark)}
+/* Floating Trial Pack Button — distinct gold accent, stacked above chat/whatsapp */
+.float-trial{
+  position:fixed;bottom:215px;right:20px;
+  background:var(--gold);
+  color:#fff;
+  padding:12px 18px;border-radius:50px;
+  text-decoration:none;font-weight:700;font-size:14px;
+  z-index:998;
+  display:flex;align-items:center;gap:6px;
+  box-shadow:0 2px 10px rgba(0,0,0,.15);
+  transition:.2s;
+}
+.float-trial:hover{background:#b45309}
 .bottom-bar{
   position:fixed;bottom:0;left:0;width:100%;
   background:#25D366;text-align:center;
@@ -630,6 +643,7 @@ body{font-family:'Poppins',Arial,sans-serif;background:#fff;color:var(--text);ov
   .cta h2{font-size:23px}
   .chat-section h2{font-size:21px}
   .float-chat{bottom:148px;padding:11px 15px;font-size:13px}
+  .float-trial{bottom:216px;padding:11px 15px;font-size:13px}
 }
 </style>
 </head>
@@ -1115,6 +1129,8 @@ body{font-family:'Poppins',Arial,sans-serif;background:#fff;color:var(--text);ov
 </a>
 <!-- FLOATING WHATSAPP -->
 <a class="float-wa" href="https://wa.me/918434813523?text=Namaste!%20Mujhe%20Diabetes%20ke%20liye%20Ayurvedic%20treatment%20ki%20jankari%20chahiye." target="_blank">💬 WhatsApp</a>
+<!-- FLOATING TRIAL PACK -->
+<a class="float-trial" href="product-detail.html?id=trial-pack">🎁 15 Days Trial Pack</a>
 <!-- STICKY BOTTOM BAR -->
 <div class="bottom-bar">
   <a href="https://wa.me/918434813523?text=Namaste!%20Mujhe%20Diabetes%20ke%20liye%20Ayurvedic%20treatment%20ki%20jankari%20chahiye." target="_blank">💬 WhatsApp Par Free Consultation – Abhi Karein!</a>
