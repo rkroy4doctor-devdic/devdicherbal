@@ -639,6 +639,24 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
       </div>
     </div></div>
 
+    <!-- 14 -->
+    <div class="product-card" data-category="syrup" data-name="sugar key syrup" data-price="510" data-id="p14">
+    <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
+    <div class="card-img-wrap"><img src="sugar-key-syrup.jpg" alt="SUGAR KEY Syrup" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=SUGAR+KEY'"></div>
+    <div class="card-body">
+      <div class="card-tag">Syrup • Sugar Management</div>
+      <div class="card-name">SUGAR KEY Syrup</div>
+      <div class="card-desc">An Ayurvedic Sugar Preparation — 100% Herbal & Safe, sugar management ke liye.</div>
+      <div class="price-row"><div><span class="price">₹510</span></div></div>
+      <div class="card-actions"><a class="btn-detail" href="product-detail.html?id=sugar-key-syrup">Details</a></div>
+      <div class="select-row">
+        <label class="select-checkbox-label" onclick="toggleSelect(this,'SUGAR KEY Syrup',510,'p14')">
+          <input type="checkbox" onclick="event.stopPropagation();toggleSelect(this.parentElement,'SUGAR KEY Syrup',510,'p14')"> ☑️ Order Mein Add Karein
+        </label>
+        <div class="qty-row" id="qty-p14"><span class="qty-label">Quantity:</span><div class="qty-control"><button class="qty-btn" onclick="changeQty('p14',-1)">−</button><span class="qty-num" id="qnum-p14">1</span><button class="qty-btn" onclick="changeQty('p14',1)">+</button></div></div>
+      </div>
+    </div></div>
+
   </div><!-- /products-grid -->
 
   <div class="empty-state" id="emptyState">
