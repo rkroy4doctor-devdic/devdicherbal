@@ -215,6 +215,10 @@ DEVDIC HERBAL
 
 <p><b>Usage:</b> Doctor ki salah ya product label ke anusaar le</p>
 
+<div id="trialDisclaimer" style="display:none;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:12px 14px;margin:14px 0;font-size:13px;color:#7c2d12;line-height:1.6">
+⚠️ <b>Zaroori Suchna:</b> Order karne ke baad aapse aapki report li jayegi, jise doctor ko dikhaya jayega. Uske baad hi aapko dava ka sahi dose doctor dwara prescribe kiya jayega. <b>Yeh dava bina doctor ki salah ke na len.</b>
+</div>
+
 <a class="btn" id="orderBtn" href="javascript:void(0)" onclick="openOrderModal()">Order Now</a>
 
 </div>
@@ -648,6 +652,21 @@ ingredients:[
 "Aamahaldi (Curcuma amada) — 10 mg",
 "Dalchini (Cinnamomum cassia) — 10 mg"
 ]
+},
+
+"trial-pack":{
+name:"15 Days Trial Pack",
+price:"Total MRP ₹1,294",
+img:"trial-pack.jpg",
+benefits:[
+"DB LIFE (60 gm) — 1 Box",
+"DB-PAN 10 (10 Tablets) — 3 Box",
+"15 din tak diabetes care try karne ke liye combo",
+"100% Herbal & Safe",
+"Pancreas function ko support karta hai",
+"Free Delivery"
+],
+isTrialPack:true
 }
 
 };
@@ -687,6 +706,20 @@ document.getElementById("productIngredientsWrap").style.display = "block";
 window.currentProductName = p.name;
 document.getElementById("omProductLabel").innerText = p.name;
 
+// TRIAL PACK: show disclaimer + simple direct WhatsApp order (no form)
+if(p.isTrialPack){
+document.getElementById("trialDisclaimer").style.display = "block";
+const orderBtn = document.getElementById("orderBtn");
+orderBtn.setAttribute("onclick", "orderTrialPackDirect()");
+}
+
+}
+
+// TRIAL PACK: direct WhatsApp order (single click, no form)
+function orderTrialPackDirect(){
+const msg = `Hello, mujhe *15 Days Trial Pack* order karna hai.\n(DB LIFE x1 + DB-PAN 10 x3)\nTotal MRP: ₹1,294\n\nKripya mujhse sampark karein.`;
+const waUrl = `https://wa.me/918434813523?text=${encodeURIComponent(msg)}`;
+window.open(waUrl, "_blank");
 }
 
 // ORDER FORM MODAL

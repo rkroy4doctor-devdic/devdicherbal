@@ -373,6 +373,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
   <button class="filter-btn" onclick="filterProducts('capsule',this)">Capsules</button>
   <button class="filter-btn" onclick="filterProducts('powder',this)">Powder</button>
   <button class="filter-btn" onclick="filterProducts('syrup',this)">Syrup / Liquid</button>
+  <button class="filter-btn" onclick="filterProducts('combo',this)">Trial Pack</button>
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
     <input type="text" id="searchInput" placeholder="Product dhundhen..." oninput="searchProducts()">
@@ -382,7 +383,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
 <!-- PRODUCTS SECTION -->
 <div class="products-section">
   <div class="section-meta">
-    <div class="results-count">Dikha rahe hain: <span id="countDisplay">14</span> products</div>
+    <div class="results-count">Dikha rahe hain: <span id="countDisplay">15</span> products</div>
   </div>
   <div class="products-grid" id="productsGrid">
 
@@ -656,6 +657,18 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
         </label>
         <div class="qty-row" id="qty-p14"><span class="qty-label">Quantity:</span><div class="qty-control"><button class="qty-btn" onclick="changeQty('p14',-1)">−</button><span class="qty-num" id="qnum-p14">1</span><button class="qty-btn" onclick="changeQty('p14',1)">+</button></div></div>
       </div>
+    </div></div>
+
+    <!-- 15 -->
+    <div class="product-card featured" data-category="combo" data-name="15 day trial pack" data-price="1294" data-id="p15">
+    <div class="card-badges"><span class="badge badge-bestseller">🎁 Trial Offer</span></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=trial-pack" class="card-img-link"><img src="trial-pack.jpg" alt="15 Days Trial Pack" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=TRIAL+PACK'"></a></div>
+    <div class="card-body">
+      <div class="card-tag">Combo • 15 Days Trial</div>
+      <div class="card-name">15 Days Trial Pack</div>
+      <div class="card-desc">DB LIFE (60 gm) x1 + DB-PAN 10 x3 — 15 din ka dava try karne ke liye combo pack.</div>
+      <div class="price-row"><div><span class="price">₹1,294</span></div></div>
+      <div class="card-actions"><a class="btn-detail" href="product-detail.html?id=trial-pack">Details &amp; Order</a></div>
     </div></div>
 
   </div><!-- /products-grid -->
