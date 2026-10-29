@@ -136,6 +136,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
 .card-img-wrap::before{content:none}
 .card-img-wrap img{max-height:160px;width:auto;max-width:100%;object-fit:contain;position:relative;z-index:1}
 .product-card:hover .card-img-wrap img{}
+.card-img-link{display:flex;align-items:center;justify-content:center;width:100%;height:100%;cursor:pointer}
 .card-body{padding:18px 18px 20px}
 .card-tag{font-size:11px;font-weight:600;color:var(--green-dark);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
 .card-name{font-size:17px;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.3}
@@ -381,7 +382,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
 <!-- PRODUCTS SECTION -->
 <div class="products-section">
   <div class="section-meta">
-    <div class="results-count">Dikha rahe hain: <span id="countDisplay">12</span> products</div>
+    <div class="results-count">Dikha rahe hain: <span id="countDisplay">14</span> products</div>
   </div>
   <div class="products-grid" id="productsGrid">
 
@@ -389,7 +390,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <div class="product-card featured" data-category="powder" data-name="db boost" data-price="510" data-id="p1">
     <div class="card-badges"><span class="badge badge-bestseller">⭐ Bestseller</span></div>
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="db-boost.jpg" alt="DB Boost" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DB+BOOST'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=db-boost" class="card-img-link"><img src="db-boost.jpg" alt="DB Boost" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DB+BOOST'"></a></div>
     <div class="card-body">
       <div class="card-tag">Powder • Diabetes Control</div>
       <div class="card-name">DB BOOST</div>
@@ -409,7 +410,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <div class="product-card" data-category="powder" data-name="db life" data-price="544" data-id="p2">
     <div class="card-badges"><span class="badge badge-popular">🔥 Popular</span></div>
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="db-life.jpg" alt="DB Life" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DB+LIFE'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=db-life" class="card-img-link"><img src="db-life.jpg" alt="DB Life" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DB+LIFE'"></a></div>
     <div class="card-body">
       <div class="card-tag">Powder • Energy & Sugar</div>
       <div class="card-name">DB LIFE</div>
@@ -428,7 +429,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <!-- 3 -->
     <div class="product-card" data-category="powder" data-name="dabatas" data-price="520" data-id="p3">
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="dabatas.jpg" alt="Dabatas" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DABATAS'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=dabatas" class="card-img-link"><img src="dabatas.jpg" alt="Dabatas" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DABATAS'"></a></div>
     <div class="card-body">
       <div class="card-tag">Powder • Pancreas Support</div>
       <div class="card-name">DABATAS</div>
@@ -448,7 +449,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <div class="product-card" data-category="capsule" data-name="db pan 10" data-price="220" data-id="p4">
     <div class="card-badges"><span class="badge badge-offer">💰 Budget Pick</span></div>
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="db-pan-10.jpg" alt="DB Pan 10" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DB+PAN+10'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=db-pan-10" class="card-img-link"><img src="db-pan-10.jpg" alt="DB Pan 10" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DB+PAN+10'"></a></div>
     <div class="card-body">
       <div class="card-tag">Capsule • Pancreas Support</div>
       <div class="card-name">DB PAN 10</div>
@@ -468,7 +469,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <div class="product-card" data-category="capsule" data-name="dbx capsules" data-price="52" data-id="p5">
     <div class="card-badges"><span class="badge badge-offer">💰 Best Value</span></div>
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="dbx.jpg" alt="DBX Capsules" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DBX'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=dbx" class="card-img-link"><img src="dbx.jpg" alt="DBX Capsules" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DBX'"></a></div>
     <div class="card-body">
       <div class="card-tag">Capsule • Diabetes Care</div>
       <div class="card-name">DBX Capsules</div>
@@ -487,7 +488,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <!-- 6 -->
     <div class="product-card" data-category="capsule" data-name="dbx qr" data-price="270" data-id="p6">
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="dbx-qr.jpg" alt="DBX-QR" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DBX-QR'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=dbx-qr" class="card-img-link"><img src="dbx-qr.jpg" alt="DBX-QR" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DBX-QR'"></a></div>
     <div class="card-body">
       <div class="card-tag">Capsule • Quick Release</div>
       <div class="card-name">DBX-QR</div>
@@ -507,7 +508,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <div class="product-card featured" data-category="capsule" data-name="dbx gem" data-price="560" data-id="p7">
     <div class="card-badges"><span class="badge badge-bestseller">💎 Premium</span></div>
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="gem.jpg" alt="DBX-Gem" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DBX-GEM'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=dbx-gem" class="card-img-link"><img src="gem.jpg" alt="DBX-Gem" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DBX-GEM'"></a></div>
     <div class="card-body">
       <div class="card-tag">Capsule • Premium Formula</div>
       <div class="card-name">DBX-Gem</div>
@@ -527,7 +528,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <div class="product-card" data-category="powder" data-name="db pan powder" data-price="545" data-id="p8">
     <div class="card-badges"><span class="badge badge-new">🆕 New</span></div>
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="pan-po.jpg" alt="DB-PAN Powder" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DB+PAN+POWDER'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=db-pan" class="card-img-link"><img src="pan-po.jpg" alt="DB-PAN Powder" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DB+PAN+POWDER'"></a></div>
     <div class="card-body">
       <div class="card-tag">Powder • Pancreas Life</div>
       <div class="card-name">DB-PAN Powder</div>
@@ -546,7 +547,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <!-- 9 -->
     <div class="product-card" data-category="powder" data-name="quick qr" data-price="110" data-id="p9">
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="quick-qr.jpg" alt="QUICK-QR" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=QUICK-QR'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=quick-qr" class="card-img-link"><img src="quick-qr.jpg" alt="QUICK-QR" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=QUICK-QR'"></a></div>
     <div class="card-body">
       <div class="card-tag">Powder • Quick Relief</div>
       <div class="card-name">QUICK-QR</div>
@@ -566,7 +567,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <div class="product-card" data-category="powder" data-name="sugar low" data-price="510" data-id="p10">
     <div class="card-badges"><span class="badge badge-popular">🔥 Top Rated</span></div>
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="sugar-low.jpg" alt="SUGAR-LOW" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=SUGAR+LOW'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=sugar-low" class="card-img-link"><img src="sugar-low.jpg" alt="SUGAR-LOW" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=SUGAR+LOW'"></a></div>
     <div class="card-body">
       <div class="card-tag">Powder • Sugar Reducer</div>
       <div class="card-name">SUGAR-LOW</div>
@@ -585,7 +586,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <!-- 11 -->
     <div class="product-card" data-category="syrup" data-name="dbx sun" data-price="450" data-id="p11">
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="sun.jpg" alt="DBX-Sun" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DBX-SUN'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=dbx-sun" class="card-img-link"><img src="sun.jpg" alt="DBX-Sun" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DBX-SUN'"></a></div>
     <div class="card-body">
       <div class="card-tag">Syrup • Vitamin D Support</div>
       <div class="card-name">DBX-Sun</div>
@@ -605,7 +606,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <div class="product-card featured" data-category="powder" data-name="sugar key" data-price="540" data-id="p12">
     <div class="card-badges"><span class="badge badge-bestseller">🔑 Must Have</span></div>
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="suger-key-p.jpg" alt="SUGAR-KEY" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=SUGAR+KEY'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=sugar-key" class="card-img-link"><img src="suger-key-p.jpg" alt="SUGAR-KEY" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=SUGAR+KEY'"></a></div>
     <div class="card-body">
       <div class="card-tag">Powder • Complete Control</div>
       <div class="card-name">SUGAR-KEY</div>
@@ -624,7 +625,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <!-- 13 -->
     <div class="product-card" data-category="syrup" data-name="dictease" data-price="370" data-id="p13">
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="dictease.jpg" alt="DICTEASE Syrup" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DICTEASE'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=dictease" class="card-img-link"><img src="dictease.jpg" alt="DICTEASE Syrup" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=DICTEASE'"></a></div>
     <div class="card-body">
       <div class="card-tag">Syrup • Sugar Control</div>
       <div class="card-name">DICTEASE</div>
@@ -642,7 +643,7 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:var(--text);overflow
     <!-- 14 -->
     <div class="product-card" data-category="syrup" data-name="sugar key syrup" data-price="510" data-id="p14">
     <button class="wishlist-btn" onclick="toggleWishlist(this)">🤍</button>
-    <div class="card-img-wrap"><img src="sugar-key-syrup.jpg" alt="SUGAR KEY Syrup" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=SUGAR+KEY'"></div>
+    <div class="card-img-wrap"><a href="product-detail.html?id=sugar-key-syrup" class="card-img-link"><img src="sugar-key-syrup.jpg" alt="SUGAR KEY Syrup" onerror="this.src='https://placehold.co/200x160/ecfdf5/059669?text=SUGAR+KEY'"></a></div>
     <div class="card-body">
       <div class="card-tag">Syrup • Sugar Management</div>
       <div class="card-name">SUGAR KEY Syrup</div>
