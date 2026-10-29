@@ -43,6 +43,23 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Poppins',Arial,sans-serif;background:#fff;color:var(--text);overflow-x:hidden}
+/* ─── TRIAL PACK PROMO ─── */
+.trial-promo{padding:36px 20px;background:linear-gradient(135deg,#fff7ed,#fef3e2)}
+.trial-promo-inner{max-width:1000px;margin:0 auto;background:#fff;border:2px solid var(--gold);border-radius:var(--radius-lg);padding:24px;display:flex;align-items:center;gap:28px;box-shadow:var(--shadow-lg);flex-wrap:wrap}
+.trial-promo-img{width:220px;max-width:100%;height:auto;border-radius:10px;flex-shrink:0;margin:0 auto;display:block}
+.trial-promo-text{flex:1;min-width:240px}
+.trial-promo-tag{display:inline-block;background:var(--gold);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:20px;margin-bottom:10px}
+.trial-promo-text h2{font-size:24px;color:var(--green-dark);margin-bottom:8px;line-height:1.3}
+.trial-promo-text p{font-size:14px;color:var(--text-muted);margin-bottom:14px;line-height:1.55}
+.trial-promo-price{font-size:26px;font-weight:800;color:var(--gold);margin-bottom:16px}
+.trial-promo-price span{font-size:13px;font-weight:500;color:var(--text-muted);margin-left:6px}
+.trial-promo-btn{display:inline-block;background:var(--green);color:#fff;text-decoration:none;font-weight:700;padding:12px 26px;border-radius:30px;transition:.2s}
+.trial-promo-btn:hover{background:var(--green-dark)}
+@media(max-width:600px){
+  .trial-promo-inner{flex-direction:column;text-align:center;padding:20px}
+  .trial-promo-img{width:180px}
+  .trial-promo-text h2{font-size:20px}
+}
 /* ─── TOP BAR ─── */
 .topbar{
   background:var(--green-dark);
@@ -733,6 +750,19 @@ body{font-family:'Poppins',Arial,sans-serif;background:#fff;color:var(--text);ov
   <div class="feat-item"><div class="feat-ic">🌿</div><span>100% Natural</span></div>
   <div class="feat-item"><div class="feat-ic">👨‍⚕️</div><span>Doctor Guided</span></div>
   <div class="feat-item"><div class="feat-ic">🧪</div><span>Ayurvedic Formula</span></div>
+</div>
+<!-- TRIAL PACK PROMO -->
+<div class="trial-promo fade-in">
+  <a href="product-detail.html?id=trial-pack" class="trial-promo-inner" style="text-decoration:none">
+    <img src="trial-pack.jpg" alt="15 Days Trial Pack" class="trial-promo-img">
+    <div class="trial-promo-text">
+      <span class="trial-promo-tag">🎁 Trial Offer</span>
+      <h2>15 Days Trial Pack</h2>
+      <p>DB LIFE (60 gm) x1 + DB-PAN 10 x3 — pehli baar try karne walon ke liye perfect combo, 15 din ka dava ek saath.</p>
+      <div class="trial-promo-price">₹1,294 <span>Total MRP</span></div>
+      <span class="trial-promo-btn">View Trial Pack →</span>
+    </div>
+  </a>
 </div>
 <!-- STATS BAR -->
 <div class="stats-bar">
