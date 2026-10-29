@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact - DEVDIC HERBAL</title>
+<meta name="description" content="Devdic Herbal se sampark karein — free consultation, WhatsApp support, aur diabetes ke liye 100% Ayurvedic treatment ki jaankari.">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -136,9 +137,6 @@ body{font-family:'Poppins',Arial,sans-serif;background:#fff;color:var(--text);ov
   transition:.2s;border:none;
 }
 .chat-btn:hover{background:var(--green-dark)}
-@keyframes trialPulse{0%,100%{box-shadow:0 2px 14px rgba(225,29,72,.55)}50%{box-shadow:0 2px 26px rgba(225,29,72,.95)}}
-.float-trial{position:fixed;bottom:140px;right:20px;background:#e11d48;color:#fff;padding:12px 18px;border-radius:50px;text-decoration:none;font-weight:800;font-size:14px;z-index:998;box-shadow:0 2px 14px rgba(225,29,72,.55);animation:trialPulse 1.8s infinite;transition:.2s;display:flex;align-items:center;gap:6px}
-.float-trial:hover{background:#9f1239}
 .chat-box{
   position:fixed;bottom:138px;right:20px;
   width:340px;height:470px;background:#fff;
@@ -346,11 +344,9 @@ body{font-family:'Poppins',Arial,sans-serif;background:#fff;color:var(--text);ov
     <a href="careers.html">Careers</a>
     <a href="contact.html">Contact</a>
   </div>
-  <div class="f-copy">© 2017–2025 Devdic Herbal. All Rights Reserved.</div>
+  <div class="f-copy">© 2017–2026 Devdic Herbal. All Rights Reserved.</div>
 </div>
 
-<!-- FLOATING TRIAL PACK -->
-<a class="float-trial" href="product-detail.html?id=trial-pack">🎁 15 Days Trial Pack</a>
 <!-- CHATBOT BUTTON -->
 <button class="chat-btn" onclick="toggleChat()" title="Chat with us">💬</button>
 <div class="chat-box" id="chatBox">
@@ -395,7 +391,7 @@ const obs=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting)x.tar
 document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 
 // CHATBOT
-let products={'db boost':510,'db life':544,'dabatas':520,'db pan 10':250,'db pan powder':545,'db pan':250,'dbx qr':270,'dbx gem':560,'dbx sun':450,'dbx':52,'quick qr':110,'sugar low':510,'sugar key':540};
+let products={'db boost':510,'db life':544,'dabatas':520,'db pan 10':250,'db pan powder':545,'db pan':250,'dbx qr':270,'dbx gem':560,'dbx sun':450,'dbx':52,'quick qr':110,'sugar low':510,'dictease':370,'sugar key syrup':510,'sugar key':540,'trial pack':1294};
 let cart={};let lastProduct=null;
 
 function toggleChat(){

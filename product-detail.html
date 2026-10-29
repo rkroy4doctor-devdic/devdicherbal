@@ -4,12 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Product Detail - DEVDIC HERBAL</title>
+<meta name="description" content="Devdic Herbal ke Ayurvedic diabetes care product ki poori details, ingredients aur WhatsApp order — 100% natural aur doctor-guided treatment.">
 
 <style>
 :root{
 --green:#0a7a52;
 --green-dark:#065f43;
 --green-light:#eef6f2;
+--green-pale:#dcece3;
+--gold:#d97706;
 --text:#1f2937;
 --text-muted:#6b7280;
 --border:#e5e7eb;
@@ -699,6 +702,7 @@ const p = products[id];
 document.getElementById("productName").innerText = p.name;
 document.getElementById("productPrice").innerText = p.price;
 document.getElementById("productImage").src = p.img;
+document.getElementById("productImage").alt = p.name;
 
 let list="";
 p.benefits.forEach(b=>{
