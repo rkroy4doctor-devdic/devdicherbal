@@ -213,6 +213,11 @@ DEVDIC HERBAL
 
 <div class="price" id="productPrice"></div>
 
+<div id="trialWhyWrap" style="display:none;background:var(--green-light);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin:12px 0;font-size:13.5px;color:var(--text);line-height:1.65">
+<b>🎯 Yeh Trial Pack Kyun?</b>
+<p id="trialWhyText" style="margin-top:4px"></p>
+</div>
+
 <ul id="productBenefits"></ul>
 
 <div id="productIngredientsWrap" style="display:none">
@@ -666,6 +671,7 @@ ingredients:[
 name:"15 Days Trial Pack",
 price:"Total MRP ₹1,294",
 img:"trial-pack.jpg",
+whyText:"Pehle 15 din ka Trial Pack aazmaiye aur khud anubhav kijiye ki Devdic Herbal aapke liye kaise kaam karta hai. Anubhav achha lage, to aap hamare Complete Treatment ke saath aage badh sakte hain. Yeh vishesh offer isi uddeshya se hai, taaki aap pehle parkhein aur phir nirnay len.",
 benefits:[
 "DB LIFE (60 gm) — 1 Box",
 "DB-PAN 10 (10 Tablets) — 3 Box",
@@ -714,8 +720,12 @@ document.getElementById("productIngredientsWrap").style.display = "block";
 window.currentProductName = p.name;
 document.getElementById("omProductLabel").innerText = p.name;
 
-// TRIAL PACK: show disclaimer + simple direct WhatsApp order (no form)
+// TRIAL PACK: show "why this pack" note + disclaimer + simple direct WhatsApp order (no form)
 if(p.isTrialPack){
+if(p.whyText){
+document.getElementById("trialWhyText").innerText = p.whyText;
+document.getElementById("trialWhyWrap").style.display = "block";
+}
 document.getElementById("trialDisclaimer").style.display = "block";
 const orderBtn = document.getElementById("orderBtn");
 orderBtn.setAttribute("onclick", "orderTrialPackDirect()");
