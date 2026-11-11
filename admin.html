@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#0a7a52;
+  --green-dark:#065f43;
+  --green-light:#eef6f2;
+  --text:#1f2937;
+  --text-muted:#6b7280;
+  --border:#e5e7eb;
+  --shadow-lg:0 2px 10px rgba(0,0,0,.07);
+  --radius-lg:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',Arial,sans-serif;background:#f7f9f8;color:var(--text)}
+
+/* LOGIN */
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.login-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 30px;max-width:380px;width:100%;box-shadow:var(--shadow-lg)}
+.login-card h1{font-size:20px;margin-bottom:4px;color:var(--text)}
+.login-card p.sub{font-size:13px;color:var(--text-muted);margin-bottom:22px}
+.form-row{margin-bottom:16px}
+.form-row label{display:block;font-size:13.5px;font-weight:700;color:var(--text);margin-bottom:7px}
+.form-row input{
+  width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:8px;
+  font-family:'Poppins',Arial,sans-serif;font-size:14px;color:var(--text);background:#fff;
+}
+.form-row input:focus{outline:none;border-color:var(--green)}
+.login-btn{
+  width:100%;padding:13px 24px;border-radius:8px;background:var(--green);
+  color:#fff;font-weight:700;font-size:14.5px;border:none;cursor:pointer;transition:.2s;
+}
+.login-btn:hover{background:var(--green-dark)}
+.login-error{color:#dc2626;font-size:12.5px;margin-top:12px;display:none}
+
+/* DASHBOARD */
+.dash{display:none;padding:28px 22px;max-width:1000px;margin:0 auto}
+.dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+.dash-header h1{font-size:22px;color:var(--text)}
+.logout-btn{background:#fff;border:1px solid var(--border);padding:9px 18px;border-radius:8px;cursor:pointer;font-weight:600;font-size:13px;color:var(--text)}
+.logout-btn:hover{border-color:var(--green)}
+.sample-note{background:#fff7ed;border:1px solid #fdba74;color:#92400e;padding:12px 16px;border-radius:8px;font-size:13px;margin-bottom:20px;line-height:1.5}
+.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--border);border-radius:10px}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th,td{padding:12px 14px;text-align:left;font-size:13px;border-bottom:1px solid var(--border);white-space:nowrap}
+th{background:var(--green-light);color:var(--green-dark);font-weight:700}
+tr:last-child td{border-bottom:none}
+.cert-link{color:var(--green-dark);font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="login-wrap" id="loginWrap">
+  <div class="login-card">
+    <h1>🔒 Admin Login</h1>
+    <p class="sub">DEVDIC HERBAL — Job Applications Dashboard</p>
+    <div class="form-row">
+      <label for="au">Username</label>
+      <input type="text" id="au" placeholder="Username" autocomplete="off">
+    </div>
+    <div class="form-row">
+      <label for="ap">Password</label>
+      <input type="password" id="ap" placeholder="Password">
+    </div>
+    <button class="login-btn" onclick="tryLogin()">Login</button>
+    <p class="login-error" id="loginErr">Galat username ya password.</p>
+  </div>
+</div>
+
+<div class="dash" id="dash">
+  <div class="dash-header">
+    <h1>📋 Job Applications</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+  <div class="sample-note">⚠️ Yeh abhi SAMPLE (dummy) data hai — real applications filhaal yahan automatically nahi aa rahe, kyunki website par koi backend/database connect nahi hai. Form bharne par application abhi bhi WhatsApp par jaati hai. Agar aap chahein ki real applications is page par bhi dikhein, toh hume bataiye — uske liye ek free Google Sheet backend jodna hoga.</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Naam</th><th>Phone</th><th>Position</th><th>Qualification</th><th>City</th><th>Certificate</th></tr></thead>
+      <tbody>
+        <tr><td>Sample Kumar</td><td>9876543210</td><td>BAMS Doctor - Bokaro Branch</td><td>BAMS</td><td>Bokaro</td><td><span class="cert-link">📄 sample-cert.pdf</span></td></tr>
+        <tr><td>Test Sharma</td><td>9123456780</td><td>Staff</td><td>Graduate</td><td>Samastipur</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+const ADMIN_USER = "admin";
+const ADMIN_PASS = "Devdic@8434";
+
+function tryLogin(){
+  const u = document.getElementById('au').value.trim();
+  const p = document.getElementById('ap').value;
+  if(u === ADMIN_USER && p === ADMIN_PASS){
+    document.getElementById('loginWrap').style.display = 'none';
+    document.getElementById('dash').style.display = 'block';
+    document.getElementById('loginErr').style.display = 'none';
+  } else {
+    document.getElementById('loginErr').style.display = 'block';
+  }
+}
+function logout(){
+  document.getElementById('dash').style.display = 'none';
+  document.getElementById('loginWrap').style.display = 'flex';
+  document.getElementById('au').value = '';
+  document.getElementById('ap').value = '';
+}
+document.getElementById('ap').addEventListener('keydown', function(e){
+  if(e.key === 'Enter') tryLogin();
+});
+</script>
+</body>
+</html>
