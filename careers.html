@@ -107,6 +107,15 @@ body{font-family:'Poppins',Arial,sans-serif;background:#fff;color:var(--text);ov
   transition:.2s;border:none;cursor:pointer;
 }
 .apply-btn:hover{background:var(--green-dark)}
+.job-details{margin:0 0 16px;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.job-details summary{cursor:pointer;padding:10px 14px;font-size:12.5px;font-weight:700;color:var(--green-dark);background:var(--green-light);list-style:none}
+.job-details summary::-webkit-details-marker{display:none}
+.job-details-body{padding:14px 16px;font-size:12px;color:var(--text-muted);line-height:1.6;max-height:280px;overflow-y:auto}
+.job-details-body h4{font-size:12.5px;color:var(--text);margin:10px 0 4px;font-weight:700}
+.job-details-body h4:first-child{margin-top:0}
+.job-details-body ul{margin:0 0 8px;padding-left:18px}
+.job-details-body li{margin-bottom:3px}
+.job-details-body p{margin:0 0 8px}
 
 /* APPLICATION FORM */
 .apply-section{padding:56px 22px 70px;background:#f7f9f8}
@@ -121,6 +130,8 @@ body{font-family:'Poppins',Arial,sans-serif;background:#fff;color:var(--text);ov
 }
 .form-row input:focus,.form-row select:focus,.form-row textarea:focus{outline:none;border-color:var(--green)}
 .form-row textarea{resize:vertical;min-height:80px}
+.form-row input[type=file]{padding:9px 10px;font-size:13px;cursor:pointer}
+.file-hint{font-size:11.5px;color:var(--text-muted);margin-top:6px;line-height:1.45}
 .form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .submit-btn{
   width:100%;padding:14px 24px;border-radius:8px;background:var(--green);
@@ -251,19 +262,56 @@ body{font-family:'Poppins',Arial,sans-serif;background:#fff;color:var(--text);ov
       <div class="opening-top">
         <div class="opening-icon">🩺</div>
         <div>
-          <h3>BAMS Doctor</h3>
+          <h3>BAMS Doctor — Bokaro Branch</h3>
           <span class="opening-tag">Full-Time</span>
         </div>
       </div>
       <ul class="opening-list">
-        <li>BAMS degree zaroori</li>
-        <li>Ayurvedic consultation ka anubhav preferred</li>
-        <li>Patient counselling aur online consultation</li>
+        <li>Fresher BAMS Doctor — ₹35,000 / month</li>
+        <li>2+ saal anubhav wale doctor — ₹45,000 / month</li>
+        <li>Full-time offline job, patient consultation</li>
       </ul>
       <div class="opening-meta">
-        <span>📍 Samastipur, Bihar</span>
+        <span>📍 Bokaro Branch</span>
+        <span>🕐 9:30 AM – 5:30 PM</span>
       </div>
-      <button class="apply-btn" onclick="applyFor('BAMS Doctor')">Apply Now</button>
+      <details class="job-details">
+        <summary>📋 Job Responsibilities Dekhein</summary>
+        <div class="job-details-body">
+          <p>Consultant Ayurvedic Doctor (BAMS) ke roop mein aapka kaam, saamanya roop se ek doctor ki jimmedariyan.</p>
+          <h4>1. Marizon ki Jaanch aur Paramarsh (Patient Consultation)</h4>
+          <ul>
+            <li>Marizon se unki bimari, swasthya samasya aur medical history ke baare mein jaankari lena</li>
+            <li>Marizon ki sugar report, HbA1c aur anya medical reports dekhna</li>
+            <li>Marizon ki sthiti ke anusaar uchit chikitsakiya paramarsh dena</li>
+          </ul>
+          <h4>2. Dawaiyan Likhna (Prescription Writing)</h4>
+          <ul>
+            <li>Marij ki sthiti aur report ke anusaar uchit dawaiyan likhna</li>
+            <li>Aavashyaktanusaar upchaar yojna (Treatment Plan) taiyaar karna</li>
+            <li>Marij ko dawa lene ka sahi tarika aur savdhaniyan samjhana</li>
+          </ul>
+          <h4>3. Online Marizon se Baat Karna (Online Consultation)</h4>
+          <ul>
+            <li>Jo marij online doctor se baat karna chahte hain, unse phone ya online madhyam se baat karna</li>
+            <li>Unki samasyaen sunna, report dekhna aur chikitsakiya salah dena</li>
+            <li>Marizon ke sawaalon aur shankaon ka samadhan karna</li>
+          </ul>
+          <h4>4. Marizon ka Follow-up</h4>
+          <ul>
+            <li>Pehle se ilaaj kara rahe marizon ki sthiti jaanna</li>
+            <li>Unki nayi sugar report aur swasthya mein hue badlav ki samiksha karna</li>
+            <li>Zaroorat ke anusaar aage ki salah aur upchaar yojna dena</li>
+          </ul>
+          <h4>5. Medical Record aur Prescription</h4>
+          <ul>
+            <li>Pratyek marij ka paramarsh aur Prescription sahi tarike se record karna</li>
+            <li>Marij ki report aur upchaar sambandhit jaankari company ke nirdharit system mein darj karna</li>
+          </ul>
+          <p><strong>Mahatvapurn baat:</strong> Mukhya kaam marizon ko dekhna, unki report samajhna, chikitsakiya paramarsh dena, Prescription likhna aur online marizon se doctor ke roop mein baat karna hai. Call, Appointment Scheduling aur Follow-up Coordination company ka staff sambhalega — aapka dhyan sirf doctor se sambandhit chikitsakiya karyon par rahega. BAMS qualification aur laagu chikitsa niyamon ke dayre mein rehkar hi marizon ka ilaaj evam paramarsh karna hoga.</p>
+        </div>
+      </details>
+      <button class="apply-btn" onclick="applyFor('BAMS Doctor - Bokaro Branch')">Apply Now</button>
     </div>
     <div class="opening-card">
       <div class="opening-top">
@@ -330,6 +378,11 @@ body{font-family:'Poppins',Arial,sans-serif;background:#fff;color:var(--text);ov
         <label for="cf-city">City / Location *</label>
         <input type="text" id="cf-city" placeholder="Aapka shehar">
       </div>
+    </div>
+    <div class="form-row">
+      <label for="cf-certificate">Registration Certificate <span class="opt">(optional — PDF/Photo)</span></label>
+      <input type="file" id="cf-certificate" accept=".pdf,.jpg,.jpeg,.png">
+      <p class="file-hint">📎 Apna BAMS/Registration Certificate (PDF ya saaf photo) yahan select karein. Submit karte hi jo WhatsApp chat khulega, usi mein is file ko manually attach karke bhej dein.</p>
     </div>
     <div class="form-row">
       <label for="cf-message">Message <span class="opt">(optional)</span></label>
@@ -426,6 +479,12 @@ function submitCareerForm(){
   if(salary) lines.push('Expected Salary: ' + salary);
   lines.push('City: ' + city);
   if(message) lines.push('Message: ' + message);
+
+  const certFile = document.getElementById('cf-certificate').files[0];
+  if(certFile){
+    lines.push('');
+    lines.push('📎 Certificate file: ' + certFile.name + ' (WhatsApp mein attach karke bhej rahe hain)');
+  }
 
   const text = encodeURIComponent(lines.join('\n'));
   window.open('https://wa.me/918434813523?text=' + text, '_blank');
