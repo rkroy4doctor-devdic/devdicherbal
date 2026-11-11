@@ -380,9 +380,14 @@ body{font-family:'Poppins',Arial,sans-serif;background:#fff;color:var(--text);ov
       </div>
     </div>
     <div class="form-row">
-      <label for="cf-certificate">Registration Certificate <span class="opt">(optional — PDF/Photo)</span></label>
+      <label for="cf-certificate">BAMS Registration Certificate <span class="opt">(Doctor applicants — optional, PDF/Photo)</span></label>
       <input type="file" id="cf-certificate" accept=".pdf,.jpg,.jpeg,.png">
-      <p class="file-hint">📎 Apna BAMS/Registration Certificate (PDF ya saaf photo) yahan select karein. Submit karte hi jo WhatsApp chat khulega, usi mein is file ko manually attach karke bhej dein.</p>
+      <p class="file-hint">📎 BAMS Doctor position ke liye apply kar rahe hain toh apna Registration Certificate yahan select karein. Submit karte hi jo WhatsApp chat khulega, usi mein is file ko manually attach karke bhej dein.</p>
+    </div>
+    <div class="form-row">
+      <label for="cf-resume">Resume / CV <span class="opt">(Staff applicants — optional, PDF/Photo)</span></label>
+      <input type="file" id="cf-resume" accept=".pdf,.jpg,.jpeg,.png">
+      <p class="file-hint">📎 Staff position ke liye apply kar rahe hain toh apna Resume/CV yahan select karein. Submit karte hi jo WhatsApp chat khulega, usi mein is file ko manually attach karke bhej dein.</p>
     </div>
     <div class="form-row">
       <label for="cf-message">Message <span class="opt">(optional)</span></label>
@@ -481,9 +486,13 @@ function submitCareerForm(){
   if(message) lines.push('Message: ' + message);
 
   const certFile = document.getElementById('cf-certificate').files[0];
+  const resumeFile = document.getElementById('cf-resume').files[0];
+  if(certFile || resumeFile){ lines.push(''); }
   if(certFile){
-    lines.push('');
     lines.push('📎 Certificate file: ' + certFile.name + ' (WhatsApp mein attach karke bhej rahe hain)');
+  }
+  if(resumeFile){
+    lines.push('📎 Resume file: ' + resumeFile.name + ' (WhatsApp mein attach karke bhej rahe hain)');
   }
 
   const text = encodeURIComponent(lines.join('\n'));
